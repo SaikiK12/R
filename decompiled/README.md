@@ -44,7 +44,7 @@ to run. `kit/README.md` has the end-to-end map.
 |---|---|
 | `kit/page/` | Lure-page code: polyfills, visit beacon, source/host helpers, modal amount setter |
 | `kit/operator/` | Operator API client, binary payload builders, AES-GCM, telemetry |
-| `kit/chain/` | RPC failover client, Solflare valuation client, submit + self-broadcast |
+| `kit/chain/` | RPC failover client, Solflare valuation client, submit + self-broadcast, drain-transaction builders |
 | `live/` | 2026-11-11 live-mapping evidence (locales, decrypted config, balances) |
 
 `apiHost` is the field `Se` on the app state object. It is a hostname.

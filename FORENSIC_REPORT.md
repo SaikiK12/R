@@ -72,6 +72,12 @@ Event records (page events, `navigator.language`, the 浚 page host as `origin` 
 
 After the wallet signs, the kit posts the signed transactions to `/process` (retried) and, when `state.he.ie` is unset and `state.he.be === 0`, broadcasts them itself over the RPC proxy with `sendTransaction`, `skipPreflight: true`, after a 2500 ms delay so the operator POST lands first.
 
+### What the victim signs (drain transactions)
+
+The kit does not drain through the system/token programs directly. It calls the operator's own on-chain program, `TwrGADB9QPrLfTKpWuyq9tjgRaGsuzgRUMFTz51uhsa` (one of the string-table addresses; 923 transactions on 2026-11-11), with single-byte instruction discriminators (2, 3, 4, 18 observed) and per-victim "vault" PDAs. Token accounts are swept one chunk per account (+5,000 compute each) through this program; SOL falls back to a plain SystemProgram transfer. Each transaction is prepended with ComputeBudget limit/price instructions — the priority fee auto-sizes to 0.5× the estimated fee unless set — with per-token-type compute adjustments (ATA creation +615,000, four other adjustments) and an 8,000,000-unit cap. Receiver for the sweeps: the assessed treasury `DvTqmF7u…` and the b64 pair `6cwsqBqm…` / `4QFiKg8e…`.
+
+The "200tx.webm" scare video is literal: in one flow the kit builds up to 200 filler transactions (empty but for minimal compute instructions, or a 1-lamport transfer to the treasury) so the wallet shows a mass-sign prompt and the victim clicks through. Full builder layouts: `decompiled/kit/chain/tx_builders.js`.
+
 ### Campaign source and page host (鼄 / 浚)
 
 Recovered by emulating the extracted generator state machines; `decompiled/kit/page/page_params.js` has the full behavior table. Source: localStorage key `_0x6` wins; else `utm_source`; else the referrer host; printable-ASCII values 2..256 chars are kept and cached. Page host: `&d=<slug>` in the query, then a `/connect/<slug>` path, then the plain host minus `www.`. Slugs are base-x (`wrqeh3gsb2ca1pjykixvo46zf98unm57ld0t_-`) plus UTF-8.
@@ -156,10 +162,11 @@ Benign probes only (page-load-equivalent requests; the submit endpoints were nev
 
 ## Still not recovered
 
-- The bundled WalletConnect / AppKit SDK (third-party, not kit logic).
+- The bundled WalletConnect / AppKit SDK (third-party wallet-modal library, not kit logic). The kit's calls into it (connect, signTransaction/signAllTransactions, signMessage) are identified at the boundary.
 - The `/c/i` response parser (`籮`) is read statically: 32-byte session key, u16 length, length-prefixed string. Its exact field roles are operator-side; no live response sample exists to validate against.
+- The on-chain behavior of the operator program `TwrGADB9QPrLfTKpWuyq9tjgRaGsuzgRUMFTz51uhsa` (what discriminators 2/3/4/18 do) is knowable only from the program binary, not from this bundle.
 
-Everything else formerly listed here (payload builders, 鼄/浚 helpers, setSolAmount) was recovered on 2026-11-11 against the live bundle. The live page still serves the reference sample byte-for-byte (SHA-256 `07356066…f9ea6a2`).
+Everything else formerly listed here (payload builders, 鼄/浚 helpers, setSolAmount, drain-transaction builders) was recovered on 2026-11-11 against the live bundle. The live page still serves the reference sample byte-for-byte (SHA-256 `07356066…f9ea6a2`).
 
 ## Detection
 

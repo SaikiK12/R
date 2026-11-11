@@ -18,6 +18,7 @@ services abused. Estimates are marked.
 | Victim valuation | `wallet-api.solflare.com` | Solflare's free wallet backend, abused to price the victim's holdings before building the drain tx | $0 |
 | Traffic | Telegram (`t.me/durov` impersonation), fake "TRUMP COIN" airdrop theme, Russian-language page, en/fr/zh modal locales | Social engineering; price is their time or a traffic seller's cut | varies |
 | The kit itself | Watermark `hexfomo.fun` in the string table | Drainer kit vendor. Kits like this are typically rented for a revenue share (commonly ~10–30% on underground markets) rather than bought outright — **assessment, not directly observed** | revenue share |
+| On-chain program | `TwrGADB9QPrLfTKpWuyq9tjgRaGsuzgRUMFTz51uhsa` | The operator's own Solana program; the drain transactions call it (discriminators 2/3/4/18) with per-victim "vault" PDAs instead of plain token transfers | rent-exempt SOL only |
 
 **Total fixed cost: effectively a domain registration.** Everything
 else is free tiers and abused legitimate services. This is standard for
@@ -60,6 +61,27 @@ the kit.
    `/api/handler` ships encrypted telemetry; `/api/config` lets the
    operator rotate receivers and retarget tokens (USDC) without a
    redeploy.
+
+## What changes between deployments (detection pivots)
+
+Sibling lures running this kit will share almost everything. These are
+the knobs an operator turns per deployment — read as: what to pivot on
+to find the next lure.
+
+| Variable per deployment | Fixed across deployments (pivot on this) |
+|---|---|
+| Lure domain (`pumpanakin.fun`, `trongame.fun`, …) | Same bundle SHA-256, same Nuxt asset path `/_nuxt/assets/index.js` |
+| `apiHost` (usually == lure host) | `/api/visit`, `/api/is-banned`, `/api/locales`, `/api/config`, `/api/handler` route shape and response behavior (`visit` → `ok`) |
+| Receivers, pushed live via `/api/config` | AES-GCM format `iv || ciphertext` and the key derivation SHA-256(`apiHost` + `B3ui3QZFrOPoGW7oMZgE4A`) |
+| Helius / Jupiter keys (rotated as they burn out) | Four-key Helius failover pattern + the same public RPC fallbacks |
+| Hard-coded string-table addresses (only on kit rebuilds) | On-chain program `TwrGADB9QPrLfTKpWuyq9tjgRaGsuzgRUMFTz51uhsa` and treasury `DvTqmF7uMbLaW56QsMvcgv8KSkydFEikuk5gUcjACPV` — shared by the operation, best on-chain pivots |
+| Lure theme/copy (here: "TRUMP COIN" airdrop, Russian page) | Fake modal copy in en/fr/zh locales, the 13-entry string-table social-engineering set, `200tx.webm`-style media |
+| Kit build (JS-Confuser seed, CJK names) | Obfuscator fingerprint in `drainer.yar` (嗛=铴 table init, CJK density) |
+
+The fastest way to surface sibling lures: query public crawlers
+(URLScan, crt.sh, Cloudflare Radar) for the Nuxt asset path pattern
+plus any of the fixed pivots, and watch the treasury's inbound token
+transfers for new funding sources.
 
 ## Takedown / disruption paths
 
