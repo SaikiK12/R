@@ -7,9 +7,10 @@ Defensive research artifacts for the **pumpanakin.fun** JS-Confuser Solana drain
 | File | Purpose |
 |---|---|
 | `FORENSIC_REPORT.md` | The report. One document, corrected against the live bundle |
+| `INFRASTRUCTURE.md` | How the operation is built, what it costs them, takedown paths |
 | `ARCHITECTURE.md` | Pointer at the recovered modules |
 | `deobfuscate.py` | Static deobfuscator (strings, constants, global names) |
-| `decompiled/` | Decoded tables and a readable reconstruction of the kit logic |
+| `decompiled/` | Decoded tables and the kit reconstruction, layered as deployed (`kit/`), plus 2026-11-11 live-mapping evidence (`live/`) |
 | `drainer_scan.py` | Python CLI scanner — detects drainer signatures in URLs or JS files |
 | `drainer.yar` | YARA rule set for the drainer family |
 
@@ -74,18 +75,19 @@ Requires: [YARA](https://github.com/VirusTotal/yara) with `--enable-modules=hash
 
 ## Indicators of Compromise
 
-See `FORENSIC_REPORT.md` §11 for the full IOC catalog, including:
+Full catalog: `decompiled/iocs.json` and `FORENSIC_REPORT.md`, including:
 
-- Domain: `pumpanakin.fun`
-- 13 attacker Solana addresses
-- 4 Helius API keys + 5 Jupiter API keys
-- 4 file SHA-256 hashes
-- All backend endpoints
+- Domains: `pumpanakin.fun` (live), `trongame.fun` (retired sibling), `hexfomo.fun` (kit watermark)
+- 13 hard-coded Solana addresses (treasury, receivers, drain-through hops, 5 unused spares) + 2 receivers from the live config push
+- Assessed treasury holding 17,057 SOL + 1,020,879 USDC (2026-11-11)
+- 4 Helius API keys (all live) + 5 Jupiter API keys
+- File SHA-256 hashes
+- All backend endpoints, including `/api/handler` and `/api/config`
 
 ---
 
 ## Scope
 
-**Static analysis only.** No attacker code was executed. No funds were moved. No POST requests were sent to attacker infrastructure during research.
+Defensive analysis. No attacker code was executed (the bundle was deobfuscated statically; three small state-machine functions were emulated in isolation with stubbed browser globals). No wallet was connected, nothing was signed, no funds were moved. On 2026-11-11 the live site was mapped with benign requests only: GETs of public assets/endpoints and the same `POST /api/visit` beacon any page load sends; the submit endpoints (`/process`, `/c/*`, `/api/handler`) were never contacted. On-chain data came from public Solana RPCs.
 
 This toolkit is intended for defensive security research, threat intelligence, blocklist maintenance, and SOC detection rule authoring.

@@ -1,25 +1,67 @@
 {
   "sample_sha256": "0735606691bbdf35d38d7531c0e48363a21ef6f7224ebce2908a1b487f9ea6a2",
   "solflare_api": "https://wallet-api.solflare.com/",
+  "domains": {
+    "live_lure": ["pumpanakin.fun"],
+    "sibling_in_live_config": ["trongame.fun (DNS-dead as of 2026-11-11)"],
+    "kit_watermark": ["hexfomo.fun"],
+    "in_string_table": ["nulltrace.app", "reactwalletback.com", "onlybulls.com", "onlybulls://wallet", "dlicom.me"]
+  },
   "rpc_endpoints": [
-    "https://mainnet.helius-rpc.com/?api-key=0b9f580f-8102-4b89-928b-8770a62771f0",
-    "https://mainnet.helius-rpc.com/?api-key=2dfa2086-c6cd-4cb4-8a13-08ecdee36a0f",
-    "https://mainnet.helius-rpc.com/?api-key=3a1ca16d-e181-4755-9fe7-eac27579b48c",
-    "https://mainnet.helius-rpc.com/?api-key=777d85c0-fefd-42a0-b290-8b1b3704fe90",
+    "https://mainnet.helius-rpc.com/?api-key=0b9f580f-8102-4b89-928b-8770a62771f0 (live 2026-11-11)",
+    "https://mainnet.helius-rpc.com/?api-key=2dfa2086-c6cd-4cb4-8a13-08ecdee36a0f (live 2026-11-11)",
+    "https://mainnet.helius-rpc.com/?api-key=3a1ca16d-e181-4755-9fe7-eac27579b48c (live 2026-11-11)",
+    "https://mainnet.helius-rpc.com/?api-key=777d85c0-fefd-42a0-b290-8b1b3704fe90 (valid, rate-limited 2026-11-11)",
     "https://solana-rpc.publicnode.com/",
     "https://solana.magiceden.dev/",
     "https://rpc.solanatracker.io/public",
     "https://api.mainnet-beta.solana.com"
   ],
+  "jupiter_api_keys": [
+    "cc0769f7-ceba-4abf-83d8-e7c083921665",
+    "5f1f45eb-a550-4e95-ad0e-b26e6ec0702d",
+    "a4ed32be-dcdf-4702-aba0-aee15c512427",
+    "f707107a-6d56-4626-a937-ef3c7eef51d8",
+    "ab060a03-7874-4647-84d1-da019e4b51ea"
+  ],
   "operator_paths": [
     "/api/visit",
-    "/locales?lang=",
-    "/is-banned",
-    "/process",
-    "/c/i",
-    "/c/c/",
-    "/c/f/"
+    "/api/locales?lang=",
+    "/api/is-banned",
+    "/api/process",
+    "/api/c/i",
+    "/api/c/c/",
+    "/api/c/f/",
+    "/api/handler",
+    "/api/config (live 2026-11-11, AES-GCM blob, not called by this bundle)"
   ],
+  "aes_key_salt": "B3ui3QZFrOPoGW7oMZgE4A",
+  "live_config_2026_11_11": {
+    "target_token_mint": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v (USDC)",
+    "receivers": [
+      "7VHUFJHWu2CuExkJcJrzhQPJ2oygupTWkL2A2For4BmE (active; USDC ATA 4kokFKCFMxpCpG41yLYkLEqXW8g1WPfCt2NC9KGivY6N)",
+      "3emsAVdmGKERbHjmGfQ6oZ1e35dkf5iYcS6U4CPKFVaa (relay)"
+    ]
+  },
+  "string_table_addresses": {
+    "assessed_treasury": "DvTqmF7uMbLaW56QsMvcgv8KSkydFEikuk5gUcjACPV (17,057 SOL + 1,020,879 USDC on 2026-11-11)",
+    "active": ["6cwsqBqmRy22Qa2SEuZ8tWrpKoCS9M8S2r8ct8VuqFmj (357.5 SOL, active 2026-11-11)"],
+    "drain_through": [
+      "4QFiKg8ejx5LfqqLNbnKsiCnbEgRtgakBF6abMrkquKW",
+      "4cfdFcVuJf8PPXpMWPMCDehSE4gV4C8oYwpZnLra7rtW",
+      "TwrGADB9QPrLfTKpWuyq9tjgRaGsuzgRUMFTz51uhsa",
+      "syspv6Qe5BbK8GPEjLbMnmF9hZy7juAuePbuspciCFP",
+      "A5chdzL3UMQZBqBRdXFFCT9HTK7JZs6h4TEYVCQLQydo",
+      "6ugBBLhRJqsuB1H4G6rGBMCyMWjdFpvpEUKnp6XCB1t7"
+    ],
+    "dormant_zero_tx": [
+      "9piPeQWJ7wxGmsWieeJhQKJ13DjJLga9j8CE5ydLTHC6",
+      "6ARSYR2B1aPWSjK11ZXDPmApgLgar3bCrm2BTYGS2jBK",
+      "4qti6FcMybVSLL2k4rqRQ3Ph1a2jGrzPmBN8Wmt4A5wr",
+      "HsVYhMDQRf6CkjtdUzqNDNRfDwsgw9nAX8feLVC3TAGp",
+      "4moJ9mfFDqFgGMp5UJUgcVhAaFtBxiapt9DVJE3LcVao"
+    ]
+  },
   "note": "ab060a03-7874-4647-84d1-da019e4b51ea is a Jupiter API key in the string table. It is not a URL path prefix. Operator calls use https://{apiHost}/api + path, where apiHost is state field Se.",
   "embedded_pubkeys": [
     "C8AbPU6ngrjwJxxuMnF2QPEaLFktsSj4i1bdCCL7jEm",

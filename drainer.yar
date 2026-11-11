@@ -90,6 +90,11 @@ rule SolanadrainerKit_ReceiverAddresses {
         $addr5 = "TwrGADB9QPrLfTKpWuyq9tjgRaGsuzgRUMFTz51uhsa" ascii
         $addr6 = "syspv6Qe5BbK8GPEjLbMnmF9hZy7juAuePbuspciCFP" ascii
         $addr7 = "A5chdzL3UMQZBqBRdXFFCT9HTK7JZs6h4TEYVCQLQydo" ascii
+        // Live-config receivers (decrypted /api/config, 2026-11-11)
+        $addr8 = "7VHUFJHWu2CuExkJcJrzhQPJ2oygupTWkL2A2For4BmE" ascii
+        $addr9 = "3emsAVdmGKERbHjmGfQ6oZ1e35dkf5iYcS6U4CPKFVaa" ascii
+        // USDC associated token account of the live-config receiver
+        $addr10 = "4kokFKCFMxpCpG41yLYkLEqXW8g1WPfCt2NC9KGivY6N" ascii
 
     condition:
         any of them
@@ -177,6 +182,7 @@ rule SolanadrainerKit_InfrastructureDomains {
         $d3 = "reactwalletback.com" ascii
         $d4 = "nulltrace.app" ascii
         $d5 = "onlybulls.com" ascii
+        $d6 = "trongame.fun" ascii
         $wm = "aGV4Zm9tby5mdW4=" ascii
 
     condition:

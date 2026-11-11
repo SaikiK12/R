@@ -1,6 +1,6 @@
 # pumpanakin.fun
 
-Static analysis of the live lure and its bundle. The page was fetched on 2026-11-11. The script is byte-for-byte the reference sample. Nothing was signed, and nothing was sent to the operator API.
+Static analysis of the live lure and its bundle. The page was fetched on 2026-11-11. The script is byte-for-byte the reference sample. Nothing was signed. Operator contact was limited to benign requests any page load makes (asset GETs, locale/is-banned GETs, and the plain `POST /api/visit` beacon); the submit endpoints (`/process`, `/c/*`, `/api/handler` POST) were never contacted. On-chain data came from public Solana RPCs.
 
 | | |
 |---|---|
@@ -74,7 +74,7 @@ After the wallet signs, the kit posts the signed transactions to `/process` (ret
 
 ### Campaign source and page host (鼄 / 浚)
 
-Recovered by emulating the extracted generator state machines; `decompiled/kit/page_params.js` has the full behavior table. Source: localStorage key `_0x6` wins; else `utm_source`; else the referrer host; printable-ASCII values 2..256 chars are kept and cached. Page host: `&d=<slug>` in the query, then a `/connect/<slug>` path, then the plain host minus `www.`. Slugs are base-x (`wrqeh3gsb2ca1pjykixvo46zf98unm57ld0t_-`) plus UTF-8.
+Recovered by emulating the extracted generator state machines; `decompiled/kit/page/page_params.js` has the full behavior table. Source: localStorage key `_0x6` wins; else `utm_source`; else the referrer host; printable-ASCII values 2..256 chars are kept and cached. Page host: `&d=<slug>` in the query, then a `/connect/<slug>` path, then the plain host minus `www.`. Slugs are base-x (`wrqeh3gsb2ca1pjykixvo46zf98unm57ld0t_-`) plus UTF-8.
 
 The wallet-modal `setSolAmount` accepts numbers in [0.001, 1,000,000] and throws `TypeError("invalid amount")` otherwise; the value lands in `state.K` and is what the `/c/i` payload sends as lamports.
 
@@ -106,7 +106,9 @@ A base64 blob in the string table decodes to bytes that contain `hexfomo.fun` an
 
 ## Indicators
 
-Domains and redirects present as strings: `pumpanakin.fun` (the live host), `https://nulltrace.app`, `https://reactwalletback.com/app-link/`, `https://onlybulls.com`, `onlybulls://wallet`, `https://dlicom.me`.
+Domains: `pumpanakin.fun` (live host), `trongame.fun` (sibling, found in the live `/api/config`, DNS-dead 2026-11-11), `hexfomo.fun` (kit watermark), plus string-table entries `https://nulltrace.app`, `https://reactwalletback.com/app-link/`, `https://onlybulls.com`, `onlybulls://wallet`, `https://dlicom.me`.
+
+On-chain (2026-11-11, details in `decompiled/live/`): assessed treasury `DvTqmF7uMbLaW56QsMvcgv8KSkydFEikuk5gUcjACPV` (17,057 SOL + 1,020,879 USDC), live-config receiver `7VHUFJHWu2CuExkJcJrzhQPJ2oygupTWkL2A2For4BmE` and relay `3emsAVdmGKERbHjmGfQ6oZ1e35dkf5iYcS6U4CPKFVaa`, active string-table address `6cwsqBqmRy22Qa2SEuZ8tWrpKoCS9M8S2r8ct8VuqFmj` (357.5 SOL). Five of the 13 string-table addresses have zero transactions (unused spares). All four embedded Helius keys are live (one rate-limited).
 
 Apps named in the table: Volsungar `com.volsungar.wallet` / `com.react.wwallett`, SOC `com.socwallet.socjsc` / `socwallet://`, Hero `herowallet://wc` and `https://wallet.hero.io/signin/wc`. Store ids cited with those names in earlier review of the same bundle: `id6757104054`, `id6752928371`, `id6757118686`.
 
@@ -141,6 +143,16 @@ HsVYhMDQRf6CkjtdUzqNDNRfDwsgw9nAX8feLVC3TAGp
 ```
 
 A further 29 pubkeys are built in a set next to the RPC client, including `2zC63K7VDZmL1UKHibDkMKxrAFtHjmXLm5XrPgFREgZc`, `9kC8U8STwNtXeQqqX7WpgWg19qC7137JRP97BnLDKEtS`, and `5o7Q69vpqP3CwSb9mVzWk2jpirYbxuntAozyBv2CURC3`. Those three were previously misread as path fragments. Full list: `decompiled/iocs.json`.
+
+## Live mapping, 2026-11-11
+
+Benign probes only (page-load-equivalent requests; the submit endpoints were never touched; on-chain data via public RPC). Full results and evidence files: `decompiled/live/`. Highlights:
+
+- `/api/locales` serves en/fr/zh (the fake wallet-modal copy); `ru` 404s because the page itself is hard-coded Russian. Four language groups targeted.
+- `POST /api/visit` answers `ok` as the kit expects.
+- `GET /api/config` serves a 188-byte AES-GCM blob that decrypts with key purpose = `apiHost`: USDC mint as target token, two receiver addresses (differ from the hard-coded list — receivers rotate server-side), amount range 1.0–500.0 SOL, and the sibling domain `trongame.fun`.
+- `GET /config` is just the SPA fallback, not an endpoint.
+- On-chain: assessed treasury `DvTqmF7u…` holds 17,057 SOL + 1,020,879 USDC; both live-config receivers were active within the hour.
 
 ## Still not recovered
 

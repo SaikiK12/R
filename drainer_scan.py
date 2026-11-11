@@ -30,6 +30,7 @@ from typing import Optional
 KNOWN_DOMAINS = {
     "pumpanakin.fun",
     "hexfomo.fun",
+    "trongame.fun",  # sibling lure, from live /api/config 2026-11-11
     "reactwalletback.com",
     "ru.reactwalletback.com",
     "nulltrace.app",
@@ -84,6 +85,11 @@ ATTACKER_ADDRESSES = {
     "4qti6FcMybVSLL2k4rqRQ3Ph1a2jGrzPmBN8Wmt4A5wr",
     "HsVYhMDQRf6CkjtdUzqNDNRfDwsgw9nAX8feLVC3TAGp",
     "4moJ9mfFDqFgGMp5UJUgcVhAaFtBxiapt9DVJE3LcVao",
+    # Live-config receivers (decrypted /api/config, 2026-11-11)
+    "7VHUFJHWu2CuExkJcJrzhQPJ2oygupTWkL2A2For4BmE",
+    "3emsAVdmGKERbHjmGfQ6oZ1e35dkf5iYcS6U4CPKFVaa",
+    # USDC associated token account of the live-config receiver
+    "4kokFKCFMxpCpG41yLYkLEqXW8g1WPfCt2NC9KGivY6N",
 }
 
 # Social-engineering strings unique to this drainer family

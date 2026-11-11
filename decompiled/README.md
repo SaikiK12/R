@@ -36,21 +36,16 @@ Checked anchors on the reference sample:
 
 ## Kit modules
 
-`kit/` is the straight-line kit logic with locals renamed. It is a
-reconstruction for reading, not a program to run.
+`kit/` is the kit logic with locals renamed, organized into the three
+layers as deployed. It is a reconstruction for reading, not a program
+to run. `kit/README.md` has the end-to-end map.
 
-| File | What it is |
+| Dir | Layer |
 |---|---|
-| `kit/runtime.js` | Polyfills the bundle installs before anything else |
-| `kit/solflare_api.js` | Client for `wallet-api.solflare.com` (portfolio + SOL price) |
-| `kit/rpc.js` | Rotating Solana RPC client and the eight endpoints |
-| `kit/operator_api.js` | Operator routes on `https://{apiHost}/api...` |
-| `kit/visit.js` | Page-load visit beacon |
-| `kit/page_params.js` | Campaign-source (鼄) and page-host (浚) helpers |
-| `kit/payloads.js` | Payload builders 焖 / 醭 / 措 / 詯, AES-GCM |
-| `kit/telemetry.js` | Encrypted `/api/handler` event channel |
-| `kit/submit.js` | Signed-transaction submit + self-broadcast (芏 / 蔓) |
-| `kit/set_sol_amount.js` | Modal SOL-amount setter, 0.001..1,000,000 |
+| `kit/page/` | Lure-page code: polyfills, visit beacon, source/host helpers, modal amount setter |
+| `kit/operator/` | Operator API client, binary payload builders, AES-GCM, telemetry |
+| `kit/chain/` | RPC failover client, Solflare valuation client, submit + self-broadcast |
+| `live/` | 2026-11-11 live-mapping evidence (locales, decrypted config, balances) |
 
 `apiHost` is the field `Se` on the app state object. It is a hostname.
 The visit beacon compares it with the page host from `location`.

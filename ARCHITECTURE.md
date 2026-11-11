@@ -2,22 +2,17 @@
 
 The write-up is `FORENSIC_REPORT.md`. This file used to repeat it, including a wrong "secret URL prefix" that came from a constants-parser bug.
 
-Readable recovery of the kit code:
+Readable recovery of the kit code, organized into the three layers as deployed (map in `decompiled/kit/README.md`):
 
 | | |
 |---|---|
 | `deobfuscate.py` | Strings, constants, concealed built-ins |
-| `decompiled/kit/solflare_api.js` | `wallet-api.solflare.com` client and bearer |
-| `decompiled/kit/operator_api.js` | `https://{apiHost}/api` routes and POST encoding |
-| `decompiled/kit/rpc.js` | Eight RPC endpoints |
-| `decompiled/kit/visit.js` | POST `/api/visit` |
-| `decompiled/kit/runtime.js` | `AbortSignal["Be"]` and the other polyfills |
-| `decompiled/kit/page_params.js` | Campaign source (鼄) and page host (浚) |
-| `decompiled/kit/payloads.js` | `/process` and `/c/i` payload layouts, AES-GCM |
-| `decompiled/kit/telemetry.js` | Encrypted `/api/handler` event channel |
-| `decompiled/kit/submit.js` | Submit flow and the 2.5 s self-broadcast |
-| `decompiled/kit/set_sol_amount.js` | Modal amount setter, 0.001..1,000,000 |
+| `decompiled/kit/page/` | Lure-page layer: `runtime.js` polyfills, `visit.js`, `page_params.js` (鼄/浚), `set_sol_amount.js` |
+| `decompiled/kit/operator/` | `https://{apiHost}` layer: `operator_api.js` routes, `payloads.js` layouts + AES-GCM, `telemetry.js` (`/api/handler`) |
+| `decompiled/kit/chain/` | Solana layer: `rpc.js` eight endpoints, `solflare_api.js` valuation client, `submit.js` submit + self-broadcast |
 | `decompiled/strings.json` | 1053 strings, index = `getString(n)` |
-| `decompiled/iocs.json` | Endpoints, keys, the 29-pubkey set |
+| `decompiled/iocs.json` | Domains, keys, receivers, the 29-pubkey set |
+| `decompiled/live/` | 2026-11-11 live-mapping evidence: locales, decrypted `/api/config`, on-chain balances |
+| `INFRASTRUCTURE.md` | How the operation is built, what it costs, takedown paths |
 
 Only the bundled WalletConnect / AppKit SDK (third-party code) is still control-flow flattened and not reconstructed.
