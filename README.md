@@ -9,20 +9,24 @@ machinery.
 
 ## Reading order
 
-1. `FORENSIC_REPORT.md` — the main write-up: the bundle, the operator
+1. `LURE_ANALYSIS.md` — what the victim sees: the two-layer page trick,
+   the decoded pitch dictionary, and the social-engineering playbook
+   across the family.
+2. `FORENSIC_REPORT.md` — the main write-up: the bundle, the operator
    API, the payload formats, the drain transactions, live-mapping
    results.
-2. `decompiled/kit/README.md` — the end-to-end flow map of the
+3. `decompiled/kit/README.md` — the end-to-end flow map of the
    reconstructed kit, organized into the three layers as deployed.
-3. `INFRASTRUCTURE.md` — the operation's stack: what they needed, what
+4. `INFRASTRUCTURE.md` — the operation's stack: what they needed, what
    it costs them, what changes between deployments.
-4. `FAMILY_MAP.md` — 30+ sibling lures run by the same operator, and
+5. `FAMILY_MAP.md` — 30+ sibling lures run by the same operator, and
    what the more elaborate ones do better.
 
 ## Contents
 
 | Path | What it is |
 |---|---|
+| `LURE_ANALYSIS.md` | The lure pages as social-engineering case studies |
 | `FORENSIC_REPORT.md` | The report. One document, corrected against the live bundle |
 | `FAMILY_MAP.md` | Sibling lures and the sophistication gradient |
 | `INFRASTRUCTURE.md` | The operation's infrastructure and economics |
