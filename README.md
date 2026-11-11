@@ -15,11 +15,14 @@ machinery.
 2. `FORENSIC_REPORT.md` — the main write-up: the bundle, the operator
    API, the payload formats, the drain transactions, live-mapping
    results.
-3. `decompiled/kit/README.md` — the end-to-end flow map of the
+3. `DYNAMIC_ANALYSIS.md` — the kit running live in a sandbox: the
+   connect-domain redirect, the balance gate, the fake confirm dialog,
+   and a captured drain transaction.
+4. `decompiled/kit/README.md` — the end-to-end flow map of the
    reconstructed kit, organized into the three layers as deployed.
-4. `INFRASTRUCTURE.md` — the operation's stack: what they needed, what
+5. `INFRASTRUCTURE.md` — the operation's stack: what they needed, what
    it costs them, what changes between deployments.
-5. `FAMILY_MAP.md` — 30+ sibling lures run by the same operator, and
+6. `FAMILY_MAP.md` — 30+ sibling lures run by the same operator, and
    what the more elaborate ones do better.
 
 ## Contents
@@ -27,6 +30,7 @@ machinery.
 | Path | What it is |
 |---|---|
 | `LURE_ANALYSIS.md` | The lure pages as social-engineering case studies |
+| `DYNAMIC_ANALYSIS.md` | The sandboxed live run: redirect, gates, dialogs, captured tx |
 | `FORENSIC_REPORT.md` | The report. One document, corrected against the live bundle |
 | `FAMILY_MAP.md` | Sibling lures and the sophistication gradient |
 | `INFRASTRUCTURE.md` | The operation's infrastructure and economics |

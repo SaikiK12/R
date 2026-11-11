@@ -3,6 +3,7 @@
   "solflare_api": "https://wallet-api.solflare.com/",
   "domains": {
     "live_lure": ["pumpanakin.fun"],
+    "connect_domains": ["easyinvest7.biz (popup connect/payload domain, found by dynamic analysis 2026-11-11; /connect/<token>?b=1 paths)"],
     "sibling_lures_2026_11_11": [
       "airdrop-floatlaunch.xyz", "claim-floatlaunch.xyz", "rank-floatlaunch.xyz",
       "www-meteora.ag-v2.ink", "sol-meteora.ag-v2.ink",

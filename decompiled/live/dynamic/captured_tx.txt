@@ -1,0 +1,31 @@
+Captured 2026-11-11 by the sandboxed harness (decompiled/live/dynamic/).
+The kit's signTransaction request against the burner wallet, rejected
+by the harness. Nothing was signed or broadcast.
+
+Raw transaction (base64, 525 bytes):
+AwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIADAQMIA09rlfmOJCXXUCXg6XBnkMrUm5ucisLjv1FQm9laVswxoLCrAbs1+IBuDx7wcizcgFg2kYTAoerSWt6bwYNkB2BlAbMC4YAYkvgKKXn1hfiFXQ8gNHkKJFX3RPrFA9e1J2SXugu4ZZFyty7djGbhj1YXZNnIamEKOn4PecC6+dsV6mr+XAeQZnrI9QKiVdiznLyAAC1KJg3JSAsKlJUgdwbnHo9iLnrcwd/+A3y2ozpFHcu0mEH+GywXVfLdpQb1AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAG3fbh12Whk9nL4UbO63msHLSF7V9bN5E6jPWFfv8AqZsNPxa4mKC5iBVqp0ASwXmXV/7iB4q09JGzISuJ3J1aAwUBAQECBgIAAQwCAAAAAMqaOwAAAAAHAwMEAgkDAGXNHQAAAAAA
+
+Decode (v0 message):
+  signatures: 3 required, all zero placeholders
+  header: 3 required, 1 readonly-signed, 3 readonly-unsigned
+  accounts:
+    [0] DvTqmF7uMbLaW56QsMvcgv8KSkydFEikuk5gUcjACPV  treasury (fee payer, placeholder sig)
+    [1] 4Lj6MdBFVpz8pBEyxB4Zf3dYFHiDwF83zdZVVcGnw7u8  victim (burner, the wallet asked)
+    [2] 7VHUFJHWu2CuExkJcJrzhQPJ2oygupTWkL2A2For4BmE  receiver (placeholder sig)
+    [3] 3emsAVdmGKERbHjmGfQ6oZ1e35dkf5iYcS6U4CPKFVaa  relay
+    [4] 2UYtAHbGi65YiF3UY2gVmxvLAD5pVUuKVYcrhcZuj5wU  victim's USDC ATA
+    [5] TwrGADB9QPrLfTKpWuyq9tjgRaGsuzgRUMFTz51uhsa  operator program
+    [6] 11111111111111111111111111111111  SystemProgram
+    [7] TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA  Token program
+  blockhash: BSFugmHxUnJwdH8Qjcx54p76tF6Mfw8aeiPEe4wcaDry
+  instructions:
+    ix0  [5] operator program, data 02, accounts [1]
+         -> the theft leg: victim signature authorizes the vault-PDA drain
+    ix1  [6] SystemProgram Transfer, data 02000000 00ca9a3b (1,000,000,000 lamports)
+         treasury [0] -> victim [1]   (decoy "incoming" leg)
+    ix2  [7] Token Transfer, data 03 0065cd1d00000000 (500,000,000 = 500 USDC)
+         relay [3] -> victim ATA [4], authorized by receiver [2]  (decoy "incoming" leg)
+  trailing byte: 0 address lookup tables
+
+Second capture (same run minutes later) was identical except the
+blockhash, confirming the builder is deterministic given the portfolio.
