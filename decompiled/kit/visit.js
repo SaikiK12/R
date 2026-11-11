@@ -5,9 +5,9 @@
  * after a beacon whose body text is "ok". The clock is
  * Math.floor(Date.now() / 1000). There is no JSON body.
  *
- * readCampaignSource() and pageHost() are still control-flow flattened
- * in the bundle (original names 鼄 and 浚). pageHost() reads location
- * and is compared with state.Se.
+ * readCampaignSource() and pageHost() (original names 鼄 and 浚) are
+ * reconstructed in page_params.js. pageHost() reads location and is
+ * compared with state.apiHost.
  */
 
 const VISIT_COOLDOWN_SEC = 900;

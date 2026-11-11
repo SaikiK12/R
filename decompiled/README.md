@@ -37,9 +37,7 @@ Checked anchors on the reference sample:
 ## Kit modules
 
 `kit/` is the straight-line kit logic with locals renamed. It is a
-reconstruction for reading, not a program to run. Transaction builders
-are still control-flow flattened in the bundle and are not
-reimplemented here. The calls that post those payloads are named.
+reconstruction for reading, not a program to run.
 
 | File | What it is |
 |---|---|
@@ -48,17 +46,25 @@ reimplemented here. The calls that post those payloads are named.
 | `kit/rpc.js` | Rotating Solana RPC client and the eight endpoints |
 | `kit/operator_api.js` | Operator routes on `https://{apiHost}/api...` |
 | `kit/visit.js` | Page-load visit beacon |
+| `kit/page_params.js` | Campaign-source (鼄) and page-host (浚) helpers |
+| `kit/payloads.js` | Payload builders 焖 / 醭 / 措 / 詯, AES-GCM |
+| `kit/telemetry.js` | Encrypted `/api/handler` event channel |
+| `kit/submit.js` | Signed-transaction submit + self-broadcast (芏 / 蔓) |
+| `kit/set_sol_amount.js` | Modal SOL-amount setter, 0.001..1,000,000 |
 
 `apiHost` is the field `Se` on the app state object. It is a hostname.
 The visit beacon compares it with the page host from `location`.
 
 ## Still flattened
 
-These stay as while/switch state machines after substitution. Do not
-treat the older `src/*.js` trees on the deleted branches as accurate;
-they were built on the shifted constants.
+Do not treat the older `src/*.js` trees on the deleted branches as
+accurate; they were built on the shifted constants.
 
-- Campaign `source` / page-host helpers (`鼄`, `浚`)
-- One method inside the wallet-modal setup (`setSolAmount`)
 - The bundled WalletConnect / AppKit SDK (third-party, not kit logic)
-- The transaction-payload builders called by `operator_api.js`
+
+Everything else that was flattened has been recovered: the payload
+builders (`焖`, `醭`, `措`) and the `/c/i` response parser (`籮`) were
+straight-line after substitution; the generator state machines (`鼄`,
+`浚`, `setSolAmount`) were recovered by emulating the extracted
+generators with stubbed browser globals. Verified behaviors are listed
+in the kit file headers.
