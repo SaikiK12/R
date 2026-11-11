@@ -165,6 +165,24 @@ rule SolanadrainerKit_MediaAssets {
         2 of them
 }
 
+rule SolanadrainerKit_InfrastructureDomains {
+    meta:
+        description = "Operator, vendor, fake-wallet, and cloaker domains for this kit"
+        threat       = "Solana drainer"
+        severity     = "high"
+
+    strings:
+        $d1 = "pumpanakin.fun" ascii
+        $d2 = "hexfomo.fun" ascii
+        $d3 = "reactwalletback.com" ascii
+        $d4 = "nulltrace.app" ascii
+        $d5 = "onlybulls.com" ascii
+        $wm = "aGV4Zm9tby5mdW4=" ascii
+
+    condition:
+        2 of them
+}
+
 rule SolanadrainerKit_FullMatch {
     meta:
         description = "High-confidence detection: multiple drainer subsystems present"

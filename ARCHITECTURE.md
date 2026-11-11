@@ -17,7 +17,7 @@ Victim browser
        ├─ /assets/index.js    Single-bundle drainer (~1 MB, JS-Confuser obfuscated)
        ├─ /assets/css/        CSS assets
        ├─ /assets/img/        Lure images (Trump Coin airdrop theme)
-       └─ /{SECRET_KEY}/      Secret-path-prefixed C2 routes (nginx reverse-proxy → Node.js)
+       └─ /api/               Operator routes on this host (visit, ban check, submit)
 
 reactwalletback.com           Fake-wallet mobile-app backend
   ├─ /app-link/               Deep-link redirector for Volsungar/SOC/Hero wallet apps
@@ -145,8 +145,8 @@ Page load
   │
   ├─ Wallet connects
   │   • 搒 = walletAddress (also sent as User-Agent header to C2)
-  │   • POST to /{SECRET_KEY}/api/visit  (visit tracking)
-  │   • GET  /{SECRET_KEY}/is-banned     (geo/IP ban check)
+  │   • POST https://{apiHost}/api/visit   (query: source, origin, tgid, tgus)
+  │   • GET  https://{apiHost}/api/is-banned  (body "1" means banned)
   │   • 夾.Tn(session) → returns "1" if banned → page exit
   │
   ├─ Asset enumeration (concurrent)
@@ -177,13 +177,13 @@ Page load
   │   │            "hasn't been reviewed by Phantom yet, but it is listed
   │   │             in trusted community"
   │   │
-  │   ├─ User signs → POST /{SECRET_KEY}/process  (broadcast tx)
+  │   ├─ User signs → POST https://{apiHost}/api/process
   │   │   Body: {signedTransaction, walletAddress, ...}
   │   │
   │   └─ Notify operator (Telegram via server relay):
-  │       • POST /{SECRET_KEY}/c/i  (visit/connect notification)
-  │       • POST /{SECRET_KEY}/c/c/ (transfer start notification)
-  │       • POST /{SECRET_KEY}/c/f/ (transfer complete notification)
+  │       • POST https://{apiHost}/api/c/i
+  │       • POST https://{apiHost}/api/c/c/{a}/{b}
+  │       • POST https://{apiHost}/api/c/f/{a}
   │
   └─ Error recovery loop
       "Transaction was reverted, funds will be refunded soon.
@@ -192,29 +192,23 @@ Page load
 
 ---
 
-## 5. C2 Backend Protocol
+## 5. Backend Protocol
 
-### Secret URL Prefix
-All backend routes are prefixed with a **44-character secret key embedded as a URL path
-segment**. This key is stored in `墸` (the base URL variable):
+Corrected from the constant-accurate decompilation in `decompiled/`. An
+earlier pass dropped the bare `undefined` in the constants array and
+shifted every later index by one. That shift labeled a Jupiter API key
+as a secret URL prefix. It is not.
 
-```
-墸 = "ab060a03-7874-4647-84d1-da019e4b51ea"
-```
+### Two clients
 
-Full URL construction (fetch wrapper `锏`):
-```javascript
-fetch(墸 + endpoint, {
-    signal: AbortController.signal(3500ms),
-    referrerPolicy: "no-referrer",
-    headers: {
-        "User-Agent": walletAddress,     // wallet pubkey as UA
-        "Authorization": "Bearer " + generateToken()
-    }
-})
-```
+1. **Solflare portfolio client** (`锏`). Prefix `墸` is
+   `https://wallet-api.solflare.com/`. Each request sends
+   `User-Agent: <wallet address>` and `Authorization` from `濛()` below,
+   with a 3.5s timeout and `referrerPolicy: no-referrer`.
+2. **Operator client** (`听`). URLs are `https://{apiHost}/api` + path.
+   `apiHost` is state field `Se`.
 
-Bearer token generation (`濛()`):
+Bearer token generation (`濛()`), used by the Solflare client:
 ```javascript
 function 濛() {
     let rand = randomInt(1, 7);
@@ -226,18 +220,23 @@ function 濛() {
 }
 ```
 
-### C2 Endpoints (all prefixed with `/{SECRET_KEY}`)
+### Operator endpoints
 
-| Endpoint | Method | Trigger | Payload |
-|---|---|---|---|
-| `/api/visit` | POST | Page load | `{walletAddr, userAgent, referrer, ip?}` |
-| `/is-banned` | GET | After connect | — → returns `"1"` if banned |
-| `/c/i` | POST | Wallet connect | Notification JSON (see §5.1) |
-| `/c/c/` | POST | Transfer start | Notification JSON (see §5.1) |
-| `/c/f/` | POST | Transfer complete | Notification JSON (see §5.1) |
-| `/process` | POST | Tx signed | `{signedTransaction, ...}` |
-| `/api/handler` | POST | Error state | Error diagnostic payload |
-| `/config` | GET | Error dialog | Error config: `{ue, kr, ro, Se}` |
+Built as `https://{apiHost}/api` + path. `apiHost` is state field `Se`.
+The visit beacon is a POST with **query parameters**, not a JSON body:
+`source`, `origin` (only if it differs from `apiHost`), `tgid`, `tgus`.
+It is skipped when the URL contains `?b=`, and for 900 seconds after a
+response whose text is `ok`.
+
+| URL | Method | Role |
+|---|---|---|
+| `https://{apiHost}/api/visit` | POST | Page-load beacon. Response text `ok` arms the cooldown. |
+| `https://{apiHost}/api/locales?lang=` | GET | Localized UI strings |
+| `https://{apiHost}/api/is-banned` | GET | Body `1` means banned |
+| `https://{apiHost}/api/process` | POST | Submit. Body is built by a still-flattened helper, then custom-base64 encoded. |
+| `https://{apiHost}/api/c/i` | POST | Connect notification. Same encoding. 16s timeout. |
+| `https://{apiHost}/api/c/c/{a}/{b}` | POST | Confirm notification. 16s timeout. |
+| `https://{apiHost}/api/c/f/{a}` | POST | Final notification. 2.5s timeout. |
 
 ### 5.1 Notification Message Format
 
@@ -274,25 +273,33 @@ The base64 block decodes to 159 bytes containing:
 
 ---
 
-## 6. reactwalletback.com Backend (Fake Wallet API)
+## 6. Operator client and the fake-wallet redirect
 
-The `听` class manages communication with the fake mobile wallet backend:
+The `听` class is the operator HTTP client, not a client of
+`reactwalletback.com`. Its URL builder is:
 
 ```javascript
-// URL constructor (Ft method)
-Ft(connection, path) {
-    return "Macintosh|Mac OS X" + connection.walletAddr +
-           "2zC63K7VDZmL1UKHibDkMKxrAFtHjmXLm5XrPgFREgZc" + path
+Ft(state, path) {
+    return "https://" + state.apiHost + "/api" + path;
 }
+```
 
-// Hardcoded API key segments embedded in paths:
-"9kC8U8STwNtXeQqqX7WpgWg19qC7137JRP97BnLDKEtS"  // localization endpoint
-"5o7Q69vpqP3CwSb9mVzWk2jpirYbxuntAozyBv2CURC3"  // ban-check endpoint
-"2zC63K7VDZmL1UKHibDkMKxrAFtHjmXLm5XrPgFREgZc"  // request signing key
+`/locales?lang=` and `/is-banned` are GETs on that base.
+`/process`, `/c/i`, `/c/c/`, `/c/f/` go through the encoded POST helper.
+
+The three pubkeys below were previously described as path segments and
+API keys inside this class. They are not. They sit in the 29-pubkey set
+built next to the RPC client (`decompiled/iocs.json`):
+
+```
+2zC63K7VDZmL1UKHibDkMKxrAFtHjmXLm5XrPgFREgZc
+9kC8U8STwNtXeQqqX7WpgWg19qC7137JRP97BnLDKEtS
+5o7Q69vpqP3CwSb9mVzWk2jpirYbxuntAozyBv2CURC3
 ```
 
 **Deep-link redirect:** `https://reactwalletback.com/app-link/`  
-Used to redirect victims from the web drainer to the fake mobile wallet apps.
+This URL is in the string table and is the install redirect for the fake
+mobile wallet apps. It is not the `听` URL builder.
 
 ---
 
@@ -303,8 +310,8 @@ Three confirmed live malicious iOS apps (Apple App Store) injected into the wall
 | App Name | App Store ID | Bundle | Publisher |
 |---|---|---|---|
 | Volsungar | id6757104054 | `com.react.wwallett` | Asgarbyte Limited |
-| SOC Wallet | id6451... | `com.soc.wallet` | SOC JOINT STOCK COMPANY |
-| Hero Wallet | id6757... | `com.hero.wallet` | PAYEXCHANGE, UAB |
+| SOC Wallet | id6752928371 | `com.socwallet.socjsc` | SOC JOINT STOCK COMPANY |
+| Hero Wallet | id6757118686 | `io.hero.wallet` | PAYEXCHANGE, UAB |
 
 Each fake wallet definition in the bundle:
 ```javascript
@@ -410,11 +417,12 @@ f707107a-6d56-4626-a937-ef3c7eef51d8
 ab060a03-7874-4647-84d1-da019e4b51ea
 ```
 
-### C2 Secret URL Key
+### Not a path prefix
 ```
 ab060a03-7874-4647-84d1-da019e4b51ea
 ```
-(The backend route prefix embedded as a URL path segment in the client JS)
+This is a Jupiter API key (`strings.json`, getString index of the raw
+table entry). It is not embedded as a URL path. See `decompiled/README.md`.
 
 ### File Hashes (SHA-256)
 ```
@@ -425,8 +433,8 @@ root.html: (see FORENSIC_REPORT.md)
 ### Malicious App Store IDs
 ```
 id6757104054  (Volsungar — Asgarbyte Limited)
-id6451...     (SOC Wallet — SOC JOINT STOCK COMPANY)
-id6757...     (Hero Wallet — PAYEXCHANGE, UAB)
+id6752928371  (SOC Wallet — SOC JOINT STOCK COMPANY)
+id6757118686  (Hero Wallet — PAYEXCHANGE, UAB)
 ```
 
 ---
@@ -442,7 +450,8 @@ id6757...     (Hero Wallet — PAYEXCHANGE, UAB)
 
 ### Network IOCs (block at proxy/firewall)
 - Domain: `pumpanakin.fun`, `hexfomo.fun`, `reactwalletback.com`, `nulltrace.app`
-- URL path prefix: `/{44-char-UUID}/c/` pattern on unknown Cloudflare hosts
+- Operator calls are `https://{lure-host}/api/visit`, `/api/is-banned`, `/api/process`, `/api/c/i`, `/api/c/c/`, `/api/c/f/`
+- There is no 44-character secret path prefix in the client
 
 ### Reporting channels
 | Channel | Link |
@@ -460,11 +469,17 @@ id6757...     (Hero Wallet — PAYEXCHANGE, UAB)
 
 ## 12. Deobfuscation Artifacts
 
+Regenerate from a local copy of the bundle (SHA-256 above). The bundle
+itself is not in this branch.
+
+```bash
+python3 deobfuscate.py index.js --out-dir decompiled/ --no-js
+```
+
 | File | Description |
 |---|---|
-| `index.js` | Original obfuscated bundle (1,034,759 bytes) |
-| `decoded_strings.json` | All 1053 decoded string table entries |
-| `constants_arr.json` | All 1691 constants array values |
-| `deobf_partial.js` | 635 string accessor calls substituted |
-| `deobf_full.js` | + 32,156 constants array references substituted |
-| `full_site/` | Complete lure page assets (HTML, CSS, images, JS) |
+| `deobfuscate.py` | Unwrap, custom-base64 strings, constants, global-name resolver |
+| `decompiled/strings.json` | 1053 strings indexed by `getString(n)` |
+| `decompiled/constants.json` | 1691 constants, including the bare `undefined` at index 17 |
+| `decompiled/globals.json` | 76 `樶("key")` → built-in names |
+| `decompiled/kit/` | Reading copy of the straight-line kit logic |

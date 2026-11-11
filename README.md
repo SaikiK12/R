@@ -7,6 +7,9 @@ Defensive research artifacts for the **pumpanakin.fun** JS-Confuser Solana drain
 | File | Purpose |
 |---|---|
 | `FORENSIC_REPORT.md` | Full forensic analysis of the drainer kit |
+| `ARCHITECTURE.md` | Kit layout. Section 5 is corrected against the decompilation |
+| `deobfuscate.py` | Static deobfuscator (strings, constants, global names) |
+| `decompiled/` | Decoded tables and a readable reconstruction of the kit logic |
 | `drainer_scan.py` | Python CLI scanner — detects drainer signatures in URLs or JS files |
 | `drainer.yar` | YARA rule set for the drainer family |
 

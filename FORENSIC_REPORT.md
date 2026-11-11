@@ -39,7 +39,7 @@ The lure page (`/`) loads jQuery, a fake presale countdown script written in Rus
 | Constant array | `囉 = [2,3,4,...]` — 1691 literal constants |
 | Control flow | While/switch flattening: `while(a+b+c !== -111) { switch(...) {...} }` |
 
-The string table is decoded lazily via `function 娨(n)` accessor with cache `餢={}`. All 1053 string entries were fully decoded and are listed in `decoded_strings.json`.
+The string table is decoded lazily via `function 娨(n)` with cache `餢={}`. All 1053 entries, indexed by the `getString(n)` argument, are in `decompiled/strings.json`.
 
 ---
 

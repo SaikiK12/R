@@ -29,6 +29,12 @@ from typing import Optional
 # Known bad domains (confirmed drainers)
 KNOWN_DOMAINS = {
     "pumpanakin.fun",
+    "hexfomo.fun",
+    "reactwalletback.com",
+    "ru.reactwalletback.com",
+    "nulltrace.app",
+    "onlybulls.com",
+    "dlicom.me",
 }
 
 # JS-Confuser CJK obfuscation markers (specific to this kit)
@@ -134,6 +140,12 @@ def score_findings(findings: list) -> int:
 
 def analyse_js(content: str, source: str) -> list:
     findings = []
+
+    # Known kit domains, including when they appear inside a JS file rather than the URL.
+    for domain in KNOWN_DOMAINS:
+        if domain in content:
+            findings.append(Finding("critical", "known-domain",
+                f"Known kit domain in content: {domain}"))
 
     sha256 = hashlib.sha256(content.encode("utf-8", errors="replace")).hexdigest()
     if sha256 in KNOWN_HASHES:
@@ -334,7 +346,17 @@ def scan(target: str, is_file: bool = False) -> dict:
         else:
             result["findings"].extend(analyse_js(content, target))
 
-    score = score_findings(result["findings"])
+    # HTML scans run the JS checks twice (inline script, then the whole document).
+    deduped = []
+    seen = set()
+    for finding in result["findings"]:
+        key = (finding.severity, finding.category, finding.detail)
+        if key in seen:
+            continue
+        seen.add(key)
+        deduped.append(finding)
+    result["findings"] = deduped
+    score = score_findings(deduped)
     result["score"] = score
 
     if any(f.severity == "critical" for f in result["findings"]):
@@ -370,7 +392,7 @@ def main():
 
     items = []
     for t in args.targets:
-        items.append((t, t.startswith("http") is False and not t.startswith("http")))
+        items.append((t, not t.startswith(("http://", "https://"))))
     for u in args.url:
         items.append((u, False))
     for fp in args.file:
