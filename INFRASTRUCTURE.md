@@ -76,21 +76,10 @@ to find the next lure.
 | Helius / Jupiter keys (rotated as they burn out) | Four-key Helius failover pattern + the same public RPC fallbacks |
 | Hard-coded string-table addresses (only on kit rebuilds) | On-chain program `TwrGADB9QPrLfTKpWuyq9tjgRaGsuzgRUMFTz51uhsa` and treasury `DvTqmF7uMbLaW56QsMvcgv8KSkydFEikuk5gUcjACPV` — shared by the operation, best on-chain pivots |
 | Lure theme/copy (here: "TRUMP COIN" airdrop, Russian page) | Fake modal copy in en/fr/zh locales, the 13-entry string-table social-engineering set, `200tx.webm`-style media |
-| Kit build (JS-Confuser seed, CJK names) | Obfuscator fingerprint in `drainer.yar` (嗛=铴 table init, CJK density) |
+| Kit build (JS-Confuser seed, CJK names) | Obfuscator fingerprint: the 嗛=铴 table-init pattern and CJK identifier density |
 
 The fastest way to surface sibling lures: query public crawlers
 (URLScan, crt.sh, Cloudflare Radar) for the Nuxt asset path pattern
 plus any of the fixed pivots, and watch the treasury's inbound token
 transfers for new funding sources.
 
-## Takedown / disruption paths
-
-- **Helius**: all four embedded keys are live (three serving, one
-  rate-limited). Abuse report with the key IDs gets them revoked;
-  the kit loses its primary RPC path.
-- **Jupiter**: five keys in `decompiled/iocs.json`.
-- **Cloudflare / registrar**: `pumpanakin.fun` phishing report.
-- **On-chain**: flag the treasury and receivers on Chainabuse /
-  block explorer phishing registries; exchanges can freeze off-ramps.
-- **Detection**: `drainer.yar` + `drainer_scan.py` catch the raw bundle
-  by hash and obfuscation pattern.

@@ -168,11 +168,10 @@ Benign probes only (page-load-equivalent requests; the submit endpoints were nev
 
 Everything else formerly listed as missing was recovered on 2026-11-11 against the live bundle. The live page still serves the reference sample byte-for-byte (SHA-256 `07356066…f9ea6a2`).
 
-## Detection
-
-`drainer_scan.py` and `drainer.yar`. Keys and the watermark string are plaintext only after the string table is decoded, so the raw bundle is caught by the hash and the CJK obfuscation rules, not by those literals.
+## Reproducing the decode
 
 ```bash
 python3 deobfuscate.py index.js --out-dir decompiled/ --no-js
-python3 drainer_scan.py --file index.js
 ```
+
+Keys and the watermark string are plaintext only after the string table is decoded; the raw bundle shows them only via the CJK obfuscation pattern and its hash.

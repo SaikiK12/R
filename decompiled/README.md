@@ -1,6 +1,6 @@
 # Decompilation
 
-Defensive reading copy of the pumpanakin.fun bundle
+Readable analysis copy of the pumpanakin.fun bundle
 (`0735606691bbdf35d38d7531c0e48363a21ef6f7224ebce2908a1b487f9ea6a2`).
 
 The original bundle is not stored in this branch. Reproduce the tables
