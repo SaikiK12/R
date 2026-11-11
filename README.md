@@ -15,14 +15,17 @@ machinery.
 2. `FORENSIC_REPORT.md` — the main write-up: the bundle, the operator
    API, the payload formats, the drain transactions, live-mapping
    results.
-3. `DYNAMIC_ANALYSIS.md` — the kit running live in a sandbox: the
+3. `OPERATOR_ARCHITECTURE.md` — the whole machine on one page: traffic,
+   lure, connect, backend, and on-chain layers, and the design
+   principles behind them.
+4. `DYNAMIC_ANALYSIS.md` — the kit running live in a sandbox: the
    connect-domain redirect, the balance gate, the fake confirm dialog,
    and a captured drain transaction.
-4. `decompiled/kit/README.md` — the end-to-end flow map of the
+5. `decompiled/kit/README.md` — the end-to-end flow map of the
    reconstructed kit, organized into the three layers as deployed.
-5. `INFRASTRUCTURE.md` — the operation's stack: what they needed, what
+6. `INFRASTRUCTURE.md` — the operation's stack: what they needed, what
    it costs them, what changes between deployments.
-6. `FAMILY_MAP.md` — 30+ sibling lures run by the same operator, and
+7. `FAMILY_MAP.md` — 30+ sibling lures run by the same operator, and
    what the more elaborate ones do better.
 
 ## Contents
@@ -30,7 +33,9 @@ machinery.
 | Path | What it is |
 |---|---|
 | `LURE_ANALYSIS.md` | The lure pages as social-engineering case studies |
+| `OPERATOR_ARCHITECTURE.md` | The full operator architecture on one page |
 | `DYNAMIC_ANALYSIS.md` | The sandboxed live run: redirect, gates, dialogs, captured tx |
+| `archive/` | Raw samples (bundle, lure HTML, connect app, program ELF) with hashes and provenance — do not execute |
 | `FORENSIC_REPORT.md` | The report. One document, corrected against the live bundle |
 | `FAMILY_MAP.md` | Sibling lures and the sophistication gradient |
 | `INFRASTRUCTURE.md` | The operation's infrastructure and economics |
@@ -60,4 +65,5 @@ obfuscated bundle and the operator's program binary are not stored here;
 the docs explain how to reproduce everything from your own sample.
 
 This project exists to document and explain an active threat. Nothing
-here is a guide to running one.
+here is a guide to running one. The `archive/` directory contains live
+malware samples for research verification — do not execute them.

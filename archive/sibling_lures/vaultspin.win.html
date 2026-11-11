@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+
+<html lang="ru">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Jupiter | Airdrop</title>
+<link href="images/jupiter-logo.webp" rel="icon" type="image/webp"/>
+<link href="style.css" rel="stylesheet"/>
+<script src="../../_nuxt/assets/index.js" type="module"></script></head>
+<body>
+<div class="container">
+<header class="header">
+<div class="header-container">
+<img alt="Logo" class="logo" src="images/jupiter-logo.webp"/>
+<nav class="nav">
+<a class="nav-link" href="#main">Main</a>
+<a class="nav-link" href="#about">About</a>
+<a class="nav-link" href="#live">Live</a>
+<a class="nav-link" href="#faq">FAQ</a>
+</nav>
+<button class="connect-wallet-btn" onclick="openModal()">Connect Wallet</button>
+</div>
+</header>
+<main id="main">
+<section class="hero">
+<div class="hero-content slide-in-left">
+<h1 class="hero-title">Official Jupiter<br/>Airdrop campaign</h1>
+<p class="hero-subtitle">Join millions of users who already claimed their tokens from<br/>the largest DEX aggregator on Solana. Verified and Secure.</p>
+<div class="hero-buttons">
+<button class="btn-primary" onclick="openModal()">Take Participate</button>
+<button class="btn-secondary">Learn More</button>
+</div>
+</div>
+<div class="hero-image slide-in-right">
+<img alt="Jupiter Airdrop" src="images/main.png"/>
+</div>
+</section>
+<section class="banner fade-in" id="about">
+<img alt="Banner" class="banner-image" src="images/banner.png"/>
+<div class="banner-overlay">
+<div class="banner-text">
+<div class="live-badge">
+<svg class="live-icon" fill="none" viewbox="0 0 24 24">
+<circle cx="12" cy="12" fill="#C7F284" r="10"></circle>
+<circle cx="12" cy="12" fill="#2a3a1a" r="6"></circle>
+<circle cx="12" cy="12" fill="#C7F284" r="2"></circle>
+</svg>
+<span class="live-text">LIVE</span>
+</div>
+<span class="banner-number">100.000.000</span>
+<span class="banner-label">Jupiter coins to giveaway</span>
+</div>
+</div>
+</section>
+<section class="how-to-participate fade-in" id="live">
+<h2 class="section-title">How to Participate</h2>
+<div class="steps-container">
+<div class="step-card">
+<div class="step-icon">
+<img alt="Step 1" class="step-svg" src="images/step1.svg"/>
+</div>
+<div class="step-content">
+<h3 class="step-title">Confirm Participation</h3>
+<p class="step-description">Verify your eligibility and confirm participation in the Jupiter airdrop.</p>
+</div>
+<div class="step-number">01</div>
+</div>
+<div class="step-card">
+<div class="step-icon">
+<img alt="Step 2" class="step-svg" src="images/step2.svg"/>
+</div>
+<div class="step-content">
+<h3 class="step-title">Connect Wallet</h3>
+<p class="step-description">Connect your Solana wallet to receive your Jupiter tokens securely.</p>
+</div>
+<div class="step-number">02</div>
+</div>
+<div class="step-card">
+<div class="step-icon">
+<img alt="Step 3" class="step-svg" src="images/step3.svg"/>
+</div>
+<div class="step-content">
+<h3 class="step-title">Claim Tokens</h3>
+<p class="step-description">Jupiter is now live! Claim your tokens from the official distribution contract.</p>
+</div>
+<div class="step-number">03</div>
+</div>
+</div>
+</section>
+<section class="airdrop-chart scale-in">
+<div class="chart-container">
+<h2 class="chart-title">Airdrop Distribution Growth</h2>
+<div class="chart-wrapper">
+<svg class="growth-chart" viewbox="0 0 1000 350" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<lineargradient id="chartGradient" x1="0%" x2="0%" y1="0%" y2="100%">
+<stop offset="0%" style="stop-color:#C7F284;stop-opacity:0.3"></stop>
+<stop offset="100%" style="stop-color:#C7F284;stop-opacity:0"></stop>
+</lineargradient>
+<lineargradient id="lineGradient" x1="0%" x2="100%" y1="0%" y2="0%">
+<stop offset="0%" style="stop-color:#C7F284;stop-opacity:1"></stop>
+<stop offset="100%" style="stop-color:#d4ff62;stop-opacity:1"></stop>
+</lineargradient>
+</defs>
+<rect fill="rgba(25, 36, 46, 0.2)" height="240" rx="8" width="900" x="50" y="50"></rect>
+<line stroke="rgba(199, 242, 132, 0.1)" stroke-width="1" x1="50" x2="950" y1="90" y2="90"></line>
+<line stroke="rgba(199, 242, 132, 0.1)" stroke-width="1" x1="50" x2="950" y1="130" y2="130"></line>
+<line stroke="rgba(199, 242, 132, 0.1)" stroke-width="1" x1="50" x2="950" y1="170" y2="170"></line>
+<line stroke="rgba(199, 242, 132, 0.1)" stroke-width="1" x1="50" x2="950" y1="210" y2="210"></line>
+<line stroke="rgba(199, 242, 132, 0.1)" stroke-width="1" x1="50" x2="950" y1="250" y2="250"></line>
+<line stroke="rgba(199, 242, 132, 0.1)" stroke-width="1" x1="50" x2="950" y1="290" y2="290"></line>
+<text fill="#a0a0a0" font-size="12" text-anchor="end" x="30" y="95">$5M</text>
+<text fill="#a0a0a0" font-size="12" text-anchor="end" x="30" y="135">$4M</text>
+<text fill="#a0a0a0" font-size="12" text-anchor="end" x="30" y="175">$3M</text>
+<text fill="#a0a0a0" font-size="12" text-anchor="end" x="30" y="215">$2M</text>
+<text fill="#a0a0a0" font-size="12" text-anchor="end" x="30" y="255">$1M</text>
+<text fill="#a0a0a0" font-size="12" text-anchor="end" x="30" y="295">$0M</text>
+<text fill="#a0a0a0" font-size="12" text-anchor="middle" x="200" y="320">Week 1</text>
+<text fill="#a0a0a0" font-size="12" text-anchor="middle" x="400" y="320">Week 2</text>
+<text fill="#a0a0a0" font-size="12" text-anchor="middle" x="600" y="320">Week 3</text>
+<text fill="#a0a0a0" font-size="12" text-anchor="middle" x="800" y="320">Week 4</text>
+<text fill="#C7F284" font-size="12" font-weight="bold" text-anchor="middle" x="950" y="320">NOW</text>
+<path d="M 50 290 L 200 250 L 400 200 L 600 150 L 800 120 L 950 100 L 950 290 L 50 290 Z" fill="url(#chartGradient)"></path>
+<path d="M 50 290 L 200 250 L 400 200 L 600 150 L 800 120 L 950 100" fill="none" stroke="url(#lineGradient)" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"></path>
+<circle cx="50" cy="290" fill="#C7F284" r="3"></circle>
+<circle cx="200" cy="250" fill="#C7F284" r="3"></circle>
+<circle cx="400" cy="200" fill="#C7F284" r="3"></circle>
+<circle cx="600" cy="150" fill="#C7F284" r="3"></circle>
+<circle cx="800" cy="120" fill="#C7F284" r="3"></circle>
+<circle class="pulse-point" cx="950" cy="100" fill="#d4ff62" r="5" stroke="#C7F284" stroke-width="2"></circle>
+<text fill="#C7F284" font-size="13" font-weight="bold" text-anchor="middle" x="950" y="85">$4.2M</text>
+</svg>
+</div>
+<div class="live-transactions">
+<div class="transactions-list" id="transactionsList">
+</div>
+</div>
+</div>
+</section>
+<section class="faq fade-in" id="faq">
+<div class="faq-container">
+<h2 class="faq-title">Frequently Asked Questions</h2>
+<div class="faq-list">
+<div class="faq-item">
+<div class="faq-question" onclick="toggleFAQ(this)">
+<span>How do I claim my Jupiter airdrop tokens?</span>
+<div class="faq-icon">+</div>
+</div>
+<div class="faq-answer">
+<p>To claim your Jupiter airdrop tokens, connect your wallet to the official Jupiter website and navigate to the airdrop section. Your eligible tokens will be automatically detected based on your wallet's transaction history. Simply click "Claim" and confirm the transaction to receive your JUP tokens.</p>
+</div>
+</div>
+<div class="faq-item">
+<div class="faq-question" onclick="toggleFAQ(this)">
+<span>What is the eligibility criteria for the Jupiter airdrop?</span>
+<div class="faq-icon">+</div>
+</div>
+<div class="faq-answer">
+<p>Eligibility is based on your usage of Jupiter's DEX aggregator before the snapshot date. Users who have made swaps, provided liquidity, or used Jupiter's advanced features like limit orders and DCA are eligible. The more you've used Jupiter, the larger your airdrop allocation will be.</p>
+</div>
+</div>
+<div class="faq-item">
+<div class="faq-question" onclick="toggleFAQ(this)">
+<span>When will the Jupiter airdrop tokens be distributed?</span>
+<div class="faq-icon">+</div>
+</div>
+<div class="faq-answer">
+<p>The Jupiter airdrop is now live! Token distribution began on January 31, 2025. All eligible users can claim their tokens immediately. There's no deadline for claiming, but we recommend claiming as soon as possible to participate in governance and staking opportunities.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<footer class="footer">
+<div class="footer-container">
+<div class="footer-left">
+<img alt="Jupiter" class="footer-logo" src="images/jupiter-logo.webp"/>
+<p class="footer-description">© 2025 Jupiter. All rights reserved. The future of DeFi trading.</p>
+</div>
+<div class="footer-right">
+<nav class="footer-nav">
+<a class="footer-link" href="#main">Main</a>
+<a class="footer-link" href="#about">About</a>
+<a class="footer-link" href="#live">Live</a>
+<a class="footer-link" href="#faq">FAQ</a>
+</nav>
+</div>
+</div>
+</footer>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
