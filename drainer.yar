@@ -183,6 +183,15 @@ rule SolanadrainerKit_InfrastructureDomains {
         $d4 = "nulltrace.app" ascii
         $d5 = "onlybulls.com" ascii
         $d6 = "trongame.fun" ascii
+        // Sibling lures, URLScan hash pivot 2026-11-11 (sampled)
+        $d7 = "floatlaunch.xyz" ascii
+        $d8 = "ag-v2.ink" ascii
+        $d9 = "web-jupiter.gd" ascii
+        $d10 = "paybackpump.fun" ascii
+        $d11 = "amlbot.rest" ascii
+        $d12 = "dexscreener.fyi" ascii
+        $d13 = "eligibility-zkpass.org" ascii
+        $d14 = "pumpswap.rest" ascii
         $wm = "aGV4Zm9tby5mdW4=" ascii
 
     condition:

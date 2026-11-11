@@ -8,6 +8,7 @@ Defensive research artifacts for the **pumpanakin.fun** JS-Confuser Solana drain
 |---|---|
 | `FORENSIC_REPORT.md` | The report. One document, corrected against the live bundle |
 | `INFRASTRUCTURE.md` | How the operation is built, what it costs them, takedown paths |
+| `FAMILY_MAP.md` | Sibling lures (30+ domains, one operator), sophistication gradient |
 | `ARCHITECTURE.md` | Pointer at the recovered modules |
 | `deobfuscate.py` | Static deobfuscator (strings, constants, global names) |
 | `decompiled/` | Decoded tables and the kit reconstruction, layered as deployed (`kit/`), plus 2026-11-11 live-mapping evidence (`live/`) |

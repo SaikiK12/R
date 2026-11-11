@@ -36,6 +36,18 @@ KNOWN_DOMAINS = {
     "nulltrace.app",
     "onlybulls.com",
     "dlicom.me",
+    # Sibling lures serving the identical bundle (URLScan hash pivot, 2026-11-11)
+    "airdrop-floatlaunch.xyz", "claim-floatlaunch.xyz", "rank-floatlaunch.xyz",
+    "www-meteora.ag-v2.ink", "sol-meteora.ag-v2.ink",
+    "meteora-exchange.pages.dev", "meteora-exchange-1yz.pages.dev",
+    "meteora-exchange-5eq.pages.dev", "moonshot-claim.pages.dev",
+    "login.web-jupiter.gd", "tracker.web-jupiter.gd", "app.web-jupiter.gd",
+    "launchpad.web-jupiter.gd", "jupiter-verify.xyz",
+    "arvoniq.com", "dexfi.app", "solme.top", "vaultspin.win",
+    "luna-start.trade", "pumpswap.rest", "dexscreener.fyi", "app.dextools.info",
+    "paybackpump.fun", "isen.fund", "allocationclaim.com", "boom-frog.xyz",
+    "eligibility-zkpass.org", "rolldice.icu", "daddysdogg.com", "amlbot.rest",
+    "solchaindapps.com", "cryptocommerceohpmigration.online", "pumpstreams.expl.live",
 }
 
 # JS-Confuser CJK obfuscation markers (specific to this kit)

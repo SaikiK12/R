@@ -3,9 +3,22 @@
   "solflare_api": "https://wallet-api.solflare.com/",
   "domains": {
     "live_lure": ["pumpanakin.fun"],
+    "sibling_lures_2026_11_11": [
+      "airdrop-floatlaunch.xyz", "claim-floatlaunch.xyz", "rank-floatlaunch.xyz",
+      "www-meteora.ag-v2.ink", "sol-meteora.ag-v2.ink",
+      "meteora-exchange.pages.dev", "meteora-exchange-1yz.pages.dev", "meteora-exchange-5eq.pages.dev",
+      "moonshot-claim.pages.dev",
+      "login.web-jupiter.gd", "tracker.web-jupiter.gd", "app.web-jupiter.gd", "launchpad.web-jupiter.gd",
+      "jupiter-verify.xyz", "arvoniq.com", "dexfi.app", "solme.top", "vaultspin.win",
+      "luna-start.trade", "pumpswap.rest", "dexscreener.fyi", "app.dextools.info",
+      "paybackpump.fun", "isen.fund", "allocationclaim.com", "boom-frog.xyz",
+      "eligibility-zkpass.org", "rolldice.icu", "daddysdogg.com", "amlbot.rest",
+      "solchaindapps.com", "cryptocommerceohpmigration.online", "pumpstreams.expl.live"
+    ],
     "sibling_in_live_config": ["trongame.fun (DNS-dead as of 2026-11-11)"],
     "kit_watermark": ["hexfomo.fun"],
-    "in_string_table": ["nulltrace.app", "reactwalletback.com", "onlybulls.com", "onlybulls://wallet", "dlicom.me"]
+    "in_string_table": ["nulltrace.app", "reactwalletback.com", "onlybulls.com", "onlybulls://wallet", "dlicom.me"],
+    "note": "All sibling_lures serve the byte-identical reference bundle and the same decrypted /api/config; one centrally-managed operation. Details in FAMILY_MAP.md."
   },
   "rpc_endpoints": [
     "https://mainnet.helius-rpc.com/?api-key=0b9f580f-8102-4b89-928b-8770a62771f0 (live 2026-11-11)",
