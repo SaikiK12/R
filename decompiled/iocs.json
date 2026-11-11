@@ -36,6 +36,14 @@
     "/api/config (live 2026-11-11, AES-GCM blob, not called by this bundle)"
   ],
   "aes_key_salt": "B3ui3QZFrOPoGW7oMZgE4A",
+  "operator_program": {
+    "program_id": "TwrGADB9QPrLfTKpWuyq9tjgRaGsuzgRUMFTz51uhsa",
+    "programdata": "HwWXKu3txa2CH6wMvPTMmZKY5bXHovftanBXbfUfqo5g",
+    "upgrade_authority": "3ofSxsTReb9Uhom1NvHqH5oU1EEDLuUxZVbFix4fGNY6",
+    "loader": "BPFLoaderUpgradeab1e11111111111111111111111 (upgradeable)",
+    "deployed_slot": 461751300,
+    "analysis": "decompiled/kit/chain/operator_program.md"
+  },
   "live_config_2026_11_11": {
     "target_token_mint": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v (USDC)",
     "receivers": [

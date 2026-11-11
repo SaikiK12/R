@@ -47,7 +47,7 @@ chain/
 |---|---|---|
 | `page/` | Runs on the lure page before any wallet interaction | `runtime.js`, `visit.js`, `page_params.js`, `set_sol_amount.js` |
 | `operator/` | Talks to `https://{apiHost}` | `operator_api.js`, `payloads.js`, `telemetry.js` |
-| `chain/` | Talks to Solana | `rpc.js`, `solflare_api.js`, `submit.js` |
+| `chain/` | Talks to Solana | `rpc.js`, `solflare_api.js`, `submit.js`, `tx_builders.js`, `operator_program.md` |
 
 ## What the operator controls server-side
 

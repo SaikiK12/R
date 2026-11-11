@@ -72,9 +72,14 @@ class OperatorClient {
     const response = await this._post(state.c, "/c/i", body, 16000);
     if (!response.ok) throw new StatusError(response.status);
 
-    // Binary response, parsed by 籮: a 32-byte session key (read as a
-    // base58 pubkey), a u16 length, and a length-prefixed UTF-8 string.
-    // The middle element is optional; On reshapes it to {key: csv.split(",")}.
+    // Binary response (NOT encrypted). Format pinned by emulating 籮:
+    //   0..10   11 bytes  opaque header
+    //   11..12  u16 LE    field A   (returned as element 0)
+    //   13      u8        field C   (returned as element 2)
+    //   14      u8        flag: 0 -> no middle section, else:
+    //   15..46  32 bytes  pubkey (base58)   -> keyed entry key
+    //   47..48  u16 LE    string length
+    //   49..    UTF-8     comma-separated list (split by "," in On)
     const buffer = new Uint8Array(await response.arrayBuffer());
     const [session, keyAndCsv, extra] = parseConnectResponse(buffer);
     let keyed;

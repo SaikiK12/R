@@ -160,13 +160,13 @@ Benign probes only (page-load-equivalent requests; the submit endpoints were nev
 - `GET /config` is just the SPA fallback, not an endpoint.
 - On-chain: assessed treasury `DvTqmF7u…` holds 17,057 SOL + 1,020,879 USDC; both live-config receivers were active within the hour.
 
-## Still not recovered
+## Remaining unknowns
 
-- The bundled WalletConnect / AppKit SDK (third-party wallet-modal library, not kit logic). The kit's calls into it (connect, signTransaction/signAllTransactions, signMessage) are identified at the boundary.
-- The `/c/i` response parser (`籮`) is read statically: 32-byte session key, u16 length, length-prefixed string. Its exact field roles are operator-side; no live response sample exists to validate against.
-- The on-chain behavior of the operator program `TwrGADB9QPrLfTKpWuyq9tjgRaGsuzgRUMFTz51uhsa` (what discriminators 2/3/4/18 do) is knowable only from the program binary, not from this bundle.
+- The bundled wallet-modal SDK is third-party: **Reown AppKit (w3m) plus `@redacted/enterprise-plugin` and `@redacted/components`** (the "Redacted" kit's SDK wrapper). Its bulk is not decompiled — it is library code, and the kit's calls into it (connect, signTransaction/signAllTransactions, signMessage) are identified at the boundary. Exact plugin version is not embedded in the bundle.
+- The `/c/i` response format is pinned (emulated): 11-byte opaque header, u16 field A, u8 field C, flag, optional 32-byte pubkey + u16 + UTF-8 CSV. The semantic roles of A and C are operator-side and not observable without a live victim flow.
+- The on-chain program is fully characterized at the binary level (`decompiled/kit/chain/operator_program.md`); individual handler internals beyond the observed discriminators were not hand-decompiled — the observed on-chain usage (marker/sweep/SOL-sweep) is documented instead.
 
-Everything else formerly listed here (payload builders, 鼄/浚 helpers, setSolAmount, drain-transaction builders) was recovered on 2026-11-11 against the live bundle. The live page still serves the reference sample byte-for-byte (SHA-256 `07356066…f9ea6a2`).
+Everything else formerly listed as missing was recovered on 2026-11-11 against the live bundle. The live page still serves the reference sample byte-for-byte (SHA-256 `07356066…f9ea6a2`).
 
 ## Detection
 

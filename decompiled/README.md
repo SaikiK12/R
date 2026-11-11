@@ -44,7 +44,7 @@ to run. `kit/README.md` has the end-to-end map.
 |---|---|
 | `kit/page/` | Lure-page code: polyfills, visit beacon, source/host helpers, modal amount setter |
 | `kit/operator/` | Operator API client, binary payload builders, AES-GCM, telemetry |
-| `kit/chain/` | RPC failover client, Solflare valuation client, submit + self-broadcast, drain-transaction builders |
+| `kit/chain/` | RPC failover client, Solflare valuation client, submit + self-broadcast, drain-transaction builders, on-chain program analysis |
 | `live/` | 2026-11-11 live-mapping evidence (locales, decrypted config, balances) |
 
 `apiHost` is the field `Se` on the app state object. It is a hostname.
@@ -55,7 +55,7 @@ The visit beacon compares it with the page host from `location`.
 Do not treat the older `src/*.js` trees on the deleted branches as
 accurate; they were built on the shifted constants.
 
-- The bundled WalletConnect / AppKit SDK (third-party, not kit logic)
+- The bundled wallet-modal SDK (Reown AppKit + `@redacted/enterprise-plugin`; third-party, not kit logic)
 
 Everything else that was flattened has been recovered: the payload
 builders (`焖`, `醭`, `措`) and the `/c/i` response parser (`籮`) were
