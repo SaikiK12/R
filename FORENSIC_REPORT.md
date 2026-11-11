@@ -130,7 +130,7 @@ ab060a03-7874-4647-84d1-da019e4b51ea
 
 Helius keys are the four in the RPC list above.
 
-Solana addresses present in the string table. Being in the table means the kit ships them. It does not, by itself, prove which ones receive funds. The transaction builder that would show that is still flattened.
+Solana addresses present in the string table. The recovered transaction builders (`decompiled/kit/chain/tx_builders.js`) show the roles: `TwrGADB9QPrLfTKpWuyq9tjgRaGsuzgRUMFTz51uhsa` is the operator's on-chain program, `DvTqmF7uMbLaW56QsMvcgv8KSkydFEikuk5gUcjACPV` the treasury, `6cwsqBqm…`/`4QFiKg8e…` receivers, `4cfdFcVu…`/`syspv6Qe…` drain-through hops. On-chain balances on 2026-11-11 (`decompiled/live/`) confirm which ones actually receive funds.
 
 ```
 6cwsqBqmRy22Qa2SEuZ8tWrpKoCS9M8S2r8ct8VuqFmj

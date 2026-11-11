@@ -15,4 +15,4 @@ Readable recovery of the kit code, organized into the three layers as deployed (
 | `decompiled/live/` | 2026-11-11 live-mapping evidence: locales, decrypted `/api/config`, on-chain balances |
 | `INFRASTRUCTURE.md` | How the operation is built, what it costs, takedown paths |
 
-Only the bundled WalletConnect / AppKit SDK (third-party code) is still control-flow flattened and not reconstructed.
+Only the bundled wallet-modal SDK (Reown AppKit + `@redacted/enterprise-plugin`, third-party code) is not reconstructed — by design; the kit's calls into it are identified at the boundary.
