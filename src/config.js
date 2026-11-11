@@ -1,14 +1,14 @@
 /* ════════════════════════════════════════════════════════════
- * SECTION 2 — C2 COMMUNICATION SETUP
+ * SECTION 2 — remote-api COMMUNICATION SETUP
  * See docs/execution_flow.md and docs/backend_protocol.md.
  * See docs/ for full documentation.
  * ════════════════════════════════════════════════════════════ */
 
     /* ═══════════════════════════════════════════════════════════
-     * SECTION 2 — C2 COMMUNICATION SETUP
-     * C2_PATH_PREFIX: the secret UUID path segment for all C2 routes
+     * SECTION 2 — remote-api COMMUNICATION SETUP
+     * C2_PATH_PREFIX: the secret UUID path segment for all api routes
      * generateBearer(): makes a fake UUID bearer token per request
-     * c2Fetch(path, params): authenticated GET to the C2 server
+     * c2Fetch(path, params): authenticated GET to the remote-api server
      * ═══════════════════════════════════════════════════════════ */
     C2_PATH_PREFIX = "ab060a03-7874-4647-84d1-da019e4b51ea");
 

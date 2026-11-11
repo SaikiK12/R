@@ -9,7 +9,7 @@
    * RpcClient: rotating RPC client with per-endpoint failover.
    * Endpoints: Helius x4 + publicnode + magiceden + solanatracker + mainnet-beta
    * solana.<method>(...args) → rpcClient.request(method, args) via Proxy
-   * Request headers include User-Agent: walletAddress (C2 fingerprinting)
+   * Request headers include User-Agent: walletAddress (remote-api fingerprinting)
    * ═══════════════════════════════════════════════════════════ */
   RpcClient = class {
     constructor(_str_cache) {

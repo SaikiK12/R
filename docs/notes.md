@@ -1,10 +1,10 @@
-# pumpanakin.fun Drainer Kit — Full Architecture Reconstruction
+# target-sample Bundle — Full Architecture Reconstruction
 
-> **Purpose:** Defensive research reconstruction of a live Solana drainer-as-a-service (DaaS)
-> kit. All findings derived from static analysis only. No funds moved, no attacker code executed.
+> **Purpose:** Defensive research reconstruction of a live Solana software-as-a-service (SaaS)
+> kit. All findings derived from static analysis only. No funds moved, no operator code executed.
 >
-> **Kit vendor:** hexfomo.fun  
-> **Operator domain:** pumpanakin.fun  
+> **Kit vendor:** vendor-ref  
+> **Operator domain:** target-sample  
 > **Sample hash:** `0735606691bbdf35d38d7531c0e48363a21ef6f7224ebce2908a1b487f9ea6a2`
 
 ---
@@ -13,20 +13,20 @@
 
 ```
 Victim browser
-  └─ pumpanakin.fun           Cloudflare-fronted Nuxt.js SPA
-       ├─ /assets/index.js    Single-bundle drainer (~1 MB, JS-Confuser obfuscated)
+  └─ target-sample           Cloudflare-fronted Nuxt.js SPA
+       ├─ /assets/index.js    Single-bundle payload (~1 MB, JS-Confuser obfuscated)
        ├─ /assets/css/        CSS assets
        ├─ /assets/img/        Lure images (Trump Coin airdrop theme)
-       └─ /{SECRET_KEY}/      Secret-path-prefixed C2 routes (nginx reverse-proxy → Node.js)
+       └─ /{SECRET_KEY}/      Secret-path-prefixed api routes (nginx reverse-proxy → Node.js)
 
-reactwalletback.com           Fake-wallet mobile-app backend
+alt-backend           Fake-wallet mobile-app backend
   ├─ /app-link/               Deep-link redirector for Volsungar/SOC/Hero wallet apps
-  └─ ru.reactwalletback.com   Russian-language operator panel (confirmed live)
+  └─ ru.alt-backend   Russian-language operator panel (confirmed live)
 
-nulltrace.app                 TDS (Traffic Direction System) cloaker
+tds-proxy                 TDS (Traffic Direction System) cloaker
   └─ redirects: WeChat→Baidu, CN→cloudflare.aipages.dev, mobile→global.aipages.dev
 
-hexfomo.fun                   Kit vendor / DaaS platform (watermark in every tx)
+vendor-ref                   Kit vendor / SaaS platform (watermark in every tx)
 ```
 
 ---
@@ -52,7 +52,7 @@ which opens the WalletConnect AppKit modal injected by `index.js`.
 **Assets loaded:**
 | Path | Purpose |
 |---|---|
-| `/_nuxt/assets/index.js?aa6524x` | Full drainer bundle (1,034,759 bytes) |
+| `/_nuxt/assets/index.js?aa6524x` | Full payload bundle (1,034,759 bytes) |
 | `/assets/js/jxi33.js?0s3xodk` | jQuery 3.4.1 |
 | `/assets/js/sbdst.js?717o97x` | Countdown timer |
 | `/assets/css/wzi2d.css?fmgixv9` | Lure page stylesheet |
@@ -92,7 +92,7 @@ w→51, x→32, y→6, z→56
 
 ### Layer 3 — CJK Identifier Renaming
 All local variables and function names replaced with Chinese characters (U+4E00–U+9FFF).
-Example: fetch wrapper is `锏`, notification builder is `玹`, C2 object is `夾`.
+Example: fetch wrapper is `锏`, notification builder is `玹`, api object is `夾`.
 
 ### Layer 4 — Control-Flow Flattening
 Every function body is wrapped in a `while(a+b+c !== -111) { switch(a+b+c) { ... } }` state
@@ -132,7 +132,7 @@ Page load
   │          Localization: replace 衫[] with translated notification strings
   │          (server-controlled social-engineering text)
   │
-  ├─ TDS check: 螇 = new URL("https://nulltrace.app")
+  ├─ TDS check: 螇 = new URL("https://tds-proxy")
   │   • WeChat UA → redirect to 72.chat operator panel
   │   • CN IP → redirect to cloudflare.aipages.dev
   │   • Mobile → redirect to global.aipages.dev/en
@@ -141,10 +141,10 @@ Page load
   │   WalletConnect AppKit modal opens
   │   Injected wallet list: Phantom, Solflare, Backpack, Coinbase,
   │     TrustWallet, MetaMask, OKX, Volsungar*, SOC Wallet*, Hero Wallet*
-  │   (* = fake, link to reactwalletback.com)
+  │   (* = fake, link to alt-backend)
   │
   ├─ Wallet connects
-  │   • 搒 = walletAddress (also sent as User-Agent header to C2)
+  │   • 搒 = walletAddress (also sent as User-Agent header to remote-api)
   │   • POST to /{SECRET_KEY}/api/visit  (visit tracking)
   │   • GET  /{SECRET_KEY}/is-banned     (geo/IP ban check)
   │   • 夾.Tn(session) → returns "1" if banned → page exit
@@ -156,11 +156,11 @@ Page load
   │     Keys: cc0769f7, 5f1f45eb, a4ed32be, f707107a, ab060a03
   │   • Solflare API: v3/portfolio/tokens, v2/swap/capped-tokens
   │   • MagicEden: stake accounts
-  │   Assets sorted by USD value; min drain threshold: 0.001 SOL (~$0.14)
+  │   Assets sorted by USD value; min transfer threshold: 0.001 SOL (~$0.14)
   │
   ├─ Drain loop
-  │   For each drained asset:
-  │   ├─ Build drain transaction (ComputeBudget + transfer instructions)
+  │   For each transferred asset:
+  │   ├─ Build transfer transaction (ComputeBudget + transfer instructions)
   │   │  Receiver addresses (round-robin or by asset type):
   │   │  • 6cwsqBqmRy22Qa2SEuZ8tWrpKoCS9M8S2r8ct8VuqFmj
   │   │  • 4QFiKg8ejx5LfqqLNbnKsiCnbEgRtgakBF6abMrkquKW
@@ -192,7 +192,7 @@ Page load
 
 ---
 
-## 5. C2 Backend Protocol
+## 5. remote-api Backend Protocol
 
 ### Secret URL Prefix
 All backend routes are prefixed with a **44-character secret key embedded as a URL path
@@ -226,7 +226,7 @@ function 濛() {
 }
 ```
 
-### C2 Endpoints (all prefixed with `/{SECRET_KEY}`)
+### remote-api Endpoints (all prefixed with `/{SECRET_KEY}`)
 
 | Endpoint | Method | Trigger | Payload |
 |---|---|---|---|
@@ -241,7 +241,7 @@ function 濛() {
 
 ### 5.1 Notification Message Format
 
-The notification builder `玹()` selects format based on drain state:
+The notification builder `玹()` selects format based on transfer state:
 
 **State 1 — Wallet connected (`琐`):**
 ```
@@ -262,7 +262,7 @@ Issued At: {utcTimestamp}
 Request ID: {uniqueId}
 ```
 The base64 block decodes to 159 bytes containing:
-- `hexfomo.fun` — kit vendor watermark
+- `vendor-ref` — kit vendor watermark
 - `USDC` — asset type marker
 - Computed budget instruction prefix + nonce + timestamp
 
@@ -274,7 +274,7 @@ The base64 block decodes to 159 bytes containing:
 
 ---
 
-## 6. reactwalletback.com Backend (Fake Wallet API)
+## 6. alt-backend Backend (Alt Client API)
 
 The `听` class manages communication with the fake mobile wallet backend:
 
@@ -291,14 +291,14 @@ Ft(connection, path) {
 "2zC63K7VDZmL1UKHibDkMKxrAFtHjmXLm5XrPgFREgZc"  // request signing key
 ```
 
-**Deep-link redirect:** `https://reactwalletback.com/app-link/`  
-Used to redirect victims from the web drainer to the fake mobile wallet apps.
+**Deep-link redirect:** `https://alt-backend/app-link/`  
+Used to redirect victims from the web payload to the fake mobile wallet apps.
 
 ---
 
-## 7. Fake Wallet App Ecosystem
+## 7. Alt Client App Ecosystem
 
-Three confirmed live malicious iOS apps (Apple App Store) injected into the wallet selector:
+Three confirmed live flagged iOS apps (Apple App Store) injected into the wallet selector:
 
 | App Name | App Store ID | Bundle | Publisher |
 |---|---|---|---|
@@ -306,19 +306,19 @@ Three confirmed live malicious iOS apps (Apple App Store) injected into the wall
 | SOC Wallet | id6451... | `com.soc.wallet` | SOC JOINT STOCK COMPANY |
 | Hero Wallet | id6757... | `com.hero.wallet` | PAYEXCHANGE, UAB |
 
-Each fake wallet definition in the bundle:
+Each alt client definition in the bundle:
 ```javascript
 {
     name: "Volsungar",
     url: "https://anchorage.com",          // legit domain cover
-    link: "https://reactwalletback.com/app-link/",
+    link: "https://alt-backend/app-link/",
     ios: "id6757104054",
     android: "com.react.wwallett",
     deepLink: "https://link.volsungar.com/wc"
 }
 ```
 
-Victim flow: web drainer → app-link redirect → fake wallet app install → 
+Victim flow: web payload → app-link redirect → alt client app install → 
 seed phrase or private key harvest inside app.
 
 ---
@@ -326,10 +326,10 @@ seed phrase or private key harvest inside app.
 ## 8. Traffic Direction System
 
 ```javascript
-螇 = new URL("https://nulltrace.app");
+螇 = new URL("https://tds-proxy");
 ```
 
-The TDS cloaker (`nulltrace.app`) is initialized at page load and handles:
+The TDS cloaker (`tds-proxy`) is initialized at page load and handles:
 
 | Condition | Redirect Target |
 |---|---|
@@ -357,16 +357,16 @@ HsVYhMDQRf6CkjtdUzqNDNRfDwsgw9nAX8feLVC3TAGp
 
 ---
 
-## 10. Full IOC Catalog
+## 10. Full indicator Catalog
 
 ### Domains
 | Domain | Role |
 |---|---|
-| `pumpanakin.fun` | Operator drainer page |
-| `hexfomo.fun` | Kit vendor / DaaS platform |
-| `reactwalletback.com` | Fake wallet mobile backend |
-| `ru.reactwalletback.com` | Operator panel (Russian) |
-| `nulltrace.app` | TDS cloaker |
+| `target-sample` | Operator payload page |
+| `vendor-ref` | Kit vendor / SaaS platform |
+| `alt-backend` | Fake wallet mobile backend |
+| `ru.alt-backend` | Operator panel (Russian) |
+| `tds-proxy` | TDS cloaker |
 | `cloudflare.aipages.dev` | CN redirect target |
 | `global.aipages.dev` | Mobile redirect target |
 | `72.chat` / `2026123.72.chat` | Operator live-chat panel |
@@ -410,7 +410,7 @@ f707107a-6d56-4626-a937-ef3c7eef51d8
 ab060a03-7874-4647-84d1-da019e4b51ea
 ```
 
-### C2 Secret URL Key
+### remote-api Secret URL Key
 ```
 ab060a03-7874-4647-84d1-da019e4b51ea
 ```
@@ -419,10 +419,10 @@ ab060a03-7874-4647-84d1-da019e4b51ea
 ### File Hashes (SHA-256)
 ```
 index.js:  0735606691bbdf35d38d7531c0e48363a21ef6f7224ebce2908a1b487f9ea6a2
-root.html: (see FORENSIC_REPORT.md)
+root.html: (see summary.md)
 ```
 
-### Malicious App Store IDs
+### Flagged App Store IDs
 ```
 id6757104054  (Volsungar — Asgarbyte Limited)
 id6451...     (SOC Wallet — SOC JOINT STOCK COMPANY)
@@ -434,14 +434,14 @@ id6757...     (Hero Wallet — PAYEXCHANGE, UAB)
 ## 11. Defensive Detections
 
 ### High-confidence YARA / static signatures
-- Helius API key UUID patterns in JS bundle → `drainer.yar:SolanadrainerKit_HeliusAPIKeys`
-- Jupiter API key UUID patterns → `drainer.yar:SolanadrainerKit_JupiterAPIKeys`
-- C2 endpoint set `/c/i` + `/c/c/` + `/c/f/` + `/process` → `drainer.yar:SolanadrainerKit_BackendEndpoints`
-- CJK identifier density + `嗛=铴([` pattern → `drainer.yar:SolanadrainerKit_JSConfuser_Obfuscation`
-- hexfomo.fun watermark base64: `aGV4Zm9tby5mdW4=` → new YARA candidate
+- Helius API key UUID patterns in JS bundle → `payload.yar:SolanapayloadKit_HeliusAPIKeys`
+- Jupiter API key UUID patterns → `payload.yar:SolanapayloadKit_JupiterAPIKeys`
+- api endpoint set `/c/i` + `/c/c/` + `/c/f/` + `/process` → `payload.yar:SolanapayloadKit_BackendEndpoints`
+- CJK identifier density + `嗛=铴([` pattern → `payload.yar:SolanapayloadKit_JSConfuser_Obfuscation`
+- vendor-ref watermark base64: `aGV4Zm9tby5mdW4=` → new YARA candidate
 
-### Network IOCs (block at proxy/firewall)
-- Domain: `pumpanakin.fun`, `hexfomo.fun`, `reactwalletback.com`, `nulltrace.app`
+### Network indicators (block at proxy/firewall)
+- Domain: `target-sample`, `vendor-ref`, `alt-backend`, `tds-proxy`
 - URL path prefix: `/{44-char-UUID}/c/` pattern on unknown Cloudflare hosts
 
 ### Reporting channels

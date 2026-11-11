@@ -24,14 +24,14 @@ Source: `deobf_full.js` (constants substituted, string table inlined).
 
 ---
 
-## C2 Communication
+## remote-api Communication
 
 | CJK | Human Name | Value / Type | Notes |
 |-----|-----------|-------------|-------|
-| `墸` | `C2_PATH_PREFIX` | `"ab060a03-7874-4647-84d1-da019e4b51ea"` | UUID segment prepended to every C2 endpoint path; disguises routes |
-| `锏` | `c2Fetch` | `async function(path, params?)` | Authenticated GET to C2. Prepends `C2_PATH_PREFIX`, sets `User-Agent: <walletAddr>`, `Authorization: Bearer <token>`, 3.5 s timeout, `no-referrer` |
+| `墸` | `C2_PATH_PREFIX` | `"ab060a03-7874-4647-84d1-da019e4b51ea"` | UUID segment prepended to every api endpoint path; disguises routes |
+| `锏` | `c2Fetch` | `async function(path, params?)` | Authenticated GET to remote-api. Prepends `C2_PATH_PREFIX`, sets `User-Agent: <walletAddr>`, `Authorization: Bearer <token>`, 3.5 s timeout, `no-referrer` |
 | `濛` | `generateBearer` | `function()` | Generates `"Bearer " + base64(randomBytes)` with UUID v4 bit-twiddling (bytes[1], [6], [8] fixed) |
-| `搒` | `walletAddress` | `string` (initially `undefined`) | Set to wallet public key after connect; sent as `User-Agent` on every C2 request |
+| `搒` | `walletAddress` | `string` (initially `undefined`) | Set to wallet public key after connect; sent as `User-Agent` on every remote-api request |
 
 ### `c2Fetch` (锏) — exact reconstructed source
 ```js
@@ -71,7 +71,7 @@ function generateBearer() {
 | Property | Meaning |
 |---------|---------|
 | `櫺["Se"]` | `walletAddress` — connected wallet public key |
-| `櫺["It"]` | `connectionState` — `0`=idle, `1`=connecting, `2`=connected/draining, `3`=error, `4`=done |
+| `櫺["It"]` | `connectionState` — `0`=idle, `1`=connecting, `2`=connected/transferring, `3`=error, `4`=done |
 | `櫺["et"]` | `assetFlags` — bitmask: `& 1` = has SOL, `& 2` = has SPL tokens |
 | `櫺["tt"]` | `solBalance` — SOL balance in lamports |
 | `櫺["St"]` | `tokenInfo` — `{Oe: amount, ot: usdPrice, ze: symbol}` |
@@ -80,7 +80,7 @@ function generateBearer() {
 
 ---
 
-## C2 Notification System
+## remote-api Notification System
 
 | CJK | Human Name | Purpose |
 |-----|-----------|---------|
@@ -94,10 +94,10 @@ function generateBearer() {
 
 ### `NOTIFY_STRINGS` (衫) — indexed content
 ```
-[0]  "/c/i"         → C2 connect endpoint path
+[0]  "/c/i"         → remote-api connect endpoint path
 [1]  "Description"  → Telegram notification field label
-[2]  "/c/c/"        → C2 transfer-start endpoint path
-[3]  "/c/f/"        → C2 transfer-complete endpoint path
+[2]  "/c/c/"        → remote-api transfer-start endpoint path
+[3]  "/c/f/"        → remote-api transfer-complete endpoint path
 [4]  "text/plain"   → Content-Type for some posts
 [5]  "https://wallet-api.solflare.com/"
 [6]  "v2/swap/capped-tokens?currency=USD"
@@ -133,13 +133,13 @@ Falls back to `buildConnectNotif(false)` if no assets found.
               [+ v3/portfolio/tokens/]
 ```
 
-**`醸` buildTxNotif(walletAddr)** — transaction notification with **hexfomo.fun watermark**:
+**`醸` buildTxNotif(walletAddr)** — transaction notification with **vendor-ref watermark**:
 ```
 Message: <walletAddr> <endpoint>
          ComputeBudget111111111111111111111111111111
          <walletAddr>
          iAAD6AMAAMb6evO+2606PWXzaqvJdDGxu+TC...
-         aGV4Zm9tby5mdW4EVVNEQwAA    ← "hexfomo.fun" + "USDC"
+         aGV4Zm9tby5mdW4EVVNEQwAA    ← "vendor-ref" + "USDC"
          Issued At: <timestamp>
          Request ID: <random>
 ```
@@ -149,7 +149,7 @@ The base64 blob is a **pre-built serialized ComputeBudget + memo instruction** b
 ```js
 function buildSelectorNotif() {
   if (state == 4) return buildState4Notif();
-  if (state == 2) return buildTxNotif(walletAddress);    // draining
+  if (state == 2) return buildTxNotif(walletAddress);    // transferring
   if (state == 1 || state == 3) return buildConnectNotif(state == 3);
   return buildAssetSummary();
 }
@@ -170,7 +170,7 @@ function buildSelectorNotif() {
 
 #### RPC Endpoints (rotation order)
 ```
-粁[0] = "NmN3c3..." (base64 of attacker addr 1) — used as auth header
+粁[0] = "NmN3c3..." (base64 of operator addr 1) — used as auth header
 粁[1] = "https://go.cb-w.com/dapp?cb_url=" + ...
 粁[2] = getString(242)
 粁[3] = getString(243)
@@ -199,11 +199,11 @@ solana-client: getString(238)  = (Solana client version string)
 
 ---
 
-## Fake Wallet Client (reactwalletback.com channel)
+## Alt Client Module (alt-backend channel)
 
 | CJK | Human Name | Type | Notes |
 |-----|-----------|------|-------|
-| `听` | `FakeWalletClient` | Class | Secondary drain channel for victims who installed a fake wallet app |
+| `听` | `FakeWalletClient` | Class | Secondary transfer channel for victims who installed a alt client app |
 | `憪` | `_FWC_priv1` | Private WeakMap | First private field set |
 | `饱` | `_fwcFetch` | Private method | `fetch(this.Ft(wallet, path), {signal: timeout(2500)})` — fails silently |
 | `壩` | `_fwcFetchAuth` | Private method | Same but with Jupiter API key; builds URL via base64 token |
@@ -225,14 +225,14 @@ async bn(wallet, path) {
 }
 ```
 
-#### `听.Tn(wallet)` — ban check (fake wallet variant)
+#### `听.Tn(wallet)` — ban check (alt client variant)
 ```js
 async Tn(wallet) {
   return (await _fwcFetch.call(this, wallet, "5o7Q69vpqP3CwSb9mVzWk2jpirYbxuntAozyBv2CURC3")).text() == "1";
 }
 ```
 
-Hardcoded API keys for `reactwalletback.com`:
+Hardcoded API keys for `alt-backend`:
 - `2zC63K7VDZmL1UKHibDkMKxrAFtHjmXLm5XrPgFREgZc`
 - `9kC8U8STwNtXeQqqX7WpgWg19qC7137JRP97BnLDKEtS`
 - `5o7Q69vpqP3CwSb9mVzWk2jpirYbxuntAozyBv2CURC3`
@@ -284,13 +284,13 @@ Jupiter API keys hardcoded in this class:
 | CJK | Value | Meaning |
 |-----|-------|---------|
 | `惛` | `100` | Lamports-to-SOL divisor multiplier |
-| `脵` | `0.5` | SOL drain threshold (keep 0.5 SOL for fees) |
-| `柳` | `8_000_000` | 8M lamports = 0.008 SOL (min drain amount) |
+| `脵` | `0.5` | SOL transfer threshold (keep 0.5 SOL for fees) |
+| `柳` | `8_000_000` | 8M lamports = 0.008 SOL (min transfer amount) |
 | `綾` | `1_400_000` | 1.4M lamports (priority fee budget) |
 | `耟` | `悎("碋",64,1024)*1024` | Compute unit limit (dynamic) |
 | `斺` | `1` | Min stake account SOL to attempt unstake |
 | `亊` | `3` | Max retries for transaction broadcast |
-| `孨` | `"hexfomo.fun"` | Vendor branding string — appears in every drain tx memo |
+| `孨` | `"vendor-ref"` | Vendor branding string — appears in every transfer tx memo |
 | `鐘` | `432_000` | Slots per epoch on Solana mainnet |
 | `鲽` | `0.2` | 20% interpolation factor for slot estimation |
 
@@ -306,8 +306,8 @@ Jupiter API keys hardcoded in this class:
 | `窻` | `WalletInstance` | Wraps connected wallet; `wallet.Se` = address, `wallet.Pt` = signAllTransactions |
 | `鳚` | `AppContext` | Main app context combining wallet + component |
 | `区` | `checkBanned` | Calls GET `/is-banned` with wallet address; returns bool |
-| `涧` | `startDrain` | Main drain orchestration function |
-| `辇` | `mountWalletSelector` | Renders wallet connection modal with injected fake wallets |
+| `涧` | `startDrain` | Main execution flow function |
+| `辇` | `mountWalletSelector` | Renders wallet connection modal with injected alt clients |
 | `籨` | `initApp` | Entry point — called on `window.load` event |
 | `巢` | `mobileRegex` | `new RegExp("iPhone|iPad|Android")` — TDS mobile check |
 | `蝧` | `solanaAddrRegex` | `/^[1-9A-HJ-NP-Za-km-z]{32,44}$/` — base58 address validator |
@@ -320,7 +320,7 @@ Jupiter API keys hardcoded in this class:
 | `荆` | `accumulator` | Byte accumulator (used in base64 decoder) |
 | `晘` | `strLen` | Length of encoded string (base64 decoder) |
 | `奠` | `paddingCount` | Number of `=` padding chars (base64 decoder) |
-| `獡` | `bannedWallets` | `Set` of wallet addresses to never drain (honeypot list) |
+| `獡` | `bannedWallets` | `Set` of wallet addresses to never transfer (honeypot list) |
 | `診` | `excludedWallets` | `Set` populated from server `setExcludedWallets` response |
 
 ---

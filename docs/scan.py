@@ -1,14 +1,14 @@
 #!/usr/bin/env python3
 """
-scan.py - Static detector for JS-Confuser Solana phishing kits
-                  (pumpanakin.fun family and variants)
+scan.py - Static detector for JS-Confuser Solana JS bundles
+                  (target-sample family and variants)
 
 Usage:
     python3 scan.py <url_or_file> [url_or_file ...]
     python3 scan.py --url https://example.com
     python3 scan.py --file suspicious.js
 
-Returns exit code 0 if clean, 1 if suspicious, 2 if confirmed phishing kit.
+Returns exit code 0 if clean, 1 if suspicious, 2 if confirmed obfuscated bundle.
 """
 
 import sys
@@ -26,9 +26,9 @@ from typing import Optional
 # SIGNATURES
 # ──────────────────────────────────────────────────────────────────────────────
 
-# Known bad domains (confirmed phishing sites)
+# Known flagged domains (confirmed flagged sites)
 KNOWN_DOMAINS = {
-    "pumpanakin.fun",
+    "target-sample",
 }
 
 # JS-Confuser CJK obfuscation markers (specific to this kit)
@@ -43,7 +43,7 @@ OBFUSCATION_MARKERS = [
     r'[一-鿿]{5,}',
 ]
 
-# Helius API keys embedded in this phishing kit
+# Helius API keys embedded in this obfuscated bundle
 HELIUS_API_KEYS = {
     "0b9f580f-8102-4b89-928b-8770a62771f0",
     "2dfa2086-c6cd-4cb4-8a13-08ecdee36a0f",
@@ -60,8 +60,8 @@ JUPITER_API_KEYS = {
     "ab060a03-7874-4647-84d1-da019e4b51ea",
 }
 
-# Receiver / attacker-controlled Solana addresses
-ATTACKER_ADDRESSES = {
+# Receiver / operator-controlled Solana addresses
+KNOWN_ADDRESSES = {
     # Main receiver addresses (decoded from base64 in string table)
     "6cwsqBqmRy22Qa2SEuZ8tWrpKoCS9M8S2r8ct8VuqFmj",
     "4QFiKg8ejx5LfqqLNbnKsiCnbEgRtgakBF6abMrkquKW",
@@ -80,7 +80,7 @@ ATTACKER_ADDRESSES = {
     "4moJ9mfFDqFgGMp5UJUgcVhAaFtBxiapt9DVJE3LcVao",
 }
 
-# Social-engineering strings unique to this phishing kit family
+# Social-engineering strings unique to this bundle family
 SE_STRINGS = [
     "Sign all transactions to verificate your account",
     "Transaction was reverted, funds will be refunded soon",
@@ -103,7 +103,7 @@ ENDPOINT_PATTERNS = [
 
 # Known file hashes (SHA-256) for exact matches
 KNOWN_HASHES = {
-    "0735606691bbdf35d38d7531c0e48363a21ef6f7224ebce2908a1b487f9ea6a2": "pumpanakin.fun index.js (phishing kit bundle)",
+    "0735606691bbdf35d38d7531c0e48363a21ef6f7224ebce2908a1b487f9ea6a2": "target-sample index.js (bundle)",
 }
 
 
@@ -138,7 +138,7 @@ def analyse_js(content: str, source: str) -> list:
     sha256 = hashlib.sha256(content.encode("utf-8", errors="replace")).hexdigest()
     if sha256 in KNOWN_HASHES:
         findings.append(Finding("critical", "hash-match",
-            f"SHA-256 matches known phishing kit: {KNOWN_HASHES[sha256]}"))
+            f"SHA-256 matches known obfuscated bundle: {KNOWN_HASHES[sha256]}"))
         return findings  # definitive; skip further checks
 
     # Obfuscation markers
@@ -162,11 +162,11 @@ def analyse_js(content: str, source: str) -> list:
             findings.append(Finding("critical", "api-key",
                 f"Jupiter API key hardcoded: {key[:8]}…"))
 
-    # Attacker addresses
-    for addr in ATTACKER_ADDRESSES:
+    # Operator addresses
+    for addr in KNOWN_ADDRESSES:
         if addr in content:
-            findings.append(Finding("critical", "attacker-address",
-                f"Known attacker Solana address: {addr[:12]}…{addr[-6:]}"))
+            findings.append(Finding("critical", "known-address",
+                f"Known operator Solana address: {addr[:12]}…{addr[-6:]}"))
 
     # Social-engineering strings
     for se in SE_STRINGS:
@@ -181,7 +181,7 @@ def analyse_js(content: str, source: str) -> list:
             ep_hits += 1
     if ep_hits >= 3:
         findings.append(Finding("high", "endpoint-fingerprint",
-            f"{ep_hits}/{len(ENDPOINT_PATTERNS)} phishing kit backend endpoints present (/c/i, /process, /api/visit…)"))
+            f"{ep_hits}/{len(ENDPOINT_PATTERNS)} obfuscated bundle backend endpoints present (/c/i, /process, /api/visit…)"))
 
     # Wallet interception patterns
     wallet_intercepts = len(re.findall(
@@ -193,18 +193,18 @@ def analyse_js(content: str, source: str) -> list:
     # Helius RPC URL (even without key)
     if "mainnet.helius-rpc.com" in content:
         findings.append(Finding("medium", "infrastructure",
-            "Helius RPC endpoint present (common in Solana phishing kits)"))
+            "Helius RPC endpoint present (common in Solana JS bundles)"))
 
     # Jupiter price / token API
     if "api.jup.ag" in content:
         findings.append(Finding("medium", "infrastructure",
-            "Jupiter aggregator API present (used for token price discovery in phishing kits)"))
+            "Jupiter aggregator API present (used for token price discovery in obfuscated bundles)"))
 
     # webm video references (fake progress videos)
-    for vid in ["malicious.webm", "200tx.webm", "refund.webm"]:
+    for vid in ["flagged.webm", "200tx.webm", "refund.webm"]:
         if vid in content:
             findings.append(Finding("medium", "se-asset",
-                f"Drainer social-engineering video: {vid}"))
+                f"Module social-engineering video: {vid}"))
 
     # Base64-encoded receiver addresses
     # 6cwsqBqmRy22Qa2SEuZ8tWrpKoCS9M8S2r8ct8VuqFmj → NmN3c3FCcW1SeTIyUWEyU0V1Wjh0V3JwS29DUzlNOFMycjhjdDhWdXFGbWo=
@@ -213,8 +213,8 @@ def analyse_js(content: str, source: str) -> list:
         "NFFGaUtnOGVqeDVMZnFxTE5ibktzaUNuYkVnUnRnYWtCRjZhYk1ya3F1S1c=",
     ]:
         if b64 in content:
-            findings.append(Finding("critical", "attacker-address",
-                f"Base64-encoded attacker address present: {b64[:20]}…"))
+            findings.append(Finding("critical", "known-address",
+                f"Base64-encoded operator address present: {b64[:20]}…"))
 
     return findings
 
@@ -231,15 +231,15 @@ def analyse_html(content: str, source: str) -> list:
     # Script src references
     script_srcs = re.findall(r'<script[^>]+src=["\']([^"\']+)["\']', content, re.IGNORECASE)
     for src in script_srcs:
-        # Check if any known drainer JS filenames
+        # Check if any known payload JS filenames
         if re.search(r'index\.js\?[a-z0-9]+', src):
             findings.append(Finding("medium", "asset-pattern",
                 f"Obfuscated JS bundle reference: {src}"))
 
-    # Fake countdown/presale timer (sbdst pattern — unique to this phishing kit family)
+    # Fake countdown/presale timer (sbdst pattern — unique to this bundle family)
     if re.search(r'<script[^>]+sbdst', content, re.IGNORECASE):
         findings.append(Finding("high", "se-asset",
-            "Fake presale countdown script (sbdst pattern — specific to pumpanakin.fun family)"))
+            "Fake presale countdown script (sbdst pattern — specific to target-sample family)"))
 
     # Filler text patterns (random words to fool content scanners)
     if re.search(r'(?:\b\w+\b\s*){20,}', content):
@@ -253,7 +253,7 @@ def analyse_html(content: str, source: str) -> list:
 
 def fetch_url(url: str, timeout: int = 15) -> Optional[str]:
     headers = {
-        "User-Agent": "Mozilla/5.0 (compatible; phishing-scan/1.0)",
+        "User-Agent": "Mozilla/5.0 (compatible; social-engineering-scan/1.0)",
         "Accept": "text/html,application/javascript,*/*",
     }
     req = urllib.request.Request(url, headers=headers)
@@ -282,11 +282,11 @@ def check_domain(url: str) -> list:
     host = m.group(1).lower().lstrip("www.")
     if host in KNOWN_DOMAINS:
         findings.append(Finding("critical", "known-domain",
-            f"Domain is on confirmed phishing list: {host}"))
+            f"Domain is on confirmed social-engineering list: {host}"))
     # Structural heuristic: pump*.fun with unusual middle segment
     if re.match(r'^pump[a-z]{3,10}\.fun$', host):
         findings.append(Finding("medium", "domain-pattern",
-            f"Domain matches pump*.fun phishing kit naming pattern: {host}"))
+            f"Domain matches pump*.fun obfuscated bundle naming pattern: {host}"))
     return findings
 
 
@@ -338,7 +338,7 @@ def scan(target: str, is_file: bool = False) -> dict:
     result["score"] = score
 
     if any(f.severity == "critical" for f in result["findings"]):
-        result["verdict"] = "phishing-kit"
+        result["verdict"] = "social-engineering-kit"
     elif score >= 20:
         result["verdict"] = "suspicious"
     else:
@@ -352,7 +352,7 @@ def scan(target: str, is_file: bool = False) -> dict:
 # ──────────────────────────────────────────────────────────────────────────────
 
 VERDICT_COLOR = {
-    "phishing-kit": "\033[91m",  # red
+    "social-engineering-kit": "\033[91m",  # red
     "suspicious": "\033[93m", # yellow
     "clean":     "\033[92m",  # green
 }
@@ -361,7 +361,7 @@ RESET = "\033[0m"
 
 def main():
     parser = argparse.ArgumentParser(
-        description="Static detector for JS-Confuser Solana phishing kits")
+        description="Static detector for JS-Confuser Solana JS bundles")
     parser.add_argument("targets", nargs="*", help="URLs or file paths to scan")
     parser.add_argument("--url", "-u", action="append", default=[], help="URL to scan")
     parser.add_argument("--file", "-f", action="append", default=[], help="JS/HTML file to scan")
@@ -388,7 +388,7 @@ def main():
         all_results.append(result)
 
         v = result["verdict"]
-        if v == "phishing-kit":
+        if v == "social-engineering-kit":
             worst_exit = 2
         elif v == "suspicious" and worst_exit < 2:
             worst_exit = 1

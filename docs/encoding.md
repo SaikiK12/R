@@ -163,4 +163,4 @@ The `樶` / `globalRef` function uses a string key → global value mapping stor
 - Building a symbolic executor that evaluates the state arithmetic
 - Manual line-by-line tracing of each function (the approach used for key functions documented here)
 
-For the purposes of this research, the architecture, all C2 endpoints, all credentials, and the full execution flow have been reconstructed without needing to fully decompile every function.
+For the purposes of this research, the architecture, all api endpoints, all credentials, and the full execution flow have been reconstructed without needing to fully decompile every function.

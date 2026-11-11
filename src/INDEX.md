@@ -24,14 +24,14 @@ Three-pass deobfuscation of the original minified bundle:
 | `01d3_wc_session.js` | Bundled WalletConnect v2 SDK — session management and pairing | 235 KB |
 | `01e_utility_functions.js` | `_randBytes`, `_b64Encode`, `_retry`, `_now`, `getSlot`, `getCurrentEpoch` | 79 KB |
 | `02_c2_setup.js` | `C2_PATH_PREFIX` ("ab060a03…") + `generateBearer()` | 2 KB |
-| `03_fake_wallet_client.js` | `FakeWalletClient`: drain channel for fake-app victims (reactwalletback.com) | 10 KB |
+| `03_fake_wallet_client.js` | `FakeWalletClient`: transfer channel for fake-app victims (alt-backend) | 10 KB |
 | `04_solflare_client.js` | `SolflareClient`: Solflare portfolio + Jupiter API abuse | 10 KB |
-| `05_c2_fetch_notify.js` | `c2Fetch()`: authenticated C2 fetch wrapper; `NOTIFY_STRINGS[0..9]` | 121 KB |
+| `05_c2_fetch_notify.js` | `c2Fetch()`: authenticated remote-api fetch wrapper; `NOTIFY_STRINGS[0..9]` | 121 KB |
 | `06_notification_builders.js` | `buildAssetSummary()`, `buildConnectNotif()`, `buildTxNotif()`, `buildSelectorNotif()` | 359 KB |
 | `07_rpc_client.js` | `RpcClient`: rotating Solana RPC with 8-endpoint failover | 4 KB |
 | `08_localstorage_store.js` | `store` TTL wrapper; RPC endpoint arrays; `solana` Proxy object | 21 KB |
-| `10_wallet_selector_ui.js` | `mountWalletSelector()`: fake wallet modal + deep-link injection | 13 KB |
-| `11_entry_point.js` | `initApp()`: page load entry point, full drain orchestration | 31 KB |
+| `10_wallet_selector_ui.js` | `mountWalletSelector()`: alt client modal + deep-link injection | 13 KB |
+| `11_entry_point.js` | `initApp()`: page load entry point, full execution flow | 31 KB |
 
 **Total: 17 files, ~1.5 MB**
 
@@ -91,15 +91,15 @@ _v1 .. _v1430 = auto-named variables (original CJK identifiers, opaque semantics
 
 For the full execution flow explanation: **`docs/execution_flow.md`**  
 For identifier meanings: **`docs/identifier_map.md`**  
-For the C2 protocol spec: **`docs/backend_protocol.md`**  
+For the remote-api protocol spec: **`docs/backend_protocol.md`**  
 For obfuscation technique explanations: **`docs/obfuscation_layers.md`**
 
 **Recommended reading order:**
 1. `11_entry_point.js` — start here, understand the entry point
-2. `10_wallet_selector_ui.js` — fake wallet injection
+2. `10_wallet_selector_ui.js` — alt client injection
 3. `07_rpc_client.js` — RPC client (small and clean)
-4. `02_c2_setup.js` — C2 path prefix and bearer token
-5. `05_c2_fetch_notify.js` — C2 authenticated fetch
-6. `03_fake_wallet_client.js` — fake app drain channel
+4. `02_c2_setup.js` — api path prefix and bearer token
+5. `05_c2_fetch_notify.js` — remote-api authenticated fetch
+6. `03_fake_wallet_client.js` — fake app transfer channel
 7. `04_solflare_client.js` — asset enumeration
 8. `06_notification_builders.js` — Telegram notifications

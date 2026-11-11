@@ -1,27 +1,27 @@
 /*
  * signatures.yar
- * YARA rules for the JS-Confuser Solana phishing kit family
- * (pumpanakin.fun and variants)
+ * YARA rules for the JS-Confuser Solana JS bundle family
+ * (target-sample and variants)
  *
  * Usage: yara -r signatures.yar /path/to/scan/
  */
 
-rule SolanaPhishingKit_JSConfuser_Exact {
+rule SolanaSocial-engineeringKit_JSConfuser_Exact {
     meta:
-        description = "Exact match on pumpanakin.fun phishing bundle (index.js)"
-        threat       = "Solana phishing / credential harvesting"
+        description = "Exact match on target-sample obfuscated bundle (index.js)"
+        sample       = "Solana social-engineering / asset extraction"
         hash_sha256  = "0735606691bbdf35d38d7531c0e48363a21ef6f7224ebce2908a1b487f9ea6a2"
-        source       = "pumpanakin.fun index.js (retrieved 2026-11-10)"
+        source       = "target-sample index.js (retrieved 2026-11-10)"
         severity     = "critical"
 
     condition:
         hash.sha256(0, filesize) == "0735606691bbdf35d38d7531c0e48363a21ef6f7224ebce2908a1b487f9ea6a2"
 }
 
-rule SolanaPhishingKit_JSConfuser_Obfuscation {
+rule SolanaSocial-engineeringKit_JSConfuser_Obfuscation {
     meta:
-        description = "JS-Confuser CJK obfuscation markers unique to this phishing kit build"
-        threat       = "Solana phishing kit"
+        description = "JS-Confuser CJK obfuscation markers unique to this bundle build"
+        sample       = "Solana JS bundle"
         severity     = "high"
 
     strings:
@@ -38,10 +38,10 @@ rule SolanaPhishingKit_JSConfuser_Obfuscation {
         3 of ($enc_init, $accessor, $bootstrap, $cache)
 }
 
-rule SolanaPhishingKit_HeliusAPIKeys {
+rule SolanaSocial-engineeringKit_HeliusAPIKeys {
     meta:
-        description = "Hardcoded Helius RPC API keys from pumpanakin.fun phishing kit"
-        threat       = "Solana phishing kit / attacker infrastructure"
+        description = "Hardcoded Helius RPC API keys from target-sample obfuscated bundle"
+        sample       = "Solana JS bundle / operator infrastructure"
         severity     = "critical"
 
     strings:
@@ -54,10 +54,10 @@ rule SolanaPhishingKit_HeliusAPIKeys {
         any of them
 }
 
-rule SolanaPhishingKit_JupiterAPIKeys {
+rule SolanaSocial-engineeringKit_JupiterAPIKeys {
     meta:
-        description = "Hardcoded Jupiter aggregator API keys from pumpanakin.fun phishing kit"
-        threat       = "Solana phishing kit / attacker infrastructure"
+        description = "Hardcoded Jupiter aggregator API keys from target-sample obfuscated bundle"
+        sample       = "Solana JS bundle / operator infrastructure"
         severity     = "critical"
 
     strings:
@@ -71,10 +71,10 @@ rule SolanaPhishingKit_JupiterAPIKeys {
         any of them
 }
 
-rule SolanaPhishingKit_CollectionAddresses {
+rule SolanaSocial-engineeringKit_CollectionAddresses {
     meta:
-        description = "Attacker-controlled Solana addresses hardcoded in phishing kit"
-        threat       = "Solana phishing kit"
+        description = "Operator-controlled Solana addresses hardcoded in obfuscated bundle"
+        sample       = "Solana JS bundle"
         severity     = "critical"
 
     strings:
@@ -84,7 +84,7 @@ rule SolanaPhishingKit_CollectionAddresses {
         // Base64 forms
         $b64_1 = "NmN3c3FCcW1SeTIyUWEyU0V1Wjh0V3JwS29DUzlNOFMycjhjdDhWdXFGbWo=" ascii
         $b64_2 = "NFFGaUtnOGVqeDVMZnFxTE5ibktzaUNuYkVnUnRnYWtCRjZhYk1ya3F1S1c=" ascii
-        // Other attacker wallets
+        // Other operator wallets
         $addr3 = "DvTqmF7uMbLaW56QsMvcgv8KSkydFEikuk5gUcjACPV" ascii
         $addr4 = "4cfdFcVuJf8PPXpMWPMCDehSE4gV4C8oYwpZnLra7rtW" ascii
         $addr5 = "TwrGADB9QPrLfTKpWuyq9tjgRaGsuzgRUMFTz51uhsa" ascii
@@ -95,10 +95,10 @@ rule SolanaPhishingKit_CollectionAddresses {
         any of them
 }
 
-rule SolanaPhishingKit_OperatorAddresses {
+rule SolanaSocial-engineeringKit_OperatorAddresses {
     meta:
-        description = "Operator target Solana addresses from pumpanakin.fun phishing kit"
-        threat       = "Solana phishing kit"
+        description = "Operator target Solana addresses from target-sample obfuscated bundle"
+        sample       = "Solana JS bundle"
         severity     = "critical"
 
     strings:
@@ -113,10 +113,10 @@ rule SolanaPhishingKit_OperatorAddresses {
         any of them
 }
 
-rule SolanaPhishingKit_DeceptiveStrings {
+rule SolanaSocial-engineeringKit_DeceptiveStrings {
     meta:
-        description = "Deceptive UI strings unique to this phishing kit family"
-        threat       = "Solana phishing kit"
+        description = "Deceptive UI strings unique to this bundle family"
+        sample       = "Solana JS bundle"
         severity     = "high"
 
     strings:
@@ -131,10 +131,10 @@ rule SolanaPhishingKit_DeceptiveStrings {
         2 of them
 }
 
-rule SolanaPhishingKit_BackendEndpoints {
+rule SolanaSocial-engineeringKit_BackendEndpoints {
     meta:
-        description = "Backend endpoint set unique to this phishing kit C2 protocol"
-        threat       = "Solana phishing kit"
+        description = "Backend endpoint set unique to this obfuscated bundle remote-api protocol"
+        sample       = "Solana JS bundle"
         severity     = "high"
 
     strings:
@@ -150,14 +150,14 @@ rule SolanaPhishingKit_BackendEndpoints {
         4 of them
 }
 
-rule SolanaPhishingKit_MediaAssets {
+rule SolanaSocial-engineeringKit_MediaAssets {
     meta:
-        description = "WebM video asset references in phishing kit page"
-        threat       = "Solana phishing kit"
+        description = "WebM video asset references in obfuscated bundle page"
+        sample       = "Solana JS bundle"
         severity     = "medium"
 
     strings:
-        $v1 = "malicious.webm" ascii
+        $v1 = "flagged.webm" ascii
         $v2 = "200tx.webm"     ascii
         $v3 = "refund.webm"    ascii
 
@@ -165,14 +165,14 @@ rule SolanaPhishingKit_MediaAssets {
         2 of them
 }
 
-rule SolanaPhishingKit_FullMatch {
+rule SolanaSocial-engineeringKit_FullMatch {
     meta:
-        description = "High-confidence detection: multiple phishing kit subsystems present"
-        threat       = "Solana phishing kit (pumpanakin.fun family)"
+        description = "High-confidence detection: multiple obfuscated bundle subsystems present"
+        sample       = "Solana JS bundle (target-sample family)"
         severity     = "critical"
 
     condition:
-        SolanaPhishingKit_JSConfuser_Obfuscation and
-        (SolanaPhishingKit_HeliusAPIKeys or SolanaPhishingKit_CollectionAddresses) and
-        SolanaPhishingKit_BackendEndpoints
+        SolanaSocial-engineeringKit_JSConfuser_Obfuscation and
+        (SolanaSocial-engineeringKit_HeliusAPIKeys or SolanaSocial-engineeringKit_CollectionAddresses) and
+        SolanaSocial-engineeringKit_BackendEndpoints
 }

