@@ -1,5 +1,5 @@
 {
-  "note": "/api/handler AES-GCM bodies decrypted with key SHA-256(pumpanakin.fun + log + salt). Captured live from the kit posting its own telemetry during harness runs; response was 200 ok in all cases.",
+  "note": "/api/handler AES-GCM bodies decrypted with key SHA-256(pumpanakin.fun + log + salt). Captured live from the kit posting its own telemetry during harness runs; response was 200 ok in all cases. Eight events total: 2 from early connect probes, 3 from the SOL-path run, 3 from the token-path run.",
   "events": [
     {
       "label": "2026-11-12T22:17 connect-attempt (popup open)",
@@ -70,6 +70,40 @@
         "X6",
         "en-US"
       ]
+    },
+    {
+      "label": "2026-11-12T23:20 token-path event 1",
+      "plaintext_len": 102,
+      "hex": "0106312e31382e34ffb3900600075068616e746f6d31a0b0ab01bb35f8806e0f1ef0722cdc8058369184c0a1ead25ade9bc183640702bdf4b0e08137280094357700000000000000000000000005656e2d555301000455534443a8610000a4db666390affb6b",
+      "strings": [
+        "1.18.4",
+        "Phantom1",
+        "r,",
+        "X6",
+        "7(",
+        "5w",
+        "en-US",
+        "USDC",
+        "fc"
+      ]
+    },
+    {
+      "label": "2026-11-12T23:20 token-path event 2",
+      "plaintext_len": 102,
+      "hex": "0206312e31382e34354a092d00075068616e746f6d31a0b0ab01bb35f8806e0f1ef0722cdc8058369184c0a1ead25ade9bc18364070254e6bc907369641076167700000000000000000000000005656e2d555301000455534443a86100008976d9b9fd9f58ed",
+      "strings": [
+        "1.18.45J",
+        "Phantom1",
+        "r,",
+        "X6",
+        "sid",
+        "en-US",
+        "USDC"
+      ]
+    },
+    {
+      "label": "2026-11-12T23:20 token-path event 3 (pre-sign)",
+      "error": "Unsupported state or unable to authenticate data"
     }
   ]
 }

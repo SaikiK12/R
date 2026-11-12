@@ -4,36 +4,86 @@
   "last_updated": "2026-11-12",
   "note_on_attribution": "Attribution of pumpanakin.fun to Rublevka Team is not established. The hexfomo.fun kit watermark may identify a DaaS vendor whose kit is used by multiple operators. See INDUSTRY_CONTEXT.md.",
   "solflare_api": "https://wallet-api.solflare.com/",
-  "locale_languages_2026_11_12": ["en","fr","zh","de","es","pt","it","ja","ko","ar","tr","pl","vi"],
-  "locale_languages_note": "13 languages confirmed live 2026-11-12 16:54 UTC. vi (481 B) was added after the morning check. ru, uk, and nl return 404. Up from 3 (en/fr/zh) on 2026-11-11.",
+  "locale_languages_2026_11_12": [
+    "en",
+    "fr",
+    "zh",
+    "de",
+    "es",
+    "pt",
+    "it",
+    "ja",
+    "ko",
+    "ar",
+    "tr",
+    "pl",
+    "vi",
+    "id"
+  ],
+  "locale_languages_note": "14 languages live as of 2026-11-12 23:15 UTC (id added 380 B; all saved in decompiled/live/locales_*.json). ru, uk, nl, th, hi return 404.",
   "domains": {
-    "live_lure": ["pumpanakin.fun"],
+    "live_lure": [
+      "pumpanakin.fun"
+    ],
     "connect_domains": [
       "petramon.xyz (ACTIVE connect domain as of 2026-11-12 ~22:15 UTC. Pushed via the config sibling field (rotated from trongame.fun). Serves only /connect/<token> + /index-f916ac.js + /app-924a52.js (reference bundle) + /_nuxt/media/*; everything else 404s. Same openModal shim as easyinvest7.biz, byte-identical. Archived in archive/petramon.xyz/.)",
-      "easyinvest7.biz (previous connect domain. At 16:54 UTC 2026-11-12 the HTML shell 404s — /, /connect.html, /connect/<token> — but /_nuxt/assets/index.js is still the reference bundle, /index-f916ac.js still calls openModal(), and /api/config + /api/locales answer. Cloudflare Web Analytics token on the 404 page: 19268545265c46b59114bf0caf342ee8.)",
+      "easyinvest7.biz (previous connect domain. At 16:54 UTC 2026-11-12 the HTML shell 404s \u2014 /, /connect.html, /connect/<token> \u2014 but /_nuxt/assets/index.js is still the reference bundle, /index-f916ac.js still calls openModal(), and /api/config + /api/locales answer. Cloudflare Web Analytics token on the 404 page: 19268545265c46b59114bf0caf342ee8.)",
       "neatly-resonant.ext-helper.cc (payload host named by dexscreener.fyi, live 2026-11-12 17:02 UTC: root 404, reference bundle and the same /api/config as the lure family)"
     ],
     "sibling_lures_2026_11_11": [
-      "airdrop-floatlaunch.xyz", "claim-floatlaunch.xyz", "rank-floatlaunch.xyz",
-      "www-meteora.ag-v2.ink", "sol-meteora.ag-v2.ink",
-      "meteora-exchange.pages.dev", "meteora-exchange-1yz.pages.dev", "meteora-exchange-5eq.pages.dev",
+      "airdrop-floatlaunch.xyz",
+      "claim-floatlaunch.xyz",
+      "rank-floatlaunch.xyz",
+      "www-meteora.ag-v2.ink",
+      "sol-meteora.ag-v2.ink",
+      "meteora-exchange.pages.dev",
+      "meteora-exchange-1yz.pages.dev",
+      "meteora-exchange-5eq.pages.dev",
       "moonshot-claim.pages.dev",
-      "login.web-jupiter.gd", "tracker.web-jupiter.gd", "app.web-jupiter.gd", "launchpad.web-jupiter.gd",
-      "jupiter-verify.xyz", "arvoniq.com", "dexfi.app", "solme.top", "vaultspin.win",
-      "luna-start.trade", "pumpswap.rest", "dexscreener.fyi", "app.dextools.info",
-      "paybackpump.fun", "isen.fund", "allocationclaim.com", "boom-frog.xyz",
-      "eligibility-zkpass.org", "rolldice.icu", "daddysdogg.com", "amlbot.rest",
-      "solchaindapps.com", "cryptocommerceohpmigration.online", "pumpstreams.expl.live"
+      "login.web-jupiter.gd",
+      "tracker.web-jupiter.gd",
+      "app.web-jupiter.gd",
+      "launchpad.web-jupiter.gd",
+      "jupiter-verify.xyz",
+      "arvoniq.com",
+      "dexfi.app",
+      "solme.top",
+      "vaultspin.win",
+      "luna-start.trade",
+      "pumpswap.rest",
+      "dexscreener.fyi",
+      "app.dextools.info",
+      "paybackpump.fun",
+      "isen.fund",
+      "allocationclaim.com",
+      "boom-frog.xyz",
+      "eligibility-zkpass.org",
+      "rolldice.icu",
+      "daddysdogg.com",
+      "amlbot.rest",
+      "solchaindapps.com",
+      "cryptocommerceohpmigration.online",
+      "pumpstreams.expl.live"
     ],
-    "sibling_in_live_config": ["trongame.fun (DNS-dead as of 2026-11-12 16:54 UTC)"],
+    "sibling_in_live_config": [
+      "trongame.fun (DNS-dead as of 2026-11-12 16:54 UTC)"
+    ],
     "prewired_not_resolving": [
       "amlbot.store (NXDOMAIN 2026-11-12 17:02 UTC; amlbot.rest HTML loads https://amlbot.store/_nuxt/assets/index.js)",
       "lens-badland.fontstack.cc (NXDOMAIN; named from pumpstreams.expl.live HTML)",
       "voicechat.fun (NXDOMAIN; named from pumpstreams.expl.live HTML)",
       "hexfomo.fun (NXDOMAIN)"
     ],
-    "kit_watermark": ["hexfomo.fun"],
-    "in_string_table": ["nulltrace.app", "reactwalletback.com", "onlybulls.com", "onlybulls://wallet", "dlicom.me"],
+    "kit_watermark": [
+      "hexfomo.fun"
+    ],
+    "in_string_table": [
+      "nulltrace.app",
+      "reactwalletback.com",
+      "onlybulls.com",
+      "onlybulls://wallet",
+      "dlicom.me"
+    ],
     "note": "All sibling_lures serve the byte-identical reference bundle and the same decrypted /api/config; one centrally-managed operation. Details in FAMILY_MAP.md."
   },
   "rpc_endpoints": [
@@ -64,15 +114,26 @@
     "/api/handler (POST-only; 404 to GET)",
     "/api/config (called by the bundle on every page load; corrected 2026-11-12)",
     "/api/config/ (trailing-slash alias, same blob)",
-    "/api/stats (discovered 2026-11-12; 422 VALIDATION without unknown params; never called by the kit — operator-side)"
+    "/api/stats (discovered 2026-11-12; 422 VALIDATION without unknown params; never called by the kit \u2014 operator-side)"
   ],
   "endpoint_enumeration": "40 guessed paths GET-probed 2026-11-12, decompiled/live/endpoint_surface_2026-11-12.json. No status/health/admin/debug endpoints exposed. robots.txt is Cloudflare content-signals boilerplate.",
   "aes_key_salt": "B3ui3QZFrOPoGW7oMZgE4A",
   "runtime_fingerprints_2026_11_12": {
     "console_log": "1.18.4",
-    "localStorage_keys": ["_0x5 (visit unix seconds)", "_0x12 (JSON string, ~220-byte base64 encrypted blob)", "_0x6 (campaign source tag, read-only)"],
-    "load_order": ["GET /api/is-banned -> 200 '0'", "GET /api/config -> 200 188-byte blob", "POST /api/visit -> 200 'ok'"],
-    "dom": ["<w3m-modal> element", "window.openModal function"],
+    "localStorage_keys": [
+      "_0x5 (visit unix seconds)",
+      "_0x12 (JSON string, ~220-byte base64 encrypted blob)",
+      "_0x6 (campaign source tag, read-only)"
+    ],
+    "load_order": [
+      "GET /api/is-banned -> 200 '0'",
+      "GET /api/config -> 200 188-byte blob",
+      "POST /api/visit -> 200 'ok'"
+    ],
+    "dom": [
+      "<w3m-modal> element",
+      "window.openModal function"
+    ],
     "wallet_clone_storage": "phantom-* namespace (phantom-wallets-v2, phantom-logos, phantom-demo-chats, phantom-alerts) on Phantom-clone costumes",
     "note": "Confirmed live in Playwright walks of pumpanakin.fun, vaultspin.win, dexfi.app, solchaindapps.com, amlbot.rest. Backend identical on 18 hosts (see decompiled/live/backend_diff_2026-11-12.json). The bundle calls /api/config on every load; /api/locales is never called from the browser. amlbot.rest attempts to load the bundle from amlbot.store first (NXDOMAIN) and falls back to its own origin."
   },
@@ -99,19 +160,20 @@
     ]
   },
   "live_config_v2_2026_11_12_evening": {
-    "note": "Config blob grew from 188 to 220 bytes between 17:02 and 22:15 UTC. Same 3 receivers (HrmfWTNd…, 7oHgTZjN…, 7mfxYcwy…), max 500, min field now 0.9996245300613538, and TWO layout changes: sibling_domain is now petramon.xyz (was trongame.fun — this is how the connect domain rotated), and a new u16-length-prefixed 32-byte field was appended after the token symbol.",
-    "appended_pubkey": "DvuqUzFAi8pHMaXfsWM6ASwsVeRHgtruDXaaJ9DxT3xQ (0 lamports, 0 signatures as of 2026-11-12 22:20 UTC — staged, role unknown)",
-    "sibling_domain": "petramon.xyz"
+    "note": "Config blob grew from 188 to 220 bytes between 17:02 and 22:15 UTC. Same 3 receivers (HrmfWTNd\u2026, 7oHgTZjN\u2026, 7mfxYcwy\u2026), max 500, min field now 0.9996245300613538, and TWO layout changes: sibling_domain is now petramon.xyz (was trongame.fun \u2014 this is how the connect domain rotated), and a new u16-length-prefixed 32-byte field was appended after the token symbol.",
+    "appended_pubkey": "DvuqUzFAi8pHMaXfsWM6ASwsVeRHgtruDXaaJ9DxT3xQ (0 lamports, 0 signatures as of 2026-11-12 22:20 UTC \u2014 staged, role unknown)",
+    "sibling_domain": "petramon.xyz",
+    "rollback": "ROLLED BACK between 22:47 and 23:15 UTC: config reverted to the 188-byte v1 form (sibling trongame.fun, min exactly 1.0, no appended field). The 220-byte v2 (petramon.xyz + DvuqUzFA) was live roughly one hour. petramon.xyz still serves the connect shell but its /api/config 404s."
   },
   "decoy_infrastructure_2026_11_12": {
     "note": "Live-built drain tx captured 22:47 UTC (decompiled/live/dynamic/captured_tx_2026-11-12.json). Decoy legs do NOT use the rotated config receivers. They use the string-table pair:",
     "decoy_authority": "7VHUFJHWu2CuExkJcJrzhQPJ2oygupTWkL2A2For4BmE (signs the fake incoming 500 USDC leg; 'retired' as receiver but its key is still the decoy co-signer)",
     "decoy_relay": "3emsAVdmGKERbHjmGfQ6oZ1e35dkf5iYcS6U4CPKFVaa (source of the fake incoming USDC)",
-    "decoy_sol": "1 SOL from treasury DvTqmF7u… (fee payer, confirmed in the built tx)",
-    "theft_leg": "operator program TwrGADB9…, disc 0x02, accounts [victim] — CPI drain in the same atomic tx"
+    "decoy_sol": "1 SOL from treasury DvTqmF7u\u2026 (fee payer, confirmed in the built tx)",
+    "theft_leg": "operator program TwrGADB9\u2026, disc 0x02, accounts [victim] \u2014 CPI drain in the same atomic tx"
   },
   "live_config_2026_11_12_1654utc": {
-    "note": "SECOND rotation the same day. Morning/16:39 UTC receivers (142yhSkB…, 7Z7oKDRH…, DC9dh6xD…) were replaced between 16:41 and 16:54 UTC. Those three still have 0 lamports and 0 signatures — rotation is not waiting for the previous wallets to receive funds. Identical plaintext on pumpanakin.fun, amlbot.rest, arvoniq.com, vaultspin.win, and easyinvest7.biz.",
+    "note": "SECOND rotation the same day. Morning/16:39 UTC receivers (142yhSkB\u2026, 7Z7oKDRH\u2026, DC9dh6xD\u2026) were replaced between 16:41 and 16:54 UTC. Those three still have 0 lamports and 0 signatures \u2014 rotation is not waiting for the previous wallets to receive funds. Identical plaintext on pumpanakin.fun, amlbot.rest, arvoniq.com, vaultspin.win, and easyinvest7.biz.",
     "target_token": "USDC",
     "max_sol": 500.0,
     "min_sol": 1.0,
@@ -123,21 +185,35 @@
     ]
   },
   "live_config_2026_11_12": {
-    "note": "RECEIVERS ROTATED — operator pushed new config between 2026-11-11 18:30 UTC and 2026-11-12 07:06 UTC",
+    "note": "RECEIVERS ROTATED \u2014 operator pushed new config between 2026-11-11 18:30 UTC and 2026-11-12 07:06 UTC",
     "target_token_mint": "USDC (unchanged)",
     "max_sol": 500.0,
     "min_sol": 1.0,
     "sibling_domain": "trongame.fun (unchanged, still DNS-dead)",
     "receivers": [
-      "142yhSkBthJpmWKzhBRtHYV6S4JdXAMBQcdYD8vEhNx4 (NEW — 0 lamports, uninitialized)",
-      "7Z7oKDRHhXwzeWfuJ91FDZowaNETWwq6pW4XHt7d6FBL (NEW — 0 lamports, uninitialized)",
-      "DC9dh6xDK7mLbrSUx9Fcy9VpMuSdJnUynoNEtr9Y6NjA (NEW — 0 lamports, uninitialized)"
+      "142yhSkBthJpmWKzhBRtHYV6S4JdXAMBQcdYD8vEhNx4 (NEW \u2014 0 lamports, uninitialized)",
+      "7Z7oKDRHhXwzeWfuJ91FDZowaNETWwq6pW4XHt7d6FBL (NEW \u2014 0 lamports, uninitialized)",
+      "DC9dh6xDK7mLbrSUx9Fcy9VpMuSdJnUynoNEtr9Y6NjA (NEW \u2014 0 lamports, uninitialized)"
     ],
     "config_blob_b64": "np6WlGEvunC/nQtJr9bPVyuUUjcsWz6K91FKw5c3nCsukljsMZHz8aDb1NsZrSV0EI2W2Hv4cFdCgAyM9acyw9YnXSDo/QTlLIsaFWkf+/DnHGaGcc1s/W8oQ0Zm0Vq7RaC35DMq5RP2e7TP6HYBK6pKBzza+b7LcYDYgdbSWEEuZB5UUTGTHg5Jdq/cqd7UqPBqw1N/IYxkFCNsy+0i7QKpz12q6zOrz3TNkzrQYjZjYBaEgtBe04FOHps="
   },
+  "drain_split_mechanic_2026_11_12": {
+    "marker_ix": "TwrGADB9, accounts [], ASCII affiliate tag in plaintext: 1kd1mz4r-|1|, 1kd1m5up7|1|, 1kd1m4gfq|1|, 1k7_ccf5p|1| (live 2026-11-12)",
+    "main_ix": "TwrGADB9 disc 0x15, byte 0x02, then 1-byte affiliate percent: 0x50 = 80%, 0x4b = 75%. Victim funds split that percent to a per-campaign receiver, remainder to collector",
+    "collector": "6cwsqBqmRy22Qa2SEuZ8tWrpKoCS9M8S2r8ct8VuqFmj (operator/DaaS share: 20-25%. Held 356.41 SOL + 185.36 USDC on 2026-11-12 23:05 UTC)",
+    "campaign_receivers_seen": [
+      "HJtzvDEKemh5isNsbSHPGnN2DCWe3Ws2s4YZkaMTFJu1",
+      "HF4jWNAY8EtSKtRNK6umCyRMp5NuHXsWMMUuR79qzm4a",
+      "8fSVxrKKAEfXiJutzdCZksA6xqJLCXcCYDEy8fhEq95n",
+      "4ZcPRoeLRUyWeGPFMo6FQdGAjrbdgghustjeEQTdJfSL"
+    ],
+    "evidence": "decompiled/live/dynamic/real_drain_txs_2026-11-12.json \u2014 6 real drains decoded incl. 2 with 3 Lighthouse assertions that still drained"
+  },
   "string_table_addresses": {
     "assessed_treasury": "DvTqmF7uMbLaW56QsMvcgv8KSkydFEikuk5gUcjACPV (17,057 SOL + 1,020,879 USDC on 2026-11-11)",
-    "active": ["6cwsqBqmRy22Qa2SEuZ8tWrpKoCS9M8S2r8ct8VuqFmj (357.5 SOL, active 2026-11-11)"],
+    "active": [
+      "6cwsqBqmRy22Qa2SEuZ8tWrpKoCS9M8S2r8ct8VuqFmj (357.5 SOL, active 2026-11-11)"
+    ],
     "drain_through": [
       "4QFiKg8ejx5LfqqLNbnKsiCnbEgRtgakBF6abMrkquKW",
       "4cfdFcVuJf8PPXpMWPMCDehSE4gV4C8oYwpZnLra7rtW",
@@ -185,5 +261,6 @@
     "2zC63K7VDZmL1UKHibDkMKxrAFtHjmXLm5XrPgFREgZc",
     "9kC8U8STwNtXeQqqX7WpgWg19qC7137JRP97BnLDKEtS",
     "5o7Q69vpqP3CwSb9mVzWk2jpirYbxuntAozyBv2CURC3"
-  ]
+  ],
+  "note_config_drift": "Same-day drift log: decompiled/live/watch_log.jsonl (scripts/monitor.js). v1->v2->v1 within ~7 hours."
 }

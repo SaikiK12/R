@@ -79,10 +79,29 @@ domain. Sequence observed, with the kit's own requests:
    **No `/c/i`, `/c/c`, or `/c/f` fired in the SOL-only path** — those
    endpoints belong to the token flow.
 
-Two deterministic crash modes (relevant to the stale F11): an
-unexpected token-portfolio shape throws unhandled in the kit's bs58
-decoder and aborts before `/c/i`; an RPC 429 throws unhandled the same
-way. The kit has no error handling on either path.
+**Correction:** the bs58 crash observed in earlier runs came from OUR
+mock (a dropped `addInitScript` argument left the token mint
+`undefined`). With a well-formed portfolio, the token path completes:
+`dynamic/captured_tx_token_2026-11-12.json` (decoy 500 USDC leg to an
+existing victim ATA, no create-ATA ix). The kit's real fragilities are
+smaller: Helius-key failover exhausts under rate-limiting, and early
+Solflare retries can carry an `undefined` wallet address.
+
+## Real-chain forensics (23:05 UTC)
+
+Six most recent `TwrGADB9` transactions decoded from public RPC
+(`dynamic/real_drain_txs_2026-11-12.json`). The submitted shape differs
+from the client-built decoy variant: two ComputeBudget ixs, a marker ix
+carrying the plaintext affiliate tag (`1kd1mz4r-|1|` style — F6 live),
+and a main ix with **disc `0x15`, sub-byte `0x02`, then a one-byte
+affiliate percentage** — `0x50` = 80%, `0x4b` = 75%. The victim's funds
+split that percentage to a per-campaign receiver and the remainder to
+the collector `6cwsqBqm…` (356.41 SOL + 185.36 USDC at fetch). This is
+the DaaS revenue split, on-chain: the kit vendor keeps 20–25%.
+Two of the six txs carried three Lighthouse assertions each and still
+drained — direct proof the wallet-appended guardrails don't stop this
+flow. Config receivers (`HrmfWTNd…` etc.) and appended `DvuqUzFA…`
+remain unused; the decoy USDC relay `3emsAVdm…` currently holds 0 USDC.
 
 ## Frontend pivot list (runtime-detectable)
 

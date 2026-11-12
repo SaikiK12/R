@@ -1,0 +1,46 @@
+{
+  "captured": "2026-11-12T23:20-23:35 UTC",
+  "method": "Same harness as captured_tx_2026-11-12.json but with a USDC token account mocked on-chain (165-byte SPL layout) at the victim ATA. Portfolio: 2 SOL + 250 USDC. Signature refused; nothing submitted.",
+  "note": "Earlier harness runs crashed the kit with an undefined mint — that was a bug in OUR mock (extra addInitScript args are dropped, so USDC was undefined), NOT kit fragility. With a well-formed token entry the token path completes cleanly.",
+  "tx_b64": "AwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIADAQMIA09rlfmOJCXXUCXg6XBnkMrUm5ucisLjv1FQm9laVswxoLCrAbs1+IBuDx7wcizcgFg2kYTAoerSWt6bwYNkB2BlAbMC4YAYkvgKKXn1hfiFXQ8gNHkKJFX3RPrFA9e1J2SXugu4ZZFyty7djGbhj1YXZNnIamEKOn4PecC6+dsV6mr+XAeQZnrI9QKiVdiznLyAAC1KJg3JSAsKlJUgdwbnHo9iLnrcwd/+A3y2ozpFHcu0mEH+GywXVfLdpQb1AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAG3fbh12Whk9nL4UbO63msHLSF7V9bN5E6jPWFfv8AqS/fVXJkF0PFVuqLv33sLVT0piyaqAWw27U79Eev0H79AwUBAQECBgIAAQwCAAAAAMqaOwAAAAAHAwMEAgkDAGXNHQAAAAAA",
+  "decoded": {
+    "format": "VersionedTransaction v0, 3 signatures (zeroed), 8 static accounts, 3 instructions",
+    "signers": [
+      "DvTqmF7u… (treasury, fee payer)",
+      "4Lj6MdBF… (victim)",
+      "7VHUFJHW… (decoy authority)"
+    ],
+    "blockhash": "4DsgQEJZKo4J3ccFNLmqNwutJscbroK6nzK3b4DiYzBE",
+    "instructions": [
+      {
+        "ix": 0,
+        "program": "TwrGADB9…",
+        "accounts": [
+          "victim"
+        ],
+        "data": "02",
+        "role": "THEFT LEG - CPI drain of SOL and token accounts"
+      },
+      {
+        "ix": 1,
+        "program": "SystemProgram",
+        "accounts": [
+          "treasury -> victim"
+        ],
+        "data": "transfer 1 SOL",
+        "role": "DECOY"
+      },
+      {
+        "ix": 2,
+        "program": "TokenProgram",
+        "accounts": [
+          "3emsAVdm (source) -> 2UYtAHb (victim USDC ATA), authority 7VHUFJHW"
+        ],
+        "data": "03 + u64 500000000",
+        "role": "DECOY - fake incoming 500 USDC"
+      }
+    ],
+    "differences_vs_sol_only": "No ATA-create instruction (victim ATA already exists in this scenario); otherwise identical decoy pair and theft leg.",
+    "kit_queried": "getMultipleAccounts([EpfUbh5SUByq9ZW1BLZhWCoD82U6mWQNf6rDamo6g8p4]) — null on-chain; likely a receiver-side ATA existence check before routing."
+  }
+}

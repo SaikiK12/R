@@ -1,0 +1,80 @@
+{
+  "fetched": "2026-11-12T23:05 UTC via public RPC (jsonParsed), 6 most recent TwrGADB9 transactions at the time",
+  "split_mechanic": {
+    "marker_ix": "TwrGADB9 ix with accounts [] and ASCII data = affiliate campaign tag, e.g. 1kd1mz4r-|1|, 1kd1m5up7|1|, 1kd1m4gfq|1|, 1k7_ccf5p|1| (F6 confirmed live)",
+    "main_ix": "TwrGADB9 disc 0x15, byte 0x02, then ONE byte = affiliate split percent. Observed 0x50 = 80% (tx 468692483) and 0x4b = 75% (txs 468687110, 468673479, 468671176). Flow: victim -> percent% to per-campaign receiver, remainder to collector 6cwsqBqm.",
+    "tail_ix": "optional tiny TwrGADB9 ix, data 0x34 (\"4\")",
+    "compute_budget": "all real txs open with two ComputeBudget ixs"
+  },
+  "economics": "Operator (kit vendor) keeps 20-25% at collector 6cwsqBqmRy22Qa2SEuZ8tWrpKoCS9M8S2r8ct8VuqFmj (356.41 SOL + 185.36 USDC at fetch). Affiliate/campaign wallets keep 75-80%. This is the DaaS revenue model, on-chain.",
+  "lighthouse_bypass_proof": "Slots 468673479 and 468671176 contain 3 Lighthouse assertion ixs (watching both receivers and the victim) AND the drain succeeded in the same transaction. Wallet-appended Lighthouse guardrails did not stop these drains.",
+  "txs": [
+    {
+      "slot": 468699424,
+      "time": "2026-11-12T22:52:55Z",
+      "victim": "9N5oh8zDUjBUvQxF7oRXsWYeWeVBy59pXXSMbrnNByZN",
+      "payer": "4cfdFcVuJf8PPXpMWPMCDehSE4gV4C8oYwpZnLra7rtW",
+      "stolen": {
+        "pump_mint_2T56GB": "819679.4179",
+        "Xsc9_token2022": "0.0394",
+        "USDC": "2.0419"
+      },
+      "split_75_25": {
+        "campaign_4ZcPRoe": "614759.56 pump + 1.5314 USDC + 0.0295 Xsc9",
+        "collector_6cwsqBqm": "204919.85 pump + 0.5105 USDC + 0.0098 Xsc9"
+      }
+    },
+    {
+      "slot": 468692483,
+      "time": "2026-11-12T22:27:58Z",
+      "victim": "3PPFA4R6QcLzSzaYWQhLD6AVY444Guf4G4BLaBGWYgNp",
+      "stolen_sol": 1.79549,
+      "split_80_20": {
+        "campaign_HJtzvDEK": 1.436392,
+        "collector_6cwsqBqm": 0.359098
+      },
+      "main_ix_data": "15 02 50 (disc 0x15, split 80%)"
+    },
+    {
+      "slot": 468687110,
+      "time": "2026-11-12T22:08:42Z",
+      "victim": "Gf6EanKXrBoAePefnnxb9VSrxLDyAXFgio5XKEDQ82dN",
+      "stolen_sol": 0.018943,
+      "split_75_25": {
+        "campaign_HF4jWNAY": 0.014207,
+        "collector_6cwsqBqm": 0.004736
+      },
+      "main_ix_data": "15 02 4b (disc 0x15, split 75%)"
+    },
+    {
+      "slot": 468673479,
+      "time": "2026-11-12T21:19:48Z",
+      "victim": "FDdHjeeR9u8Z7WNjSBgtrU2BQRv8eumnU2Mdc51KsKpu",
+      "stolen_sol": 0.404852,
+      "split_75_25": {
+        "campaign_8fSVxrKK": 0.303639,
+        "collector_6cwsqBqm": 0.101213
+      },
+      "lighthouse_assertions": 3
+    },
+    {
+      "slot": 468671176,
+      "time": "2026-11-12T21:11:31Z",
+      "victim": "5jEqdybm7kQdLmcg57LZBXLsuRexgyBMcvCbvbsXWqUt",
+      "stolen_sol": 0.026475,
+      "split_75_25": {
+        "campaign_HF4jWNAY": 0.019856,
+        "collector_6cwsqBqm": 0.006619
+      },
+      "lighthouse_assertions": 3
+    },
+    {
+      "slot": 468662428,
+      "time": "2026-11-12T20:40:05Z",
+      "victim": "W7aAjE4WyZbg8BBcdKoJNUR5CtFjy5PdK2QDs6Kk5uN",
+      "note": "same split pattern"
+    }
+  ],
+  "decoy_inventory": "3emsAVdm (decoy USDC relay) holds 0 USDC as of fetch — the 500-USDC decoy leg would fail if submitted now; the decoy-heavy build (like our captures) is the client-side variant, while submitted txs use the lean split form. Decoy funding appears to be replenished per need or the variant is reserved for fat victims.",
+  "config_receivers_note": "Rotated config receivers (HrmfWTNd, 7oHgTZjN, 7mfxYcwy) and appended DvuqUzFA all remain 0-balance and unused. Real money moves victim -> campaign receivers (HJtzvDEK, HF4jWNAY, 8fSVxrKK, 4ZcPRoe) + 6cwsqBqm. Config receiver rotation still has no observed on-chain role — likely staged for a future switch."
+}

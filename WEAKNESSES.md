@@ -65,12 +65,14 @@ Nothing was signed or submitted. Three additions to the record:
   not the rotated config receivers. The theft leg is still
   `TwrGADB9…` disc `0x02` against the victim. The decoy co-signing keys
   are pinned in the bundle and cannot be rotated without a rebuild.
-- **The kit breaks loudly under instrumentation.** Two deterministic
-  unhandled exceptions were observed: a `TypeError` in its own bs58
-  decoder when the token portfolio shape is unexpected (flow aborts
-  before `/c/i`), and the same class of crash when an RPC answers 429.
-  No fallback, no retry logic that survives either. Real victims on
-  flaky RPCs hit the second one.
+- **Correction (2026-11-12 late):** the bs58-decoder crash reported
+  above was caused by OUR mock portfolio (an extra `addInitScript`
+  argument was dropped, leaving the token mint `undefined`). With a
+  well-formed portfolio the token path completes cleanly — the kit is
+  not that fragile. What remains true: the kit's own RPC failover
+  exhausts quickly when Helius keys are rate-limited, and it retries
+  Solflare with an `undefined` wallet address when the wallet state
+  races ahead of AppKit.
 - **The fake confirm dialog streams a social-proof video from the
   connect domain** (`/_nuxt/media/refund.webm` on petramon.xyz) — the
   same media file archived from pumpanakin.fun. Media path is a pivot.
