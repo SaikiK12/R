@@ -31,6 +31,7 @@ Top-level docs:
 | `GROWTH.md` | Traffic acquisition: Telegram, TDS, X/Twitter, affiliate machine |
 | `FLAWS.md` | 22 weaknesses: OpSec holes, kit engineering gaps, what the next version fixes |
 | `COMPARISON.md` | How this kit stacks up against Inferno, Angel, Pink, and the EVM lineage |
+| `NEXT_GEN.md` | 7 confirmed new techniques (T1–T7) + projected next-gen architecture + what defenders need now |
 | `INDUSTRY_CONTEXT.md` | Ecosystem snapshot: DaaS model, Rublevka Team, StepDrainer DNS hijack |
 | `deobfuscate.py` | The static extractor (string table + constants + global name table) |
 
