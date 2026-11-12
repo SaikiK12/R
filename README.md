@@ -28,6 +28,7 @@ archive/         static samples only — do not execute
 | `WEAKNESSES.md` | 22 engineering and OpSec gaps; what the next build fixes |
 | `COMPARISON.md` | Head-to-head vs Inferno, Angel, Pink, AngelFerno — where it leads, where it lags |
 | `NEXT_GEN.md` | 7 confirmed new techniques (T1–T7) from 2024–2026 + projected next architecture |
+| `MERGED_KIT.md` | Real-source synthesis: Inferno deobfuscated + Rublevka docs + this kit — merged architecture |
 | `ECOSYSTEM.md` | Ecosystem context: DaaS economics, Rublevka Team, StepDrainer DNS hijack |
 | `MODULES.md` | Module index pointer |
 | `decode.py` | Static extractor: string table, constants, global name mappings |
