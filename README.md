@@ -29,6 +29,8 @@ machinery.
    what the more elaborate ones do better.
 8. `GROWTH.md` — how they get victims: spam, TDS, aged domains, the
    affiliate machine, and why there is no SEO.
+9. `FLAWS.md` — where the operation is weak, and what the next
+   generation of the kit will probably fix.
 
 ## Contents
 
@@ -38,6 +40,7 @@ machinery.
 | `OPERATOR_ARCHITECTURE.md` | The full operator architecture on one page |
 | `DYNAMIC_ANALYSIS.md` | The sandboxed live run: redirect, gates, dialogs, captured tx |
 | `GROWTH.md` | Traffic acquisition and the affiliate machine |
+| `FLAWS.md` | Critical review: 18 proven weaknesses + next-gen projection |
 | `archive/` | Raw samples (bundle, lure HTML, connect app, program ELF, videos) with hashes and provenance — do not execute |
 | `FORENSIC_REPORT.md` | The report. One document, corrected against the live bundle |
 | `FAMILY_MAP.md` | Sibling lures and the sophistication gradient |

@@ -1,0 +1,141 @@
+# Flaws: where the operation is weak
+
+A critical review of the pumpanakin.fun operation as engineered. Each
+flaw is something proven elsewhere in this repo (linked). The last
+section projects what a next-generation kit will likely change — so
+anyone studying or watching for this family knows what to expect. This
+is an analytical document, not an improvement guide: there are no
+fixes here that the operators don't already know about, and nothing
+actionable toward running a better scam.
+
+## Cryptography and key management
+
+**F1. One salt, three purposes, shipped in every bundle.** The AES key
+material for `/api/config`, the `/c/i` payload, and `/api/handler`
+telemetry all derive from the same embedded salt
+(`B3ui3QZFrOPoGW7oMZgE4A`) with the purpose string being just the
+hostname (`decompiled/kit/operator/payloads.js`). Anyone who can read
+the bundle can decrypt every domain's live config — which is exactly
+what this repo did.
+
+**F2. The live config endpoint is world-readable and unauthenticated.**
+`GET /api/config` hands the current receivers and parameters to anyone
+(`decompiled/live/`). Their receiver-rotation mechanism is therefore
+public in real time: watch one endpoint per domain and you see every
+rotation as it happens.
+
+**F3. The `/c/i` response travels unencrypted.** The request is
+AES-GCM; the response is a plain binary record (`decompiled/kit/
+operator/operator_api.js`). Session contents are readable by any
+observer of the traffic.
+
+**F4. Their Solflare "authorization" is theater.** The bearer is 16
+random bytes with a UUID nibble (`decompiled/kit/chain/solflare_api.js`).
+It protects nothing and signals they don't understand the service they
+abuse — a fingerprint, not a defense.
+
+## On-chain OpSec
+
+**F5. The treasury is hard-coded, reused as fee payer, and holds the
+money.** `DvTqmF7uMbLaW56QsMvcgv8KSkydFEikuk5gUcjACPV` is in the kit's
+string table, pays the fee in captured drain transactions, and holds
+17,057 SOL + 1.02M USDC (`decompiled/live/`). One address glues the
+bundle, the transactions, and the proceeds together. Blockchain
+attribution doesn't get easier than that.
+
+**F6. Plaintext ASCII affiliate tags in every drain.** The marker
+instruction carries `1kd14ntu4|1|`-style campaign tags in the clear
+(`decompiled/kit/chain/operator_program.md`). The affiliate ledger is
+permanently, publicly queryable — every campaign, countable on-chain,
+forever.
+
+**F7. Decoy legs come from their own cluster.** The "incoming" 500
+USDC/USDT legs originate from relay/staging addresses tied to the same
+operation (`DYNAMIC_ANALYSIS.md`). The persuasion mechanism itself
+creates links between the money cluster and every victim.
+
+**F8. The program has a single upgrade authority.** One key
+(`3ofSxsTReb…`) controls the drain engine. If it is ever compromised,
+seized, or lost, the program is hijacked or frozen — a single point of
+failure for the entire operation.
+
+## Kit engineering
+
+**F9. Byte-identical bundle across 30+ domains.** One SHA-256 pivot on
+URLScan enumerated the whole family (`FAMILY_MAP.md`). Serving the same
+hash everywhere turns one detection into total exposure.
+
+**F10. Free version fingerprint.** The kit prints `1.18.4` to the
+browser console and ships it in every telemetry event
+(`DYNAMIC_ANALYSIS.md`). Versioning for their own debugging, gift-
+wrapped for trackers.
+
+**F11. The anti-analysis gate is client-side.** The ≥0.60 SOL balance
+check runs in the victim's browser against RPC answers — a mock chain
+walks straight through it (this repo's harness did, twice). It stops
+honest broke users, not researchers.
+
+**F12. The whole funnel depends on a popup.** The connect flow needs
+`window.open` to reach the connect domain. Any popup blocker, any
+mobile browser that suppresses popups, any cautious user who closes a
+surprise window — and the funnel dies at the first click.
+
+**F13. Deterministic builders.** Same portfolio in, byte-identical
+transaction out (minus blockhash) — proven by two independent captures
+(`decompiled/live/dynamic/captured_tx.txt`). No variance means easy
+clustering of their transactions on-chain.
+
+**F14. The two-layer HTML only beats crawlers that don't execute JS.**
+The filler-text trick (`LURE_ANALYSIS.md`) is transparent to any
+sandbox with a JavaScript engine — i.e., all modern ones.
+
+## Operations
+
+**F15. Burnout-visible RPC keys.** The Helius keys rate-limit publicly
+(429 observed live), and they're embedded in the kit — reportable,
+revocable, and their burnout pattern is observable (`DYNAMIC_ANALYSIS.md`).
+
+**F16. Uneven deployment quality.** Cloudflare bot-walls on some
+siblings, plain 200 on pumpanakin; `dexscreener.fyi` serving a
+misconfigured deployment with a dead `/api/config` (`FAMILY_MAP.md`).
+Rolling out 30+ costumes didn't come with 30+ units of care.
+
+**F17. Wasted long-con effort.** amlbot.rest is a 3-year-old fake
+compliance company — real costume investment — wired to the same
+bundle, same pivots, same treasury. The aging work inherits every
+attribution weakness of the cheapest sibling.
+
+## Social engineering
+
+**F18. Detail slips a careful victim catches.** "to verificate your
+account" in the modal copy; the fake confirm dialog quoting different
+amounts in different runs (−5 USDC vs −0.0361 SOL, `DYNAMIC_ANALYSIS.md`);
+"250.000$" with a European thousands separator under an English pitch
+(`LURE_ANALYSIS.md`). Each is small; together they're the texture of a
+fake.
+
+## What the next generation of this kit probably looks like
+
+Reasoning forward from these flaws — this is what researchers should
+expect to change, and what makes today's pivots decay:
+
+- **Per-domain secrets.** Different salts/keys per lure, authenticated
+  config endpoints, encrypted `/c/i` responses. The current config
+  readout is too easy; expect it to close.
+- **Money hygiene.** One-time treasury hops instead of a hard-coded
+  treasury, decoy funds from unrelated wallets, no plaintext marker
+  tags (attribution moving off-chain or into encrypted memo fields).
+  The durable on-chain pivots in this repo have a shelf life.
+- **Build variance.** Per-theme or per-deployment bundle builds with
+  different hashes, breaking the single-hash family pivot.
+- **Server-side gating.** Balance/eligibility decided in the `/c/i`
+  response rather than the browser, so mock-chain research setups get
+  the same refusal as honest users.
+- **Iframe flows.** Popups traded for in-page iframes to remove the
+  popup-blocker single point of failure.
+- **Copy polish.** The grammar and consistency slips are the cheapest
+  thing to fix and will quietly disappear.
+
+Until then, the pivots that catch this family today are documented in
+`INFRASTRUCTURE.md` ("What changes between deployments") and the IOC
+catalog in `decompiled/iocs.json`.
