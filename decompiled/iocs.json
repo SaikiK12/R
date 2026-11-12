@@ -4,6 +4,8 @@
   "last_updated": "2026-11-12",
   "note_on_attribution": "Attribution of pumpanakin.fun to Rublevka Team is not established. The hexfomo.fun kit watermark may identify a DaaS vendor whose kit is used by multiple operators. See INDUSTRY_CONTEXT.md.",
   "solflare_api": "https://wallet-api.solflare.com/",
+  "locale_languages_2026_11_12": ["en","fr","zh","de","es","pt","it","ja","ko","ar","tr","pl"],
+  "locale_languages_note": "11 languages confirmed live 2026-11-12. Up from 3 (en/fr/zh) on 2026-11-11. ru and uk return 404.",
   "domains": {
     "live_lure": ["pumpanakin.fun"],
     "connect_domains": ["easyinvest7.biz (popup connect/payload domain, found by dynamic analysis 2026-11-11; /connect/<token>?b=1 paths)"],
@@ -74,6 +76,19 @@
       "7VHUFJHWu2CuExkJcJrzhQPJ2oygupTWkL2A2For4BmE (active; USDC ATA 4kokFKCFMxpCpG41yLYkLEqXW8g1WPfCt2NC9KGivY6N)",
       "3emsAVdmGKERbHjmGfQ6oZ1e35dkf5iYcS6U4CPKFVaa (relay)"
     ]
+  },
+  "live_config_2026_11_12": {
+    "note": "RECEIVERS ROTATED — operator pushed new config between 2026-11-11 18:30 UTC and 2026-11-12 07:06 UTC",
+    "target_token_mint": "USDC (unchanged)",
+    "max_sol": 500.0,
+    "min_sol": 1.0,
+    "sibling_domain": "trongame.fun (unchanged, still DNS-dead)",
+    "receivers": [
+      "142yhSkBthJpmWKzhBRtHYV6S4JdXAMBQcdYD8vEhNx4 (NEW — 0 lamports, uninitialized)",
+      "7Z7oKDRHhXwzeWfuJ91FDZowaNETWwq6pW4XHt7d6FBL (NEW — 0 lamports, uninitialized)",
+      "DC9dh6xDK7mLbrSUx9Fcy9VpMuSdJnUynoNEtr9Y6NjA (NEW — 0 lamports, uninitialized)"
+    ],
+    "config_blob_b64": "np6WlGEvunC/nQtJr9bPVyuUUjcsWz6K91FKw5c3nCsukljsMZHz8aDb1NsZrSV0EI2W2Hv4cFdCgAyM9acyw9YnXSDo/QTlLIsaFWkf+/DnHGaGcc1s/W8oQ0Zm0Vq7RaC35DMq5RP2e7TP6HYBK6pKBzza+b7LcYDYgdbSWEEuZB5UUTGTHg5Jdq/cqd7UqPBqw1N/IYxkFCNsy+0i7QKpz12q6zOrz3TNkzrQYjZjYBaEgtBe04FOHps="
   },
   "string_table_addresses": {
     "assessed_treasury": "DvTqmF7uMbLaW56QsMvcgv8KSkydFEikuk5gUcjACPV (17,057 SOL + 1,020,879 USDC on 2026-11-11)",

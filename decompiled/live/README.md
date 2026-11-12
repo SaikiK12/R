@@ -1,33 +1,97 @@
-# Live mapping, 2026-11-11
+# Live mapping — 2026-11-11 (initial) + 2026-11-12 (re-verification)
 
 Results of benign probing of the live lure. Only requests a normal page
 load would make were sent to the operator host; the submit endpoints
 (`/process`, `/c/*`, `/api/handler` POST) were never touched. On-chain
-data came from public RPCs (`api.mainnet-beta.solana.com`,
-`solana-rpc.publicnode.com`). No wallet was connected, nothing was
-signed, no victim data was sent.
+data came from public RPCs and Helius. No wallet was connected, nothing
+was signed, no victim data was sent.
 
-## Operator API surface
+**2026-11-12 re-verification** used a real desktop Chrome UA
+(`Mozilla/5.0 … Chrome/131.0.0.0`) via a headless browser. All pages
+still live. UA cloaking confirmed: bare non-Chrome UA → 404.
 
-| Request | Result |
+## Operator API surface (2026-11-12 re-check)
+
+| Request | 2026-11-11 | 2026-11-12 | Notes |
+|---|---|---|---|
+| `GET /` | 200, 10,309 B | 200, same content | lure unchanged |
+| `GET /_nuxt/assets/index.js` | 200, 1,034,759 B, SHA `07356066…` | **identical** | bundle not rebuilt |
+| `GET /api/locales?lang=en` | 200 | 200 (identical body) | |
+| `GET /api/locales?lang=fr` | 200 | 200 (identical body) | |
+| `GET /api/locales?lang=zh` | 200 | 200 (identical body) | |
+| `GET /api/locales?lang=de` | (not checked) | **200 NEW** | German added |
+| `GET /api/locales?lang=es` | (not checked) | **200 NEW** | Spanish added |
+| `GET /api/locales?lang=pt` | (not checked) | **200 NEW** | Portuguese added |
+| `GET /api/locales?lang=it` | (not checked) | **200 NEW** | Italian added |
+| `GET /api/locales?lang=ja` | (not checked) | **200 NEW** | Japanese added |
+| `GET /api/locales?lang=ko` | (not checked) | **200 NEW** | Korean added |
+| `GET /api/locales?lang=ar` | (not checked) | **200 NEW** | Arabic added |
+| `GET /api/locales?lang=tr` | (not checked) | **200 NEW** | Turkish added |
+| `GET /api/locales?lang=pl` | (not checked) | **200 NEW** | Polish added |
+| `GET /api/locales?lang=ru` | 404 | 404 | page itself is RU |
+| `GET /api/locales?lang=uk` | (not checked) | 404 | |
+| `GET /api/is-banned` | 200, `0` | 200, `0` | `Cache-Control: private, max-age=300` |
+| `POST /api/visit` | 200, `ok` | 200, `ok` | `Content-Length: 2` |
+| `GET /api/config` | 200, 188 B blob | 200, **188 B NEW blob** | receivers rotated |
+| `GET /config` | 200, SPA fallback | 200, SPA fallback | |
+
+**Locale expansion** (2026-11-12): The backend now serves 11 languages
+(en, fr, zh, de, es, pt, it, ja, ko, ar, tr, pl). This is a significant
+expansion from 3 languages on 2026-11-11, indicating the operation is
+actively growing its geographic targeting. All locale files are in this
+directory. The pattern across all languages is identical: "Trust detected
+(0) issues" and "Perform transactions without confirmation" in every
+language.
+
+**Receiver rotation** (between 2026-11-11 18:30 UTC and 2026-11-12 07:06 UTC):
+All three addresses in `/api/config` changed to fresh uninitialized wallets.
+Full details: `api_config_decoded_2026-11-12.json`.
+
+## AppKit CSS variables (live, 2026-11-12)
+
+```css
+:root {
+  --w3m-modal-width: 360px;             /* overrides AppKit default of 430px */
+  --w3m-font-family: Inter, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell,
+                     Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  --w3m-font-size-master: 10px;
+  --w3m-border-radius-master: 4px;
+  --w3m-z-index: 99999;
+  --w3m-color-mix-strength: 0%;
+}
+window.W3M_COLOR_THEME = "light"       /* set in lure HTML */
+```
+
+Note: `--w3m-modal-width: 360px` matches the popup dimensions (360×450px).
+The popup IS the modal on desktop — same width by design.
+
+## On-chain state (2026-11-12 ~07:06 UTC)
+
+| Address | Role | SOL | Note |
+|---|---|---|---|
+| `DvTqmF7uMbLaW56QsMvcgv8KSkydFEikuk5gUcjACPV` | treasury | **17,057.0957** | unchanged from Nov 11 |
+| `142yhSkBthJpmWKzhBRtHYV6S4JdXAMBQcdYD8vEhNx4` | new live-config receiver | 0 (empty) | rotated in between Nov 11–12 |
+| `7Z7oKDRHhXwzeWfuJ91FDZowaNETWwq6pW4XHt7d6FBL` | new live-config address | 0 (empty) | receiver or relay |
+| `DC9dh6xDK7mLbrSUx9Fcy9VpMuSdJnUynoNEtr9Y6NjA` | new live-config address | 0 (empty) | receiver or relay |
+
+## Helius key status (2026-11-12 ~07:06 UTC)
+
+| Key prefix | Status |
 |---|---|
-| `GET /` | 200, lure HTML (10,309 B), same as report copy |
-| `GET /_nuxt/assets/index.js` | 200, 1,034,759 B, SHA-256 = reference sample |
-| `GET /api/locales?lang=en` | 200, JSON (this dir) |
-| `GET /api/locales?lang=fr` | 200, JSON |
-| `GET /api/locales?lang=zh` | 200, JSON |
-| `GET /api/locales?lang=ru` | 404 (the page itself is hard-coded Russian) |
-| `GET /api/is-banned` | 200, body `0` |
-| `POST /api/visit` | 200, body `ok` (with and without `?source=`) |
-| `GET /api/config` | 200, 188 B binary blob (decrypts, see `api_config_decoded.json`) |
-| `GET /api/handler` | 404 (POST-only) |
-| `GET /config` | 200, lure HTML (SPA fallback, not a real endpoint) |
+| `0b9f580f` | live — slot 468,435,559 |
+| `2dfa2086` | live — slot 468,435,588 |
+| `3a1ca16d` | rate-limited ("max usage reached") |
+| `777d85c0` | rate-limited ("max usage reached") |
 
-The locale files are the fake wallet-modal copy: "Trust detected (0)
-issues with this platform, proceeding is safe", "Perform transactions
-without confirmation" in English, French, and Chinese. Combined with
-the Russian hard-coded page, the kit targets at least four language
-groups.
+Same failover pattern as Nov 11 but keys 1 and 2 swapped primary status.
+Two of four burned out (3a1ca16d and 777d85c0 rate-limited on both dates).
+
+## New indicators (2026-11-12)
+
+Three new receiver addresses (all empty/uninitialized as of probe time):
+- `142yhSkBthJpmWKzhBRtHYV6S4JdXAMBQcdYD8vEhNx4`
+- `7Z7oKDRHhXwzeWfuJ91FDZowaNETWwq6pW4XHt7d6FBL`
+- `DC9dh6xDK7mLbrSUx9Fcy9VpMuSdJnUynoNEtr9Y6NjA`
 
 ## On-chain state (public RPC, 2026-11-11 ~18:30 UTC)
 

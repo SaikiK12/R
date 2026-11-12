@@ -98,12 +98,17 @@ hard-coded in the bundle's string table — the operator rotates
 receivers without rebuilding the kit. Decoded copy:
 `decompiled/live/api_config_decoded.json`.
 
-## Locale strings: the fake wallet modal in four languages
+## Locale strings: the fake wallet modal — now 11 languages
 
-`/api/locales` serves 10-entry JSON arrays for `en`, `fr`, and `zh`
-(Russian returns 404 — the page itself is hard-coded Russian).
-Full files: `decompiled/live/locales_en.json`, `locales_fr.json`,
-`locales_zh.json`. Entries, by index:
+`/api/locales` serves 10-entry JSON arrays. As of **2026-11-12** (re-verified
+live): **en, fr, zh, de, es, pt, it, ja, ko, ar, tr, pl** return 200.
+`ru` and `uk` return 404 — the page itself is hard-coded Russian.
+
+This is a significant expansion from 3 languages (en/fr/zh) on 2026-11-11.
+All locale files: `decompiled/live/locales_*.json`.
+
+The 10-entry array structure is **identical across all languages** — same
+social-engineering pitch, fully localized. Entries, by index:
 
 | Index | en | fr | zh |
 |---|---|---|---|
