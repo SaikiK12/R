@@ -112,12 +112,12 @@ different attack class the week before this analysis:
 
 **Relevance to this operation:** The pumpanakin.fun / Rublevka kit uses
 a cross-domain popup to `easyinvest7.biz` for the actual wallet
-interaction (`RUNTIME_ANALYSIS.md`). A DNS-layer compromise of
+interaction (`decompiled/live/RUNTIME_MAP.md`). A DNS-layer compromise of
 `easyinvest7.biz` or any of the 30+ lure domains could redirect that
 popup to a third party's server. The October 2026 event demonstrated
 this attack class is actively being used. The architectural separation
 of lure domain and connect domain (design principle 1 in
-`SYSTEM_OVERVIEW.md`) reduces blast radius per domain — but
+`DRAIN_PIPELINE.md`) reduces blast radius per domain — but
 it does not eliminate the exposure; it spreads it across two domains
 instead of one.
 
@@ -150,7 +150,7 @@ operates at three layers:
    warning before fund transfer
 
 The pivots that make dApp scanning effective against this family are
-the same ones documented in `STACK.md`: bundle hash, Nuxt
+the same ones documented in `DEPLOYMENT_MAP.md`: bundle hash, Nuxt
 asset path, `/api/visit`+`/api/is-banned`+`/api/config` route shape,
 the AES key salt, and the on-chain program address. The durable ones
 (program, treasury) will outlast domain and key rotation. The fragile
@@ -166,8 +166,74 @@ opportunities. Future versions will likely move this gate server-side
 
 | Finding | Source | Impact on this repo |
 |---|---|---|
-| X/Twitter is a primary Rublevka distribution channel (260+ URLs) | Blockaid | Added to `DISTRIBUTION.md`, `WEAKNESSES.md` F20 |
-| Rublevka is a traffer team, $10M+ lifetime, LolzTeam origin | Recorded Future | Strengthens `DISTRIBUTION.md` affiliate machine section; attribution still not established for pumpanakin specifically |
+| X/Twitter is a primary Rublevka distribution channel (260+ URLs) | Blockaid | Added to `ECOSYSTEM.md`, `WEAKNESSES.md` F20 |
+| Rublevka is a traffer team, $10M+ lifetime, LolzTeam origin | Recorded Future | Strengthens `ECOSYSTEM.md` affiliate machine section; attribution still not established for pumpanakin specifically |
 | StepDrainer / Name.com DNS hijack exploited registrar-layer risk Oct 30–31 | The Block, forklog | Added to `WEAKNESSES.md` F22 (connect domain exposure) |
-| DaaS structure described in detail: 75–85% affiliate split | Blockaid | Validates `STACK.md` revenue-share assessment |
+| DaaS structure described in detail: 75–85% affiliate split | Blockaid | Validates `DEPLOYMENT_MAP.md` revenue-share assessment |
 | 90+ wallet types, 35+ lure templates per Rublevka ad | Recorded Future | Consistent with 30+ sibling count; kit watermark `hexfomo.fun` may be the vendor |
+
+---
+
+# Distribution: how the operation gets victims
+
+*(Merged from the former `DISTRIBUTION.md`, 2026-11-12.)*
+
+**Short answer: there is no SEO.** Nothing about these lures is built
+to be found — single pages, no sitemap, `notranslate`, domains
+days-to-weeks old, zero organic footprint (pumpanakin.fun's first
+Wayback capture is 2026-11-02, nine days before analysis). The served
+HTML is filler words. Distribution is **pushed**, not pulled: the
+victim arrives already primed.
+
+**Telegram and social spam.** The lure points at real destinations for
+credibility (`t.me/durov`, `x.com/telegram`, `donaldjtrump.com`).
+Inbound traffic is unsolicited posts/DMs in Telegram crypto groups and
+social replies dangling the airdrop. The Russian-language page and
+countdown alert mark the primary audience as RU-speaking Telegram
+crypto communities.
+
+**Paid/affiliate traffic with per-click tracking.** The Meteora and
+web-jupiter clusters arrive with `click_id=<uuid>` — the signature of a
+traffic-distribution system (Keitaro/Binom-style bought clicks).
+`web-jupiter.gd` runs a full themed gateway (login./tracker./app./
+launchpad.) so one domain survives as a whole fake product.
+
+**Aged and long-con domains.** Certificate Transparency shows rolling
+deployment waves mixed with credibility stock: easyinvest7.biz (first
+cert 2018-10 — an 8-year-old payload domain), amlbot.rest (2023-11 — a
+3-year long-con costume), paybackpump.fun (2026-03), dexfi.app
+(2026-06), arvoniq.com (2026-08).
+
+**The affiliate machine, end to end.** A tag follows the victim from
+spam link to blockchain:
+
+1. **Arrival tag** — `utm_source` / referrer host, cached in
+   `localStorage["_0x6"]` (`kit/page/page_params.js`).
+2. **Backend attribution** — `POST /api/visit?source=<tag>`
+   (`kit/page/visit.js`).
+3. **On-chain attribution** — the marker instruction's ASCII campaign
+   tag in every drain (`1kd14ntu4|1|` family — live variants decoded in
+   `decompiled/live/dynamic/real_drain_txs_2026-11-12.json`).
+
+That is the payout ledger: the operator settles per campaign, per
+affiliate, per drain — and the 75/25 or 80/20 split is executed by the
+program itself (disc `0x15`, percentage byte).
+
+**X (Twitter) playbook mapping.** The documented Rublevka X campaign
+(aged 10–15 yr accounts, Blue Check, ~10 legitimate reposts per
+malicious post, low follower counts to avoid bans) mirrors the kit's
+own philosophy at the web layer: real outbound links as camouflage,
+low surface area, stay alive longer.
+
+## Deobfuscation coverage, per artifact class
+
+| Artifact | Status | Where |
+|---|---|---|
+| Main bundle (JS-Confuser) | fully decoded | `decompiled/`, `BUNDLE_ANALYSIS.md` |
+| Lure HTML dictionary (zero-width + Cyrillic + splits) | fully decoded (41 entries) | `FRONTEND_LAYER.md` |
+| `/api/config` AES-GCM blob | fully decoded (all kit hosts) | `decompiled/live/`, sibling archives |
+| Telemetry records (AES-GCM) | 7 live events decrypted | `decompiled/live/dynamic/handler_events_decrypted_2026-11-12.json` |
+| On-chain program (eBPF) | dispatch + behavior decoded | `decompiled/kit/chain/operator_program.md` |
+| Persuasion videos | container-parsed (refund 8.0s, 200tx 11.0s, malicious 10.8s) | `archive/pumpanakin.fun/` |
+| Client-built drain transactions | fully decoded (SOL + token paths) | `decompiled/live/dynamic/captured_tx*_2026-11-12.json` |
+| Real submitted drains | 6 decoded incl. split mechanics | `decompiled/live/dynamic/real_drain_txs_2026-11-12.json` |

@@ -1,44 +1,53 @@
-# solana-kit-analysis
+# R — reverse-engineering notes on the pumpanakin.fun drainer kit
 
-Reverse-engineering notes on a JS-Confuser Solana bundle observed in the wild (November 2026). The bundle packs a full Reown AppKit wallet-connection UI, a custom on-chain program, and a multi-layer operator API — all inside a Nuxt static build. The goal: understand the whole stack end to end — obfuscation layers, reconstructed modules, on-chain program behavior, backend protocol, traffic acquisition, and how it compares to other kits in the same space.
+Educational analysis of a live Solana drainer operation (the
+pumpanakin.fun / hexfomo kit and its sibling lures), built from the
+kit's own files, decrypted server responses, and live harness runs
+against a zero-balance burner. Nothing in this repo runs the scam;
+it documents how the scam works so it can be detected and disrupted.
 
----
+**Start here:** `DRAIN_PIPELINE.md` — the whole operation end to end,
+all of it proven by artifacts in this repo.
 
-## Layout
+## Documents
 
-```
-decompiled/
-  kit/
-    page/        lure rendering, modal, wallet detection, Telegram, mobile
-    operator/    backend API client, telemetry, AES-GCM payloads
-    chain/       RPC, Solflare, Jupiter, tx builders, Token-2022, stake
-  live/          captured API responses: config blobs, all locales, tx captures
-archive/         static samples — offline analysis only
-```
-
-| File | Contents |
+| File | What it covers |
 |---|---|
-| `BUNDLE_ANALYSIS.md` | Obfuscation layers, API wire formats, payload layouts, IOCs |
-| `RUNTIME_ANALYSIS.md` | Sandbox run: popup flow, balance gate, confirmed dialog, captured tx |
-| `SYSTEM_OVERVIEW.md` | Full stack diagram: traffic → frontend → connect → backend → chain |
-| `FRONTEND_LAYER.md` | HTML obfuscation: zero-width, homoglyphs, filler injection, social engineering |
-| `STACK.md` | Cost model, free-tier abuse, pivot map, rotation mechanics |
-| `DEPLOYMENT_MAP.md` | 30+ sibling deployments on the same bundle hash, sophistication gradient |
-| `DISTRIBUTION.md` | Traffic: Telegram, TDS, X/Twitter aged accounts, affiliate machine |
-| `WEAKNESSES.md` | 22 engineering and OpSec gaps; what the next build fixes |
-| `COMPARISON.md` | Head-to-head vs Inferno, Angel, Pink, AngelFerno — where it leads, where it lags |
-| `NEXT_GEN.md` | 7 confirmed new techniques (T1–T7) from 2024–2026 + projected next architecture |
-| `MERGED_KIT.md` | Real-source synthesis: Inferno deobfuscated + Rublevka docs + this kit — merged architecture |
-| `ECOSYSTEM.md` | Ecosystem context: DaaS economics, Rublevka Team, StepDrainer DNS hijack |
-| `MODULES.md` | Module index pointer |
-| `decode.py` | Static extractor: string table, constants, global name mappings |
+| `DRAIN_PIPELINE.md` | The kill chain, every file/service they use, both proven transaction shapes, design principles |
+| `DEPLOYMENT_MAP.md` | The 30+ sibling lures, sophistication gradient, infrastructure and cost, per-deployment pivots |
+| `BUNDLE_ANALYSIS.md` | The obfuscated kit bundle: structure, string table, module map |
+| `FRONTEND_LAYER.md` | The lure pages as social engineering: filler text, homoglyphs, dictionary swap, per-lure tricks |
+| `WEAKNESSES.md` | F1–F22: where the operation is weak, with live re-verification and corrections |
+| `ECOSYSTEM.md` | Industry context (DaaS, Rublevka method, StepDrainer) + distribution channels and the affiliate machine |
+| `MERGED_KIT.md` | Cross-kit analysis: Inferno/Rublevka/this kit compared, synthesized, and projected next generation |
 
----
+## Evidence and reconstructions
 
-## Reproduce the decode
+| Path | Contents |
+|---|---|
+| `decompiled/kit/` | The kit reconstructed into readable modules (page / operator / chain layers) |
+| `decompiled/live/` | Live evidence: decrypted configs for all hosts, 14 locales, runtime maps, backend diff, watch log |
+| `decompiled/live/dynamic/` | Captured drain transactions (SOL + token paths, decoded), 7 decrypted telemetry events, 6 real victim drains decoded, screenshots |
+| `decompiled/iocs.json` | Machine-readable indicators: domains, keys, addresses, split mechanic, fingerprints |
+| `archive/` | Raw captures: reference bundle, lure HTML, connect shells (easyinvest7.biz, petramon.xyz), sibling pages, on-chain program ELF, external samples |
+| `decode.py` | The string/constant decoder. `python3 decode.py archive/pumpanakin.fun/index.js --out-dir /tmp/out` |
+| `scripts/monitor.js` | Drift watcher (GET-only): bundle hash, config decrypt, locales, DNS. Appends to `decompiled/live/watch_log.jsonl` |
 
-```bash
-python3 decode.py path/to/index.js --out-dir decompiled/
-```
+## What "complete" means here
 
-Python 3.9+, no external dependencies.
+- **Client side: 100%.** The bundle is archived byte-for-byte and fully
+  deobfuscated into modules; every live lure's page is archived.
+- **Public API: 100%.** Every GET endpoint enumerated, all 18 kit
+  hosts' configs decrypted (one shared plaintext), all 14 locale sets
+  saved, telemetry format decrypted and 7 live events decoded.
+- **POST/victim endpoints: formats documented, never triggered by us.**
+  `/c/i`, `/c/c`, `/c/f`, `/api/process` require a wallet signature
+  stage we do not cross. In eight driven flows only `/api/handler`
+  fired; the `/c/*` endpoints did not fire on any reproduced path.
+- **Server code: not obtainable** (lives on their hosts). Behavior is
+  reconstructed from client requests, decrypted responses, and
+  on-chain evidence.
+
+Boundaries kept throughout: no transaction or message was ever signed,
+nothing was ever submitted to `/api/process` or broadcast, and the
+harness wallet holds zero funds.

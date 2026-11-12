@@ -92,3 +92,40 @@ them. The durable pivots are the on-chain ones: program
 `TwrGADB9QPrLfTKpWuyq9tjgRaGsuzgRUMFTz51uhsa`, treasury `DvTq…`,
 upgrade authority `3ofSxsTReb9Uhom1NvHqH5oU1EEDLuUxZVbFix4fGNY6`, and
 the marker-tag instruction format.
+
+---
+
+# Infrastructure: what the operation is built on and what it costs
+
+*(Merged from the former `STACK.md`, 2026-11-12.)*
+
+| Piece | What they use | Cost to them |
+|---|---|---|
+| Lure domains | `.fun`/`.xyz`/`.rest` gTLDs, days-to-weeks old (plus aged stock: easyinvest7.biz first cert 2018, amlbot.rest 2023) | ~$1–15/domain/yr |
+| DNS + CDN + TLS | Cloudflare free plan | $0 |
+| Lure hosting | Nuxt static build on free static hosting | $0 |
+| Operator API | Small `/api/*` backend behind the same Cloudflare setup | ~$0–5/mo |
+| Chain reads | Helius free-tier keys (4, rotated as they burn out) + public RPC fallbacks (publicnode, magiceden, solanatracker, mainnet-beta) | $0 |
+| Swap quotes | Jupiter free API keys (5 in the string table) | $0 |
+| Victim valuation | `wallet-api.solflare.com` free API with a fabricated bearer | $0 |
+| The kit itself | `hexfomo.fun` vendor watermark; DaaS revenue share (proven on-chain: 20–25% to the vendor's collector, see `DRAIN_PIPELINE.md`) | revenue share |
+| On-chain program | `TwrGADB9…`, upgradeable (authority `3ofSxsTReb…`) | rent-exempt SOL only |
+
+**Total fixed cost: effectively a domain registration.** Everything else
+is free tiers and abused legitimate services.
+
+## What changes between deployments (detection pivots)
+
+| Variable per deployment | Fixed across deployments (pivot on this) |
+|---|---|
+| Lure domain | Same bundle SHA-256, same Nuxt asset path `/_nuxt/assets/index.js` |
+| `apiHost` (usually == lure host) | `/api/visit`, `/api/is-banned`, `/api/locales`, `/api/config`, `/api/handler` route shape and response behavior |
+| Receivers, pushed live via `/api/config` | AES-GCM format and key derivation SHA-256(`apiHost` + salt) |
+| Helius / Jupiter keys (rotated as they burn out) | Four-key Helius failover pattern + same public RPC fallbacks |
+| Hard-coded string-table addresses (only on kit rebuilds) | On-chain program `TwrGADB9…`, treasury `DvTqmF7u…`, collector `6cwsqBqm…` — best on-chain pivots |
+| Lure theme/copy | Fake modal copy served per-locale, the media set (`refund.webm` etc.) |
+| Kit build (JS-Confuser seed) | Obfuscator fingerprint: table-init pattern and CJK identifier density |
+
+The fastest way to surface sibling lures: query public crawlers
+(URLScan, crt.sh) for the Nuxt asset path plus any fixed pivot, and
+watch the treasury's inbound transfers for new funding sources.

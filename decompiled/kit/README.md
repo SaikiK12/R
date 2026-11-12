@@ -133,10 +133,10 @@ engineering pitch.
 
 | Question | Where to look |
 |---|---|
-| How does the whole machine fit together? | `SYSTEM_OVERVIEW.md` |
+| How does the whole machine fit together? | `DRAIN_PIPELINE.md` |
 | What does the victim see, and why does it work? | `FRONTEND_LAYER.md` |
 | Detailed API request/response formats | `BUNDLE_ANALYSIS.md` |
-| Dynamic run: popup, balance gate, tx capture | `RUNTIME_ANALYSIS.md` |
+| Dynamic run: popup, balance gate, tx capture | `decompiled/live/RUNTIME_MAP.md` |
 | All IOCs (domains, keys, addresses) | `decompiled/iocs.json` |
 | Decoded live config | `decompiled/live/api_config_decoded.json` |
 | On-chain program internals | `decompiled/kit/chain/operator_program.md` |

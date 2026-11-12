@@ -118,7 +118,7 @@ forever.
 
 **F7. Decoy legs come from their own cluster.** The "incoming" 500
 USDC/USDT legs originate from relay/staging addresses tied to the same
-operation (`RUNTIME_ANALYSIS.md`). The persuasion mechanism itself
+operation (`decompiled/live/RUNTIME_MAP.md`). The persuasion mechanism itself
 creates links between the money cluster and every victim.
 
 **F8. The program has a single upgrade authority.** One key
@@ -134,7 +134,7 @@ hash everywhere turns one detection into total exposure.
 
 **F10. Free version fingerprint.** The kit prints `1.18.4` to the
 browser console and ships it in every telemetry event
-(`RUNTIME_ANALYSIS.md`). Versioning for their own debugging, gift-
+(`decompiled/live/RUNTIME_MAP.md`). Versioning for their own debugging, gift-
 wrapped for trackers.
 
 **F11. The anti-analysis gate is client-side.** The ≥0.60 SOL balance
@@ -160,7 +160,7 @@ sandbox with a JavaScript engine — i.e., all modern ones.
 
 **F15. Burnout-visible RPC keys.** The Helius keys rate-limit publicly
 (429 observed live), and they're embedded in the kit — reportable,
-revocable, and their burnout pattern is observable (`RUNTIME_ANALYSIS.md`).
+revocable, and their burnout pattern is observable (`decompiled/live/RUNTIME_MAP.md`).
 
 **F16. Uneven deployment quality.** Cloudflare bot-walls on some
 siblings, plain 200 on pumpanakin; `dexscreener.fyi` serving a
@@ -176,7 +176,7 @@ attribution weakness of the cheapest sibling.
 
 **F18. Detail slips a careful victim catches.** "to verificate your
 account" in the modal copy; the fake confirm dialog quoting different
-amounts in different runs (−5 USDC vs −0.0361 SOL, `RUNTIME_ANALYSIS.md`);
+amounts in different runs (−5 USDC vs −0.0361 SOL, `decompiled/live/RUNTIME_MAP.md`);
 "250.000$" with a European thousands separator under an English pitch
 (`FRONTEND_LAYER.md`). Each is small; together they're the texture of a
 fake.
@@ -218,7 +218,7 @@ any invariant.
 
 **F22. The popup connect flow leaks to the registrar layer.** The
 victim's browser opens a cross-domain popup to `easyinvest7.biz`
-(dynamic analysis, `RUNTIME_ANALYSIS.md`). DNS changes to any of the
+(dynamic analysis, `decompiled/live/RUNTIME_MAP.md`). DNS changes to any of the
 lure domains, or a registrar compromise of `easyinvest7.biz` itself
 (cf. the StepDrainer / Name.com DNS hijack of 12 DeFi sites,
 October 30–31 2026), could redirect the popup to a third party's
@@ -255,6 +255,6 @@ expect to change, and what makes today's pivots decay:
   thing to fix and will quietly disappear.
 
 Until then, the pivots that catch this family today are documented in
-`STACK.md` ("What changes between deployments") and the IOC
+`DEPLOYMENT_MAP.md` ("What changes between deployments") and the IOC
 catalog in `decompiled/iocs.json`. For the broader drainer landscape,
 see `ECOSYSTEM.md`.

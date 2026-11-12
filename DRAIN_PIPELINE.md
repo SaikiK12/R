@@ -124,3 +124,53 @@ No transaction or message was ever signed by the harness; nothing was
 ever submitted to `/api/process` or to the chain; the mock wallet
 rejects every signature request and the submit path is hard-blocked.
 All captures end at the signature prompt.
+
+---
+
+# Design principles and trust boundaries
+
+*(Merged from the former `SYSTEM_OVERVIEW.md`, 2026-11-12.)*
+
+**1. Separation of clean and dirty domains.** The lure domains carry
+zero executable phishing logic beyond `openModal()` — nothing
+incriminating happens until the popup opens on a connect domain.
+Marketing domains and payload domains rotate independently (observed:
+easyinvest7.biz → petramon.xyz within a day).
+
+**2. Abuse-resistance by default.** UA cloaking (fake nginx 404 for
+non-desktop agents), the balance gate (broke wallets and sandboxes
+never see the payload), `?b=` beacon suppression for redirect
+arrivals, the `is-banned` per-visitor kill switch, and filler-text
+pages with a DOMContentLoaded dictionary swap for static crawlers.
+
+**3. Free infrastructure everywhere.** Helius free-tier keys rotated
+as they burn out, Jupiter free keys, Solflare's free portfolio API for
+victim valuation, Cloudflare free in front, Cloudflare Pages for
+throwaway siblings, public RPC fallbacks.
+
+**4. Centralized brain, disposable costumes.** Every sibling serves the
+byte-identical bundle and the same decrypted `/api/config`. Receivers
+rotate server-side via config push — no rebuild needed. The on-chain
+program is upgradeable without shipping a new kit.
+
+**5. Psychology as a feature set.** The fake "Confirm Transaction"
+dialog (the kit's own UI, not the wallet's), the decoy incoming legs,
+the localized Trust-style modal copy in 14 languages, the countdown
+alert, the social-proof `refund.webm`. Every layer has a matching
+persuasion trick (`FRONTEND_LAYER.md`).
+
+**6. Third-party code as camouflage.** The wallet UX is Reown AppKit
+with `@redacted/enterprise-plugin`; the modal and 130+ wallet list are
+stock library behavior. The kit is a thin layer around it: valuation,
+drain-tx assembly, operator API, the on-chain program.
+
+## Trust boundaries
+
+| Boundary | Direction | Notes |
+|---|---|---|
+| victim → lure domain | GET static | UA-filtered; beacon `/api/visit` |
+| victim → connect domain | popup | token path, `?b=1` |
+| victim → Solflare/Helius/Jupiter | GET/POST | abused free tiers; wallet address as UA |
+| victim → operator backend | `/api/*` on lure host | ban list, locales, config, telemetry, signed-tx submit |
+| operator backend → chain | broadcast | operator co-signs; kit self-broadcast as fallback |
+| program → program | CPI invoke_signed | theft leg; receivers/campaign wallets collect |
