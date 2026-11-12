@@ -12,7 +12,7 @@ sitemap, no linkable content, `notranslate` on the html tag, domains
 days-to-weeks old, zero organic footprint (pumpanakin.fun's first
 Wayback capture is 2026-11-02 — a 301, nine days before analysis).
 Search engines never see the pitch; even if they did, the served HTML
-is filler words (`LURE_ANALYSIS.md`). Distribution is **pushed**, not
+is filler words (`FRONTEND_LAYER.md`). Distribution is **pushed**, not
 pulled: the victim arrives already primed, from somewhere else.
 
 ## The actual channels (evidence)
@@ -23,7 +23,7 @@ actual channel), `x.com/telegram`, `donaldjtrump.com` — so a hovering
 victim sees plausible links. The inbound traffic is the inverse:
 unsolicited posts/DMs in Telegram crypto groups and social replies
 dangling a "TRUMP COIN airdrop" or a Meteora/Jupiter/pump.fun claim
-(theme list in `FAMILY_MAP.md`). Russian-language page + Russian
+(theme list in `DEPLOYMENT_MAP.md`). Russian-language page + Russian
 countdown alert says the primary audience is RU-speaking Telegram
 crypto communities.
 
@@ -98,7 +98,7 @@ us at the kit layer:
   longer.
 - Blockaid detected more than 260 distinct Rublevka dApp URLs via this
   campaign, confirming the rapid-deployment scale already visible in the
-  30+ sibling lures identified by hash pivoting (`FAMILY_MAP.md`).
+  30+ sibling lures identified by hash pivoting (`DEPLOYMENT_MAP.md`).
   Content was rephrased for compliance with licensing restrictions.
 
 ## Industry context: this is a known blueprint
@@ -122,18 +122,18 @@ $KIMCHI/$SPX/$JTO/$PUNCH "claim" pages ([example](https://malwaretips.com/blogs/
 all variations on "the only action that matters is Connect Wallet."
 
 For a full situational picture of where this operation sits in the
-November 2026 drainer landscape, see `INDUSTRY_CONTEXT.md`.
+November 2026 drainer landscape, see `ECOSYSTEM.md`.
 
 ## Deobfuscation coverage, per artifact class
 
 | Artifact | Status | Where |
 |---|---|---|
-| Main bundle (JS-Confuser, 6 layers) | fully decoded | `decompiled/`, `FORENSIC_REPORT.md` |
-| Lure HTML dictionary (zero-width + Cyrillic + splits) | fully decoded (41 entries) | `LURE_ANALYSIS.md` |
+| Main bundle (JS-Confuser, 6 layers) | fully decoded | `decompiled/`, `BUNDLE_ANALYSIS.md` |
+| Lure HTML dictionary (zero-width + Cyrillic + splits) | fully decoded (41 entries) | `FRONTEND_LAYER.md` |
 | `/api/config` AES-GCM blob | fully decoded | `decompiled/live/api_config_decoded.json` |
-| Telemetry record (AES-GCM) | fully decoded | `DYNAMIC_ANALYSIS.md` |
+| Telemetry record (AES-GCM) | fully decoded | `RUNTIME_ANALYSIS.md` |
 | On-chain program (eBPF) | dispatch + behavior decoded | `decompiled/kit/chain/operator_program.md` |
 | Persuasion videos | container-parsed: `malicious.webm` 10.8s, `200tx.webm` 11.0s, `refund.webm` 8.0s — short "proof" clips played during the fake verification | `archive/pumpanakin.fun/` |
-| Helper scripts (`sbdst.js`, `5cagf.js`, `ibpi6.js`) | read: benign jQuery effects/countdown per theme | `LURE_ANALYSIS.md` |
+| Helper scripts (`sbdst.js`, `5cagf.js`, `ibpi6.js`) | read: benign jQuery effects/countdown per theme | `FRONTEND_LAYER.md` |
 | Captured drain transaction | fully decoded | `decompiled/live/dynamic/captured_tx.txt` |
-| dexscreener.fyi bundle | deployment degraded: `/api/config` 404s; its `index.js?aa6524x` now serves a 3.4KB stub (hash `8514f000…`), not the kit — retired or misconfigured | `FAMILY_MAP.md` |
+| dexscreener.fyi bundle | deployment degraded: `/api/config` 404s; its `index.js?aa6524x` now serves a 3.4KB stub (hash `8514f000…`), not the kit — retired or misconfigured | `DEPLOYMENT_MAP.md` |

@@ -225,7 +225,7 @@ and faces fewer blockchain-level countermeasures on Solana than on EVM
 
 ## What the next generation looks like — and how far behind this kit already is
 
-The table below is a projection grounded in FLAWS.md plus what Inferno
+The table below is a projection grounded in WEAKNESSES.md plus what Inferno
 Reloaded already ships as of May 2025:
 
 | Feature | Inferno Reloaded | This kit | Gap |

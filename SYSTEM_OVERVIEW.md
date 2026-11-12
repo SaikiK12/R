@@ -57,13 +57,13 @@ mobile (`socwallet://`, `herowallet://wc`, `reactwalletback.com`).
 - `?b=` beacon suppression marks redirect arrivals.
 - `is-banned` server-side kill switch per visitor.
 - Filler-text pages + DOMContentLoaded dictionary swap: static crawlers
-  see word salad (see `LURE_ANALYSIS.md`).
+  see word salad (see `FRONTEND_LAYER.md`).
 
 **3. Free infrastructure everywhere.** Helius free-tier keys (4,
 rotated as they burn out — observed live), Jupiter free keys (5),
 Solflare's free portfolio API for victim valuation, Cloudflare free in
 front, Cloudflare Pages for throwaway siblings, public RPC fallbacks.
-Fixed cost is one domain registration (`INFRASTRUCTURE.md`).
+Fixed cost is one domain registration (`STACK.md`).
 
 **4. Centralized brain, disposable costumes.** Every sibling serves the
 byte-identical bundle and the byte-identical decrypted `/api/config`
@@ -78,7 +78,7 @@ Protection" note, the decoy incoming legs in the assembled transaction
 (+1 SOL, +500 USDC to the victim so the preview reads as income), the
 "200tx" mass-sign flood option, localized Trust-style modal copy in
 en/fr/zh, Russian-language lure and countdown alert. Every layer has a
-matching persuasion trick (`LURE_ANALYSIS.md`, `DYNAMIC_ANALYSIS.md`).
+matching persuasion trick (`FRONTEND_LAYER.md`, `RUNTIME_ANALYSIS.md`).
 
 **6. Third-party code as camouflage.** The wallet UX is Reown AppKit
 with `@redacted/enterprise-plugin`; the wallet modal, 130+ wallet list,

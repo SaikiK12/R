@@ -4,7 +4,7 @@ A snapshot of the drainer ecosystem as of 2026-11-12, grounding the
 pumpanakin.fun / Rublevka-method operation in the broader threat
 picture. Sources are linked inline; all content was rephrased for
 compliance with licensing restrictions. This is a situational document;
-the kit-level analysis lives in `FORENSIC_REPORT.md` and `FLAWS.md`.
+the kit-level analysis lives in `BUNDLE_ANALYSIS.md` and `WEAKNESSES.md`.
 
 ## The Drainer-as-a-Service model (DaaS)
 
@@ -58,7 +58,7 @@ characterizes Rublevka Team as:
   Token-2022 handling observed in the program binary
   (`decompiled/kit/chain/operator_program.md`)
 - 35+ ready-to-use landing page templates integrated with the drainer —
-  consistent with the 30+ sibling lures identified in `FAMILY_MAP.md`
+  consistent with the 30+ sibling lures identified in `DEPLOYMENT_MAP.md`
 
 Attribution of pumpanakin.fun to Rublevka Team is **not** established
 in this repository; the match is methodological. The IOC lists
@@ -112,12 +112,12 @@ different attack class the week before this analysis:
 
 **Relevance to this operation:** The pumpanakin.fun / Rublevka kit uses
 a cross-domain popup to `easyinvest7.biz` for the actual wallet
-interaction (`DYNAMIC_ANALYSIS.md`). A DNS-layer compromise of
+interaction (`RUNTIME_ANALYSIS.md`). A DNS-layer compromise of
 `easyinvest7.biz` or any of the 30+ lure domains could redirect that
 popup to a third party's server. The October 2026 event demonstrated
 this attack class is actively being used. The architectural separation
 of lure domain and connect domain (design principle 1 in
-`OPERATOR_ARCHITECTURE.md`) reduces blast radius per domain — but
+`SYSTEM_OVERVIEW.md`) reduces blast radius per domain — but
 it does not eliminate the exposure; it spreads it across two domains
 instead of one.
 
@@ -150,7 +150,7 @@ operates at three layers:
    warning before fund transfer
 
 The pivots that make dApp scanning effective against this family are
-the same ones documented in `INFRASTRUCTURE.md`: bundle hash, Nuxt
+the same ones documented in `STACK.md`: bundle hash, Nuxt
 asset path, `/api/visit`+`/api/is-banned`+`/api/config` route shape,
 the AES key salt, and the on-chain program address. The durable ones
 (program, treasury) will outlast domain and key rotation. The fragile
@@ -160,14 +160,14 @@ The balance gate (≥0.60 SOL) in this kit is partly an anti-analysis
 measure but also a natural consequence of the affiliate incentive
 structure: draining small wallets wastes time and burns connection
 opportunities. Future versions will likely move this gate server-side
-(see `FLAWS.md`, F11 and the next-gen projection).
+(see `WEAKNESSES.md`, F11 and the next-gen projection).
 
 ## Summary: what is new since 2026-11-11
 
 | Finding | Source | Impact on this repo |
 |---|---|---|
-| X/Twitter is a primary Rublevka distribution channel (260+ URLs) | Blockaid | Added to `GROWTH.md`, `FLAWS.md` F20 |
-| Rublevka is a traffer team, $10M+ lifetime, LolzTeam origin | Recorded Future | Strengthens `GROWTH.md` affiliate machine section; attribution still not established for pumpanakin specifically |
-| StepDrainer / Name.com DNS hijack exploited registrar-layer risk Oct 30–31 | The Block, forklog | Added to `FLAWS.md` F22 (connect domain exposure) |
-| DaaS structure described in detail: 75–85% affiliate split | Blockaid | Validates `INFRASTRUCTURE.md` revenue-share assessment |
+| X/Twitter is a primary Rublevka distribution channel (260+ URLs) | Blockaid | Added to `DISTRIBUTION.md`, `WEAKNESSES.md` F20 |
+| Rublevka is a traffer team, $10M+ lifetime, LolzTeam origin | Recorded Future | Strengthens `DISTRIBUTION.md` affiliate machine section; attribution still not established for pumpanakin specifically |
+| StepDrainer / Name.com DNS hijack exploited registrar-layer risk Oct 30–31 | The Block, forklog | Added to `WEAKNESSES.md` F22 (connect domain exposure) |
+| DaaS structure described in detail: 75–85% affiliate split | Blockaid | Validates `STACK.md` revenue-share assessment |
 | 90+ wallet types, 35+ lure templates per Rublevka ad | Recorded Future | Consistent with 30+ sibling count; kit watermark `hexfomo.fun` may be the vendor |

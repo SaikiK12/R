@@ -133,13 +133,13 @@ engineering pitch.
 
 | Question | Where to look |
 |---|---|
-| How does the whole machine fit together? | `OPERATOR_ARCHITECTURE.md` |
-| What does the victim see, and why does it work? | `LURE_ANALYSIS.md` |
-| Detailed API request/response formats | `FORENSIC_REPORT.md` |
-| Dynamic run: popup, balance gate, tx capture | `DYNAMIC_ANALYSIS.md` |
+| How does the whole machine fit together? | `SYSTEM_OVERVIEW.md` |
+| What does the victim see, and why does it work? | `FRONTEND_LAYER.md` |
+| Detailed API request/response formats | `BUNDLE_ANALYSIS.md` |
+| Dynamic run: popup, balance gate, tx capture | `RUNTIME_ANALYSIS.md` |
 | All IOCs (domains, keys, addresses) | `decompiled/iocs.json` |
 | Decoded live config | `decompiled/live/api_config_decoded.json` |
 | On-chain program internals | `decompiled/kit/chain/operator_program.md` |
-| Where the operation is weak | `FLAWS.md` |
-| Sibling lures, sophistication gradient | `FAMILY_MAP.md` |
-| Industry/DaaS context, Rublevka, StepDrainer | `INDUSTRY_CONTEXT.md` |
+| Where the operation is weak | `WEAKNESSES.md` |
+| Sibling lures, sophistication gradient | `DEPLOYMENT_MAP.md` |
+| Industry/DaaS context, Rublevka, StepDrainer | `ECOSYSTEM.md` |

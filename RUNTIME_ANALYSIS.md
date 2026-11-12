@@ -1,6 +1,6 @@
 # Dynamic analysis: running the kit live in a sandbox
 
-What the static reconstruction (`FORENSIC_REPORT.md`, `decompiled/kit/`)
+What the static reconstruction (`BUNDLE_ANALYSIS.md`, `decompiled/kit/`)
 predicted, verified by actually running the drainer in a headless
 browser on 2026-11-11 — plus the things only a live run could reveal:
 the connect-domain redirect, the balance gate, the fake confirmation

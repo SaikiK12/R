@@ -15,7 +15,7 @@ Rublevka Team ([source](https://www.recordedfuture.com/research/rublevka-team-an
 and Blockaid documented the Rublevka X/Twitter distribution campaign
 ([source](https://blockaid.io/blog/how-crypto-drainers-are-using-x-twitter-to-target-web3-users)).
 The new material adds four flaws (F19–F22) and cross-validates several
-findings already in this document. See `INDUSTRY_CONTEXT.md` for the
+findings already in this document. See `ECOSYSTEM.md` for the
 full situational picture. Content was rephrased for compliance with
 licensing restrictions.
 
@@ -62,7 +62,7 @@ forever.
 
 **F7. Decoy legs come from their own cluster.** The "incoming" 500
 USDC/USDT legs originate from relay/staging addresses tied to the same
-operation (`DYNAMIC_ANALYSIS.md`). The persuasion mechanism itself
+operation (`RUNTIME_ANALYSIS.md`). The persuasion mechanism itself
 creates links between the money cluster and every victim.
 
 **F8. The program has a single upgrade authority.** One key
@@ -73,12 +73,12 @@ failure for the entire operation.
 ## Kit engineering
 
 **F9. Byte-identical bundle across 30+ domains.** One SHA-256 pivot on
-URLScan enumerated the whole family (`FAMILY_MAP.md`). Serving the same
+URLScan enumerated the whole family (`DEPLOYMENT_MAP.md`). Serving the same
 hash everywhere turns one detection into total exposure.
 
 **F10. Free version fingerprint.** The kit prints `1.18.4` to the
 browser console and ships it in every telemetry event
-(`DYNAMIC_ANALYSIS.md`). Versioning for their own debugging, gift-
+(`RUNTIME_ANALYSIS.md`). Versioning for their own debugging, gift-
 wrapped for trackers.
 
 **F11. The anti-analysis gate is client-side.** The ≥0.60 SOL balance
@@ -97,18 +97,18 @@ transaction out (minus blockhash) — proven by two independent captures
 clustering of their transactions on-chain.
 
 **F14. The two-layer HTML only beats crawlers that don't execute JS.**
-The filler-text trick (`LURE_ANALYSIS.md`) is transparent to any
+The filler-text trick (`FRONTEND_LAYER.md`) is transparent to any
 sandbox with a JavaScript engine — i.e., all modern ones.
 
 ## Operations
 
 **F15. Burnout-visible RPC keys.** The Helius keys rate-limit publicly
 (429 observed live), and they're embedded in the kit — reportable,
-revocable, and their burnout pattern is observable (`DYNAMIC_ANALYSIS.md`).
+revocable, and their burnout pattern is observable (`RUNTIME_ANALYSIS.md`).
 
 **F16. Uneven deployment quality.** Cloudflare bot-walls on some
 siblings, plain 200 on pumpanakin; `dexscreener.fyi` serving a
-misconfigured deployment with a dead `/api/config` (`FAMILY_MAP.md`).
+misconfigured deployment with a dead `/api/config` (`DEPLOYMENT_MAP.md`).
 Rolling out 30+ costumes didn't come with 30+ units of care.
 
 **F17. Wasted long-con effort.** amlbot.rest is a 3-year-old fake
@@ -120,9 +120,9 @@ attribution weakness of the cheapest sibling.
 
 **F18. Detail slips a careful victim catches.** "to verificate your
 account" in the modal copy; the fake confirm dialog quoting different
-amounts in different runs (−5 USDC vs −0.0361 SOL, `DYNAMIC_ANALYSIS.md`);
+amounts in different runs (−5 USDC vs −0.0361 SOL, `RUNTIME_ANALYSIS.md`);
 "250.000$" with a European thousands separator under an English pitch
-(`LURE_ANALYSIS.md`). Each is small; together they're the texture of a
+(`FRONTEND_LAYER.md`). Each is small; together they're the texture of a
 fake.
 
 ## Affiliate and distribution layer
@@ -162,7 +162,7 @@ any invariant.
 
 **F22. The popup connect flow leaks to the registrar layer.** The
 victim's browser opens a cross-domain popup to `easyinvest7.biz`
-(dynamic analysis, `DYNAMIC_ANALYSIS.md`). DNS changes to any of the
+(dynamic analysis, `RUNTIME_ANALYSIS.md`). DNS changes to any of the
 lure domains, or a registrar compromise of `easyinvest7.biz` itself
 (cf. the StepDrainer / Name.com DNS hijack of 12 DeFi sites,
 October 30–31 2026), could redirect the popup to a third party's
@@ -194,11 +194,11 @@ expect to change, and what makes today's pivots decay:
   real-time dApp scanning against known Rublevka domains, the
   distribution will likely move toward one-time-use domains served
   from throwaway Pages hosts — the same trajectory visible in the
-  meteora-exchange*.pages.dev cluster (`FAMILY_MAP.md`).
+  meteora-exchange*.pages.dev cluster (`DEPLOYMENT_MAP.md`).
 - **Copy polish.** The grammar and consistency slips are the cheapest
   thing to fix and will quietly disappear.
 
 Until then, the pivots that catch this family today are documented in
-`INFRASTRUCTURE.md` ("What changes between deployments") and the IOC
+`STACK.md` ("What changes between deployments") and the IOC
 catalog in `decompiled/iocs.json`. For the broader drainer landscape,
-see `INDUSTRY_CONTEXT.md`.
+see `ECOSYSTEM.md`.

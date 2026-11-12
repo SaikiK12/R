@@ -16,7 +16,7 @@ Every "Connect" button calls `window.openModal()`, with `open` hidden as `atob('
 
 ## What the bundle actually does
 
-JS-Confuser, six layers: `Function()` wrapper, custom-base64 string table (1053 entries, rotated left by 12), a 1691-entry constants array, CJK names, control-flow flattening, and split string literals. `deobfuscate.py` undoes the first three and the concealed built-in names. `decompiled/kit/` is the straight-line result.
+JS-Confuser, six layers: `Function()` wrapper, custom-base64 string table (1053 entries, rotated left by 12), a 1691-entry constants array, CJK names, control-flow flattening, and split string literals. `decode.py` undoes the first three and the concealed built-in names. `decompiled/kit/` is the straight-line result.
 
 An earlier extractor skipped the bare `undefined` at constants index 17. Every later constant was off by one. That is why older notes call `ab060a03-7874-4647-84d1-da019e4b51ea` a secret URL prefix. It is a Jupiter API key.
 
@@ -171,7 +171,7 @@ Everything else formerly listed as missing was recovered on 2026-11-11 against t
 ## Reproducing the decode
 
 ```bash
-python3 deobfuscate.py index.js --out-dir decompiled/ --no-js
+python3 decode.py index.js --out-dir decompiled/ --no-js
 ```
 
 Keys and the watermark string are plaintext only after the string table is decoded; the raw bundle shows them only via the CJK obfuscation pattern and its hash.
