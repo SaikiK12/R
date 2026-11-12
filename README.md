@@ -27,6 +27,8 @@ machinery.
    it costs them, what changes between deployments.
 7. `FAMILY_MAP.md` — 30+ sibling lures run by the same operator, and
    what the more elaborate ones do better.
+8. `GROWTH.md` — how they get victims: spam, TDS, aged domains, the
+   affiliate machine, and why there is no SEO.
 
 ## Contents
 
@@ -35,7 +37,8 @@ machinery.
 | `LURE_ANALYSIS.md` | The lure pages as social-engineering case studies |
 | `OPERATOR_ARCHITECTURE.md` | The full operator architecture on one page |
 | `DYNAMIC_ANALYSIS.md` | The sandboxed live run: redirect, gates, dialogs, captured tx |
-| `archive/` | Raw samples (bundle, lure HTML, connect app, program ELF) with hashes and provenance — do not execute |
+| `GROWTH.md` | Traffic acquisition and the affiliate machine |
+| `archive/` | Raw samples (bundle, lure HTML, connect app, program ELF, videos) with hashes and provenance — do not execute |
 | `FORENSIC_REPORT.md` | The report. One document, corrected against the live bundle |
 | `FAMILY_MAP.md` | Sibling lures and the sophistication gradient |
 | `INFRASTRUCTURE.md` | The operation's infrastructure and economics |

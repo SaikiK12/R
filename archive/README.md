@@ -17,6 +17,9 @@
 | `easyinvest7.biz/app-924a52.js` | `0735606691bbdf35d38d7531c0e48363a21ef6f7224ebce2908a1b487f9ea6a2` | connect-domain app — **byte-identical to `pumpanakin.fun/index.js`** (kept as the proof) |
 | `operator_program/program.elf` | `6de98643ecab4d83842ac5aa45b9a8f0338f173c459c92f949b7e462ba3a1c4e` | on-chain programdata of `TwrGADB9QPrLfTKpWuyq9tjgRaGsuzgRUMFTz51uhsa` (45-byte loader header stripped) — 60,760 B eBPF, analysis in `decompiled/kit/chain/operator_program.md` |
 | `operator_program/program.account.bin` | `b46f06b193d4d62026cfd68e96e8c52976d7c54f55449659664028912a4e716a` | 36-byte program account (loader state variant 2 + programdata address `HwWXKu3txa2CH6wMvPTMmZKY5bXHovftanBXbfUfqo5g`) |
+| `pumpanakin.fun/media/malicious.webm` | `51b2dae2886fe25ee1a26632c11359a2bd97612a4cb66e2ae3a658ed14ca4ef6` | 10.8s fake-transaction "proof" clip |
+| `pumpanakin.fun/media/200tx.webm` | `8c0c63fe6760272f4de9a96720e5f94b110f20333452849c2831db040129575a` | 11.0s clip behind the 200-dummy-tx trick |
+| `pumpanakin.fun/media/refund.webm` | `8a743b41a8a89c0cb39d8f66871e57cadcf8571a1662525934615dc4ecda87a9` | 8.0s fake-refund clip, played during the fake verification |
 | `sibling_lures/*.html` | see files | Lure HTML of three sibling deployments (arvoniq.com, vaultspin.win, isen.fund), referenced by `LURE_ANALYSIS.md` |
 
 On-chain artifacts were pulled from public Solana RPC
