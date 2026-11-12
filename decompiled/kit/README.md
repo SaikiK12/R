@@ -43,11 +43,49 @@ chain/
 
 ## Directory map
 
-| Dir | Layer | Files |
-|---|---|---|
-| `page/` | Runs on the lure page before any wallet interaction | `runtime.js`, `visit.js`, `page_params.js`, `set_sol_amount.js` |
-| `operator/` | Talks to `https://{apiHost}` | `operator_api.js`, `payloads.js`, `telemetry.js` |
-| `chain/` | Talks to Solana | `rpc.js`, `solflare_api.js`, `submit.js`, `tx_builders.js`, `operator_program.md` |
+### `page/` — Runs on the lure page before and during wallet interaction
+
+| File | Purpose |
+|---|---|
+| `runtime.js` | Polyfills: `AbortSignal["Be"]` (timeout), `Promise.withResolvers`, `String/Array.prototype.at` |
+| `page_params.js` | `readCampaignSource()` (localStorage `_0x6` → utm_source → referrer) and `pageHost()` (slug decode from `&d=` or `/connect/` path) |
+| `visit.js` | `sendVisit()` — `POST /api/visit?source=…&tgid=…&tgus=…` with 900 s cooldown |
+| `telegram.js` | `isTelegramWebView()`, `getTelegramUser()`, `getTelegramContext()` — Telegram WebApp detection; extracts tg user id + username for /api/visit |
+| `mobile.js` | `isMobile()` — UA + innerWidth check; `openConnectPopup()` — 360×450 popup to connect domain; `generateConnectToken()` — base-x slug encoding of pageHost |
+| `ban_check.js` | `isBanned()` — GET /api/is-banned; `loadLocales()` — GET /api/locales with en/fr/zh fallback |
+| `set_sol_amount.js` | `setSolAmount()` — validates amount ∈ [0.001, 1,000,000], stores in state.K |
+| `siws.js` | `buildSiwsMessage()` — SIWS EIP-4361 message template; `canSignAll()` — checks `solana:signAllTransactions` feature for 200-tx flow |
+| `balance_gate.js` | `checkWallet()` — SOL balance gate (insufficient / watch address / target account); 29-pubkey exclusion set |
+| `flow_state.js` | State object structure; flow type bytes (0=drain, 1=SIWS, 2=200tx); all error/retry messages; video paths; Phantom-spoof modal copy |
+| `lure_dom.js` | Complete decoded 36-entry pitch dictionary; DOMContentLoaded injection mechanism; zero-width/homoglyph/split-literal obfuscation explained |
+| `wallet_deeplinks.js` | Full 20+ wallet deep-link table; mobile connect URL construction; Chrome nag; App Store URL builder |
+
+### `operator/` — Talks to `https://{apiHost}`
+
+| File | Purpose |
+|---|---|
+| `operator_api.js` | `OperatorClient` class; all 6 endpoints (`/locales`, `/is-banned`, `/process`, `/c/i`, `/c/c/`, `/c/f/`) with request/response layouts |
+| `payloads.js` | Binary builders: `buildProcessPayload()` (52-byte header + signed txs), `buildConnectPayload()` (59-byte + CRC32), `encodeAccounts()`, AES-GCM key derivation (`B3ui3QZFrOPoGW7oMZgE4A`) |
+| `telemetry.js` | `sendEvent()` — `/api/handler` AES-GCM encrypted events; rate limiting (5 s / once per kind 4); 5-attempt retry with 150 ms×attempt backoff |
+
+### `chain/` — Talks to Solana
+
+| File | Purpose |
+|---|---|
+| `rpc.js` | 8-endpoint failover RPC client; wallet address as User-Agent; 2.5 s timeout; wraps as `solana.{method}()` Proxy |
+| `solflare_api.js` | `solPrice()`, `portfolio()` — Solflare free backend abuse; random bearer token; victim token enumeration including Token-2022 and fee extension detection |
+| `jupiter_api.js` | `priceTokens()`, `searchToken()` — 5 Jupiter free-tier API keys; rotate on 429 |
+| `submit.js` | `submitSignedTransactions()` — POST to `/process` + optional self-broadcast via RPC with `skipPreflight: true` after 2.5 s |
+| `tx_builders.js` | Drain tx assembly: ComputeBudget, marker instruction, operator program calls (disc 2/3/4/18), vault PDA derivation, dummy-tx spam builder |
+| `pumpfun.js` | Token-2022 / TransferCheckedWithFee handling; pump.fun bonding curve detection; Meteora/Raydium/Orca LP detection; compute unit adjustments table |
+| `stake_drain.js` | Native Stake account drain: Solflare stake endpoint, Stake.withdraw instruction builder, 23 stake pool addresses [325–347] |
+| `operator_program.md` | On-chain program binary analysis: discriminators 0–21, vault42 PDA seeds, upgrade authority, observed mainnet transaction patterns |
+
+### `watermark.js` — Kit vendor fingerprint
+
+| File | Purpose |
+|---|---|
+| `watermark.js` | Decodes string[350] blob: vendor domain `hexfomo.fun`, default target token `USDC`, revenue split values (80/80) |
 
 ## What the operator controls server-side
 
