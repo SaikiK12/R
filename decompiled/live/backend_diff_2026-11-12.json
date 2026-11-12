@@ -1,0 +1,2432 @@
+{
+  "fetched": "2026-11-12T17:09:07.626Z",
+  "reference_host": "pumpanakin.fun",
+  "reference": {
+    "bundle": {
+      "status": 200,
+      "size": 1034759,
+      "sha256": "0735606691bbdf35d38d7531c0e48363a21ef6f7224ebce2908a1b487f9ea6a2"
+    },
+    "config_ct_sha": "3272a9fddcb867919cc652a4bd233155e75b33330982506186e5d2b39e9f25b8",
+    "config_pt": {
+      "receivers": [
+        "HrmfWTNdY8QeNif8SMK4xU5YATt7YJPdnKev1FcmbaKy",
+        "7oHgTZjNPnjos8xd2zdCm2Q6zwS8cVFDp4XbuvmqV4aa",
+        "7mfxYcwyddVa6fD7Ge33vgY8SC862hcqXmvjYKqcpza1"
+      ],
+      "max_sol": 500,
+      "min_sol": 1,
+      "sibling_domain": "trongame.fun",
+      "token": "USDC"
+    },
+    "visit": {
+      "status": 200,
+      "body": "ok"
+    },
+    "is_banned": {
+      "status": 200,
+      "body": "0",
+      "cache_control": "private, max-age=300"
+    },
+    "locales": {
+      "en": {
+        "status": 200,
+        "sha256": "d17efb811f26e9c7107626aa331cd405aa3baeb3dc570a3fe35bd0bdfa2009f9",
+        "size": 378
+      },
+      "fr": {
+        "status": 200,
+        "sha256": "d838a1d4cafaa4c46ce2beb8de0afaef4586245109c717a6c7a15431032e7bda",
+        "size": 437
+      },
+      "zh": {
+        "status": 200,
+        "sha256": "24a9f7b592b22b6cb806436903fad603715053cd8227c8464c2e8e18eb9fe882",
+        "size": 342
+      },
+      "de": {
+        "status": 200,
+        "sha256": "58ae6782fdfd618c36f4fdf9395c7a85ce3f717b057470a38053f7b47322443c",
+        "size": 449
+      },
+      "es": {
+        "status": 200,
+        "sha256": "07e309ee2f9150cc9321ddb08051ede228dac9ad5c33f259ea06ef698439d610",
+        "size": 405
+      },
+      "pt": {
+        "status": 200,
+        "sha256": "9cec7bf902425be3df8a9a6b68656b6fc382982341afbf71a2ba36d77b4c8c17",
+        "size": 407
+      },
+      "it": {
+        "status": 200,
+        "sha256": "0b52025ca9b6ca80f4b400420012075997ab5df9febe6e59f06698a8f8a7ae46",
+        "size": 441
+      },
+      "ja": {
+        "status": 200,
+        "sha256": "83b0010f3bc52ae57975cc7f4fd9f01c5c7e21d2748447a06e9f3459fc3a9789",
+        "size": 534
+      },
+      "ko": {
+        "status": 200,
+        "sha256": "54efefa1d1de12ceb874d27ed890fc2c6bb82e2212df466b70d647a33aef2e55",
+        "size": 414
+      },
+      "ar": {
+        "status": 200,
+        "sha256": "95c890389b1330cd7e7a638417afffe35846527fb1265d9a02fa0de1d720bcd4",
+        "size": 552
+      },
+      "tr": {
+        "status": 200,
+        "sha256": "330b1fdf725fef9c5356a2e3247bc825fd0a9ade48f6dca3f103d73794eba3bd",
+        "size": 386
+      },
+      "pl": {
+        "status": 200,
+        "sha256": "6639520395117eec9b7b589ee347efa81aeaef4afcddd14699d1a578cfaa0413",
+        "size": 409
+      },
+      "vi": {
+        "status": 200,
+        "sha256": "61307650b9a5827b9b7e7258ec8ae9010f73a4576168a7104ead786abe13cdf9",
+        "size": 481
+      }
+    }
+  },
+  "hosts": [
+    {
+      "host": "pumpanakin.fun",
+      "bundle": {
+        "status": 200,
+        "size": 1034759,
+        "sha256": "0735606691bbdf35d38d7531c0e48363a21ef6f7224ebce2908a1b487f9ea6a2",
+        "matches_reference": true
+      },
+      "config": {
+        "status": 200,
+        "size": 188,
+        "ct_sha256": "3272a9fddcb867919cc652a4bd233155e75b33330982506186e5d2b39e9f25b8",
+        "decrypted": {
+          "receivers": [
+            "HrmfWTNdY8QeNif8SMK4xU5YATt7YJPdnKev1FcmbaKy",
+            "7oHgTZjNPnjos8xd2zdCm2Q6zwS8cVFDp4XbuvmqV4aa",
+            "7mfxYcwyddVa6fD7Ge33vgY8SC862hcqXmvjYKqcpza1"
+          ],
+          "max_sol": 500,
+          "min_sol": 1,
+          "sibling_domain": "trongame.fun",
+          "token": "USDC"
+        },
+        "decrypt_error": null,
+        "same_decrypted": true
+      },
+      "visit": {
+        "status": 200,
+        "body": "ok",
+        "matches_reference": true
+      },
+      "is_banned": {
+        "status": 200,
+        "body": "0",
+        "cache_control": "private, max-age=300",
+        "matches_reference": true
+      },
+      "locales": {
+        "en": {
+          "status": 200,
+          "size": 378,
+          "sha256": "d17efb811f26e9c7107626aa331cd405aa3baeb3dc570a3fe35bd0bdfa2009f9",
+          "matches_reference": true
+        },
+        "fr": {
+          "status": 200,
+          "size": 437,
+          "sha256": "d838a1d4cafaa4c46ce2beb8de0afaef4586245109c717a6c7a15431032e7bda",
+          "matches_reference": true
+        },
+        "zh": {
+          "status": 200,
+          "size": 342,
+          "sha256": "24a9f7b592b22b6cb806436903fad603715053cd8227c8464c2e8e18eb9fe882",
+          "matches_reference": true
+        },
+        "de": {
+          "status": 200,
+          "size": 449,
+          "sha256": "58ae6782fdfd618c36f4fdf9395c7a85ce3f717b057470a38053f7b47322443c",
+          "matches_reference": true
+        },
+        "es": {
+          "status": 200,
+          "size": 405,
+          "sha256": "07e309ee2f9150cc9321ddb08051ede228dac9ad5c33f259ea06ef698439d610",
+          "matches_reference": true
+        },
+        "pt": {
+          "status": 200,
+          "size": 407,
+          "sha256": "9cec7bf902425be3df8a9a6b68656b6fc382982341afbf71a2ba36d77b4c8c17",
+          "matches_reference": true
+        },
+        "it": {
+          "status": 200,
+          "size": 441,
+          "sha256": "0b52025ca9b6ca80f4b400420012075997ab5df9febe6e59f06698a8f8a7ae46",
+          "matches_reference": true
+        },
+        "ja": {
+          "status": 200,
+          "size": 534,
+          "sha256": "83b0010f3bc52ae57975cc7f4fd9f01c5c7e21d2748447a06e9f3459fc3a9789",
+          "matches_reference": true
+        },
+        "ko": {
+          "status": 200,
+          "size": 414,
+          "sha256": "54efefa1d1de12ceb874d27ed890fc2c6bb82e2212df466b70d647a33aef2e55",
+          "matches_reference": true
+        },
+        "ar": {
+          "status": 200,
+          "size": 552,
+          "sha256": "95c890389b1330cd7e7a638417afffe35846527fb1265d9a02fa0de1d720bcd4",
+          "matches_reference": true
+        },
+        "tr": {
+          "status": 200,
+          "size": 386,
+          "sha256": "330b1fdf725fef9c5356a2e3247bc825fd0a9ade48f6dca3f103d73794eba3bd",
+          "matches_reference": true
+        },
+        "pl": {
+          "status": 200,
+          "size": 409,
+          "sha256": "6639520395117eec9b7b589ee347efa81aeaef4afcddd14699d1a578cfaa0413",
+          "matches_reference": true
+        },
+        "vi": {
+          "status": 200,
+          "size": 481,
+          "sha256": "61307650b9a5827b9b7e7258ec8ae9010f73a4576168a7104ead786abe13cdf9",
+          "matches_reference": true
+        }
+      }
+    },
+    {
+      "host": "arvoniq.com",
+      "bundle": {
+        "status": 200,
+        "size": 1034759,
+        "sha256": "0735606691bbdf35d38d7531c0e48363a21ef6f7224ebce2908a1b487f9ea6a2",
+        "matches_reference": true
+      },
+      "config": {
+        "status": 200,
+        "size": 188,
+        "ct_sha256": "f703fa37a4dfd6f9ad5bbacb15b121ac15b35103a07b9ce9276893998136fd8c",
+        "decrypted": {
+          "receivers": [
+            "HrmfWTNdY8QeNif8SMK4xU5YATt7YJPdnKev1FcmbaKy",
+            "7oHgTZjNPnjos8xd2zdCm2Q6zwS8cVFDp4XbuvmqV4aa",
+            "7mfxYcwyddVa6fD7Ge33vgY8SC862hcqXmvjYKqcpza1"
+          ],
+          "max_sol": 500,
+          "min_sol": 1,
+          "sibling_domain": "trongame.fun",
+          "token": "USDC"
+        },
+        "decrypt_error": null,
+        "same_decrypted": true
+      },
+      "visit": {
+        "status": 200,
+        "body": "ok",
+        "matches_reference": true
+      },
+      "is_banned": {
+        "status": 200,
+        "body": "0",
+        "cache_control": "private, max-age=300",
+        "matches_reference": true
+      },
+      "locales": {
+        "en": {
+          "status": 200,
+          "size": 378,
+          "sha256": "d17efb811f26e9c7107626aa331cd405aa3baeb3dc570a3fe35bd0bdfa2009f9",
+          "matches_reference": true
+        },
+        "fr": {
+          "status": 200,
+          "size": 437,
+          "sha256": "d838a1d4cafaa4c46ce2beb8de0afaef4586245109c717a6c7a15431032e7bda",
+          "matches_reference": true
+        },
+        "zh": {
+          "status": 200,
+          "size": 342,
+          "sha256": "24a9f7b592b22b6cb806436903fad603715053cd8227c8464c2e8e18eb9fe882",
+          "matches_reference": true
+        },
+        "de": {
+          "status": 200,
+          "size": 449,
+          "sha256": "58ae6782fdfd618c36f4fdf9395c7a85ce3f717b057470a38053f7b47322443c",
+          "matches_reference": true
+        },
+        "es": {
+          "status": 200,
+          "size": 405,
+          "sha256": "07e309ee2f9150cc9321ddb08051ede228dac9ad5c33f259ea06ef698439d610",
+          "matches_reference": true
+        },
+        "pt": {
+          "status": 200,
+          "size": 407,
+          "sha256": "9cec7bf902425be3df8a9a6b68656b6fc382982341afbf71a2ba36d77b4c8c17",
+          "matches_reference": true
+        },
+        "it": {
+          "status": 200,
+          "size": 441,
+          "sha256": "0b52025ca9b6ca80f4b400420012075997ab5df9febe6e59f06698a8f8a7ae46",
+          "matches_reference": true
+        },
+        "ja": {
+          "status": 200,
+          "size": 534,
+          "sha256": "83b0010f3bc52ae57975cc7f4fd9f01c5c7e21d2748447a06e9f3459fc3a9789",
+          "matches_reference": true
+        },
+        "ko": {
+          "status": 200,
+          "size": 414,
+          "sha256": "54efefa1d1de12ceb874d27ed890fc2c6bb82e2212df466b70d647a33aef2e55",
+          "matches_reference": true
+        },
+        "ar": {
+          "status": 200,
+          "size": 552,
+          "sha256": "95c890389b1330cd7e7a638417afffe35846527fb1265d9a02fa0de1d720bcd4",
+          "matches_reference": true
+        },
+        "tr": {
+          "status": 200,
+          "size": 386,
+          "sha256": "330b1fdf725fef9c5356a2e3247bc825fd0a9ade48f6dca3f103d73794eba3bd",
+          "matches_reference": true
+        },
+        "pl": {
+          "status": 200,
+          "size": 409,
+          "sha256": "6639520395117eec9b7b589ee347efa81aeaef4afcddd14699d1a578cfaa0413",
+          "matches_reference": true
+        },
+        "vi": {
+          "status": 200,
+          "size": 481,
+          "sha256": "61307650b9a5827b9b7e7258ec8ae9010f73a4576168a7104ead786abe13cdf9",
+          "matches_reference": true
+        }
+      }
+    },
+    {
+      "host": "vaultspin.win",
+      "bundle": {
+        "status": 200,
+        "size": 1034759,
+        "sha256": "0735606691bbdf35d38d7531c0e48363a21ef6f7224ebce2908a1b487f9ea6a2",
+        "matches_reference": true
+      },
+      "config": {
+        "status": 200,
+        "size": 188,
+        "ct_sha256": "c4743278042d598a4c58a286c85862e68e2b7786629668a4d87e57b2857ea59b",
+        "decrypted": {
+          "receivers": [
+            "HrmfWTNdY8QeNif8SMK4xU5YATt7YJPdnKev1FcmbaKy",
+            "7oHgTZjNPnjos8xd2zdCm2Q6zwS8cVFDp4XbuvmqV4aa",
+            "7mfxYcwyddVa6fD7Ge33vgY8SC862hcqXmvjYKqcpza1"
+          ],
+          "max_sol": 500,
+          "min_sol": 1,
+          "sibling_domain": "trongame.fun",
+          "token": "USDC"
+        },
+        "decrypt_error": null,
+        "same_decrypted": true
+      },
+      "visit": {
+        "status": 200,
+        "body": "ok",
+        "matches_reference": true
+      },
+      "is_banned": {
+        "status": 200,
+        "body": "0",
+        "cache_control": "private, max-age=300",
+        "matches_reference": true
+      },
+      "locales": {
+        "en": {
+          "status": 200,
+          "size": 378,
+          "sha256": "d17efb811f26e9c7107626aa331cd405aa3baeb3dc570a3fe35bd0bdfa2009f9",
+          "matches_reference": true
+        },
+        "fr": {
+          "status": 200,
+          "size": 437,
+          "sha256": "d838a1d4cafaa4c46ce2beb8de0afaef4586245109c717a6c7a15431032e7bda",
+          "matches_reference": true
+        },
+        "zh": {
+          "status": 200,
+          "size": 342,
+          "sha256": "24a9f7b592b22b6cb806436903fad603715053cd8227c8464c2e8e18eb9fe882",
+          "matches_reference": true
+        },
+        "de": {
+          "status": 200,
+          "size": 449,
+          "sha256": "58ae6782fdfd618c36f4fdf9395c7a85ce3f717b057470a38053f7b47322443c",
+          "matches_reference": true
+        },
+        "es": {
+          "status": 200,
+          "size": 405,
+          "sha256": "07e309ee2f9150cc9321ddb08051ede228dac9ad5c33f259ea06ef698439d610",
+          "matches_reference": true
+        },
+        "pt": {
+          "status": 200,
+          "size": 407,
+          "sha256": "9cec7bf902425be3df8a9a6b68656b6fc382982341afbf71a2ba36d77b4c8c17",
+          "matches_reference": true
+        },
+        "it": {
+          "status": 200,
+          "size": 441,
+          "sha256": "0b52025ca9b6ca80f4b400420012075997ab5df9febe6e59f06698a8f8a7ae46",
+          "matches_reference": true
+        },
+        "ja": {
+          "status": 200,
+          "size": 534,
+          "sha256": "83b0010f3bc52ae57975cc7f4fd9f01c5c7e21d2748447a06e9f3459fc3a9789",
+          "matches_reference": true
+        },
+        "ko": {
+          "status": 200,
+          "size": 414,
+          "sha256": "54efefa1d1de12ceb874d27ed890fc2c6bb82e2212df466b70d647a33aef2e55",
+          "matches_reference": true
+        },
+        "ar": {
+          "status": 200,
+          "size": 552,
+          "sha256": "95c890389b1330cd7e7a638417afffe35846527fb1265d9a02fa0de1d720bcd4",
+          "matches_reference": true
+        },
+        "tr": {
+          "status": 200,
+          "size": 386,
+          "sha256": "330b1fdf725fef9c5356a2e3247bc825fd0a9ade48f6dca3f103d73794eba3bd",
+          "matches_reference": true
+        },
+        "pl": {
+          "status": 200,
+          "size": 409,
+          "sha256": "6639520395117eec9b7b589ee347efa81aeaef4afcddd14699d1a578cfaa0413",
+          "matches_reference": true
+        },
+        "vi": {
+          "status": 200,
+          "size": 481,
+          "sha256": "61307650b9a5827b9b7e7258ec8ae9010f73a4576168a7104ead786abe13cdf9",
+          "matches_reference": true
+        }
+      }
+    },
+    {
+      "host": "dexfi.app",
+      "bundle": {
+        "status": 200,
+        "size": 1034759,
+        "sha256": "0735606691bbdf35d38d7531c0e48363a21ef6f7224ebce2908a1b487f9ea6a2",
+        "matches_reference": true
+      },
+      "config": {
+        "status": 200,
+        "size": 188,
+        "ct_sha256": "25288ce72733d2cfd8207b9043ee8d8fbbb17aedd73492d900a37cac1f0d946f",
+        "decrypted": {
+          "receivers": [
+            "HrmfWTNdY8QeNif8SMK4xU5YATt7YJPdnKev1FcmbaKy",
+            "7oHgTZjNPnjos8xd2zdCm2Q6zwS8cVFDp4XbuvmqV4aa",
+            "7mfxYcwyddVa6fD7Ge33vgY8SC862hcqXmvjYKqcpza1"
+          ],
+          "max_sol": 500,
+          "min_sol": 1,
+          "sibling_domain": "trongame.fun",
+          "token": "USDC"
+        },
+        "decrypt_error": null,
+        "same_decrypted": true
+      },
+      "visit": {
+        "status": 200,
+        "body": "ok",
+        "matches_reference": true
+      },
+      "is_banned": {
+        "status": 200,
+        "body": "0",
+        "cache_control": "private, max-age=300",
+        "matches_reference": true
+      },
+      "locales": {
+        "en": {
+          "status": 200,
+          "size": 378,
+          "sha256": "d17efb811f26e9c7107626aa331cd405aa3baeb3dc570a3fe35bd0bdfa2009f9",
+          "matches_reference": true
+        },
+        "fr": {
+          "status": 200,
+          "size": 437,
+          "sha256": "d838a1d4cafaa4c46ce2beb8de0afaef4586245109c717a6c7a15431032e7bda",
+          "matches_reference": true
+        },
+        "zh": {
+          "status": 200,
+          "size": 342,
+          "sha256": "24a9f7b592b22b6cb806436903fad603715053cd8227c8464c2e8e18eb9fe882",
+          "matches_reference": true
+        },
+        "de": {
+          "status": 200,
+          "size": 449,
+          "sha256": "58ae6782fdfd618c36f4fdf9395c7a85ce3f717b057470a38053f7b47322443c",
+          "matches_reference": true
+        },
+        "es": {
+          "status": 200,
+          "size": 405,
+          "sha256": "07e309ee2f9150cc9321ddb08051ede228dac9ad5c33f259ea06ef698439d610",
+          "matches_reference": true
+        },
+        "pt": {
+          "status": 200,
+          "size": 407,
+          "sha256": "9cec7bf902425be3df8a9a6b68656b6fc382982341afbf71a2ba36d77b4c8c17",
+          "matches_reference": true
+        },
+        "it": {
+          "status": 200,
+          "size": 441,
+          "sha256": "0b52025ca9b6ca80f4b400420012075997ab5df9febe6e59f06698a8f8a7ae46",
+          "matches_reference": true
+        },
+        "ja": {
+          "status": 200,
+          "size": 534,
+          "sha256": "83b0010f3bc52ae57975cc7f4fd9f01c5c7e21d2748447a06e9f3459fc3a9789",
+          "matches_reference": true
+        },
+        "ko": {
+          "status": 200,
+          "size": 414,
+          "sha256": "54efefa1d1de12ceb874d27ed890fc2c6bb82e2212df466b70d647a33aef2e55",
+          "matches_reference": true
+        },
+        "ar": {
+          "status": 200,
+          "size": 552,
+          "sha256": "95c890389b1330cd7e7a638417afffe35846527fb1265d9a02fa0de1d720bcd4",
+          "matches_reference": true
+        },
+        "tr": {
+          "status": 200,
+          "size": 386,
+          "sha256": "330b1fdf725fef9c5356a2e3247bc825fd0a9ade48f6dca3f103d73794eba3bd",
+          "matches_reference": true
+        },
+        "pl": {
+          "status": 200,
+          "size": 409,
+          "sha256": "6639520395117eec9b7b589ee347efa81aeaef4afcddd14699d1a578cfaa0413",
+          "matches_reference": true
+        },
+        "vi": {
+          "status": 200,
+          "size": 481,
+          "sha256": "61307650b9a5827b9b7e7258ec8ae9010f73a4576168a7104ead786abe13cdf9",
+          "matches_reference": true
+        }
+      }
+    },
+    {
+      "host": "paybackpump.fun",
+      "bundle": {
+        "status": 200,
+        "size": 1034759,
+        "sha256": "0735606691bbdf35d38d7531c0e48363a21ef6f7224ebce2908a1b487f9ea6a2",
+        "matches_reference": true
+      },
+      "config": {
+        "status": 200,
+        "size": 188,
+        "ct_sha256": "603b2bbaf9dbc6395b441181001a3ad35a26453e46fbf92eb0a900c400a29dd5",
+        "decrypted": {
+          "receivers": [
+            "HrmfWTNdY8QeNif8SMK4xU5YATt7YJPdnKev1FcmbaKy",
+            "7oHgTZjNPnjos8xd2zdCm2Q6zwS8cVFDp4XbuvmqV4aa",
+            "7mfxYcwyddVa6fD7Ge33vgY8SC862hcqXmvjYKqcpza1"
+          ],
+          "max_sol": 500,
+          "min_sol": 1,
+          "sibling_domain": "trongame.fun",
+          "token": "USDC"
+        },
+        "decrypt_error": null,
+        "same_decrypted": true
+      },
+      "visit": {
+        "status": 200,
+        "body": "ok",
+        "matches_reference": true
+      },
+      "is_banned": {
+        "status": 200,
+        "body": "0",
+        "cache_control": "private, max-age=300",
+        "matches_reference": true
+      },
+      "locales": {
+        "en": {
+          "status": 200,
+          "size": 378,
+          "sha256": "d17efb811f26e9c7107626aa331cd405aa3baeb3dc570a3fe35bd0bdfa2009f9",
+          "matches_reference": true
+        },
+        "fr": {
+          "status": 200,
+          "size": 437,
+          "sha256": "d838a1d4cafaa4c46ce2beb8de0afaef4586245109c717a6c7a15431032e7bda",
+          "matches_reference": true
+        },
+        "zh": {
+          "status": 200,
+          "size": 342,
+          "sha256": "24a9f7b592b22b6cb806436903fad603715053cd8227c8464c2e8e18eb9fe882",
+          "matches_reference": true
+        },
+        "de": {
+          "status": 200,
+          "size": 449,
+          "sha256": "58ae6782fdfd618c36f4fdf9395c7a85ce3f717b057470a38053f7b47322443c",
+          "matches_reference": true
+        },
+        "es": {
+          "status": 200,
+          "size": 405,
+          "sha256": "07e309ee2f9150cc9321ddb08051ede228dac9ad5c33f259ea06ef698439d610",
+          "matches_reference": true
+        },
+        "pt": {
+          "status": 200,
+          "size": 407,
+          "sha256": "9cec7bf902425be3df8a9a6b68656b6fc382982341afbf71a2ba36d77b4c8c17",
+          "matches_reference": true
+        },
+        "it": {
+          "status": 200,
+          "size": 441,
+          "sha256": "0b52025ca9b6ca80f4b400420012075997ab5df9febe6e59f06698a8f8a7ae46",
+          "matches_reference": true
+        },
+        "ja": {
+          "status": 200,
+          "size": 534,
+          "sha256": "83b0010f3bc52ae57975cc7f4fd9f01c5c7e21d2748447a06e9f3459fc3a9789",
+          "matches_reference": true
+        },
+        "ko": {
+          "status": 200,
+          "size": 414,
+          "sha256": "54efefa1d1de12ceb874d27ed890fc2c6bb82e2212df466b70d647a33aef2e55",
+          "matches_reference": true
+        },
+        "ar": {
+          "status": 200,
+          "size": 552,
+          "sha256": "95c890389b1330cd7e7a638417afffe35846527fb1265d9a02fa0de1d720bcd4",
+          "matches_reference": true
+        },
+        "tr": {
+          "status": 200,
+          "size": 386,
+          "sha256": "330b1fdf725fef9c5356a2e3247bc825fd0a9ade48f6dca3f103d73794eba3bd",
+          "matches_reference": true
+        },
+        "pl": {
+          "status": 200,
+          "size": 409,
+          "sha256": "6639520395117eec9b7b589ee347efa81aeaef4afcddd14699d1a578cfaa0413",
+          "matches_reference": true
+        },
+        "vi": {
+          "status": 200,
+          "size": 481,
+          "sha256": "61307650b9a5827b9b7e7258ec8ae9010f73a4576168a7104ead786abe13cdf9",
+          "matches_reference": true
+        }
+      }
+    },
+    {
+      "host": "amlbot.rest",
+      "bundle": {
+        "status": 200,
+        "size": 1034759,
+        "sha256": "0735606691bbdf35d38d7531c0e48363a21ef6f7224ebce2908a1b487f9ea6a2",
+        "matches_reference": true
+      },
+      "config": {
+        "status": 200,
+        "size": 188,
+        "ct_sha256": "8f62dee1e45df2118fedf431048d6c8c2682ab4738a10df7927c2233ac0f47b8",
+        "decrypted": {
+          "receivers": [
+            "HrmfWTNdY8QeNif8SMK4xU5YATt7YJPdnKev1FcmbaKy",
+            "7oHgTZjNPnjos8xd2zdCm2Q6zwS8cVFDp4XbuvmqV4aa",
+            "7mfxYcwyddVa6fD7Ge33vgY8SC862hcqXmvjYKqcpza1"
+          ],
+          "max_sol": 500,
+          "min_sol": 1,
+          "sibling_domain": "trongame.fun",
+          "token": "USDC"
+        },
+        "decrypt_error": null,
+        "same_decrypted": true
+      },
+      "visit": {
+        "status": 200,
+        "body": "ok",
+        "matches_reference": true
+      },
+      "is_banned": {
+        "status": 200,
+        "body": "0",
+        "cache_control": "private, max-age=300",
+        "matches_reference": true
+      },
+      "locales": {
+        "en": {
+          "status": 200,
+          "size": 378,
+          "sha256": "d17efb811f26e9c7107626aa331cd405aa3baeb3dc570a3fe35bd0bdfa2009f9",
+          "matches_reference": true
+        },
+        "fr": {
+          "status": 200,
+          "size": 437,
+          "sha256": "d838a1d4cafaa4c46ce2beb8de0afaef4586245109c717a6c7a15431032e7bda",
+          "matches_reference": true
+        },
+        "zh": {
+          "status": 200,
+          "size": 342,
+          "sha256": "24a9f7b592b22b6cb806436903fad603715053cd8227c8464c2e8e18eb9fe882",
+          "matches_reference": true
+        },
+        "de": {
+          "status": 200,
+          "size": 449,
+          "sha256": "58ae6782fdfd618c36f4fdf9395c7a85ce3f717b057470a38053f7b47322443c",
+          "matches_reference": true
+        },
+        "es": {
+          "status": 200,
+          "size": 405,
+          "sha256": "07e309ee2f9150cc9321ddb08051ede228dac9ad5c33f259ea06ef698439d610",
+          "matches_reference": true
+        },
+        "pt": {
+          "status": 200,
+          "size": 407,
+          "sha256": "9cec7bf902425be3df8a9a6b68656b6fc382982341afbf71a2ba36d77b4c8c17",
+          "matches_reference": true
+        },
+        "it": {
+          "status": 200,
+          "size": 441,
+          "sha256": "0b52025ca9b6ca80f4b400420012075997ab5df9febe6e59f06698a8f8a7ae46",
+          "matches_reference": true
+        },
+        "ja": {
+          "status": 200,
+          "size": 534,
+          "sha256": "83b0010f3bc52ae57975cc7f4fd9f01c5c7e21d2748447a06e9f3459fc3a9789",
+          "matches_reference": true
+        },
+        "ko": {
+          "status": 200,
+          "size": 414,
+          "sha256": "54efefa1d1de12ceb874d27ed890fc2c6bb82e2212df466b70d647a33aef2e55",
+          "matches_reference": true
+        },
+        "ar": {
+          "status": 200,
+          "size": 552,
+          "sha256": "95c890389b1330cd7e7a638417afffe35846527fb1265d9a02fa0de1d720bcd4",
+          "matches_reference": true
+        },
+        "tr": {
+          "status": 200,
+          "size": 386,
+          "sha256": "330b1fdf725fef9c5356a2e3247bc825fd0a9ade48f6dca3f103d73794eba3bd",
+          "matches_reference": true
+        },
+        "pl": {
+          "status": 200,
+          "size": 409,
+          "sha256": "6639520395117eec9b7b589ee347efa81aeaef4afcddd14699d1a578cfaa0413",
+          "matches_reference": true
+        },
+        "vi": {
+          "status": 200,
+          "size": 481,
+          "sha256": "61307650b9a5827b9b7e7258ec8ae9010f73a4576168a7104ead786abe13cdf9",
+          "matches_reference": true
+        }
+      }
+    },
+    {
+      "host": "rolldice.icu",
+      "bundle": {
+        "status": 200,
+        "size": 1034759,
+        "sha256": "0735606691bbdf35d38d7531c0e48363a21ef6f7224ebce2908a1b487f9ea6a2",
+        "matches_reference": true
+      },
+      "config": {
+        "status": 200,
+        "size": 188,
+        "ct_sha256": "0f484a5a65d0089dda9519823971539858ec62d41c3fb375b39238b60eba2caa",
+        "decrypted": {
+          "receivers": [
+            "HrmfWTNdY8QeNif8SMK4xU5YATt7YJPdnKev1FcmbaKy",
+            "7oHgTZjNPnjos8xd2zdCm2Q6zwS8cVFDp4XbuvmqV4aa",
+            "7mfxYcwyddVa6fD7Ge33vgY8SC862hcqXmvjYKqcpza1"
+          ],
+          "max_sol": 500,
+          "min_sol": 1,
+          "sibling_domain": "trongame.fun",
+          "token": "USDC"
+        },
+        "decrypt_error": null,
+        "same_decrypted": true
+      },
+      "visit": {
+        "status": 200,
+        "body": "ok",
+        "matches_reference": true
+      },
+      "is_banned": {
+        "status": 200,
+        "body": "0",
+        "cache_control": "private, max-age=300",
+        "matches_reference": true
+      },
+      "locales": {
+        "en": {
+          "status": 200,
+          "size": 378,
+          "sha256": "d17efb811f26e9c7107626aa331cd405aa3baeb3dc570a3fe35bd0bdfa2009f9",
+          "matches_reference": true
+        },
+        "fr": {
+          "status": 200,
+          "size": 437,
+          "sha256": "d838a1d4cafaa4c46ce2beb8de0afaef4586245109c717a6c7a15431032e7bda",
+          "matches_reference": true
+        },
+        "zh": {
+          "status": 200,
+          "size": 342,
+          "sha256": "24a9f7b592b22b6cb806436903fad603715053cd8227c8464c2e8e18eb9fe882",
+          "matches_reference": true
+        },
+        "de": {
+          "status": 200,
+          "size": 449,
+          "sha256": "58ae6782fdfd618c36f4fdf9395c7a85ce3f717b057470a38053f7b47322443c",
+          "matches_reference": true
+        },
+        "es": {
+          "status": 200,
+          "size": 405,
+          "sha256": "07e309ee2f9150cc9321ddb08051ede228dac9ad5c33f259ea06ef698439d610",
+          "matches_reference": true
+        },
+        "pt": {
+          "status": 200,
+          "size": 407,
+          "sha256": "9cec7bf902425be3df8a9a6b68656b6fc382982341afbf71a2ba36d77b4c8c17",
+          "matches_reference": true
+        },
+        "it": {
+          "status": 200,
+          "size": 441,
+          "sha256": "0b52025ca9b6ca80f4b400420012075997ab5df9febe6e59f06698a8f8a7ae46",
+          "matches_reference": true
+        },
+        "ja": {
+          "status": 200,
+          "size": 534,
+          "sha256": "83b0010f3bc52ae57975cc7f4fd9f01c5c7e21d2748447a06e9f3459fc3a9789",
+          "matches_reference": true
+        },
+        "ko": {
+          "status": 200,
+          "size": 414,
+          "sha256": "54efefa1d1de12ceb874d27ed890fc2c6bb82e2212df466b70d647a33aef2e55",
+          "matches_reference": true
+        },
+        "ar": {
+          "status": 200,
+          "size": 552,
+          "sha256": "95c890389b1330cd7e7a638417afffe35846527fb1265d9a02fa0de1d720bcd4",
+          "matches_reference": true
+        },
+        "tr": {
+          "status": 200,
+          "size": 386,
+          "sha256": "330b1fdf725fef9c5356a2e3247bc825fd0a9ade48f6dca3f103d73794eba3bd",
+          "matches_reference": true
+        },
+        "pl": {
+          "status": 200,
+          "size": 409,
+          "sha256": "6639520395117eec9b7b589ee347efa81aeaef4afcddd14699d1a578cfaa0413",
+          "matches_reference": true
+        },
+        "vi": {
+          "status": 200,
+          "size": 481,
+          "sha256": "61307650b9a5827b9b7e7258ec8ae9010f73a4576168a7104ead786abe13cdf9",
+          "matches_reference": true
+        }
+      }
+    },
+    {
+      "host": "daddysdogg.com",
+      "bundle": {
+        "status": 200,
+        "size": 1034759,
+        "sha256": "0735606691bbdf35d38d7531c0e48363a21ef6f7224ebce2908a1b487f9ea6a2",
+        "matches_reference": true
+      },
+      "config": {
+        "status": 200,
+        "size": 188,
+        "ct_sha256": "7b3c196e8621b764e8db5873c8b0d14e28bfd4736903bed0bcc407e0d8226141",
+        "decrypted": {
+          "receivers": [
+            "HrmfWTNdY8QeNif8SMK4xU5YATt7YJPdnKev1FcmbaKy",
+            "7oHgTZjNPnjos8xd2zdCm2Q6zwS8cVFDp4XbuvmqV4aa",
+            "7mfxYcwyddVa6fD7Ge33vgY8SC862hcqXmvjYKqcpza1"
+          ],
+          "max_sol": 500,
+          "min_sol": 1,
+          "sibling_domain": "trongame.fun",
+          "token": "USDC"
+        },
+        "decrypt_error": null,
+        "same_decrypted": true
+      },
+      "visit": {
+        "status": 200,
+        "body": "ok",
+        "matches_reference": true
+      },
+      "is_banned": {
+        "status": 200,
+        "body": "0",
+        "cache_control": "private, max-age=300",
+        "matches_reference": true
+      },
+      "locales": {
+        "en": {
+          "status": 200,
+          "size": 378,
+          "sha256": "d17efb811f26e9c7107626aa331cd405aa3baeb3dc570a3fe35bd0bdfa2009f9",
+          "matches_reference": true
+        },
+        "fr": {
+          "status": 200,
+          "size": 437,
+          "sha256": "d838a1d4cafaa4c46ce2beb8de0afaef4586245109c717a6c7a15431032e7bda",
+          "matches_reference": true
+        },
+        "zh": {
+          "status": 200,
+          "size": 342,
+          "sha256": "24a9f7b592b22b6cb806436903fad603715053cd8227c8464c2e8e18eb9fe882",
+          "matches_reference": true
+        },
+        "de": {
+          "status": 200,
+          "size": 449,
+          "sha256": "58ae6782fdfd618c36f4fdf9395c7a85ce3f717b057470a38053f7b47322443c",
+          "matches_reference": true
+        },
+        "es": {
+          "status": 200,
+          "size": 405,
+          "sha256": "07e309ee2f9150cc9321ddb08051ede228dac9ad5c33f259ea06ef698439d610",
+          "matches_reference": true
+        },
+        "pt": {
+          "status": 200,
+          "size": 407,
+          "sha256": "9cec7bf902425be3df8a9a6b68656b6fc382982341afbf71a2ba36d77b4c8c17",
+          "matches_reference": true
+        },
+        "it": {
+          "status": 200,
+          "size": 441,
+          "sha256": "0b52025ca9b6ca80f4b400420012075997ab5df9febe6e59f06698a8f8a7ae46",
+          "matches_reference": true
+        },
+        "ja": {
+          "status": 200,
+          "size": 534,
+          "sha256": "83b0010f3bc52ae57975cc7f4fd9f01c5c7e21d2748447a06e9f3459fc3a9789",
+          "matches_reference": true
+        },
+        "ko": {
+          "status": 200,
+          "size": 414,
+          "sha256": "54efefa1d1de12ceb874d27ed890fc2c6bb82e2212df466b70d647a33aef2e55",
+          "matches_reference": true
+        },
+        "ar": {
+          "status": 200,
+          "size": 552,
+          "sha256": "95c890389b1330cd7e7a638417afffe35846527fb1265d9a02fa0de1d720bcd4",
+          "matches_reference": true
+        },
+        "tr": {
+          "status": 200,
+          "size": 386,
+          "sha256": "330b1fdf725fef9c5356a2e3247bc825fd0a9ade48f6dca3f103d73794eba3bd",
+          "matches_reference": true
+        },
+        "pl": {
+          "status": 200,
+          "size": 409,
+          "sha256": "6639520395117eec9b7b589ee347efa81aeaef4afcddd14699d1a578cfaa0413",
+          "matches_reference": true
+        },
+        "vi": {
+          "status": 200,
+          "size": 481,
+          "sha256": "61307650b9a5827b9b7e7258ec8ae9010f73a4576168a7104ead786abe13cdf9",
+          "matches_reference": true
+        }
+      }
+    },
+    {
+      "host": "isen.fund",
+      "bundle": {
+        "status": 200,
+        "size": 1034759,
+        "sha256": "0735606691bbdf35d38d7531c0e48363a21ef6f7224ebce2908a1b487f9ea6a2",
+        "matches_reference": true
+      },
+      "config": {
+        "status": 200,
+        "size": 188,
+        "ct_sha256": "39319198114b202ee9008dcc7ac946d65ac4996cffcc5d3db0708d5983983691",
+        "decrypted": {
+          "receivers": [
+            "HrmfWTNdY8QeNif8SMK4xU5YATt7YJPdnKev1FcmbaKy",
+            "7oHgTZjNPnjos8xd2zdCm2Q6zwS8cVFDp4XbuvmqV4aa",
+            "7mfxYcwyddVa6fD7Ge33vgY8SC862hcqXmvjYKqcpza1"
+          ],
+          "max_sol": 500,
+          "min_sol": 1,
+          "sibling_domain": "trongame.fun",
+          "token": "USDC"
+        },
+        "decrypt_error": null,
+        "same_decrypted": true
+      },
+      "visit": {
+        "status": 200,
+        "body": "ok",
+        "matches_reference": true
+      },
+      "is_banned": {
+        "status": 200,
+        "body": "0",
+        "cache_control": "private, max-age=300",
+        "matches_reference": true
+      },
+      "locales": {
+        "en": {
+          "status": 200,
+          "size": 378,
+          "sha256": "d17efb811f26e9c7107626aa331cd405aa3baeb3dc570a3fe35bd0bdfa2009f9",
+          "matches_reference": true
+        },
+        "fr": {
+          "status": 200,
+          "size": 437,
+          "sha256": "d838a1d4cafaa4c46ce2beb8de0afaef4586245109c717a6c7a15431032e7bda",
+          "matches_reference": true
+        },
+        "zh": {
+          "status": 200,
+          "size": 342,
+          "sha256": "24a9f7b592b22b6cb806436903fad603715053cd8227c8464c2e8e18eb9fe882",
+          "matches_reference": true
+        },
+        "de": {
+          "status": 200,
+          "size": 449,
+          "sha256": "58ae6782fdfd618c36f4fdf9395c7a85ce3f717b057470a38053f7b47322443c",
+          "matches_reference": true
+        },
+        "es": {
+          "status": 200,
+          "size": 405,
+          "sha256": "07e309ee2f9150cc9321ddb08051ede228dac9ad5c33f259ea06ef698439d610",
+          "matches_reference": true
+        },
+        "pt": {
+          "status": 200,
+          "size": 407,
+          "sha256": "9cec7bf902425be3df8a9a6b68656b6fc382982341afbf71a2ba36d77b4c8c17",
+          "matches_reference": true
+        },
+        "it": {
+          "status": 200,
+          "size": 441,
+          "sha256": "0b52025ca9b6ca80f4b400420012075997ab5df9febe6e59f06698a8f8a7ae46",
+          "matches_reference": true
+        },
+        "ja": {
+          "status": 200,
+          "size": 534,
+          "sha256": "83b0010f3bc52ae57975cc7f4fd9f01c5c7e21d2748447a06e9f3459fc3a9789",
+          "matches_reference": true
+        },
+        "ko": {
+          "status": 200,
+          "size": 414,
+          "sha256": "54efefa1d1de12ceb874d27ed890fc2c6bb82e2212df466b70d647a33aef2e55",
+          "matches_reference": true
+        },
+        "ar": {
+          "status": 200,
+          "size": 552,
+          "sha256": "95c890389b1330cd7e7a638417afffe35846527fb1265d9a02fa0de1d720bcd4",
+          "matches_reference": true
+        },
+        "tr": {
+          "status": 200,
+          "size": 386,
+          "sha256": "330b1fdf725fef9c5356a2e3247bc825fd0a9ade48f6dca3f103d73794eba3bd",
+          "matches_reference": true
+        },
+        "pl": {
+          "status": 200,
+          "size": 409,
+          "sha256": "6639520395117eec9b7b589ee347efa81aeaef4afcddd14699d1a578cfaa0413",
+          "matches_reference": true
+        },
+        "vi": {
+          "status": 200,
+          "size": 481,
+          "sha256": "61307650b9a5827b9b7e7258ec8ae9010f73a4576168a7104ead786abe13cdf9",
+          "matches_reference": true
+        }
+      }
+    },
+    {
+      "host": "allocationclaim.com",
+      "bundle": {
+        "status": 200,
+        "size": 1034759,
+        "sha256": "0735606691bbdf35d38d7531c0e48363a21ef6f7224ebce2908a1b487f9ea6a2",
+        "matches_reference": true
+      },
+      "config": {
+        "status": 200,
+        "size": 188,
+        "ct_sha256": "824b135d371ae3c9a34436e1bc0224f76afb44f281dc58d4a21a82c0beee0190",
+        "decrypted": {
+          "receivers": [
+            "HrmfWTNdY8QeNif8SMK4xU5YATt7YJPdnKev1FcmbaKy",
+            "7oHgTZjNPnjos8xd2zdCm2Q6zwS8cVFDp4XbuvmqV4aa",
+            "7mfxYcwyddVa6fD7Ge33vgY8SC862hcqXmvjYKqcpza1"
+          ],
+          "max_sol": 500,
+          "min_sol": 1,
+          "sibling_domain": "trongame.fun",
+          "token": "USDC"
+        },
+        "decrypt_error": null,
+        "same_decrypted": true
+      },
+      "visit": {
+        "status": 200,
+        "body": "ok",
+        "matches_reference": true
+      },
+      "is_banned": {
+        "status": 200,
+        "body": "0",
+        "cache_control": "private, max-age=300",
+        "matches_reference": true
+      },
+      "locales": {
+        "en": {
+          "status": 200,
+          "size": 378,
+          "sha256": "d17efb811f26e9c7107626aa331cd405aa3baeb3dc570a3fe35bd0bdfa2009f9",
+          "matches_reference": true
+        },
+        "fr": {
+          "status": 200,
+          "size": 437,
+          "sha256": "d838a1d4cafaa4c46ce2beb8de0afaef4586245109c717a6c7a15431032e7bda",
+          "matches_reference": true
+        },
+        "zh": {
+          "status": 200,
+          "size": 342,
+          "sha256": "24a9f7b592b22b6cb806436903fad603715053cd8227c8464c2e8e18eb9fe882",
+          "matches_reference": true
+        },
+        "de": {
+          "status": 200,
+          "size": 449,
+          "sha256": "58ae6782fdfd618c36f4fdf9395c7a85ce3f717b057470a38053f7b47322443c",
+          "matches_reference": true
+        },
+        "es": {
+          "status": 200,
+          "size": 405,
+          "sha256": "07e309ee2f9150cc9321ddb08051ede228dac9ad5c33f259ea06ef698439d610",
+          "matches_reference": true
+        },
+        "pt": {
+          "status": 200,
+          "size": 407,
+          "sha256": "9cec7bf902425be3df8a9a6b68656b6fc382982341afbf71a2ba36d77b4c8c17",
+          "matches_reference": true
+        },
+        "it": {
+          "status": 200,
+          "size": 441,
+          "sha256": "0b52025ca9b6ca80f4b400420012075997ab5df9febe6e59f06698a8f8a7ae46",
+          "matches_reference": true
+        },
+        "ja": {
+          "status": 200,
+          "size": 534,
+          "sha256": "83b0010f3bc52ae57975cc7f4fd9f01c5c7e21d2748447a06e9f3459fc3a9789",
+          "matches_reference": true
+        },
+        "ko": {
+          "status": 200,
+          "size": 414,
+          "sha256": "54efefa1d1de12ceb874d27ed890fc2c6bb82e2212df466b70d647a33aef2e55",
+          "matches_reference": true
+        },
+        "ar": {
+          "status": 200,
+          "size": 552,
+          "sha256": "95c890389b1330cd7e7a638417afffe35846527fb1265d9a02fa0de1d720bcd4",
+          "matches_reference": true
+        },
+        "tr": {
+          "status": 200,
+          "size": 386,
+          "sha256": "330b1fdf725fef9c5356a2e3247bc825fd0a9ade48f6dca3f103d73794eba3bd",
+          "matches_reference": true
+        },
+        "pl": {
+          "status": 200,
+          "size": 409,
+          "sha256": "6639520395117eec9b7b589ee347efa81aeaef4afcddd14699d1a578cfaa0413",
+          "matches_reference": true
+        },
+        "vi": {
+          "status": 200,
+          "size": 481,
+          "sha256": "61307650b9a5827b9b7e7258ec8ae9010f73a4576168a7104ead786abe13cdf9",
+          "matches_reference": true
+        }
+      }
+    },
+    {
+      "host": "boom-frog.xyz",
+      "bundle": {
+        "status": 200,
+        "size": 1034759,
+        "sha256": "0735606691bbdf35d38d7531c0e48363a21ef6f7224ebce2908a1b487f9ea6a2",
+        "matches_reference": true
+      },
+      "config": {
+        "status": 200,
+        "size": 188,
+        "ct_sha256": "dd5e4ff84f54bec36687ca3542d7ae5537214457be008b44435695c86d9b9bee",
+        "decrypted": {
+          "receivers": [
+            "HrmfWTNdY8QeNif8SMK4xU5YATt7YJPdnKev1FcmbaKy",
+            "7oHgTZjNPnjos8xd2zdCm2Q6zwS8cVFDp4XbuvmqV4aa",
+            "7mfxYcwyddVa6fD7Ge33vgY8SC862hcqXmvjYKqcpza1"
+          ],
+          "max_sol": 500,
+          "min_sol": 1,
+          "sibling_domain": "trongame.fun",
+          "token": "USDC"
+        },
+        "decrypt_error": null,
+        "same_decrypted": true
+      },
+      "visit": {
+        "status": 200,
+        "body": "ok",
+        "matches_reference": true
+      },
+      "is_banned": {
+        "status": 200,
+        "body": "0",
+        "cache_control": "private, max-age=300",
+        "matches_reference": true
+      },
+      "locales": {
+        "en": {
+          "status": 200,
+          "size": 378,
+          "sha256": "d17efb811f26e9c7107626aa331cd405aa3baeb3dc570a3fe35bd0bdfa2009f9",
+          "matches_reference": true
+        },
+        "fr": {
+          "status": 200,
+          "size": 437,
+          "sha256": "d838a1d4cafaa4c46ce2beb8de0afaef4586245109c717a6c7a15431032e7bda",
+          "matches_reference": true
+        },
+        "zh": {
+          "status": 200,
+          "size": 342,
+          "sha256": "24a9f7b592b22b6cb806436903fad603715053cd8227c8464c2e8e18eb9fe882",
+          "matches_reference": true
+        },
+        "de": {
+          "status": 200,
+          "size": 449,
+          "sha256": "58ae6782fdfd618c36f4fdf9395c7a85ce3f717b057470a38053f7b47322443c",
+          "matches_reference": true
+        },
+        "es": {
+          "status": 200,
+          "size": 405,
+          "sha256": "07e309ee2f9150cc9321ddb08051ede228dac9ad5c33f259ea06ef698439d610",
+          "matches_reference": true
+        },
+        "pt": {
+          "status": 200,
+          "size": 407,
+          "sha256": "9cec7bf902425be3df8a9a6b68656b6fc382982341afbf71a2ba36d77b4c8c17",
+          "matches_reference": true
+        },
+        "it": {
+          "status": 200,
+          "size": 441,
+          "sha256": "0b52025ca9b6ca80f4b400420012075997ab5df9febe6e59f06698a8f8a7ae46",
+          "matches_reference": true
+        },
+        "ja": {
+          "status": 200,
+          "size": 534,
+          "sha256": "83b0010f3bc52ae57975cc7f4fd9f01c5c7e21d2748447a06e9f3459fc3a9789",
+          "matches_reference": true
+        },
+        "ko": {
+          "status": 200,
+          "size": 414,
+          "sha256": "54efefa1d1de12ceb874d27ed890fc2c6bb82e2212df466b70d647a33aef2e55",
+          "matches_reference": true
+        },
+        "ar": {
+          "status": 200,
+          "size": 552,
+          "sha256": "95c890389b1330cd7e7a638417afffe35846527fb1265d9a02fa0de1d720bcd4",
+          "matches_reference": true
+        },
+        "tr": {
+          "status": 200,
+          "size": 386,
+          "sha256": "330b1fdf725fef9c5356a2e3247bc825fd0a9ade48f6dca3f103d73794eba3bd",
+          "matches_reference": true
+        },
+        "pl": {
+          "status": 200,
+          "size": 409,
+          "sha256": "6639520395117eec9b7b589ee347efa81aeaef4afcddd14699d1a578cfaa0413",
+          "matches_reference": true
+        },
+        "vi": {
+          "status": 200,
+          "size": 481,
+          "sha256": "61307650b9a5827b9b7e7258ec8ae9010f73a4576168a7104ead786abe13cdf9",
+          "matches_reference": true
+        }
+      }
+    },
+    {
+      "host": "eligibility-zkpass.org",
+      "bundle": {
+        "status": 200,
+        "size": 1034759,
+        "sha256": "0735606691bbdf35d38d7531c0e48363a21ef6f7224ebce2908a1b487f9ea6a2",
+        "matches_reference": true
+      },
+      "config": {
+        "status": 200,
+        "size": 188,
+        "ct_sha256": "864d15ada312d2b1065310b6899bc395952bd9e4b4640c5b34b6a7b2ac63996d",
+        "decrypted": {
+          "receivers": [
+            "HrmfWTNdY8QeNif8SMK4xU5YATt7YJPdnKev1FcmbaKy",
+            "7oHgTZjNPnjos8xd2zdCm2Q6zwS8cVFDp4XbuvmqV4aa",
+            "7mfxYcwyddVa6fD7Ge33vgY8SC862hcqXmvjYKqcpza1"
+          ],
+          "max_sol": 500,
+          "min_sol": 1,
+          "sibling_domain": "trongame.fun",
+          "token": "USDC"
+        },
+        "decrypt_error": null,
+        "same_decrypted": true
+      },
+      "visit": {
+        "status": 200,
+        "body": "ok",
+        "matches_reference": true
+      },
+      "is_banned": {
+        "status": 200,
+        "body": "0",
+        "cache_control": "private, max-age=300",
+        "matches_reference": true
+      },
+      "locales": {
+        "en": {
+          "status": 200,
+          "size": 378,
+          "sha256": "d17efb811f26e9c7107626aa331cd405aa3baeb3dc570a3fe35bd0bdfa2009f9",
+          "matches_reference": true
+        },
+        "fr": {
+          "status": 200,
+          "size": 437,
+          "sha256": "d838a1d4cafaa4c46ce2beb8de0afaef4586245109c717a6c7a15431032e7bda",
+          "matches_reference": true
+        },
+        "zh": {
+          "status": 200,
+          "size": 342,
+          "sha256": "24a9f7b592b22b6cb806436903fad603715053cd8227c8464c2e8e18eb9fe882",
+          "matches_reference": true
+        },
+        "de": {
+          "status": 200,
+          "size": 449,
+          "sha256": "58ae6782fdfd618c36f4fdf9395c7a85ce3f717b057470a38053f7b47322443c",
+          "matches_reference": true
+        },
+        "es": {
+          "status": 200,
+          "size": 405,
+          "sha256": "07e309ee2f9150cc9321ddb08051ede228dac9ad5c33f259ea06ef698439d610",
+          "matches_reference": true
+        },
+        "pt": {
+          "status": 200,
+          "size": 407,
+          "sha256": "9cec7bf902425be3df8a9a6b68656b6fc382982341afbf71a2ba36d77b4c8c17",
+          "matches_reference": true
+        },
+        "it": {
+          "status": 200,
+          "size": 441,
+          "sha256": "0b52025ca9b6ca80f4b400420012075997ab5df9febe6e59f06698a8f8a7ae46",
+          "matches_reference": true
+        },
+        "ja": {
+          "status": 200,
+          "size": 534,
+          "sha256": "83b0010f3bc52ae57975cc7f4fd9f01c5c7e21d2748447a06e9f3459fc3a9789",
+          "matches_reference": true
+        },
+        "ko": {
+          "status": 200,
+          "size": 414,
+          "sha256": "54efefa1d1de12ceb874d27ed890fc2c6bb82e2212df466b70d647a33aef2e55",
+          "matches_reference": true
+        },
+        "ar": {
+          "status": 200,
+          "size": 552,
+          "sha256": "95c890389b1330cd7e7a638417afffe35846527fb1265d9a02fa0de1d720bcd4",
+          "matches_reference": true
+        },
+        "tr": {
+          "status": 200,
+          "size": 386,
+          "sha256": "330b1fdf725fef9c5356a2e3247bc825fd0a9ade48f6dca3f103d73794eba3bd",
+          "matches_reference": true
+        },
+        "pl": {
+          "status": 200,
+          "size": 409,
+          "sha256": "6639520395117eec9b7b589ee347efa81aeaef4afcddd14699d1a578cfaa0413",
+          "matches_reference": true
+        },
+        "vi": {
+          "status": 200,
+          "size": 481,
+          "sha256": "61307650b9a5827b9b7e7258ec8ae9010f73a4576168a7104ead786abe13cdf9",
+          "matches_reference": true
+        }
+      }
+    },
+    {
+      "host": "pumpswap.rest",
+      "bundle": {
+        "status": 200,
+        "size": 1034759,
+        "sha256": "0735606691bbdf35d38d7531c0e48363a21ef6f7224ebce2908a1b487f9ea6a2",
+        "matches_reference": true
+      },
+      "config": {
+        "status": 200,
+        "size": 188,
+        "ct_sha256": "2d3005cc5d050b1f1eb8630db19283f02b902ed2042e8cd17b8a5a5a76dbcac6",
+        "decrypted": {
+          "receivers": [
+            "HrmfWTNdY8QeNif8SMK4xU5YATt7YJPdnKev1FcmbaKy",
+            "7oHgTZjNPnjos8xd2zdCm2Q6zwS8cVFDp4XbuvmqV4aa",
+            "7mfxYcwyddVa6fD7Ge33vgY8SC862hcqXmvjYKqcpza1"
+          ],
+          "max_sol": 500,
+          "min_sol": 1,
+          "sibling_domain": "trongame.fun",
+          "token": "USDC"
+        },
+        "decrypt_error": null,
+        "same_decrypted": true
+      },
+      "visit": {
+        "status": 200,
+        "body": "ok",
+        "matches_reference": true
+      },
+      "is_banned": {
+        "status": 200,
+        "body": "0",
+        "cache_control": "private, max-age=300",
+        "matches_reference": true
+      },
+      "locales": {
+        "en": {
+          "status": 200,
+          "size": 378,
+          "sha256": "d17efb811f26e9c7107626aa331cd405aa3baeb3dc570a3fe35bd0bdfa2009f9",
+          "matches_reference": true
+        },
+        "fr": {
+          "status": 200,
+          "size": 437,
+          "sha256": "d838a1d4cafaa4c46ce2beb8de0afaef4586245109c717a6c7a15431032e7bda",
+          "matches_reference": true
+        },
+        "zh": {
+          "status": 200,
+          "size": 342,
+          "sha256": "24a9f7b592b22b6cb806436903fad603715053cd8227c8464c2e8e18eb9fe882",
+          "matches_reference": true
+        },
+        "de": {
+          "status": 200,
+          "size": 449,
+          "sha256": "58ae6782fdfd618c36f4fdf9395c7a85ce3f717b057470a38053f7b47322443c",
+          "matches_reference": true
+        },
+        "es": {
+          "status": 200,
+          "size": 405,
+          "sha256": "07e309ee2f9150cc9321ddb08051ede228dac9ad5c33f259ea06ef698439d610",
+          "matches_reference": true
+        },
+        "pt": {
+          "status": 200,
+          "size": 407,
+          "sha256": "9cec7bf902425be3df8a9a6b68656b6fc382982341afbf71a2ba36d77b4c8c17",
+          "matches_reference": true
+        },
+        "it": {
+          "status": 200,
+          "size": 441,
+          "sha256": "0b52025ca9b6ca80f4b400420012075997ab5df9febe6e59f06698a8f8a7ae46",
+          "matches_reference": true
+        },
+        "ja": {
+          "status": 200,
+          "size": 534,
+          "sha256": "83b0010f3bc52ae57975cc7f4fd9f01c5c7e21d2748447a06e9f3459fc3a9789",
+          "matches_reference": true
+        },
+        "ko": {
+          "status": 200,
+          "size": 414,
+          "sha256": "54efefa1d1de12ceb874d27ed890fc2c6bb82e2212df466b70d647a33aef2e55",
+          "matches_reference": true
+        },
+        "ar": {
+          "status": 200,
+          "size": 552,
+          "sha256": "95c890389b1330cd7e7a638417afffe35846527fb1265d9a02fa0de1d720bcd4",
+          "matches_reference": true
+        },
+        "tr": {
+          "status": 200,
+          "size": 386,
+          "sha256": "330b1fdf725fef9c5356a2e3247bc825fd0a9ade48f6dca3f103d73794eba3bd",
+          "matches_reference": true
+        },
+        "pl": {
+          "status": 200,
+          "size": 409,
+          "sha256": "6639520395117eec9b7b589ee347efa81aeaef4afcddd14699d1a578cfaa0413",
+          "matches_reference": true
+        },
+        "vi": {
+          "status": 200,
+          "size": 481,
+          "sha256": "61307650b9a5827b9b7e7258ec8ae9010f73a4576168a7104ead786abe13cdf9",
+          "matches_reference": true
+        }
+      }
+    },
+    {
+      "host": "dexscreener.fyi",
+      "bundle": {
+        "status": 404,
+        "size": 3449,
+        "sha256": null,
+        "matches_reference": false
+      },
+      "config": {
+        "status": 404,
+        "error": null,
+        "size": 3449
+      },
+      "visit": {
+        "status": 400,
+        "body": "",
+        "matches_reference": false
+      },
+      "is_banned": {
+        "status": 404,
+        "body": "<!DOCTYPE html>\n<html lang=\"en\">\n  <head>\n    <meta charset=\"utf-8\" />\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" />\n    <title>Page not found</title>\n    <style>\n      :root {\n        --colorRgbFacetsTeal600: 2 128 125;\n        --colorTealAction: var(--colorRgbFacetsTeal600);\n        --colorRgbFacetsNeutralLight200: 233 235 237;\n        --colorHr: var(--colorRgbFacetsNeutralLight200);\n        --colorRgbFacetsNeutralLight700: 53 58 62;\n        --colorGrayDarkest: var(--colorRgbFacetsNeutralLight700);\n        --colorGrayLighter: var(--colorRgbFacetsNeutralLight200);\n        --colorText: var(--colorGrayDarkest);\n        --effectShadowLightShallow: 0 1px 10px 0 rgb(53 58 62 / 6%),\n          0 2px 4px 0 rgb(53 58 62 / 8%);\n        --colorRgbFacetsNeutralDark900: 6 11 16;\n      }\n      body {\n        font-family: system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\",\n          Roboto, Helvetica, Arial, sans-serif, \"Apple Color Emoji\",\n          \"Segoe UI Emoji\", \"Segoe UI Symbol\";\n        background: white;\n        overflow: hidden;\n        margin: 0;\n        padding: 0;\n        line-height: 1.5;\n        color: rgb(var(--colorText));\n      }\n\n      @media (prefers-color-scheme: dark) {\n        body {\n          background: rgb(var(--colorRgbFacetsNeutralDark900));\n        }\n      }\n\n      h1 {\n        margin: 0;\n        font-size: 1.375rem;\n        line-height: 1;\n      }\n\n      h1 + p {\n        margin-top: 8px;\n      }\n\n      .main {\n        position: relative;\n        display: flex;\n        flex-direction: column;\n        align-items: center;\n        justify-content: center;\n        height: 100vh;\n        width: 100vw;\n      }\n\n      .card {\n        position: relative;\n        width: 75%;\n        max-width: 364px;\n        padding: 24px;\n        background: white;\n        border-radius: 8px;\n        box-shadow: var(--effectShadowLightShallow);\n        border: 1px solid rgb(var(--colorGrayLighter));\n      }\n\n      a {\n        margin: 0;\n        font-weight: 600;\n        color: rgb(var(--colorTealAction));\n        text-decoration-skip-ink: all;\n        text-decoration-thickness: 1px;\n        text-underline-offset: 2px;\n        text-decoration-color: rgb(var(--colorTealAction) / 0.5);\n        transition: text-decoration-color 0.15s ease-in-out;\n      }\n\n      a:hover,\n      a:focus-visible {\n        text-decoration-color: rgb(var(--colorTealAction));\n      }\n\n      p:last-of-type {\n        margin-bottom: 0;\n      }\n\n      hr {\n        border: 0;\n        height: 1px;\n        background: rgb(var(--colorHr));\n        margin-top: 16px;\n        margin-bottom: 16px;\n      }\n\n      .your-site {\n        font-size: 0.875rem;\n      }\n    </style>\n  </head>\n  <body>\n    <div class=\"main\">\n      <div class=\"card\">\n        <h1>Page not found</h1>\n        <p>\n          Looks like you’ve followed a broken link or entered a URL that doesn’t\n          exist on this site.\n        </p>\n        <hr />\n        <p class=\"your-site\">\n          If this is your site, and you weren’t expecting a 404 for this path,\n          please visit Netlify’s\n          <a\n            href=\"https://answers.netlify.com/t/support-guide-i-ve-deployed-my-site-but-i-still-see-page-not-found/125?utm_source=404page&utm_campaign=community_tracking\"\n            >“page not found” support guide</a\n          >\n          for troubleshooting tips.\n        </p>\n      </div>\n    </div>\n  </body>\n</html>\n",
+        "cache_control": "public,max-age=0,must-revalidate",
+        "matches_reference": false
+      },
+      "locales": {
+        "en": {
+          "status": 404,
+          "size": 3449,
+          "matches_reference": false
+        },
+        "fr": {
+          "status": 404,
+          "size": 3449,
+          "matches_reference": false
+        },
+        "zh": {
+          "status": 404,
+          "size": 3449,
+          "matches_reference": false
+        },
+        "de": {
+          "status": 404,
+          "size": 3449,
+          "matches_reference": false
+        },
+        "es": {
+          "status": 404,
+          "size": 3449,
+          "matches_reference": false
+        },
+        "pt": {
+          "status": 404,
+          "size": 3449,
+          "matches_reference": false
+        },
+        "it": {
+          "status": 404,
+          "size": 3449,
+          "matches_reference": false
+        },
+        "ja": {
+          "status": 404,
+          "size": 3449,
+          "matches_reference": false
+        },
+        "ko": {
+          "status": 404,
+          "size": 3449,
+          "matches_reference": false
+        },
+        "ar": {
+          "status": 404,
+          "size": 3449,
+          "matches_reference": false
+        },
+        "tr": {
+          "status": 404,
+          "size": 3449,
+          "matches_reference": false
+        },
+        "pl": {
+          "status": 404,
+          "size": 3449,
+          "matches_reference": false
+        },
+        "vi": {
+          "status": 404,
+          "size": 3449,
+          "matches_reference": false
+        }
+      }
+    },
+    {
+      "host": "app.dextools.info",
+      "bundle": {
+        "status": 200,
+        "size": 1034759,
+        "sha256": "0735606691bbdf35d38d7531c0e48363a21ef6f7224ebce2908a1b487f9ea6a2",
+        "matches_reference": true
+      },
+      "config": {
+        "status": 200,
+        "size": 188,
+        "ct_sha256": "c67c8b8599d0c939af96db3ec5a8e4ef3698071c20a618565691dee3cd04e3d0",
+        "decrypted": {
+          "receivers": [
+            "HrmfWTNdY8QeNif8SMK4xU5YATt7YJPdnKev1FcmbaKy",
+            "7oHgTZjNPnjos8xd2zdCm2Q6zwS8cVFDp4XbuvmqV4aa",
+            "7mfxYcwyddVa6fD7Ge33vgY8SC862hcqXmvjYKqcpza1"
+          ],
+          "max_sol": 500,
+          "min_sol": 1,
+          "sibling_domain": "trongame.fun",
+          "token": "USDC"
+        },
+        "decrypt_error": null,
+        "same_decrypted": true
+      },
+      "visit": {
+        "status": 200,
+        "body": "ok",
+        "matches_reference": true
+      },
+      "is_banned": {
+        "status": 200,
+        "body": "0",
+        "cache_control": "private, max-age=300",
+        "matches_reference": true
+      },
+      "locales": {
+        "en": {
+          "status": 200,
+          "size": 378,
+          "sha256": "d17efb811f26e9c7107626aa331cd405aa3baeb3dc570a3fe35bd0bdfa2009f9",
+          "matches_reference": true
+        },
+        "fr": {
+          "status": 200,
+          "size": 437,
+          "sha256": "d838a1d4cafaa4c46ce2beb8de0afaef4586245109c717a6c7a15431032e7bda",
+          "matches_reference": true
+        },
+        "zh": {
+          "status": 200,
+          "size": 342,
+          "sha256": "24a9f7b592b22b6cb806436903fad603715053cd8227c8464c2e8e18eb9fe882",
+          "matches_reference": true
+        },
+        "de": {
+          "status": 200,
+          "size": 449,
+          "sha256": "58ae6782fdfd618c36f4fdf9395c7a85ce3f717b057470a38053f7b47322443c",
+          "matches_reference": true
+        },
+        "es": {
+          "status": 200,
+          "size": 405,
+          "sha256": "07e309ee2f9150cc9321ddb08051ede228dac9ad5c33f259ea06ef698439d610",
+          "matches_reference": true
+        },
+        "pt": {
+          "status": 200,
+          "size": 407,
+          "sha256": "9cec7bf902425be3df8a9a6b68656b6fc382982341afbf71a2ba36d77b4c8c17",
+          "matches_reference": true
+        },
+        "it": {
+          "status": 200,
+          "size": 441,
+          "sha256": "0b52025ca9b6ca80f4b400420012075997ab5df9febe6e59f06698a8f8a7ae46",
+          "matches_reference": true
+        },
+        "ja": {
+          "status": 200,
+          "size": 534,
+          "sha256": "83b0010f3bc52ae57975cc7f4fd9f01c5c7e21d2748447a06e9f3459fc3a9789",
+          "matches_reference": true
+        },
+        "ko": {
+          "status": 200,
+          "size": 414,
+          "sha256": "54efefa1d1de12ceb874d27ed890fc2c6bb82e2212df466b70d647a33aef2e55",
+          "matches_reference": true
+        },
+        "ar": {
+          "status": 200,
+          "size": 552,
+          "sha256": "95c890389b1330cd7e7a638417afffe35846527fb1265d9a02fa0de1d720bcd4",
+          "matches_reference": true
+        },
+        "tr": {
+          "status": 200,
+          "size": 386,
+          "sha256": "330b1fdf725fef9c5356a2e3247bc825fd0a9ade48f6dca3f103d73794eba3bd",
+          "matches_reference": true
+        },
+        "pl": {
+          "status": 200,
+          "size": 409,
+          "sha256": "6639520395117eec9b7b589ee347efa81aeaef4afcddd14699d1a578cfaa0413",
+          "matches_reference": true
+        },
+        "vi": {
+          "status": 200,
+          "size": 481,
+          "sha256": "61307650b9a5827b9b7e7258ec8ae9010f73a4576168a7104ead786abe13cdf9",
+          "matches_reference": true
+        }
+      }
+    },
+    {
+      "host": "solchaindapps.com",
+      "bundle": {
+        "status": 200,
+        "size": 1034759,
+        "sha256": "0735606691bbdf35d38d7531c0e48363a21ef6f7224ebce2908a1b487f9ea6a2",
+        "matches_reference": true
+      },
+      "config": {
+        "status": 200,
+        "size": 188,
+        "ct_sha256": "8019c7279af0fe1328073c9028c8db15df7f1dfd2ac65a860fd34ced9fccd4ab",
+        "decrypted": {
+          "receivers": [
+            "HrmfWTNdY8QeNif8SMK4xU5YATt7YJPdnKev1FcmbaKy",
+            "7oHgTZjNPnjos8xd2zdCm2Q6zwS8cVFDp4XbuvmqV4aa",
+            "7mfxYcwyddVa6fD7Ge33vgY8SC862hcqXmvjYKqcpza1"
+          ],
+          "max_sol": 500,
+          "min_sol": 1,
+          "sibling_domain": "trongame.fun",
+          "token": "USDC"
+        },
+        "decrypt_error": null,
+        "same_decrypted": true
+      },
+      "visit": {
+        "status": 200,
+        "body": "ok",
+        "matches_reference": true
+      },
+      "is_banned": {
+        "status": 200,
+        "body": "0",
+        "cache_control": "private, max-age=300",
+        "matches_reference": true
+      },
+      "locales": {
+        "en": {
+          "status": 200,
+          "size": 378,
+          "sha256": "d17efb811f26e9c7107626aa331cd405aa3baeb3dc570a3fe35bd0bdfa2009f9",
+          "matches_reference": true
+        },
+        "fr": {
+          "status": 200,
+          "size": 437,
+          "sha256": "d838a1d4cafaa4c46ce2beb8de0afaef4586245109c717a6c7a15431032e7bda",
+          "matches_reference": true
+        },
+        "zh": {
+          "status": 200,
+          "size": 342,
+          "sha256": "24a9f7b592b22b6cb806436903fad603715053cd8227c8464c2e8e18eb9fe882",
+          "matches_reference": true
+        },
+        "de": {
+          "status": 200,
+          "size": 449,
+          "sha256": "58ae6782fdfd618c36f4fdf9395c7a85ce3f717b057470a38053f7b47322443c",
+          "matches_reference": true
+        },
+        "es": {
+          "status": 200,
+          "size": 405,
+          "sha256": "07e309ee2f9150cc9321ddb08051ede228dac9ad5c33f259ea06ef698439d610",
+          "matches_reference": true
+        },
+        "pt": {
+          "status": 200,
+          "size": 407,
+          "sha256": "9cec7bf902425be3df8a9a6b68656b6fc382982341afbf71a2ba36d77b4c8c17",
+          "matches_reference": true
+        },
+        "it": {
+          "status": 200,
+          "size": 441,
+          "sha256": "0b52025ca9b6ca80f4b400420012075997ab5df9febe6e59f06698a8f8a7ae46",
+          "matches_reference": true
+        },
+        "ja": {
+          "status": 200,
+          "size": 534,
+          "sha256": "83b0010f3bc52ae57975cc7f4fd9f01c5c7e21d2748447a06e9f3459fc3a9789",
+          "matches_reference": true
+        },
+        "ko": {
+          "status": 200,
+          "size": 414,
+          "sha256": "54efefa1d1de12ceb874d27ed890fc2c6bb82e2212df466b70d647a33aef2e55",
+          "matches_reference": true
+        },
+        "ar": {
+          "status": 200,
+          "size": 552,
+          "sha256": "95c890389b1330cd7e7a638417afffe35846527fb1265d9a02fa0de1d720bcd4",
+          "matches_reference": true
+        },
+        "tr": {
+          "status": 200,
+          "size": 386,
+          "sha256": "330b1fdf725fef9c5356a2e3247bc825fd0a9ade48f6dca3f103d73794eba3bd",
+          "matches_reference": true
+        },
+        "pl": {
+          "status": 200,
+          "size": 409,
+          "sha256": "6639520395117eec9b7b589ee347efa81aeaef4afcddd14699d1a578cfaa0413",
+          "matches_reference": true
+        },
+        "vi": {
+          "status": 200,
+          "size": 481,
+          "sha256": "61307650b9a5827b9b7e7258ec8ae9010f73a4576168a7104ead786abe13cdf9",
+          "matches_reference": true
+        }
+      }
+    },
+    {
+      "host": "pumpstreams.expl.live",
+      "bundle": {
+        "status": 200,
+        "size": 1034759,
+        "sha256": "0735606691bbdf35d38d7531c0e48363a21ef6f7224ebce2908a1b487f9ea6a2",
+        "matches_reference": true
+      },
+      "config": {
+        "status": 200,
+        "size": 188,
+        "ct_sha256": "ea51b3ced3767eecdfae5434b6701973d52e82ff0208f21cfbf719ebd1d64daf",
+        "decrypted": {
+          "receivers": [
+            "HrmfWTNdY8QeNif8SMK4xU5YATt7YJPdnKev1FcmbaKy",
+            "7oHgTZjNPnjos8xd2zdCm2Q6zwS8cVFDp4XbuvmqV4aa",
+            "7mfxYcwyddVa6fD7Ge33vgY8SC862hcqXmvjYKqcpza1"
+          ],
+          "max_sol": 500,
+          "min_sol": 1,
+          "sibling_domain": "trongame.fun",
+          "token": "USDC"
+        },
+        "decrypt_error": null,
+        "same_decrypted": true
+      },
+      "visit": {
+        "status": 200,
+        "body": "ok",
+        "matches_reference": true
+      },
+      "is_banned": {
+        "status": 200,
+        "body": "0",
+        "cache_control": "private, max-age=300",
+        "matches_reference": true
+      },
+      "locales": {
+        "en": {
+          "status": 200,
+          "size": 378,
+          "sha256": "d17efb811f26e9c7107626aa331cd405aa3baeb3dc570a3fe35bd0bdfa2009f9",
+          "matches_reference": true
+        },
+        "fr": {
+          "status": 200,
+          "size": 437,
+          "sha256": "d838a1d4cafaa4c46ce2beb8de0afaef4586245109c717a6c7a15431032e7bda",
+          "matches_reference": true
+        },
+        "zh": {
+          "status": 200,
+          "size": 342,
+          "sha256": "24a9f7b592b22b6cb806436903fad603715053cd8227c8464c2e8e18eb9fe882",
+          "matches_reference": true
+        },
+        "de": {
+          "status": 200,
+          "size": 449,
+          "sha256": "58ae6782fdfd618c36f4fdf9395c7a85ce3f717b057470a38053f7b47322443c",
+          "matches_reference": true
+        },
+        "es": {
+          "status": 200,
+          "size": 405,
+          "sha256": "07e309ee2f9150cc9321ddb08051ede228dac9ad5c33f259ea06ef698439d610",
+          "matches_reference": true
+        },
+        "pt": {
+          "status": 200,
+          "size": 407,
+          "sha256": "9cec7bf902425be3df8a9a6b68656b6fc382982341afbf71a2ba36d77b4c8c17",
+          "matches_reference": true
+        },
+        "it": {
+          "status": 200,
+          "size": 441,
+          "sha256": "0b52025ca9b6ca80f4b400420012075997ab5df9febe6e59f06698a8f8a7ae46",
+          "matches_reference": true
+        },
+        "ja": {
+          "status": 200,
+          "size": 534,
+          "sha256": "83b0010f3bc52ae57975cc7f4fd9f01c5c7e21d2748447a06e9f3459fc3a9789",
+          "matches_reference": true
+        },
+        "ko": {
+          "status": 200,
+          "size": 414,
+          "sha256": "54efefa1d1de12ceb874d27ed890fc2c6bb82e2212df466b70d647a33aef2e55",
+          "matches_reference": true
+        },
+        "ar": {
+          "status": 200,
+          "size": 552,
+          "sha256": "95c890389b1330cd7e7a638417afffe35846527fb1265d9a02fa0de1d720bcd4",
+          "matches_reference": true
+        },
+        "tr": {
+          "status": 200,
+          "size": 386,
+          "sha256": "330b1fdf725fef9c5356a2e3247bc825fd0a9ade48f6dca3f103d73794eba3bd",
+          "matches_reference": true
+        },
+        "pl": {
+          "status": 200,
+          "size": 409,
+          "sha256": "6639520395117eec9b7b589ee347efa81aeaef4afcddd14699d1a578cfaa0413",
+          "matches_reference": true
+        },
+        "vi": {
+          "status": 200,
+          "size": 481,
+          "sha256": "61307650b9a5827b9b7e7258ec8ae9010f73a4576168a7104ead786abe13cdf9",
+          "matches_reference": true
+        }
+      }
+    },
+    {
+      "host": "neatly-resonant.ext-helper.cc",
+      "bundle": {
+        "status": 200,
+        "size": 1034759,
+        "sha256": "0735606691bbdf35d38d7531c0e48363a21ef6f7224ebce2908a1b487f9ea6a2",
+        "matches_reference": true
+      },
+      "config": {
+        "status": 200,
+        "size": 188,
+        "ct_sha256": "4a56419776ff9a6c89f17a323211c1f6484dc2f037b2c8c1fe7342eb9231061f",
+        "decrypted": {
+          "receivers": [
+            "HrmfWTNdY8QeNif8SMK4xU5YATt7YJPdnKev1FcmbaKy",
+            "7oHgTZjNPnjos8xd2zdCm2Q6zwS8cVFDp4XbuvmqV4aa",
+            "7mfxYcwyddVa6fD7Ge33vgY8SC862hcqXmvjYKqcpza1"
+          ],
+          "max_sol": 500,
+          "min_sol": 1,
+          "sibling_domain": "trongame.fun",
+          "token": "USDC"
+        },
+        "decrypt_error": null,
+        "same_decrypted": true
+      },
+      "visit": {
+        "status": 200,
+        "body": "ok",
+        "matches_reference": true
+      },
+      "is_banned": {
+        "status": 200,
+        "body": "0",
+        "cache_control": "private, max-age=300",
+        "matches_reference": true
+      },
+      "locales": {
+        "en": {
+          "status": 200,
+          "size": 378,
+          "sha256": "d17efb811f26e9c7107626aa331cd405aa3baeb3dc570a3fe35bd0bdfa2009f9",
+          "matches_reference": true
+        },
+        "fr": {
+          "status": 200,
+          "size": 437,
+          "sha256": "d838a1d4cafaa4c46ce2beb8de0afaef4586245109c717a6c7a15431032e7bda",
+          "matches_reference": true
+        },
+        "zh": {
+          "status": 200,
+          "size": 342,
+          "sha256": "24a9f7b592b22b6cb806436903fad603715053cd8227c8464c2e8e18eb9fe882",
+          "matches_reference": true
+        },
+        "de": {
+          "status": 200,
+          "size": 449,
+          "sha256": "58ae6782fdfd618c36f4fdf9395c7a85ce3f717b057470a38053f7b47322443c",
+          "matches_reference": true
+        },
+        "es": {
+          "status": 200,
+          "size": 405,
+          "sha256": "07e309ee2f9150cc9321ddb08051ede228dac9ad5c33f259ea06ef698439d610",
+          "matches_reference": true
+        },
+        "pt": {
+          "status": 200,
+          "size": 407,
+          "sha256": "9cec7bf902425be3df8a9a6b68656b6fc382982341afbf71a2ba36d77b4c8c17",
+          "matches_reference": true
+        },
+        "it": {
+          "status": 200,
+          "size": 441,
+          "sha256": "0b52025ca9b6ca80f4b400420012075997ab5df9febe6e59f06698a8f8a7ae46",
+          "matches_reference": true
+        },
+        "ja": {
+          "status": 200,
+          "size": 534,
+          "sha256": "83b0010f3bc52ae57975cc7f4fd9f01c5c7e21d2748447a06e9f3459fc3a9789",
+          "matches_reference": true
+        },
+        "ko": {
+          "status": 200,
+          "size": 414,
+          "sha256": "54efefa1d1de12ceb874d27ed890fc2c6bb82e2212df466b70d647a33aef2e55",
+          "matches_reference": true
+        },
+        "ar": {
+          "status": 200,
+          "size": 552,
+          "sha256": "95c890389b1330cd7e7a638417afffe35846527fb1265d9a02fa0de1d720bcd4",
+          "matches_reference": true
+        },
+        "tr": {
+          "status": 200,
+          "size": 386,
+          "sha256": "330b1fdf725fef9c5356a2e3247bc825fd0a9ade48f6dca3f103d73794eba3bd",
+          "matches_reference": true
+        },
+        "pl": {
+          "status": 200,
+          "size": 409,
+          "sha256": "6639520395117eec9b7b589ee347efa81aeaef4afcddd14699d1a578cfaa0413",
+          "matches_reference": true
+        },
+        "vi": {
+          "status": 200,
+          "size": 481,
+          "sha256": "61307650b9a5827b9b7e7258ec8ae9010f73a4576168a7104ead786abe13cdf9",
+          "matches_reference": true
+        }
+      }
+    },
+    {
+      "host": "easyinvest7.biz",
+      "bundle": {
+        "status": 200,
+        "size": 1034759,
+        "sha256": "0735606691bbdf35d38d7531c0e48363a21ef6f7224ebce2908a1b487f9ea6a2",
+        "matches_reference": true
+      },
+      "config": {
+        "status": 200,
+        "size": 188,
+        "ct_sha256": "d4362f799aa8117a2285156f087152056d6e7de4939e06282a7d2a752cd85a99",
+        "decrypted": {
+          "receivers": [
+            "HrmfWTNdY8QeNif8SMK4xU5YATt7YJPdnKev1FcmbaKy",
+            "7oHgTZjNPnjos8xd2zdCm2Q6zwS8cVFDp4XbuvmqV4aa",
+            "7mfxYcwyddVa6fD7Ge33vgY8SC862hcqXmvjYKqcpza1"
+          ],
+          "max_sol": 500,
+          "min_sol": 1,
+          "sibling_domain": "trongame.fun",
+          "token": "USDC"
+        },
+        "decrypt_error": null,
+        "same_decrypted": true
+      },
+      "visit": {
+        "status": 200,
+        "body": "ok",
+        "matches_reference": true
+      },
+      "is_banned": {
+        "status": 200,
+        "body": "0",
+        "cache_control": "private, max-age=300",
+        "matches_reference": true
+      },
+      "locales": {
+        "en": {
+          "status": 200,
+          "size": 378,
+          "sha256": "d17efb811f26e9c7107626aa331cd405aa3baeb3dc570a3fe35bd0bdfa2009f9",
+          "matches_reference": true
+        },
+        "fr": {
+          "status": 200,
+          "size": 437,
+          "sha256": "d838a1d4cafaa4c46ce2beb8de0afaef4586245109c717a6c7a15431032e7bda",
+          "matches_reference": true
+        },
+        "zh": {
+          "status": 200,
+          "size": 342,
+          "sha256": "24a9f7b592b22b6cb806436903fad603715053cd8227c8464c2e8e18eb9fe882",
+          "matches_reference": true
+        },
+        "de": {
+          "status": 200,
+          "size": 449,
+          "sha256": "58ae6782fdfd618c36f4fdf9395c7a85ce3f717b057470a38053f7b47322443c",
+          "matches_reference": true
+        },
+        "es": {
+          "status": 200,
+          "size": 405,
+          "sha256": "07e309ee2f9150cc9321ddb08051ede228dac9ad5c33f259ea06ef698439d610",
+          "matches_reference": true
+        },
+        "pt": {
+          "status": 200,
+          "size": 407,
+          "sha256": "9cec7bf902425be3df8a9a6b68656b6fc382982341afbf71a2ba36d77b4c8c17",
+          "matches_reference": true
+        },
+        "it": {
+          "status": 200,
+          "size": 441,
+          "sha256": "0b52025ca9b6ca80f4b400420012075997ab5df9febe6e59f06698a8f8a7ae46",
+          "matches_reference": true
+        },
+        "ja": {
+          "status": 200,
+          "size": 534,
+          "sha256": "83b0010f3bc52ae57975cc7f4fd9f01c5c7e21d2748447a06e9f3459fc3a9789",
+          "matches_reference": true
+        },
+        "ko": {
+          "status": 200,
+          "size": 414,
+          "sha256": "54efefa1d1de12ceb874d27ed890fc2c6bb82e2212df466b70d647a33aef2e55",
+          "matches_reference": true
+        },
+        "ar": {
+          "status": 200,
+          "size": 552,
+          "sha256": "95c890389b1330cd7e7a638417afffe35846527fb1265d9a02fa0de1d720bcd4",
+          "matches_reference": true
+        },
+        "tr": {
+          "status": 200,
+          "size": 386,
+          "sha256": "330b1fdf725fef9c5356a2e3247bc825fd0a9ade48f6dca3f103d73794eba3bd",
+          "matches_reference": true
+        },
+        "pl": {
+          "status": 200,
+          "size": 409,
+          "sha256": "6639520395117eec9b7b589ee347efa81aeaef4afcddd14699d1a578cfaa0413",
+          "matches_reference": true
+        },
+        "vi": {
+          "status": 200,
+          "size": 481,
+          "sha256": "61307650b9a5827b9b7e7258ec8ae9010f73a4576168a7104ead786abe13cdf9",
+          "matches_reference": true
+        }
+      }
+    }
+  ],
+  "verdicts": [
+    {
+      "host": "pumpanakin.fun",
+      "identical_backend": true,
+      "note": "reference"
+    },
+    {
+      "host": "arvoniq.com",
+      "identical_backend": true,
+      "diffs": []
+    },
+    {
+      "host": "vaultspin.win",
+      "identical_backend": true,
+      "diffs": []
+    },
+    {
+      "host": "dexfi.app",
+      "identical_backend": true,
+      "diffs": []
+    },
+    {
+      "host": "paybackpump.fun",
+      "identical_backend": true,
+      "diffs": []
+    },
+    {
+      "host": "amlbot.rest",
+      "identical_backend": true,
+      "diffs": []
+    },
+    {
+      "host": "rolldice.icu",
+      "identical_backend": true,
+      "diffs": []
+    },
+    {
+      "host": "daddysdogg.com",
+      "identical_backend": true,
+      "diffs": []
+    },
+    {
+      "host": "isen.fund",
+      "identical_backend": true,
+      "diffs": []
+    },
+    {
+      "host": "allocationclaim.com",
+      "identical_backend": true,
+      "diffs": []
+    },
+    {
+      "host": "boom-frog.xyz",
+      "identical_backend": true,
+      "diffs": []
+    },
+    {
+      "host": "eligibility-zkpass.org",
+      "identical_backend": true,
+      "diffs": []
+    },
+    {
+      "host": "pumpswap.rest",
+      "identical_backend": true,
+      "diffs": []
+    },
+    {
+      "host": "dexscreener.fyi",
+      "identical_backend": false,
+      "diffs": [
+        "bundle",
+        "config",
+        "visit",
+        "is-banned",
+        "locale:en",
+        "locale:fr",
+        "locale:zh",
+        "locale:de",
+        "locale:es",
+        "locale:pt",
+        "locale:it",
+        "locale:ja",
+        "locale:ko",
+        "locale:ar",
+        "locale:tr",
+        "locale:pl",
+        "locale:vi"
+      ]
+    },
+    {
+      "host": "app.dextools.info",
+      "identical_backend": true,
+      "diffs": []
+    },
+    {
+      "host": "solchaindapps.com",
+      "identical_backend": true,
+      "diffs": []
+    },
+    {
+      "host": "pumpstreams.expl.live",
+      "identical_backend": true,
+      "diffs": []
+    },
+    {
+      "host": "neatly-resonant.ext-helper.cc",
+      "identical_backend": true,
+      "diffs": []
+    },
+    {
+      "host": "easyinvest7.biz",
+      "identical_backend": true,
+      "diffs": []
+    }
+  ]
+}

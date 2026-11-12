@@ -29,6 +29,6 @@
   "notes": [
     "trongame.fun does not resolve in DNS as of 2026-11-11; presumably a retired sibling lure.",
     "Field names max_sol/min_sol are inferred from the setSolAmount validator bounds (0.001..1,000,000 is the hard cap; 1.0/500.0 is the configured range).",
-    "The kit bundle does not call /api/config; the endpoint likely serves sibling kits or a newer bundle build."
+    "CORRECTED 2026-11-12: live browser walks show the kit DOES call /api/config on every page load (after /api/is-banned, before /api/visit). Static recovery had missed the call site."
   ]
 }

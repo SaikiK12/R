@@ -64,6 +64,14 @@
     "/api/config (live 2026-11-11, AES-GCM blob, not called by this bundle)"
   ],
   "aes_key_salt": "B3ui3QZFrOPoGW7oMZgE4A",
+  "runtime_fingerprints_2026_11_12": {
+    "console_log": "1.18.4",
+    "localStorage_keys": ["_0x5 (visit unix seconds)", "_0x12 (JSON string, ~220-byte base64 encrypted blob)", "_0x6 (campaign source tag, read-only)"],
+    "load_order": ["GET /api/is-banned -> 200 '0'", "GET /api/config -> 200 188-byte blob", "POST /api/visit -> 200 'ok'"],
+    "dom": ["<w3m-modal> element", "window.openModal function"],
+    "wallet_clone_storage": "phantom-* namespace (phantom-wallets-v2, phantom-logos, phantom-demo-chats, phantom-alerts) on Phantom-clone costumes",
+    "note": "Confirmed live in Playwright walks of pumpanakin.fun, vaultspin.win, dexfi.app, solchaindapps.com, amlbot.rest. Backend identical on 18 hosts (see decompiled/live/backend_diff_2026-11-12.json). The bundle calls /api/config on every load; /api/locales is never called from the browser. amlbot.rest attempts to load the bundle from amlbot.store first (NXDOMAIN) and falls back to its own origin."
+  },
   "operator_program": {
     "program_id": "TwrGADB9QPrLfTKpWuyq9tjgRaGsuzgRUMFTz51uhsa",
     "programdata": "HwWXKu3txa2CH6wMvPTMmZKY5bXHovftanBXbfUfqo5g",

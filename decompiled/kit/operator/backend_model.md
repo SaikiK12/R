@@ -82,14 +82,25 @@ must be in English/French/Chinese for targeting non-RU victims).
 **Key derivation:** `SHA-256(apiHost + "B3ui3QZFrOPoGW7oMZgE4A")`
 **Decoded structure:** See `decompiled/live/api_config_decoded.json`
 
-The bundle does NOT call `/api/config` — only the operator's own tooling
-and potentially sibling bundle builds call it. The kit's string table
-contains `/config` [1032] as a path fragment, but no recovered code
-issues a GET for it. It is listed here because:
-1. The endpoint is live and returns valid data (confirmed 2026-11-11)
-2. The decrypted config contains receivers that differ from the bundle's
-   hard-coded string table — proving the operator uses it to rotate
-   receivers without rebuilding the kit.
+**Corrected 2026-11-12 (browser evidence):** the bundle DOES call
+`GET /api/config` at page load. A Playwright walk of pumpanakin.fun,
+vaultspin.win, and amlbot.rest shows the same three calls on every load,
+in order: `GET /api/is-banned` → `GET /api/config` → `POST /api/visit`.
+The earlier claim (from static recovery, where no recovered call site
+issued the GET) was wrong. The kit reads its live receivers from this
+endpoint on every page view, which is how same-day receiver rotation
+takes effect without a bundle rebuild.
+
+The bundle does NOT call `/api/locales` from the browser — the modal
+strings are baked into the bundle. That endpoint serves the operator's
+tooling and possibly other kit builds. It is also the only place the
+11→13-language expansion is visible.
+
+Client-side cache after a successful load (localStorage):
+- `_0x5` — unix timestamp of the visit (seconds)
+- `_0x12` — JSON string holding a ~220-byte base64 blob (encrypted
+  session/config cache)
+- `_0x6` — campaign source tag, read (not written) for `/api/visit`
 
 ---
 
