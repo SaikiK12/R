@@ -42,6 +42,14 @@ outer balance deltas positive, so outer-balance guardrails pass. Assertions
 scoped to CPI-side token decreases are what would catch this flow.
 Full note: `archive/operator_program/LIGHTHOUSE_L2TExMFKdj.md`
 
+**Same-day follow-up, 16:54 UTC.** `GET /api/config` rotated again. The
+16:39 UTC receivers never left 0 lamports. The new set
+(`HrmfWTNd…`, `7oHgTZjN…`, `7mfxYcwy…`) is also empty, and the same
+plaintext decrypts on every host checked, including `easyinvest7.biz`.
+F2 is not a stale snapshot: the receiver list moves in minutes and stays
+world-readable. `vi` is now a live locale (13 languages). `amlbot.store`
+is named from `amlbot.rest`'s HTML and does not resolve yet.
+
 **F1. One salt, three purposes, shipped in every bundle.** The AES key
 material for `/api/config`, the `/c/i` payload, and `/api/handler`
 telemetry all derive from the same embedded salt

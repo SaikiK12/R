@@ -1,0 +1,62 @@
+{
+  "probe_time": "2026-11-12T16:54:47Z",
+  "method": "Desktop Chrome UA GETs of public pages, /_nuxt/assets/index.js, /api/config, /api/locales. No POSTs. Chain reads via public RPC.",
+  "bundle_sha256": "0735606691bbdf35d38d7531c0e48363a21ef6f7224ebce2908a1b487f9ea6a2",
+  "bundle_size": 1034759,
+  "reference_bundle_hosts": [
+    "pumpanakin.fun",
+    "amlbot.rest",
+    "arvoniq.com",
+    "vaultspin.win",
+    "isen.fund",
+    "paybackpump.fun",
+    "dexfi.app",
+    "allocationclaim.com",
+    "boom-frog.xyz",
+    "easyinvest7.biz"
+  ],
+  "config": {
+    "rotated_since_1641utc": true,
+    "same_plaintext_on": ["pumpanakin.fun", "amlbot.rest", "arvoniq.com", "vaultspin.win", "easyinvest7.biz"],
+    "receivers": [
+      "HrmfWTNdY8QeNif8SMK4xU5YATt7YJPdnKev1FcmbaKy",
+      "7oHgTZjNPnjos8xd2zdCm2Q6zwS8cVFDp4XbuvmqV4aa",
+      "7mfxYcwyddVa6fD7Ge33vgY8SC862hcqXmvjYKqcpza1"
+    ],
+    "previous_receivers_still_empty": [
+      "142yhSkBthJpmWKzhBRtHYV6S4JdXAMBQcdYD8vEhNx4",
+      "7Z7oKDRHhXwzeWfuJ91FDZowaNETWwq6pW4XHt7d6FBL",
+      "DC9dh6xDK7mLbrSUx9Fcy9VpMuSdJnUynoNEtr9Y6NjA"
+    ],
+    "max_sol": 500,
+    "min_sol": 1,
+    "sibling": "trongame.fun",
+    "token": "USDC"
+  },
+  "locales_200": ["en", "fr", "zh", "de", "es", "pt", "it", "ja", "ko", "ar", "tr", "pl", "vi"],
+  "locales_404": ["ru", "uk", "nl"],
+  "vi_bytes": 481,
+  "easyinvest7.biz": {
+    "dns": ["104.21.6.104", "172.67.134.184"],
+    "shell_404": ["/", "/connect.html", "/connect/", "/connect/<token>", "/app-924a52.js"],
+    "still_live": ["/_nuxt/assets/index.js", "/index-f916ac.js", "/index-ab810f.css", "/api/config", "/api/locales"],
+    "cf_web_analytics_token_on_404": "19268545265c46b59114bf0caf342ee8"
+  },
+  "dns_dead": ["amlbot.store", "trongame.fun", "hexfomo.fun"],
+  "amlbot_store_prewired_in": "https://amlbot.rest/ script src https://amlbot.store/_nuxt/assets/index.js",
+  "treasury": {
+    "address": "DvTqmF7uMbLaW56QsMvcgv8KSkydFEikuk5gUcjACPV",
+    "lamports": 17057095705105,
+    "newest_signature_slot": 465982099,
+    "newest_signature_time": "2026-11-06T04:54:39Z"
+  },
+  "latest_program_txs": {
+    "program": "TwrGADB9QPrLfTKpWuyq9tjgRaGsuzgRUMFTz51uhsa",
+    "slots": [468595221, 468595214, 468595211],
+    "time": "2026-11-12T16:39:12Z",
+    "sample_sig": "5HXuh2eMJ16ppPRhut8zVsVSXtvWzcVcHgB1P2t3LbGvHn4ea4F2MRsUs4N1A8h7mdWJHwg5vuCzgft57qrZQrNk",
+    "fee_payer": "4cfdFcVuJf8PPXpMWPMCDehSE4gV4C8oYwpZnLra7rtW",
+    "fee_lamports": 55000,
+    "top_level_program": "TwrGADB9QPrLfTKpWuyq9tjgRaGsuzgRUMFTz51uhsa"
+  }
+}

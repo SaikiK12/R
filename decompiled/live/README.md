@@ -10,6 +10,39 @@ was signed, no victim data was sent.
 (`Mozilla/5.0 … Chrome/131.0.0.0`) via a headless browser. All pages
 still live. UA cloaking confirmed: bare non-Chrome UA → 404.
 
+## 16:54 UTC spot check
+
+Public GETs only (page, bundle, `/api/config`, `/api/locales`). No POSTs.
+Desktop Chrome UA. Chain reads via public RPC.
+
+- Reference bundle `07356066…f9ea6a2` (1,034,759 B) still on pumpanakin.fun,
+  amlbot.rest, arvoniq.com, vaultspin.win, isen.fund, paybackpump.fun,
+  dexfi.app, allocationclaim.com, boom-frog.xyz, and easyinvest7.biz's
+  `/_nuxt/assets/index.js`.
+- `/api/config` rotated a second time today. New receivers, all 0 lamports
+  and 0 signatures: `HrmfWTNdY8QeNif8SMK4xU5YATt7YJPdnKev1FcmbaKy`,
+  `7oHgTZjNPnjos8xd2zdCm2Q6zwS8cVFDp4XbuvmqV4aa`,
+  `7mfxYcwyddVa6fD7Ge33vgY8SC862hcqXmvjYKqcpza1`. The 16:39 UTC set
+  (`142yhSkB…`, `7Z7oKDRH…`, `DC9dh6xD…`) is also still empty. Same
+  plaintext on all five hosts decrypted. Bounds unchanged: max 500 SOL,
+  min 1 SOL, token USDC, sibling `trongame.fun` (still NXDOMAIN).
+- Locales: `vi` now 200 (481 B). Live set is en, fr, zh, de, es, pt, it,
+  ja, ko, ar, tr, pl, vi. ru, uk, nl are 404.
+- `easyinvest7.biz` resolves (Cloudflare) but the popup shell is gone:
+  `/`, `/connect.html`, `/connect/<token>?b=1`, and `/app-924a52.js` return
+  the padded nginx 404. The openModal shim `/index-f916ac.js` (158 B) and
+  `/api/config` are still up. 404 page carries Cloudflare Web Analytics
+  token `19268545265c46b59114bf0caf342ee8`.
+- `amlbot.store` and `hexfomo.fun` do not resolve. `amlbot.rest` HTML
+  already points a module script at `https://amlbot.store/_nuxt/assets/index.js`.
+- Treasury `DvTqmF7u…` still 17,057.095705105 SOL. Its newest signature is
+  slot 465,982,099 (2026-11-06 04:54 UTC), so it is not fee-paying the
+  current drains. Latest `TwrGADB9…` transactions at 16:39 UTC
+  (slot 468,595,221 and neighbors) succeeded; the fee payer on
+  `5HXuh2eMJ16ppPRhut8z…` is the string-table hop
+  `4cfdFcVuJf8PPXpMWPMCDehSE4gV4C8oYwpZnLra7rtW`, and the only top-level
+  program is still `TwrGADB9…`.
+
 ## Operator API surface (2026-11-12 re-check)
 
 | Request | 2026-11-11 | 2026-11-12 | Notes |

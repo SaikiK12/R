@@ -4,11 +4,11 @@
   "last_updated": "2026-11-12",
   "note_on_attribution": "Attribution of pumpanakin.fun to Rublevka Team is not established. The hexfomo.fun kit watermark may identify a DaaS vendor whose kit is used by multiple operators. See INDUSTRY_CONTEXT.md.",
   "solflare_api": "https://wallet-api.solflare.com/",
-  "locale_languages_2026_11_12": ["en","fr","zh","de","es","pt","it","ja","ko","ar","tr","pl"],
-  "locale_languages_note": "11 languages confirmed live 2026-11-12. Up from 3 (en/fr/zh) on 2026-11-11. ru and uk return 404.",
+  "locale_languages_2026_11_12": ["en","fr","zh","de","es","pt","it","ja","ko","ar","tr","pl","vi"],
+  "locale_languages_note": "13 languages confirmed live 2026-11-12 16:54 UTC. vi (481 B) was added after the morning check. ru, uk, and nl return 404. Up from 3 (en/fr/zh) on 2026-11-11.",
   "domains": {
     "live_lure": ["pumpanakin.fun"],
-    "connect_domains": ["easyinvest7.biz (popup connect/payload domain, found by dynamic analysis 2026-11-11; /connect/<token>?b=1 paths)"],
+    "connect_domains": ["easyinvest7.biz (popup connect domain from 2026-11-11. At 16:54 UTC 2026-11-12 the HTML shell 404s — /, /connect.html, /connect/<token> — but /_nuxt/assets/index.js is still the reference bundle, /index-f916ac.js still calls openModal(), and /api/config + /api/locales answer. Cloudflare Web Analytics token on the 404 page: 19268545265c46b59114bf0caf342ee8.)"],
     "sibling_lures_2026_11_11": [
       "airdrop-floatlaunch.xyz", "claim-floatlaunch.xyz", "rank-floatlaunch.xyz",
       "www-meteora.ag-v2.ink", "sol-meteora.ag-v2.ink",
@@ -21,7 +21,8 @@
       "eligibility-zkpass.org", "rolldice.icu", "daddysdogg.com", "amlbot.rest",
       "solchaindapps.com", "cryptocommerceohpmigration.online", "pumpstreams.expl.live"
     ],
-    "sibling_in_live_config": ["trongame.fun (DNS-dead as of 2026-11-11)"],
+    "sibling_in_live_config": ["trongame.fun (DNS-dead as of 2026-11-12 16:54 UTC)"],
+    "prewired_not_resolving": ["amlbot.store (NXDOMAIN 2026-11-12 16:54 UTC, but amlbot.rest HTML loads https://amlbot.store/_nuxt/assets/index.js). hexfomo.fun also NXDOMAIN."],
     "kit_watermark": ["hexfomo.fun"],
     "in_string_table": ["nulltrace.app", "reactwalletback.com", "onlybulls.com", "onlybulls://wallet", "dlicom.me"],
     "note": "All sibling_lures serve the byte-identical reference bundle and the same decrypted /api/config; one centrally-managed operation. Details in FAMILY_MAP.md."
@@ -75,6 +76,18 @@
     "receivers": [
       "7VHUFJHWu2CuExkJcJrzhQPJ2oygupTWkL2A2For4BmE (active; USDC ATA 4kokFKCFMxpCpG41yLYkLEqXW8g1WPfCt2NC9KGivY6N)",
       "3emsAVdmGKERbHjmGfQ6oZ1e35dkf5iYcS6U4CPKFVaa (relay)"
+    ]
+  },
+  "live_config_2026_11_12_1654utc": {
+    "note": "SECOND rotation the same day. Morning/16:39 UTC receivers (142yhSkB…, 7Z7oKDRH…, DC9dh6xD…) were replaced between 16:41 and 16:54 UTC. Those three still have 0 lamports and 0 signatures — rotation is not waiting for the previous wallets to receive funds. Identical plaintext on pumpanakin.fun, amlbot.rest, arvoniq.com, vaultspin.win, and easyinvest7.biz.",
+    "target_token": "USDC",
+    "max_sol": 500.0,
+    "min_sol": 1.0,
+    "sibling_domain": "trongame.fun",
+    "receivers": [
+      "HrmfWTNdY8QeNif8SMK4xU5YATt7YJPdnKev1FcmbaKy (0 lamports, 0 signatures)",
+      "7oHgTZjNPnjos8xd2zdCm2Q6zwS8cVFDp4XbuvmqV4aa (0 lamports, 0 signatures)",
+      "7mfxYcwyddVa6fD7Ge33vgY8SC862hcqXmvjYKqcpza1 (0 lamports, 0 signatures)"
     ]
   },
   "live_config_2026_11_12": {
