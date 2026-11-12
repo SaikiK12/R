@@ -19,25 +19,28 @@ findings already in this document. See `ECOSYSTEM.md` for the
 full situational picture. Content was rephrased for compliance with
 licensing restrictions.
 
-## Update — 2026-11-12 live probe results
+## Update — 2026-11-12 live probe results (corrected)
 
 **All weaknesses below were confirmed live at 16:39–16:41 UTC on 2026-11-12.**
 Full raw probe data: `decompiled/live/live_findings_2026-11-12_T2.json`
 
-### New finding: operator deployed a second program while we watched
+### Corrected finding: unfamiliar program in a drain tx is Lighthouse, not operator infrastructure
 
-At **16:40 UTC**, while probing, the operator deployed a new program:
-`L2TExMFKdjpN9kozasaurPirfHy9P8sbXoAN1qA3S95` — 50 transactions
-at slot 468595674 within minutes of deployment. The old program
-`TwrGADB9…` is still running simultaneously (3 txs at 16:39–16:40 too).
+A decoded drain transaction (slot 468,587,937) invoked
+`L2TExMFKdjpN9kozasaurPirfHy9P8sbXoAN1qA3S95` twice and succeeded. That
+program is **Lighthouse**, the open-source Solana assertion protocol
+([github.com/Jac0xb/lighthouse](https://github.com/Jac0xb/lighthouse), MIT) —
+wallets append its assertions to transactions as guardrails. It is immutable,
+deployed slot 294,179,293 (~mid-2024), and sees 4,000+ calls/day
+ecosystem-wide. It is **not** an operator IOC and must not be blocklisted.
 
-This directly addresses **F8** (single upgrade authority) and begins to
-close **F5** (persistent address). The old program address is now a weaker
-pivot — expect traffic to shift to the new program within hours/days.
-
-The new program is still BPFLoader upgradeable. Its upgrade authority is not
-yet determined from this probe — requires the programdata account lookup which
-was rate-limited.
+Two consequences: **F5/F8 remain fully open** — the drain engine is still
+`TwrGADB9…` and no new operator program exists as of this probe. And the
+observed drain **passed the wallet's appended Lighthouse assertions** —
+the theft leg is a CPI through the operator program while decoy legs keep
+outer balance deltas positive, so outer-balance guardrails pass. Assertions
+scoped to CPI-side token decreases are what would catch this flow.
+Full note: `archive/operator_program/LIGHTHOUSE_L2TExMFKdj.md`
 
 **F1. One salt, three purposes, shipped in every bundle.** The AES key
 material for `/api/config`, the `/c/i` payload, and `/api/handler`

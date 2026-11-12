@@ -1,0 +1,78 @@
+{
+  "amlbot.rest/_nuxt/assets/index.js": {
+    "url": "https://amlbot.rest/_nuxt/assets/index.js",
+    "size": 1034759,
+    "sha256": "0735606691bbdf35d38d7531c0e48363a21ef6f7224ebce2908a1b487f9ea6a2",
+    "is_reference": true
+  },
+  "amlbot.store/_nuxt/assets/index.js": {
+    "url": "https://amlbot.store/_nuxt/assets/index.js",
+    "err": "URLError"
+  },
+  "dexfi.app/_nuxt/assets/index.js": {
+    "url": "https://dexfi.app/_nuxt/assets/index.js",
+    "size": 1034759,
+    "sha256": "0735606691bbdf35d38d7531c0e48363a21ef6f7224ebce2908a1b487f9ea6a2",
+    "is_reference": true
+  },
+  "paybackpump.fun/_nuxt/assets/index.js": {
+    "url": "https://paybackpump.fun/_nuxt/assets/index.js",
+    "size": 1034759,
+    "sha256": "0735606691bbdf35d38d7531c0e48363a21ef6f7224ebce2908a1b487f9ea6a2",
+    "is_reference": true
+  },
+  "vaultspin.win/_nuxt/assets/index.js": {
+    "url": "https://vaultspin.win/_nuxt/assets/index.js",
+    "size": 1034759,
+    "sha256": "0735606691bbdf35d38d7531c0e48363a21ef6f7224ebce2908a1b487f9ea6a2",
+    "is_reference": true
+  },
+  "isen.fund/_nuxt/assets/index.js": {
+    "url": "https://isen.fund/_nuxt/assets/index.js",
+    "size": 1034759,
+    "sha256": "0735606691bbdf35d38d7531c0e48363a21ef6f7224ebce2908a1b487f9ea6a2",
+    "is_reference": true
+  },
+  "boom-frog.xyz/_nuxt/assets/index.js": {
+    "url": "https://boom-frog.xyz/_nuxt/assets/index.js",
+    "size": 1034759,
+    "sha256": "0735606691bbdf35d38d7531c0e48363a21ef6f7224ebce2908a1b487f9ea6a2",
+    "is_reference": true
+  },
+  "rolldice.icu/_nuxt/assets/index.js": {
+    "url": "https://rolldice.icu/_nuxt/assets/index.js",
+    "size": 1034759,
+    "sha256": "0735606691bbdf35d38d7531c0e48363a21ef6f7224ebce2908a1b487f9ea6a2",
+    "is_reference": true
+  },
+  "pumpswap.rest/_nuxt/assets/index.js": {
+    "url": "https://pumpswap.rest/_nuxt/assets/index.js",
+    "size": 1034759,
+    "sha256": "0735606691bbdf35d38d7531c0e48363a21ef6f7224ebce2908a1b487f9ea6a2",
+    "is_reference": true
+  },
+  "daddysdogg.com/_nuxt/assets/index.js": {
+    "url": "https://daddysdogg.com/_nuxt/assets/index.js",
+    "size": 1034759,
+    "sha256": "0735606691bbdf35d38d7531c0e48363a21ef6f7224ebce2908a1b487f9ea6a2",
+    "is_reference": true
+  },
+  "allocationclaim.com/_nuxt/assets/index.js": {
+    "url": "https://allocationclaim.com/_nuxt/assets/index.js",
+    "size": 1034759,
+    "sha256": "0735606691bbdf35d38d7531c0e48363a21ef6f7224ebce2908a1b487f9ea6a2",
+    "is_reference": true
+  },
+  "eligibility-zkpass.org/_nuxt/assets/index.js": {
+    "url": "https://eligibility-zkpass.org/_nuxt/assets/index.js",
+    "size": 1034759,
+    "sha256": "0735606691bbdf35d38d7531c0e48363a21ef6f7224ebce2908a1b487f9ea6a2",
+    "is_reference": true
+  },
+  "arvoniq.com/_nuxt/assets/index.js?e9dlvle": {
+    "url": "https://arvoniq.com/_nuxt/assets/index.js?e9dlvle",
+    "size": 1034759,
+    "sha256": "0735606691bbdf35d38d7531c0e48363a21ef6f7224ebce2908a1b487f9ea6a2",
+    "is_reference": true
+  }
+}

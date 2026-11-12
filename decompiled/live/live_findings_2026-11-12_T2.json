@@ -47,19 +47,15 @@
     "all_succeeded": true
   },
 
-  "FINDING_6_NEW_PROGRAM_DEPLOYED": {
-    "CRITICAL": true,
-    "new_program_address": "L2TExMFKdjpN9kozasaurPirfHy9P8sbXoAN1qA3S95",
-    "owner": "BPFLoaderUpgradeab1e11111111111111111111111",
-    "executable": true,
-    "lamports": 2665447,
-    "deployed_slot": "~468595537",
-    "deployed_time": "2026-11-12T16:40 UTC",
-    "txs_at_deploy_slot": 5,
-    "both_programs_active_simultaneously": true,
-    "implication": "Operator is deploying a new program while old one still runs. This is the transition WEAKNESSES.md F8 predicted. New program has fresh address - old pivot TwrGADB9 will stop being useful. WEAKNESSES.md should be updated.",
-    "old_program_still_active": true,
-    "note": "5 transactions at deploy slot suggests initialization/test run. Old program also had 3 txs in same window."
+  "FINDING_6_CORRECTED_not_operator_program": {
+    "status": "CORRECTED 2026-11-12 (same day, later)",
+    "address": "L2TExMFKdjpN9kozasaurPirfHy9P8sbXoAN1qA3S95",
+    "actual_identity": "Lighthouse Protocol - open-source Solana assertion program by Jac0xb (MIT), deployed slot 294179293, immutable (no upgrade authority)",
+    "programdata": "CJ5WEjifs4d77pEA9DpewppByFjHcAkNv3YYSuSoDk7c",
+    "elf_sha256": "a89179ae024ac36aa5fc308251caa84cd0a3390ae66d8523514004a86d5148bb",
+    "why_it_appeared_in_drain_tx": "The victim's wallet appended Lighthouse assertion instructions as guardrails. Assertions passed and the drain succeeded anyway.",
+    "correction": "Initial interpretation as a new operator program was WRONG. This is ecosystem-shared defensive infrastructure, not an IOC. Full note: archive/operator_program/LIGHTHOUSE_L2TExMFKdj.md",
+    "defensive_note": "Drain txs pass Lighthouse assertions in observed cases because the theft leg is a CPI inside the operator program while assertions watch outer-level balance deltas."
   },
 
   "FINDING_7_drain_tx_decoded": {
