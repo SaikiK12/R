@@ -11,9 +11,9 @@ decompiled/
   kit/
     page/        lure rendering, modal, wallet detection, Telegram, mobile
     operator/    backend API client, telemetry, AES-GCM payloads
-    chain/       RPC, Solflare, Jupiter, tx builders, Token-2022, stake drain
+    chain/       RPC, Solflare, Jupiter, tx builders, Token-2022, stake
   live/          captured API responses: config blobs, all locales, tx captures
-archive/         static samples only — do not execute
+archive/         static samples — offline analysis only
 ```
 
 | File | Contents |
