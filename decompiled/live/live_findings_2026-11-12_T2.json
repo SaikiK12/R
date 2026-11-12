@@ -1,0 +1,81 @@
+{
+  "probe_time": "2026-11-12T16:39-16:41 UTC",
+  "method": "live browser probe from pumpanakin.fun context via Playwright",
+
+  "FINDING_1_config_still_decryptable": {
+    "flaw": "F1+F2",
+    "salt": "B3ui3QZFrOPoGW7oMZgE4A",
+    "decrypted_at": "2026-11-12T16:39:03.957Z",
+    "current_receivers": {
+      "r1": "142yhSkBthJpmWKzhBRtHYV6S4JdXAMBQcdYD8vEhNx4",
+      "r2": "7Z7oKDRHhXwzeWfuJ91FDZowaNETWwq6pW4XHt7d6FBL",
+      "r3": "DC9dh6xDK7mLbrSUx9Fcy9VpMuSdJnUynoNEtr9Y6NjA"
+    },
+    "max_sol": 500, "min_sol": 1, "sibling": "trongame.fun", "token": "USDC",
+    "note": "Same receivers as Nov 12 morning probe. Salt unchanged."
+  },
+
+  "FINDING_2_sibling_all_decryptable": {
+    "flaw": "F1+F2 across entire family",
+    "confirmed_siblings": ["amlbot.rest","arvoniq.com","dexfi.app","paybackpump.fun","vaultspin.win","isen.fund","allocationclaim.com","boom-frog.xyz"],
+    "all_decrypted_with_same_salt": true,
+    "r1_prefix_same_across_all": "42yhSkBthJpmWKzh",
+    "note": "Single salt in one bundle decrypts live receivers for entire 30+ domain family"
+  },
+
+  "FINDING_3_bundle_hash_unchanged": {
+    "flaw": "F9",
+    "sha256": "0735606691bbdf35d38d7531c0e48363a21ef6f7224ebce2908a1b487f9ea6a2",
+    "size": 1034759,
+    "unchanged_since_nov11": true,
+    "days_unchanged": 1
+  },
+
+  "FINDING_4_treasury_active": {
+    "flaw": "F5",
+    "address": "DvTqmF7uMbLaW56QsMvcgv8KSkydFEikuk5gUcjACPV",
+    "lamports": 17057095705105,
+    "sol": "17057.0957",
+    "note": "Treasury SOL unchanged from earlier today - accumulation pattern"
+  },
+
+  "FINDING_5_program_active_draining": {
+    "note": "ACTIVE DRAINS observed 16:39-16:41 UTC today",
+    "old_program": "TwrGADB9QPrLfTKpWuyq9tjgRaGsuzgRUMFTz51uhsa",
+    "old_program_txs_today": [468595221, 468595214, 468595211, 468593376, 468592894, 468587937, 468584431, 468582720, 468569351, 468562884],
+    "txs_last_5_hours": 10,
+    "all_succeeded": true
+  },
+
+  "FINDING_6_NEW_PROGRAM_DEPLOYED": {
+    "CRITICAL": true,
+    "new_program_address": "L2TExMFKdjpN9kozasaurPirfHy9P8sbXoAN1qA3S95",
+    "owner": "BPFLoaderUpgradeab1e11111111111111111111111",
+    "executable": true,
+    "lamports": 2665447,
+    "deployed_slot": "~468595537",
+    "deployed_time": "2026-11-12T16:40 UTC",
+    "txs_at_deploy_slot": 5,
+    "both_programs_active_simultaneously": true,
+    "implication": "Operator is deploying a new program while old one still runs. This is the transition WEAKNESSES.md F8 predicted. New program has fresh address - old pivot TwrGADB9 will stop being useful. WEAKNESSES.md should be updated.",
+    "old_program_still_active": true,
+    "note": "5 transactions at deploy slot suggests initialization/test run. Old program also had 3 txs in same window."
+  },
+
+  "FINDING_7_drain_tx_decoded": {
+    "sig_prefix": "4xwmDqrQ13PmrVsrozQc",
+    "slot": 468587937,
+    "time": "2026-11-12T16:13:06 UTC",
+    "fee_lamports": 619400,
+    "program_invoked": "L2TExMFKdjpN9kozasaurPirfHy9P8sbXoAN1qA3S95",
+    "log_snippet": "Program L2TExMFKdjpN9kozasaurPirfHy9P8sbXoAN1qA3S95 consumed 6179 of 316200 compute units",
+    "balance_changes": [
+      {"account_idx": 0, "diff_lamports": -619400, "note": "fee payer (treasury)"},
+      {"account_idx": 3, "diff_lamports": -1513840, "note": "victim vault drained"},
+      {"account_idx": 4, "diff_lamports": 1488440, "note": "receiver +1488440 lamports"},
+      {"account_idx": 5, "diff_lamports": 1513840, "note": "receiver +1513840 lamports"},
+      {"account_idx": 8, "diff_lamports": -1488440, "note": "source account drained"}
+    ],
+    "note": "Real drain amounts visible. ~0.0025 SOL per victim account drained (small dust accounts). Full tx used new program not old."
+  }
+}

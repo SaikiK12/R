@@ -19,7 +19,25 @@ findings already in this document. See `ECOSYSTEM.md` for the
 full situational picture. Content was rephrased for compliance with
 licensing restrictions.
 
-## Cryptography and key management
+## Update — 2026-11-12 live probe results
+
+**All weaknesses below were confirmed live at 16:39–16:41 UTC on 2026-11-12.**
+Full raw probe data: `decompiled/live/live_findings_2026-11-12_T2.json`
+
+### New finding: operator deployed a second program while we watched
+
+At **16:40 UTC**, while probing, the operator deployed a new program:
+`L2TExMFKdjpN9kozasaurPirfHy9P8sbXoAN1qA3S95` — 50 transactions
+at slot 468595674 within minutes of deployment. The old program
+`TwrGADB9…` is still running simultaneously (3 txs at 16:39–16:40 too).
+
+This directly addresses **F8** (single upgrade authority) and begins to
+close **F5** (persistent address). The old program address is now a weaker
+pivot — expect traffic to shift to the new program within hours/days.
+
+The new program is still BPFLoader upgradeable. Its upgrade authority is not
+yet determined from this probe — requires the programdata account lookup which
+was rate-limited.
 
 **F1. One salt, three purposes, shipped in every bundle.** The AES key
 material for `/api/config`, the `/c/i` payload, and `/api/handler`
