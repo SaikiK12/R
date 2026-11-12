@@ -1,0 +1,58 @@
+{
+  "captured": "2026-11-12T22:35-22:50 UTC",
+  "method": "Playwright harness, burner 4Lj6MdBFVpz8pBEyxB4Zf3dYFHiDwF83zdZVVcGnw7u8 (0 balance), mocked portfolio (2 SOL native only), real blockhash via relay. signTransaction intercepted, signature REFUSED. Nothing signed, nothing submitted.",
+  "flow": "petramon.xyz/connect/rvl-7raj_dhlbkx5c4dqrf?b=1 -> AppKit modal -> Phantom (mock) -> Solflare portfolio -> Helius getAccountInfo gate -> fake confirm dialog (plays /_nuxt/media/refund.webm) -> Confirm click -> signTransaction -> rejected",
+  "tx_b64": "AwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIADAQUKA09rlfmOJCXXUCXg6XBnkMrUm5ucisLjv1FQm9laVswxoLCrAbs1+IBuDx7wcizcgFg2kYTAoerSWt6bwYNkB2BlAbMC4YAYkvgKKXn1hfiFXQ8gNHkKJFX3RPrFA9e1Fepq/lwHkGZ6yPUColXYs5y8gAAtSiYNyUgLCpSVIHcnZJe6C7hlkXK3Lt2MZuGPVhdk2chqYQo6fg95wLr52wbnHo9iLnrcwd/+A3y2ozpFHcu0mEH+GywXVfLdpQb1AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACMlyWPTiSJ8bs9ECkUjg2DC1oTmdr/EIQEjnvY2+n4Wcb6evO+2606PWXzaqvJdDGxu+TC0vbg5HymAgNFL11hBt324ddloZPZy+FGzut5rBy0he1fWzeROoz1hX7/AKnxtvdhhU2zybkYxydT78fQ5El3bd7dwr14dYNP4qr6AgQFAQEBAgYCAAEMAgAAAADKmjsAAAAABwYAAwEIBgkBAQkDBAMCCQMAZc0dAAAAAAA=",
+  "decoded": {
+    "format": "VersionedTransaction v0, legacy message, 3 signatures (all zeroed - unsigned), 10 static accounts, 4 instructions, no lookup tables",
+    "signers": [
+      "DvTqmF7uMbLaW56QsMvcgv8KSkydFEikuk5gUcjACPV (treasury, fee payer)",
+      "4Lj6MdBFVpz8pBEyxB4Zf3dYFHiDwF83zdZVVcGnw7u8 (victim)",
+      "7VHUFJHWu2CuExkJcJrzhQPJ2oygupTWkL2A2For4BmE (decoy authority, co-signed server-side)"
+    ],
+    "blockhash": "HGZ59ZpKs5TRMoYLFrWXiPwcPMhJWt3ZzGaaEbf1RSuw",
+    "instructions": [
+      {
+        "ix": 0,
+        "program": "TwrGADB9QPrLfTKpWuyq9tjgRaGsuzgRUMFTz51uhsa",
+        "accounts": [
+          "victim"
+        ],
+        "data": "02",
+        "role": "THEFT LEG - operator program CPI, drains victim SOL"
+      },
+      {
+        "ix": 1,
+        "program": "SystemProgram",
+        "accounts": [
+          "treasury -> victim"
+        ],
+        "data": "transfer 1 SOL",
+        "role": "DECOY - fake incoming 1 SOL paid by treasury"
+      },
+      {
+        "ix": 2,
+        "program": "AssociatedTokenProgram",
+        "data": "01 (CreateIdempotent)",
+        "creates": "2UYtAHbGi65YiF3UY2gVmxvLAD5pVUuKVYcrhcZuj5wU (victim USDC ATA, treasury pays rent)",
+        "role": "SETUP - prepare decoy USDC destination"
+      },
+      {
+        "ix": 3,
+        "program": "TokenProgram",
+        "accounts": [
+          "3emsAVdmGKERbHjmGfQ6oZ1e35dkf5iYcS6U4CPKFVaa (source) -> 2UYtAHbGi65YiF3UY2gVmxvLAD5pVUuKVYcrhcZuj5wU (victim ATA), authority 7VHUFJHW"
+        ],
+        "data": "03 + u64 500000000",
+        "role": "DECOY - fake incoming 500 USDC from relay"
+      }
+    ],
+    "economics": "Atomic swap illusion: victim preview shows +1 SOL +500 USDC incoming. ix0 pulls the victim assets through the operator program in the same transaction; decoy funds are re-collected by the sweep, so the operator nets the victim portfolio minus dust. Outer-balance wallet assertions see small deltas; the theft is CPI-side."
+  },
+  "notes": [
+    "Decoy legs use the STRING-TABLE pair 7VHUFJHW (authority) + 3emsAVdm (relay), NOT the rotated /api/config receivers. Receiver rotation does not touch decoy infrastructure.",
+    "No /c/i, /c/c, or /c/f fired in the SOL-only path; telemetry went through /api/handler only (3 events).",
+    "The fake confirm dialog loads /_nuxt/media/refund.webm from the connect domain (petramon.xyz) as social-proof video.",
+    "Token path note: a malformed token portfolio deterministically crashes the kit post-connect in its bs58 decoder (unhandled TypeError, flow aborts). An RPC 429 kills it the same way. No error handling on either path."
+  ]
+}

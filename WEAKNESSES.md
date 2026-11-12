@@ -50,6 +50,31 @@ F2 is not a stale snapshot: the receiver list moves in minutes and stays
 world-readable. `vi` is now a live locale (13 languages). `amlbot.store`
 is named from `amlbot.rest`'s HTML and does not resolve yet.
 
+**Evening follow-up, 22:47 UTC — full live flow captured.** A burner-wallet
+harness drove the kit end-to-end through the new connect domain
+(`petramon.xyz`, pushed via a grown 220-byte config; easyinvest7.biz's
+shell is gone). The drain transaction the kit built for the victim is
+decoded in `decompiled/live/dynamic/captured_tx_2026-11-12.json`, and
+five `/api/handler` telemetry posts were decrypted with the kit's own key
+(`decompiled/live/dynamic/handler_events_decrypted_2026-11-12.json`).
+Nothing was signed or submitted. Three additions to the record:
+
+- **F5/F7 sharpened: receiver rotation is cosmetic for the decoy layer.**
+  The live-built tx's fake-incoming legs (1 SOL from treasury, 500 USDC
+  from `3emsAVdm` authorized by `7VHUFJHW`) use the string-table pair,
+  not the rotated config receivers. The theft leg is still
+  `TwrGADB9…` disc `0x02` against the victim. The decoy co-signing keys
+  are pinned in the bundle and cannot be rotated without a rebuild.
+- **The kit breaks loudly under instrumentation.** Two deterministic
+  unhandled exceptions were observed: a `TypeError` in its own bs58
+  decoder when the token portfolio shape is unexpected (flow aborts
+  before `/c/i`), and the same class of crash when an RPC answers 429.
+  No fallback, no retry logic that survives either. Real victims on
+  flaky RPCs hit the second one.
+- **The fake confirm dialog streams a social-proof video from the
+  connect domain** (`/_nuxt/media/refund.webm` on petramon.xyz) — the
+  same media file archived from pumpanakin.fun. Media path is a pivot.
+
 **F1. One salt, three purposes, shipped in every bundle.** The AES key
 material for `/api/config`, the `/c/i` payload, and `/api/handler`
 telemetry all derive from the same embedded salt

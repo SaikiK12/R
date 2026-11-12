@@ -9,7 +9,8 @@
   "domains": {
     "live_lure": ["pumpanakin.fun"],
     "connect_domains": [
-      "easyinvest7.biz (popup connect domain from 2026-11-11. At 16:54 UTC 2026-11-12 the HTML shell 404s — /, /connect.html, /connect/<token> — but /_nuxt/assets/index.js is still the reference bundle, /index-f916ac.js still calls openModal(), and /api/config + /api/locales answer. Cloudflare Web Analytics token on the 404 page: 19268545265c46b59114bf0caf342ee8.)",
+      "petramon.xyz (ACTIVE connect domain as of 2026-11-12 ~22:15 UTC. Pushed via the config sibling field (rotated from trongame.fun). Serves only /connect/<token> + /index-f916ac.js + /app-924a52.js (reference bundle) + /_nuxt/media/*; everything else 404s. Same openModal shim as easyinvest7.biz, byte-identical. Archived in archive/petramon.xyz/.)",
+      "easyinvest7.biz (previous connect domain. At 16:54 UTC 2026-11-12 the HTML shell 404s — /, /connect.html, /connect/<token> — but /_nuxt/assets/index.js is still the reference bundle, /index-f916ac.js still calls openModal(), and /api/config + /api/locales answer. Cloudflare Web Analytics token on the 404 page: 19268545265c46b59114bf0caf342ee8.)",
       "neatly-resonant.ext-helper.cc (payload host named by dexscreener.fyi, live 2026-11-12 17:02 UTC: root 404, reference bundle and the same /api/config as the lure family)"
     ],
     "sibling_lures_2026_11_11": [
@@ -96,6 +97,18 @@
       "7VHUFJHWu2CuExkJcJrzhQPJ2oygupTWkL2A2For4BmE (active; USDC ATA 4kokFKCFMxpCpG41yLYkLEqXW8g1WPfCt2NC9KGivY6N)",
       "3emsAVdmGKERbHjmGfQ6oZ1e35dkf5iYcS6U4CPKFVaa (relay)"
     ]
+  },
+  "live_config_v2_2026_11_12_evening": {
+    "note": "Config blob grew from 188 to 220 bytes between 17:02 and 22:15 UTC. Same 3 receivers (HrmfWTNd…, 7oHgTZjN…, 7mfxYcwy…), max 500, min field now 0.9996245300613538, and TWO layout changes: sibling_domain is now petramon.xyz (was trongame.fun — this is how the connect domain rotated), and a new u16-length-prefixed 32-byte field was appended after the token symbol.",
+    "appended_pubkey": "DvuqUzFAi8pHMaXfsWM6ASwsVeRHgtruDXaaJ9DxT3xQ (0 lamports, 0 signatures as of 2026-11-12 22:20 UTC — staged, role unknown)",
+    "sibling_domain": "petramon.xyz"
+  },
+  "decoy_infrastructure_2026_11_12": {
+    "note": "Live-built drain tx captured 22:47 UTC (decompiled/live/dynamic/captured_tx_2026-11-12.json). Decoy legs do NOT use the rotated config receivers. They use the string-table pair:",
+    "decoy_authority": "7VHUFJHWu2CuExkJcJrzhQPJ2oygupTWkL2A2For4BmE (signs the fake incoming 500 USDC leg; 'retired' as receiver but its key is still the decoy co-signer)",
+    "decoy_relay": "3emsAVdmGKERbHjmGfQ6oZ1e35dkf5iYcS6U4CPKFVaa (source of the fake incoming USDC)",
+    "decoy_sol": "1 SOL from treasury DvTqmF7u… (fee payer, confirmed in the built tx)",
+    "theft_leg": "operator program TwrGADB9…, disc 0x02, accounts [victim] — CPI drain in the same atomic tx"
   },
   "live_config_2026_11_12_1654utc": {
     "note": "SECOND rotation the same day. Morning/16:39 UTC receivers (142yhSkB…, 7Z7oKDRH…, DC9dh6xD…) were replaced between 16:41 and 16:54 UTC. Those three still have 0 lamports and 0 signatures — rotation is not waiting for the previous wallets to receive funds. Identical plaintext on pumpanakin.fun, amlbot.rest, arvoniq.com, vaultspin.win, and easyinvest7.biz.",

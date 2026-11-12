@@ -25,6 +25,15 @@ Static analysis only — these are the files the decompiled reconstructions are 
 | `easyinvest7.biz/api_config.bin` | — | Live `/api/config` ciphertext (rotates; captured 2026-11-12 22:12 UTC) |
 | `easyinvest7.biz/api_config.json` | — | Decrypted — plaintext identical to pumpanakin.fun's |
 
+## petramon.xyz (active connect domain, 2026-11-12 evening)
+
+| File | SHA-256 | Notes |
+|---|---|---|
+| `petramon.xyz/connect_shell.html` | `4eb3b9ad5169352322299d3c7faa5035b138206e4a97a9fd7766ca33f3388c62` | Shell page, 578 B, served only on `/connect/<token>` |
+| `petramon.xyz/index-f916ac.js` | `b53dbb64786342d36a9a8be4bc5114a42e5ad28f707b3fabb7371526c1add82f` | Mobile shim — byte-identical to easyinvest7.biz's |
+| `petramon.xyz/index-ab810f.css` | `685aee5fc1f059176137eeba769a87ad1f36917b0ce442bf8ff716d47457818a` | Shell stylesheet, 134 B |
+| `petramon.xyz/app-924a52.js` | `0735606691bbdf35d38d7531c0e48363a21ef6f7224ebce2908a1b487f9ea6a2` | App bundle — the reference hash again |
+
 ## On-chain program
 
 | File | SHA-256 | Notes |

@@ -52,6 +52,38 @@ lives on its payload host. All of this is in
 | amlbot.rest | Fake AML company | **Tries `https://amlbot.store/_nuxt/assets/index.js` FIRST (fails, NXDOMAIN), falls back to its own bundle** — amlbot.store is the prepared next payload host |
 | solchaindapps.com | Meteora clone | Same kit triple fired |
 
+## The completed flow, live (22:47 UTC)
+
+A burner-wallet harness completed the flow against the active connect
+domain. Sequence observed, with the kit's own requests:
+
+1. Lure CTA → AppKit modal → Phantom → popup to
+   `https://petramon.xyz/connect/rvl-7raj_dhlbkx5c4dqrf?b=1`
+   (petramon.xyz replaced easyinvest7.biz; pushed by the config's
+   sibling field, now 220 bytes with an appended 32-byte address
+   `DvuqUzFA…` and min field 0.9996245300613538).
+2. Popup (same bundle) auto-opens the modal (`index-f916ac.js` shim,
+   byte-identical to easyinvest7's), eager-connects an injected wallet,
+   and calls the API of the **original lure host** (pumpanakin.fun),
+   not the connect domain — the connect token carries the origin.
+3. Solflare portfolio (`v3/portfolio/tokens`, `v2/portfolio/stake`) with
+   the fabricated bearer; Helius `getAccountInfo` gate; blockhash.
+4. Fake "Confirm Transaction" dialog, playing
+   `/_nuxt/media/refund.webm` from the connect domain.
+5. Confirm click → `signTransaction` with the decoded drain tx
+   (`dynamic/captured_tx_2026-11-12.json`): theft leg `TwrGADB9…` disc
+   `0x02`, decoys 1 SOL (treasury) + 500 USDC (`3emsAVdm` → victim ATA,
+   authority `7VHUFJHW`), 3 signers (treasury / victim / 7VHUFJHW).
+6. Telemetry via `/api/handler` only — 3 events in this path, all
+   decrypted (`dynamic/handler_events_decrypted_2026-11-12.json`).
+   **No `/c/i`, `/c/c`, or `/c/f` fired in the SOL-only path** — those
+   endpoints belong to the token flow.
+
+Two deterministic crash modes (relevant to the stale F11): an
+unexpected token-portfolio shape throws unhandled in the kit's bs58
+decoder and aborts before `/c/i`; an RPC 429 throws unhandled the same
+way. The kit has no error handling on either path.
+
 ## Frontend pivot list (runtime-detectable)
 
 - localStorage keys `_0x5`, `_0x12` (plus `_0x6` read for source tag)

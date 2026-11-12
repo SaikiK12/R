@@ -1,0 +1,75 @@
+{
+  "note": "/api/handler AES-GCM bodies decrypted with key SHA-256(pumpanakin.fun + log + salt). Captured live from the kit posting its own telemetry during harness runs; response was 200 ok in all cases.",
+  "events": [
+    {
+      "label": "2026-11-12T22:17 connect-attempt (popup open)",
+      "plaintext_len": 92,
+      "hex": "0006312e31382e344fab325700075068616e746f6d31a0b0ab01bb35f8806e0f1ef0722cdc8058369184c0a1ead25ade9bc183640702557278cb5f26330000000000000000009400000000000005656e2d555300764ef28e8f85f8de",
+      "strings": [
+        "1.18.4O",
+        "2W",
+        "Phantom1",
+        "r,",
+        "X6",
+        "Urx",
+        "_&3",
+        "en-US",
+        "vN"
+      ]
+    },
+    {
+      "label": "2026-11-12T22:19 modal/connect event",
+      "plaintext_len": 92,
+      "hex": "0006312e31382e3429cafa3d00075068616e746f6d31a0b0ab01bb35f8806e0f1ef0722cdc8058369184c0a1ead25ade9bc183640702650dc8ef068d6c0000000000000000009400000000000005656e2d555300508d55288771bb16",
+      "strings": [
+        "1.18.4)",
+        "Phantom1",
+        "r,",
+        "X6",
+        "en-US",
+        "U("
+      ]
+    },
+    {
+      "label": "2026-11-12T22:47 flow event 1 (SOL path)",
+      "plaintext_len": 92,
+      "hex": "0106312e31382e344e3c8c1300075068616e746f6d31a0b0ab01bb35f8806e0f1ef0722cdc8058369184c0a1ead25ade9bc18364070208bf5033158ba90094357700000000000000000000000005656e2d55530031635e3559a9afb6",
+      "strings": [
+        "1.18.4N<",
+        "Phantom1",
+        "r,",
+        "X6",
+        "P3",
+        "5w",
+        "en-US",
+        "1c^5Y"
+      ]
+    },
+    {
+      "label": "2026-11-12T22:47 flow event 2",
+      "plaintext_len": 92,
+      "hex": "0206312e31382e34e4f3354700075068616e746f6d31a0b0ab01bb35f8806e0f1ef0722cdc8058369184c0a1ead25ade9bc18364070203df1afa87911080fd9c7600000000000000000000000005656e2d5553002c48830ffaed5ed2",
+      "strings": [
+        "1.18.4",
+        "5G",
+        "Phantom1",
+        "r,",
+        "X6",
+        "en-US",
+        ",H"
+      ]
+    },
+    {
+      "label": "2026-11-12T22:47 flow event 3 (pre-sign)",
+      "plaintext_len": 92,
+      "hex": "0406312e31382e341288a04f00075068616e746f6d31a0b0ab01bb35f8806e0f1ef0722cdc8058369184c0a1ead25ade9bc1836407020fc0440ed8816480fd9c7600000000000000000000000005656e2d555300b178ee03d268fa60",
+      "strings": [
+        "1.18.4",
+        "Phantom1",
+        "r,",
+        "X6",
+        "en-US"
+      ]
+    }
+  ]
+}
