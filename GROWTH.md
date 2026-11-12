@@ -71,6 +71,36 @@ connect-domain shim branches on `outerWidth < 768` (mobile gets the
 embedded flow and the fake wallet-app deep links; desktop gets the
 popup).
 
+## X (Twitter) as a distribution channel
+
+Since the November 2026 analysis, public reporting has documented a
+Rublevka-associated X/Twitter campaign in detail
+([Blockaid](https://blockaid.io/blog/how-crypto-drainers-are-using-x-twitter-to-target-web3-users)).
+The same campaign playbook maps cleanly onto what this operation shows
+us at the kit layer:
+
+- **Aged accounts, 10–15 years old.** The `easyinvest7.biz` connect
+  domain in this operation has a first certificate from October 2018 —
+  an eight-year-old domain used as a payload delivery point.
+  Domain-age trust is applied at both the web and the social layer.
+- **Blue Checkmark via paid subscription.** Both the pumpanakin lure
+  (Cloudflare, clean 200) and the X account playbook prioritize looking
+  legitimate to a 30-second credibility check by a human.
+- **Legitimate reposts to mask malicious posts.** The pattern on X
+  mirrors the pattern in the kit: real outbound links in the lure HTML
+  (`t.me/durov`, `donaldjtrump.com`, `x.com/telegram`) provide the
+  same camouflage function that reposting legitimate crypto content
+  provides on X — a signal-to-noise dilution strategy.
+- **Low-follower-count selection.** Rublevka explicitly discourages
+  inflating follower counts (risk of immediate bans). The kit's own
+  anti-ban engineering (UA cloaking, `is-banned` kill switch, balance
+  gate) reflects the same philosophy: low surface area, stay alive
+  longer.
+- Blockaid detected more than 260 distinct Rublevka dApp URLs via this
+  campaign, confirming the rapid-deployment scale already visible in the
+  30+ sibling lures identified by hash pivoting (`FAMILY_MAP.md`).
+  Content was rephrased for compliance with licensing restrictions.
+
 ## Industry context: this is a known blueprint
 
 The model above is documented publicly under the name **Rublevka
@@ -90,6 +120,9 @@ restrictions.
 The same template ecology shows in public scam trackers: fake
 $KIMCHI/$SPX/$JTO/$PUNCH "claim" pages ([example](https://malwaretips.com/blogs/kimchi-airdrop-scam/)),
 all variations on "the only action that matters is Connect Wallet."
+
+For a full situational picture of where this operation sits in the
+November 2026 drainer landscape, see `INDUSTRY_CONTEXT.md`.
 
 ## Deobfuscation coverage, per artifact class
 

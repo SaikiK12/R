@@ -1,5 +1,8 @@
 {
   "sample_sha256": "0735606691bbdf35d38d7531c0e48363a21ef6f7224ebce2908a1b487f9ea6a2",
+  "analysis_date": "2026-11-11",
+  "last_updated": "2026-11-12",
+  "note_on_attribution": "Attribution of pumpanakin.fun to Rublevka Team is not established. The hexfomo.fun kit watermark may identify a DaaS vendor whose kit is used by multiple operators. See INDUSTRY_CONTEXT.md.",
   "solflare_api": "https://wallet-api.solflare.com/",
   "domains": {
     "live_lure": ["pumpanakin.fun"],

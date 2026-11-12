@@ -28,9 +28,14 @@ machinery.
 7. `FAMILY_MAP.md` — 30+ sibling lures run by the same operator, and
    what the more elaborate ones do better.
 8. `GROWTH.md` — how they get victims: spam, TDS, aged domains, the
-   affiliate machine, and why there is no SEO.
-9. `FLAWS.md` — where the operation is weak, and what the next
-   generation of the kit will probably fix.
+   affiliate machine, the X/Twitter Rublevka campaign, and why there
+   is no SEO.
+9. `FLAWS.md` — where the operation is weak (22 proven flaws), and what
+   the next generation of the kit will probably fix.
+10. `INDUSTRY_CONTEXT.md` — where this operation fits in the November
+    2026 drainer landscape: the DaaS model, Rublevka Team attribution
+    context, the StepDrainer DNS-hijack incident, and wallet-side
+    defenses.
 
 ## Contents
 
@@ -39,8 +44,9 @@ machinery.
 | `LURE_ANALYSIS.md` | The lure pages as social-engineering case studies |
 | `OPERATOR_ARCHITECTURE.md` | The full operator architecture on one page |
 | `DYNAMIC_ANALYSIS.md` | The sandboxed live run: redirect, gates, dialogs, captured tx |
-| `GROWTH.md` | Traffic acquisition and the affiliate machine |
-| `FLAWS.md` | Critical review: 18 proven weaknesses + next-gen projection |
+| `GROWTH.md` | Traffic acquisition, the X/Twitter Rublevka campaign, and the affiliate machine |
+| `FLAWS.md` | Critical review: 22 proven weaknesses + next-gen projection |
+| `INDUSTRY_CONTEXT.md` | November 2026 drainer landscape: DaaS model, Rublevka context, StepDrainer DNS hijack |
 | `archive/` | Raw samples (bundle, lure HTML, connect app, program ELF, videos) with hashes and provenance — do not execute |
 | `FORENSIC_REPORT.md` | The report. One document, corrected against the live bundle |
 | `FAMILY_MAP.md` | Sibling lures and the sophistication gradient |
