@@ -1,0 +1,390 @@
+{
+  "fetched": "2026-11-12T17:00:38.795Z",
+  "method": "GET only, desktop Chrome UA. HTML, /api/config, /api/locales?lang=en, same-origin scripts and styles under 250KB. The shared 1MB bundle was hashed, not copied again.",
+  "live": [
+    {
+      "host": "arvoniq.com",
+      "html_bytes": 8025,
+      "html_sha256": "8efec70999e45045eef7e2a4f8c1d59b49b1242e37213cadb0749e023ba174df",
+      "title": "Solana",
+      "bundle_reference": true,
+      "receivers": [
+        "HrmfWTNdY8QeNif8SMK4xU5YATt7YJPdnKev1FcmbaKy",
+        "7oHgTZjNPnjos8xd2zdCm2Q6zwS8cVFDp4XbuvmqV4aa",
+        "7mfxYcwyddVa6fD7Ge33vgY8SC862hcqXmvjYKqcpza1"
+      ],
+      "token": "USDC",
+      "sibling": "trongame.fun",
+      "locale_same": true,
+      "social_links": []
+    },
+    {
+      "host": "vaultspin.win",
+      "html_bytes": 1107416,
+      "html_sha256": "773bb0cbdd73f8ab6df6ab83affbe55d0f54eebcd2e50c8a36c0a1c03baa274d",
+      "title": "Phantom",
+      "bundle_reference": true,
+      "receivers": [
+        "HrmfWTNdY8QeNif8SMK4xU5YATt7YJPdnKev1FcmbaKy",
+        "7oHgTZjNPnjos8xd2zdCm2Q6zwS8cVFDp4XbuvmqV4aa",
+        "7mfxYcwyddVa6fD7Ge33vgY8SC862hcqXmvjYKqcpza1"
+      ],
+      "token": "USDC",
+      "sibling": "trongame.fun",
+      "locale_same": true,
+      "social_links": []
+    },
+    {
+      "host": "dexfi.app",
+      "html_bytes": 112239,
+      "html_sha256": "0b9c5df4464be4c86db74e804273dfcd230fd8491a128be84a688e52586dee81",
+      "title": "Document",
+      "bundle_reference": true,
+      "receivers": [
+        "HrmfWTNdY8QeNif8SMK4xU5YATt7YJPdnKev1FcmbaKy",
+        "7oHgTZjNPnjos8xd2zdCm2Q6zwS8cVFDp4XbuvmqV4aa",
+        "7mfxYcwyddVa6fD7Ge33vgY8SC862hcqXmvjYKqcpza1"
+      ],
+      "token": "USDC",
+      "sibling": "trongame.fun",
+      "locale_same": true,
+      "social_links": [
+        "https://t.me/Russia_Vs_Ukraine_War3&quot;]",
+        "https://t.me/dexlab_official",
+        "https://twitter.com/Dexlab_official"
+      ]
+    },
+    {
+      "host": "paybackpump.fun",
+      "html_bytes": 145118,
+      "html_sha256": "c250f86b43883cf91d951b71c98627eb2a7501fc5e29625a23bd108973af5bac",
+      "title": "Pump",
+      "bundle_reference": true,
+      "receivers": [
+        "HrmfWTNdY8QeNif8SMK4xU5YATt7YJPdnKev1FcmbaKy",
+        "7oHgTZjNPnjos8xd2zdCm2Q6zwS8cVFDp4XbuvmqV4aa",
+        "7mfxYcwyddVa6fD7Ge33vgY8SC862hcqXmvjYKqcpza1"
+      ],
+      "token": "USDC",
+      "sibling": "trongame.fun",
+      "locale_same": true,
+      "social_links": []
+    },
+    {
+      "host": "amlbot.rest",
+      "html_bytes": 304601,
+      "html_sha256": "fbdf2363f8db58d3d3c8e6437575a7d8a886369e6411d7e72c54bde7f87d3576",
+      "title": "AMLBot - Comprehensive AML Compliance Solutions for Crypto",
+      "bundle_reference": true,
+      "receivers": [
+        "HrmfWTNdY8QeNif8SMK4xU5YATt7YJPdnKev1FcmbaKy",
+        "7oHgTZjNPnjos8xd2zdCm2Q6zwS8cVFDp4XbuvmqV4aa",
+        "7mfxYcwyddVa6fD7Ge33vgY8SC862hcqXmvjYKqcpza1"
+      ],
+      "token": "USDC",
+      "sibling": "trongame.fun",
+      "locale_same": true,
+      "social_links": [
+        "https://t.me/botaml_support",
+        "https://twitter.com/demchukvm",
+        "https://t.me/AML_GROUP",
+        "https://x.com/AMLBotHQ"
+      ]
+    },
+    {
+      "host": "rolldice.icu",
+      "html_bytes": 60171,
+      "html_sha256": "c37418a1aabd20196ac5640c88a9a622655c26e9ee01aca84e933b622f35de8d",
+      "title": "ROLLDICE — Two Dice. Double Rewards.",
+      "bundle_reference": true,
+      "receivers": [
+        "HrmfWTNdY8QeNif8SMK4xU5YATt7YJPdnKev1FcmbaKy",
+        "7oHgTZjNPnjos8xd2zdCm2Q6zwS8cVFDp4XbuvmqV4aa",
+        "7mfxYcwyddVa6fD7Ge33vgY8SC862hcqXmvjYKqcpza1"
+      ],
+      "token": "USDC",
+      "sibling": "trongame.fun",
+      "locale_same": true,
+      "social_links": []
+    },
+    {
+      "host": "daddysdogg.com",
+      "html_bytes": 11518,
+      "html_sha256": "88c48d870909b478b3fb1b5ba1c0010b14d5b3be58d445aaac345df75a8e7b90",
+      "title": "Andrew Tate's Dog | Airdrop",
+      "bundle_reference": true,
+      "receivers": [
+        "HrmfWTNdY8QeNif8SMK4xU5YATt7YJPdnKev1FcmbaKy",
+        "7oHgTZjNPnjos8xd2zdCm2Q6zwS8cVFDp4XbuvmqV4aa",
+        "7mfxYcwyddVa6fD7Ge33vgY8SC862hcqXmvjYKqcpza1"
+      ],
+      "token": "USDC",
+      "sibling": "trongame.fun",
+      "locale_same": true,
+      "social_links": [
+        "https://x.com/GSolanaDog",
+        "https://t.me/tatesdogonsol"
+      ]
+    },
+    {
+      "host": "isen.fund",
+      "html_bytes": 10564,
+      "html_sha256": "2bebc660c04f64fc64a8885dae34bd1717f53a719a9b107196cfe282de215676",
+      "title": "isen.fund — Find the token. See the numbers.",
+      "bundle_reference": true,
+      "receivers": [
+        "HrmfWTNdY8QeNif8SMK4xU5YATt7YJPdnKev1FcmbaKy",
+        "7oHgTZjNPnjos8xd2zdCm2Q6zwS8cVFDp4XbuvmqV4aa",
+        "7mfxYcwyddVa6fD7Ge33vgY8SC862hcqXmvjYKqcpza1"
+      ],
+      "token": "USDC",
+      "sibling": "trongame.fun",
+      "locale_same": true,
+      "social_links": []
+    },
+    {
+      "host": "allocationclaim.com",
+      "html_bytes": 5781,
+      "html_sha256": "156c473deaa26f617299e91882573c28e047b34a98bc4a6eab420b7aa8c3ba2e",
+      "title": "BONK COIN",
+      "bundle_reference": true,
+      "receivers": [
+        "HrmfWTNdY8QeNif8SMK4xU5YATt7YJPdnKev1FcmbaKy",
+        "7oHgTZjNPnjos8xd2zdCm2Q6zwS8cVFDp4XbuvmqV4aa",
+        "7mfxYcwyddVa6fD7Ge33vgY8SC862hcqXmvjYKqcpza1"
+      ],
+      "token": "USDC",
+      "sibling": "trongame.fun",
+      "locale_same": true,
+      "social_links": [
+        "https://x.com/bonk_inu",
+        "https://t.me/Official_Bonk_Inu"
+      ]
+    },
+    {
+      "host": "boom-frog.xyz",
+      "html_bytes": 19872,
+      "html_sha256": "0e469ec5ed356e0e6d25971eb3a2a74c2f11da31adc61dccd7440554c52615f9",
+      "title": "BOOK OF MEME — BOME",
+      "bundle_reference": true,
+      "receivers": [
+        "HrmfWTNdY8QeNif8SMK4xU5YATt7YJPdnKev1FcmbaKy",
+        "7oHgTZjNPnjos8xd2zdCm2Q6zwS8cVFDp4XbuvmqV4aa",
+        "7mfxYcwyddVa6fD7Ge33vgY8SC862hcqXmvjYKqcpza1"
+      ],
+      "token": "USDC",
+      "sibling": "trongame.fun",
+      "locale_same": true,
+      "social_links": []
+    },
+    {
+      "host": "eligibility-zkpass.org",
+      "html_bytes": 13890,
+      "html_sha256": "94b5916a70cfdaf8d8154ece1a8b7a6b02682cdfd8b823a45aed617e12707b76",
+      "title": "",
+      "bundle_reference": true,
+      "receivers": [
+        "HrmfWTNdY8QeNif8SMK4xU5YATt7YJPdnKev1FcmbaKy",
+        "7oHgTZjNPnjos8xd2zdCm2Q6zwS8cVFDp4XbuvmqV4aa",
+        "7mfxYcwyddVa6fD7Ge33vgY8SC862hcqXmvjYKqcpza1"
+      ],
+      "token": "USDC",
+      "sibling": "trongame.fun",
+      "locale_same": true,
+      "social_links": []
+    },
+    {
+      "host": "pumpswap.rest",
+      "html_bytes": 32901,
+      "html_sha256": "9bbc0daff735d5d840e67c8909e779fe5fc7a20b9eb08ac2a171382356d49f5d",
+      "title": "PUMP | Solana Meme Token",
+      "bundle_reference": true,
+      "receivers": [
+        "HrmfWTNdY8QeNif8SMK4xU5YATt7YJPdnKev1FcmbaKy",
+        "7oHgTZjNPnjos8xd2zdCm2Q6zwS8cVFDp4XbuvmqV4aa",
+        "7mfxYcwyddVa6fD7Ge33vgY8SC862hcqXmvjYKqcpza1"
+      ],
+      "token": "USDC",
+      "sibling": "trongame.fun",
+      "locale_same": true,
+      "social_links": []
+    },
+    {
+      "host": "dexscreener.fyi",
+      "html_bytes": 46715,
+      "html_sha256": "eba5b4c6efd3def591fda68f0888460bcb7e3e894285598335ee4b8f08c4ee45",
+      "title": "DEX Screener",
+      "config_error": null,
+      "social_links": [
+        "https://twitter.com/dexscreener",
+        "https://telegram.me/dexscreenerchat"
+      ]
+    },
+    {
+      "host": "app.dextools.info",
+      "html_bytes": 305418,
+      "html_sha256": "650f3af7eef90e80e4f954fefab42b129ecd396bb7c11bf99ff3df807a6867a2",
+      "title": "Connect wallet – Manage Wallets &amp; DeFi Assets | by DEXTools",
+      "bundle_reference": true,
+      "receivers": [
+        "HrmfWTNdY8QeNif8SMK4xU5YATt7YJPdnKev1FcmbaKy",
+        "7oHgTZjNPnjos8xd2zdCm2Q6zwS8cVFDp4XbuvmqV4aa",
+        "7mfxYcwyddVa6fD7Ge33vgY8SC862hcqXmvjYKqcpza1"
+      ],
+      "token": "USDC",
+      "sibling": "trongame.fun",
+      "locale_same": true,
+      "social_links": [
+        "https://twitter.com/DEXToolsApp",
+        "https://t.me/DEXToolsCommunity"
+      ]
+    },
+    {
+      "host": "solchaindapps.com",
+      "html_bytes": 1604037,
+      "html_sha256": "0df18db7ae2e27288325b3d8497decbf66a0eeaff119b0979099cbfaceedf301",
+      "title": "Home | Meteora",
+      "bundle_reference": true,
+      "receivers": [
+        "HrmfWTNdY8QeNif8SMK4xU5YATt7YJPdnKev1FcmbaKy",
+        "7oHgTZjNPnjos8xd2zdCm2Q6zwS8cVFDp4XbuvmqV4aa",
+        "7mfxYcwyddVa6fD7Ge33vgY8SC862hcqXmvjYKqcpza1"
+      ],
+      "token": "USDC",
+      "sibling": "trongame.fun",
+      "locale_same": true,
+      "social_links": []
+    },
+    {
+      "host": "pumpstreams.expl.live",
+      "html_bytes": 75604,
+      "html_sha256": "f7f586689140bd019565cb99bd4afa9a708608d3120f5cb7a45976f6de6b9bae",
+      "title": "Pump",
+      "bundle_reference": true,
+      "receivers": [
+        "HrmfWTNdY8QeNif8SMK4xU5YATt7YJPdnKev1FcmbaKy",
+        "7oHgTZjNPnjos8xd2zdCm2Q6zwS8cVFDp4XbuvmqV4aa",
+        "7mfxYcwyddVa6fD7Ge33vgY8SC862hcqXmvjYKqcpza1"
+      ],
+      "token": "USDC",
+      "sibling": "trongame.fun",
+      "locale_same": true,
+      "social_links": []
+    }
+  ],
+  "not_live": [
+    {
+      "host": "solme.top",
+      "status": 403,
+      "error": null,
+      "size": 5666,
+      "ctype": "text/html; charset=UTF-8"
+    },
+    {
+      "host": "luna-start.trade",
+      "status": 403,
+      "error": null,
+      "size": 5673,
+      "ctype": "text/html; charset=UTF-8"
+    },
+    {
+      "host": "cryptocommerceohpmigration.online",
+      "status": null,
+      "error": "ENOTFOUND",
+      "size": 0
+    },
+    {
+      "host": "airdrop-floatlaunch.xyz",
+      "status": 403,
+      "error": null,
+      "size": 5552,
+      "ctype": "text/html; charset=UTF-8"
+    },
+    {
+      "host": "claim-floatlaunch.xyz",
+      "status": 403,
+      "error": null,
+      "size": 5550,
+      "ctype": "text/html; charset=UTF-8"
+    },
+    {
+      "host": "rank-floatlaunch.xyz",
+      "status": 403,
+      "error": null,
+      "size": 5549,
+      "ctype": "text/html; charset=UTF-8"
+    },
+    {
+      "host": "www-meteora.ag-v2.ink",
+      "status": 403,
+      "error": null,
+      "size": 548,
+      "ctype": "text/html"
+    },
+    {
+      "host": "sol-meteora.ag-v2.ink",
+      "status": 403,
+      "error": null,
+      "size": 548,
+      "ctype": "text/html"
+    },
+    {
+      "host": "meteora-exchange.pages.dev",
+      "status": 404,
+      "error": null,
+      "size": 0
+    },
+    {
+      "host": "meteora-exchange-1yz.pages.dev",
+      "status": null,
+      "error": "ENOTFOUND",
+      "size": 0
+    },
+    {
+      "host": "meteora-exchange-5eq.pages.dev",
+      "status": null,
+      "error": "ENOTFOUND",
+      "size": 0
+    },
+    {
+      "host": "moonshot-claim.pages.dev",
+      "status": null,
+      "error": "ENOTFOUND",
+      "size": 0
+    },
+    {
+      "host": "login.web-jupiter.gd",
+      "status": 403,
+      "error": null,
+      "size": 548,
+      "ctype": "text/html"
+    },
+    {
+      "host": "tracker.web-jupiter.gd",
+      "status": 403,
+      "error": null,
+      "size": 548,
+      "ctype": "text/html"
+    },
+    {
+      "host": "app.web-jupiter.gd",
+      "status": 403,
+      "error": null,
+      "size": 548,
+      "ctype": "text/html"
+    },
+    {
+      "host": "launchpad.web-jupiter.gd",
+      "status": 403,
+      "error": null,
+      "size": 548,
+      "ctype": "text/html"
+    },
+    {
+      "host": "jupiter-verify.xyz",
+      "status": null,
+      "error": "ENOTFOUND",
+      "size": 0
+    }
+  ]
+}

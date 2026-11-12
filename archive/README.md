@@ -32,8 +32,28 @@ Static analysis only — these are the files the decompiled reconstructions are 
 
 ## Sibling deployments
 
-`sibling_lures/` — landing page HTML from three sibling deployments
-(arvoniq.com, vaultspin.win, isen.fund). Same bundle hash, different themes.
+`sibling_lures/<host>/` — recaptured 2026-11-12 17:00 UTC. One directory per
+host that still returned a page: `index.html`, decrypted `api_config.json`
+(plus the 188-byte ciphertext), and same-origin scripts/styles under 250 KB.
+The shared bundle is not copied again; every kit host still serves
+`07356066…f9ea6a2`.
+
+15 hosts decrypt to the same config (USDC, 1–500 SOL, sibling `trongame.fun`,
+receivers `HrmfWTNd…`, `7oHgTZjN…`, `7mfxYcwy…`): arvoniq.com, vaultspin.win,
+dexfi.app, paybackpump.fun, amlbot.rest, rolldice.icu, daddysdogg.com,
+isen.fund, allocationclaim.com, boom-frog.xyz, eligibility-zkpass.org,
+pumpswap.rest, app.dextools.info, solchaindapps.com, pumpstreams.expl.live.
+English modal strings match `decompiled/live/locales_en.json` on all 15.
+
+`dexscreener.fyi` is only the costume. Its HTML loads the bundle from
+`neatly-resonant.ext-helper.cc`, which serves the reference bundle and the
+same decrypted config. Root on that host is a 404. `amlbot.store`,
+`lens-badland.fontstack.cc`, and `voicechat.fun` are named from lure HTML
+and do not resolve.
+
+The three flat `*.html` files next to the directories are the 2026-11-11
+snapshots of arvoniq, vaultspin, and isen. Index of who answered and who
+did not: `sibling_lures/manifest_2026-11-12.json`.
 
 ## External samples
 

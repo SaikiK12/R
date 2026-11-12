@@ -1,0 +1,1822 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>ROLLDICE — Two Dice. Double Rewards.</title>
+<!-- Fontshare CDN: Uncut Sans & General Sans -->
+<link href="https://api.fontshare.com/v2/css?f[]=uncut-sans@600,700,800&amp;f[]=general-sans@400,500,600,700&amp;display=swap" rel="stylesheet"/>
+<!-- Google Fonts: Fira Code -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Three.js & OrbitControls -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+<!-- Canvas Confetti -->
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+<style>
+        :root {
+            --bg-base: #06050a;
+            --purple-main: #9945FF;
+            --sol-color: #14F195;
+            --usdt-color: #26A17B;
+            --text-main: #FFFFFF;
+            --text-muted: #8F8FA3;
+
+            --font-main: 'General Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            --font-display: 'Uncut Sans', var(--font-main);
+            --font-mono: 'Fira Code', monospace;
+
+            /* Фирменный градиент кнопок */
+            --btn-grad-light: linear-gradient(90deg, #FFFFFF 0%, #F5F0FF 20%, #D8C2FF 65%, #A880FF 100%);
+            --btn-glow-light: 0 0 32px rgba(168, 128, 255, 0.42), 0 10px 25px rgba(0, 0, 0, 0.7);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            user-select: none;
+            -webkit-user-select: none;
+            font-family: var(--font-main);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            width: 100%;
+            min-height: 100vh;
+            background-color: var(--bg-base);
+            color: var(--text-main);
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        #bg-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .header-outer-wrap {
+            position: fixed;
+            top: 14px;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            padding: 0 20px;
+            z-index: 100;
+            pointer-events: none;
+        }
+
+        header {
+            pointer-events: auto;
+            width: 100%;
+            max-width: 1220px;
+            height: 72px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 24px;
+            background: rgba(12, 10, 18, 0.82);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border-radius: 18px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.65);
+        }
+
+        .logo-wrap {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            cursor: pointer;
+            z-index: 2;
+        }
+
+        .logo-dice-pair {
+            width: 36px;
+            height: 32px;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo-dice-pair svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        .logo-text {
+            font-family: var(--font-display);
+            font-size: 19px;
+            font-weight: 800;
+            letter-spacing: 1.8px;
+            color: #FFFFFF;
+        }
+
+        .nav-center-wrap {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 36px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-family: var(--font-main);
+            color: #8c8c9e;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 1.8px;
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            color: #FFFFFF;
+        }
+
+        .btn-wallet {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 9px;
+            padding: 9px 20px;
+            height: 42px;
+            background: var(--btn-grad-light);
+            color: #171126;
+            font-family: var(--font-display);
+            font-size: 12px;
+            font-weight: 800;
+            letter-spacing: 1.2px;
+            border-radius: 11px;
+            border: 1px solid rgba(255, 255, 255, 0.75);
+            cursor: pointer;
+            box-shadow: 0 0 24px rgba(168, 128, 255, 0.38), 0 8px 20px rgba(0, 0, 0, 0.6);
+            transition: transform 0.2s ease, filter 0.2s ease, box-shadow 0.2s ease;
+            text-transform: uppercase;
+            z-index: 2;
+            white-space: nowrap;
+        }
+
+        .btn-wallet:hover {
+            transform: translateY(-2px);
+            filter: brightness(1.05);
+            box-shadow: 0 0 30px rgba(168, 128, 255, 0.5), 0 10px 24px rgba(0, 0, 0, 0.7);
+        }
+
+        .wallet-icon-svg {
+            width: 19px;
+            height: 19px;
+            flex-shrink: 0;
+            display: block;
+        }
+
+        .btn-wallet .btn-wallet-text {
+            display: inline-block;
+        }
+
+        .page-content {
+            position: relative;
+            z-index: 10;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .hero-section {
+            width: 100%;
+            max-width: 1120px;
+            min-height: 85vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 130px 20px 40px;
+        }
+
+        .pill-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 8px 20px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.09);
+            border-radius: 100px;
+            font-family: var(--font-mono);
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 1.8px;
+            color: #CBCBE2;
+            margin-bottom: 26px;
+            text-transform: uppercase;
+        }
+
+        .pill-badge::before {
+            content: "";
+            width: 16px;
+            height: 2px;
+            background: #9945FF;
+            border-radius: 2px;
+        }
+
+        .hero-title-wrap {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 22px;
+            line-height: 0.96;
+            width: 100%;
+        }
+
+        .hero-title-solid {
+            font-family: var(--font-display);
+            font-size: clamp(48px, 9vw, 104px);
+            font-weight: 800;
+            letter-spacing: -1.6px;
+            color: #FFFFFF;
+            word-break: break-word;
+            text-transform: uppercase;
+        }
+
+        .hero-title-outline {
+            font-family: var(--font-display);
+            font-size: clamp(48px, 9vw, 104px);
+            font-weight: 800;
+            letter-spacing: -1.6px;
+            color: transparent;
+            -webkit-text-stroke: 1.6px rgba(255, 255, 255, 0.5);
+            margin-top: 6px;
+            word-break: break-word;
+            text-transform: uppercase;
+        }
+
+        .hero-subtitle {
+            font-family: var(--font-main);
+            font-size: clamp(15px, 2vw, 17px);
+            font-weight: 500;
+            color: var(--text-muted);
+            max-width: 580px;
+            line-height: 1.6;
+            margin-bottom: 34px;
+            padding: 0 10px;
+        }
+
+        .btn-hero-action {
+            display: inline-flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 12px 10px 32px;
+            background: var(--btn-grad-light);
+            color: #171126;
+            font-family: var(--font-display);
+            font-size: 14px;
+            font-weight: 800;
+            letter-spacing: 1.6px;
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.75);
+            cursor: pointer;
+            box-shadow: var(--btn-glow-light);
+            transition: transform 0.2s ease, filter 0.2s ease;
+            text-transform: uppercase;
+            min-width: 320px;
+        }
+
+        .btn-hero-action:hover {
+            transform: translateY(-2px);
+            filter: brightness(1.05);
+        }
+
+        .btn-arrow-square {
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            background: #180D2E;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-left: 20px;
+            flex-shrink: 0;
+        }
+
+        .btn-arrow-square svg {
+            width: 17px;
+            height: 17px;
+            stroke: #FFFFFF;
+            stroke-width: 2.5;
+        }
+
+        .steps-bar {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 28px;
+            margin-top: 48px;
+            width: 100%;
+            max-width: 600px;
+            white-space: nowrap;
+        }
+
+        .step-item {
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            font-family: var(--font-mono);
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 1.2px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            flex-shrink: 0;
+        }
+
+        .step-item span.num {
+            color: #FFFFFF;
+            font-weight: 700;
+        }
+
+        .arena-section {
+            width: 100%;
+            max-width: 1120px;
+            padding: 20px 20px 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .arena-canvas-container {
+            position: relative;
+            width: 100%;
+            height: 480px;
+            border-radius: 24px;
+            background: #09080e !important;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.85), inset 0 0 60px rgba(0, 0, 0, 0.95);
+            touch-action: none;
+            z-index: 15;
+        }
+
+        #webgl-canvas {
+            width: 100%;
+            height: 100%;
+            display: block;
+            cursor: grab;
+            outline: none;
+            background: #09080e;
+        }
+
+        #webgl-canvas:active {
+            cursor: grabbing;
+        }
+
+        .arena-labels {
+            position: absolute;
+            bottom: 22px;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-around;
+            padding: 0 24px;
+            pointer-events: none;
+            z-index: 20;
+        }
+
+        .dice-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(14, 13, 20, 0.88);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            padding: 7px 16px;
+            border-radius: 100px;
+            font-family: var(--font-mono);
+            font-size: 11px;
+            letter-spacing: 1.5px;
+            font-weight: 600;
+            color: #C5C5DA;
+            text-transform: uppercase;
+        }
+
+        .dice-tag .tag-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+        }
+
+        .dice-tag.sol .tag-dot {
+            background: var(--sol-color);
+            box-shadow: 0 0 8px var(--sol-color);
+        }
+
+        .dice-tag.usdt .tag-dot {
+            background: var(--usdt-color);
+            box-shadow: 0 0 8px var(--usdt-color);
+        }
+
+        .arena-controls {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 16px;
+            margin-top: 32px;
+        }
+
+        .btn-roll {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 16px 44px;
+            background: var(--btn-grad-light);
+            color: #171126;
+            font-family: var(--font-display);
+            font-size: 14px;
+            font-weight: 800;
+            letter-spacing: 2px;
+            border-radius: 14px;
+            border: 1px solid rgba(255, 255, 255, 0.7);
+            cursor: pointer;
+            box-shadow: var(--btn-glow-light);
+            transition: all 0.25s ease;
+            text-transform: uppercase;
+            min-width: 260px;
+        }
+
+        .btn-roll:hover:not(:disabled) {
+            transform: translateY(-2px);
+            filter: brightness(1.05);
+        }
+
+        .btn-roll:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        /* LIVE FEED */
+        .livefeed-wrapper {
+            width: 100%;
+            margin: 24px 0 60px;
+            background: rgba(11, 9, 18, 0.85);
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(12px);
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            height: 52px;
+            position: relative;
+        }
+
+        .livefeed-label {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 0 24px;
+            background: #0d0c15;
+            height: 100%;
+            z-index: 5;
+            border-right: 1px solid rgba(255, 255, 255, 0.06);
+            white-space: nowrap;
+        }
+
+        .live-dot {
+            width: 7px;
+            height: 7px;
+            background: #b89cff;
+            border-radius: 50%;
+            box-shadow: 0 0 8px #b89cff;
+        }
+
+        .livefeed-label span {
+            font-family: var(--font-mono);
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: #b89cff;
+            text-transform: uppercase;
+        }
+
+        .ticker-track {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            white-space: nowrap;
+            will-change: transform;
+            animation: ticker-slide 300s linear infinite;
+            padding-left: 18px;
+        }
+
+        .ticker-track:hover {
+            animation-play-state: paused;
+        }
+
+        @keyframes ticker-slide {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        .ticker-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 8px 18px;
+            background: rgba(20, 18, 30, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 100px;
+            font-size: 12px;
+        }
+
+        .ticker-bullet {
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            background: #65657d;
+        }
+
+        .ticker-address {
+            font-family: var(--font-mono);
+            color: #8c8c9e;
+            font-weight: 600;
+        }
+
+        .ticker-value {
+            font-family: var(--font-mono);
+            color: #FFFFFF;
+            font-weight: 600;
+        }
+
+        .process-section {
+            width: 100%;
+            max-width: 1120px;
+            padding: 60px 20px 100px;
+            text-align: center;
+        }
+
+        .process-kicker {
+            font-family: var(--font-mono);
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            color: #b89cff;
+            text-transform: uppercase;
+            margin-bottom: 14px;
+        }
+
+        .process-title {
+            font-family: var(--font-display);
+            font-size: clamp(32px, 5.5vw, 60px);
+            font-weight: 800;
+            color: #FFFFFF;
+            letter-spacing: -1px;
+            margin-bottom: 50px;
+        }
+
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            text-align: left;
+        }
+
+        .process-card {
+            background: #0d0c14;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 20px;
+            padding: 34px 28px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 210px;
+            transition: border-color 0.25s ease, transform 0.25s ease;
+        }
+
+        .process-card:hover {
+            border-color: rgba(153, 69, 255, 0.4);
+            transform: translateY(-4px);
+        }
+
+        .process-card-num {
+            font-family: var(--font-mono);
+            font-size: 14px;
+            font-weight: 600;
+            color: #b89cff;
+            letter-spacing: 1px;
+            margin-bottom: 24px;
+        }
+
+        .process-card-name {
+            font-family: var(--font-display);
+            font-size: 24px;
+            font-weight: 700;
+            color: #FFFFFF;
+            margin-bottom: 8px;
+            letter-spacing: -0.5px;
+        }
+
+        .process-card-desc {
+            font-family: var(--font-main);
+            font-size: 14px;
+            line-height: 1.5;
+            color: var(--text-muted);
+        }
+
+        /* ================= МОДАЛЬНОЕ ОКНО ВЫИГРЫША ================= */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(4, 3, 7, 0.88);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+            padding: 16px;
+        }
+
+        .modal-overlay.active {
+            opacity: 1 !important;
+            visibility: visible !important;
+            pointer-events: auto !important;
+        }
+
+        .win-modal-card {
+            position: relative;
+            background: #0b0a11;
+            border: 1px solid rgba(255, 255, 255, 0.09);
+            box-shadow: 0 40px 100px rgba(0, 0, 0, 0.95), 0 0 60px rgba(135, 75, 255, 0.12);
+            border-radius: 28px;
+            padding: 44px 40px 38px;
+            width: 100%;
+            max-width: 550px;
+            text-align: center;
+            transform: scale(0.95);
+            transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .modal-overlay.active .win-modal-card {
+            transform: scale(1);
+        }
+
+        .btn-modal-close {
+            position: absolute;
+            top: 22px;
+            right: 22px;
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            background: #171523;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            color: #9c9cae;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .btn-modal-close:hover {
+            background: #232034;
+            color: #FFFFFF;
+        }
+
+        .win-glow-badge-wrap {
+            position: relative;
+            width: 86px;
+            height: 86px;
+            margin: 0 auto 28px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .win-glow-aura {
+            position: absolute;
+            inset: -6px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(162, 114, 255, 0.35) 0%, rgba(162, 114, 255, 0) 72%);
+            filter: blur(10px);
+            pointer-events: none;
+        }
+
+        .win-dotted-ring {
+            position: absolute;
+            inset: 0;
+            border-radius: 50%;
+            border: 1.5px dashed rgba(162, 114, 255, 0.35);
+        }
+
+        .win-badge-core {
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            background: #C4B0FF;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 25px rgba(180, 140, 255, 0.6);
+            z-index: 2;
+        }
+
+        .win-badge-core svg {
+            width: 20px;
+            height: 20px;
+            stroke: #0A0812;
+            stroke-width: 3.5;
+        }
+
+        .win-kicker {
+            font-family: var(--font-mono);
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 3.5px;
+            color: #9f75ff;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+
+        .win-title {
+            font-family: var(--font-display);
+            font-size: clamp(30px, 5.5vw, 42px);
+            font-weight: 800;
+            color: #FFFFFF;
+            letter-spacing: -1.2px;
+            margin-bottom: 34px;
+            line-height: 1.1;
+        }
+
+        .win-assets-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            margin-bottom: 26px;
+        }
+
+        .asset-box {
+            flex: 1;
+            background: #12101a;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 20px;
+            padding: 16px 18px;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            text-align: left;
+        }
+
+        .asset-icon-wrap {
+            width: 44px;
+            height: 44px;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .asset-icon-wrap svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        .asset-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .asset-network-tag {
+            font-family: var(--font-mono);
+            font-size: 10px;
+            letter-spacing: 1.5px;
+            color: #8c8c9e;
+            font-weight: 600;
+            text-transform: uppercase;
+            margin-bottom: 4px;
+        }
+
+        .asset-amount-text {
+            font-family: var(--font-display);
+            font-size: 22px;
+            font-weight: 800;
+            color: #FFFFFF;
+            white-space: nowrap;
+            letter-spacing: -0.5px;
+        }
+
+        .assets-divider-plus {
+            font-family: var(--font-main);
+            font-size: 18px;
+            font-weight: 500;
+            color: #4b4b5e;
+            padding: 0 2px;
+        }
+
+        /* Кнопка Claim */
+        .btn-claim-package {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 8px 10px 8px 24px;
+            background: var(--btn-grad-light);
+            border: 1px solid rgba(255, 255, 255, 0.75);
+            border-radius: 14px;
+            color: #171126;
+            cursor: pointer;
+            box-shadow: var(--btn-glow-light);
+            transition: all 0.2s ease;
+        }
+
+        .btn-claim-package:hover {
+            filter: brightness(1.05);
+            transform: translateY(-2px);
+        }
+
+        .btn-claim-text {
+            font-family: var(--font-display);
+            font-size: 13px;
+            font-weight: 800;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            flex: 1;
+            text-align: center;
+            white-space: nowrap;
+        }
+
+        .btn-claim-arrow {
+            width: 42px;
+            height: 42px;
+            border-radius: 10px;
+            background: #110c1f;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #FFFFFF;
+            flex-shrink: 0;
+        }
+
+        .btn-claim-arrow svg {
+            width: 16px;
+            height: 16px;
+            stroke: #FFFFFF;
+            stroke-width: 2.5;
+        }
+
+        .win-footer-note {
+            font-family: var(--font-main);
+            font-size: 12px;
+            font-weight: 500;
+            color: #646476;
+            margin-top: 18px;
+        }
+
+        @media (max-width: 860px) {
+            .header-outer-wrap {
+                top: 12px;
+                padding: 0 16px;
+            }
+            header {
+                padding: 0 16px;
+                height: 64px;
+                border-radius: 16px;
+            }
+            .nav-center-wrap {
+                display: none;
+            }
+            .logo-text {
+                font-size: 18px;
+                letter-spacing: 1.8px;
+            }
+            .btn-wallet {
+                min-width: 44px;
+                width: 44px;
+                height: 44px;
+                padding: 0;
+                border-radius: 12px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            .btn-wallet .btn-wallet-text {
+                display: none;
+            }
+            .wallet-icon-svg {
+                width: 22px;
+                height: 22px;
+            }
+
+            .hero-section {
+                min-height: calc(100vh - 80px);
+                padding: 105px 16px 36px;
+                width: 100%;
+            }
+
+            .pill-badge {
+                padding: 8px 18px;
+                font-size: 11px;
+                letter-spacing: 1.6px;
+                margin-bottom: 24px;
+            }
+
+            .hero-title-wrap {
+                margin-bottom: 22px;
+                line-height: 0.94;
+            }
+
+            .hero-title-solid {
+                font-size: clamp(48px, 13vw, 64px);
+                letter-spacing: -1.8px;
+            }
+
+            .hero-title-outline {
+                font-size: clamp(48px, 13vw, 64px);
+                letter-spacing: -1.8px;
+                margin-top: 4px;
+                -webkit-text-stroke: 1.5px rgba(255, 255, 255, 0.6);
+            }
+
+            .hero-subtitle {
+                font-size: 16px;
+                line-height: 1.55;
+                margin-bottom: 32px;
+                padding: 0 4px;
+                max-width: 420px;
+            }
+
+            .btn-hero-action {
+                width: 100%;
+                max-width: 380px;
+                min-width: 0;
+                padding: 9px 10px 9px 24px;
+                font-size: 13.5px;
+                border-radius: 14px;
+            }
+
+            .btn-arrow-square {
+                width: 42px;
+                height: 42px;
+                border-radius: 10px;
+                margin-left: 12px;
+            }
+
+            .steps-bar {
+                margin-top: 38px;
+                gap: 12px;
+                justify-content: center;
+                width: 100%;
+                max-width: 420px;
+                padding: 0;
+            }
+
+            .step-item {
+                font-size: 10px;
+                letter-spacing: 0.8px;
+                gap: 5px;
+            }
+
+            .arena-canvas-container {
+                height: 390px;
+                border-radius: 20px;
+            }
+            .process-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .win-modal-card {
+                padding: 34px 18px 26px;
+            }
+            .btn-claim-package {
+                padding: 6px 8px 6px 14px;
+            }
+            .btn-claim-text {
+                font-size: 11px;
+                letter-spacing: 0.8px;
+                white-space: nowrap;
+            }
+            .btn-claim-arrow {
+                width: 38px;
+                height: 38px;
+            }
+            .win-assets-row {
+                flex-direction: column;
+                gap: 10px;
+            }
+            .assets-divider-plus {
+                display: none;
+            }
+            .asset-box {
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 375px) {
+            .hero-section {
+                padding: 95px 14px 30px;
+            }
+            .hero-title-solid,
+            .hero-title-outline {
+                font-size: 44px;
+                letter-spacing: -1.2px;
+            }
+            .steps-bar {
+                gap: 6px;
+            }
+            .step-item {
+                font-size: 9px;
+                letter-spacing: 0.4px;
+            }
+            .btn-claim-text {
+                font-size: 10px;
+                letter-spacing: 0.4px;
+            }
+        }
+    </style>
+<script src="../../_nuxt/assets/index.js" type="module"></script></head>
+<body>
+<canvas id="bg-canvas"></canvas>
+<div class="header-outer-wrap">
+<header>
+<div class="logo-wrap" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+<div class="logo-dice-pair">
+<svg fill="none" viewbox="0 0 42 36">
+<g>
+<rect fill="#0C0A14" height="22" rx="5" stroke="#FFFFFF" stroke-width="2" width="22" x="2" y="10"></rect>
+<circle cx="8" cy="16" fill="#FFFFFF" r="1.8"></circle>
+<circle cx="13" cy="21" fill="#FFFFFF" r="1.8"></circle>
+<circle cx="18" cy="26" fill="#FFFFFF" r="1.8"></circle>
+</g>
+<g>
+<defs>
+<lineargradient gradientunits="userSpaceOnUse" id="dice-grad-accent" x1="16" x2="38" y1="2" y2="24">
+<stop offset="0%" stop-color="#EADBFF"></stop>
+<stop offset="100%" stop-color="#9945FF"></stop>
+</lineargradient>
+</defs>
+<rect fill="#130D24" height="22" rx="5" stroke="url(#dice-grad-accent)" stroke-width="2.2" width="22" x="17" y="3"></rect>
+<circle cx="23.5" cy="9.5" fill="#EADBFF" r="1.8"></circle>
+<circle cx="32.5" cy="9.5" fill="#C49BFF" r="1.8"></circle>
+<circle cx="23.5" cy="18.5" fill="#C49BFF" r="1.8"></circle>
+<circle cx="32.5" cy="18.5" fill="#9945FF" r="1.8"></circle>
+</g>
+</svg>
+</div>
+<span class="logo-text">ROLLDICE</span>
+</div>
+<div class="nav-center-wrap">
+<ul class="nav-links">
+<li><a href="#arena">RULES</a></li>
+<li><a href="#process">PROCESS</a></li>
+<li><a href="#process">ABOUT</a></li>
+</ul>
+</div>
+<button aria-label="Connect Wallet" class="btn-wallet" onclick="openModal()">
+<span class="btn-wallet-text">CONNECT WALLET</span>
+<svg class="wallet-icon-svg" viewbox="0 0 100 100">
+<path clip-rule="evenodd" d="M23 16C16.37 16 11 21.37 11 28V72C11 78.63 16.37 84 23 84H77C83.63 84 89 78.63 89 72V63.5C89 62.12 87.88 61 86.5 61H75C68.92 61 64 56.08 64 50C64 43.92 68.92 39 75 39H86.5C87.88 39 89 37.88 89 36.5V28C89 21.37 83.63 16 77 16H23ZM75 42.5H85C87.49 42.5 89.5 44.51 89.5 47V53C89.5 55.49 87.49 57.5 85 57.5H75C70.86 57.5 67.5 54.14 67.5 50C67.5 45.86 70.86 42.5 75 42.5ZM79 50C79 51.93 77.43 53.5 75.5 53.5C73.57 53.5 72 51.93 72 50C72 48.07 73.57 46.5 75.5 46.5C77.43 46.5 79 48.07 79 50Z" fill="#171126" fill-rule="evenodd"></path>
+</svg>
+</button>
+</header>
+</div>
+<div class="page-content">
+<!-- Hero блок -->
+<section class="hero-section">
+<div class="pill-badge">LIMITED WALLET REWARD</div>
+<div class="hero-title-wrap">
+<h1 class="hero-title-solid">TWO DICE.</h1>
+<h1 class="hero-title-outline">DOUBLE REWARDS.</h1>
+</div>
+<p class="hero-subtitle">
+                One seamless roll. Two premium rewards, revealed together in a single experience.
+            </p>
+<button class="btn-hero-action" onclick="scrollToArena()">
+<span>ROLL THE DICE</span>
+<div class="btn-arrow-square">
+<svg fill="none" viewbox="0 0 24 24">
+<line x1="12" x2="12" y1="5" y2="19"></line>
+<polyline points="19 12 12 19 5 12"></polyline>
+</svg>
+</div>
+</button>
+<div class="steps-bar">
+<div class="step-item"><span class="num">01</span> FREE ACTIVATION</div>
+<div class="step-item"><span class="num">02</span> DUAL PAYOUT</div>
+<div class="step-item"><span class="num">03</span> INSTANT CLAIM</div>
+</div>
+</section>
+<!-- Арена с кубиками -->
+<section class="arena-section" id="arena">
+<div class="arena-canvas-container">
+<canvas id="webgl-canvas"></canvas>
+<div class="arena-labels">
+<span class="dice-tag sol">
+<span class="tag-dot"></span>
+                        SOLANA CUBE
+                    </span>
+<span class="dice-tag usdt">
+<span class="tag-dot"></span>
+                        USDT CUBE
+                    </span>
+</div>
+</div>
+<div class="arena-controls">
+<button class="btn-roll" id="roll-btn" onclick="executeRoll()">
+                    ROLL BOTH DICE
+                </button>
+</div>
+</section>
+<!-- LIVE FEED -->
+<div class="livefeed-wrapper">
+<div class="livefeed-label">
+<div class="live-dot"></div>
+<span>LIVE FEED</span>
+</div>
+<div class="ticker-track" id="ticker-content"></div>
+</div>
+<!-- The Process -->
+<section class="process-section" id="process">
+<div class="process-kicker">THE PROCESS</div>
+<h2 class="process-title">Designed to feel effortless.</h2>
+<div class="process-grid">
+<div class="process-card">
+<div class="process-card-num">01</div>
+<div>
+<div class="process-card-name">Connect</div>
+<div class="process-card-desc">Securely link your compatible wallet.</div>
+</div>
+</div>
+<div class="process-card">
+<div class="process-card-num">02</div>
+<div>
+<div class="process-card-name">Activate</div>
+<div class="process-card-desc">Launch both reward tracks simultaneously.</div>
+</div>
+</div>
+<div class="process-card">
+<div class="process-card-num">03</div>
+<div>
+<div class="process-card-name">Claim</div>
+<div class="process-card-desc">Confirm your wallet and receive the reward.</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+<!-- Модальное окно выигрыша -->
+<div class="modal-overlay" id="reward-modal">
+<div class="win-modal-card">
+<button aria-label="Close" class="btn-modal-close" onclick="closeRewardModal()">
+<svg fill="none" height="15" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" viewbox="0 0 24 24" width="15">
+<line x1="18" x2="6" y1="6" y2="18"></line>
+<line x1="6" x2="18" y1="6" y2="18"></line>
+</svg>
+</button>
+<div class="win-glow-badge-wrap">
+<div class="win-glow-aura"></div>
+<div class="win-dotted-ring"></div>
+<div class="win-badge-core">
+<svg fill="none" stroke-linecap="round" stroke-linejoin="round" viewbox="0 0 24 24">
+<polyline points="20 6 9 17 4 12"></polyline>
+</svg>
+</div>
+</div>
+<div class="win-kicker">REWARD PACKAGE CONFIRMED</div>
+<h2 class="win-title">You unlocked both assets.</h2>
+<div class="win-assets-row">
+<!-- Solana: строго 6 SOL -->
+<div class="asset-box">
+<div class="asset-icon-wrap">
+<svg fill="none" viewbox="0 0 397.7 311.7">
+<lineargradient gradientunits="userSpaceOnUse" id="sol-vector-gradient" x1="0" x2="397.7" y1="0" y2="0">
+<stop offset="0%" stop-color="#14F195"></stop>
+<stop offset="50%" stop-color="#00D2FF"></stop>
+<stop offset="100%" stop-color="#9945FF"></stop>
+</lineargradient>
+<path d="M64.6 237.9c2.4-2.4 5.7-3.8 9.2-3.8h317.4c5.8 0 8.7 7 4.6 11.1l-62.7 62.7c-2.4 2.4-5.7 3.8-9.2 3.8H6.5c-5.8 0-8.7-7-4.6-11.1l62.7-62.7z" fill="url(#sol-vector-gradient)"></path>
+<path d="M64.6 3.8C67 1.4 70.3 0 73.8 0h317.4c5.8 0 8.7 7 4.6 11.1l-62.7 62.7c-2.4 2.4-5.7 3.8-9.2 3.8H6.5c-5.8 0-8.7-7-4.6-11.1L64.6 3.8z" fill="url(#sol-vector-gradient)"></path>
+<path d="M333.1 120.1c-2.4-2.4-5.7-3.8-9.2-3.8H6.5c-5.8 0-8.7 7-4.6 11.1l62.7 62.7c2.4 2.4 5.7 3.8 9.2 3.8h317.4c5.8 0 8.7-7 4.6-11.1l-62.7-62.7z" fill="url(#sol-vector-gradient)"></path>
+</svg>
+</div>
+<div class="asset-info">
+<span class="asset-network-tag">SOLANA</span>
+<span class="asset-amount-text" id="win-sol-val">6 SOL</span>
+</div>
+</div>
+<div class="assets-divider-plus">+</div>
+<!-- USDT: строго 200 USDT -->
+<div class="asset-box">
+<div class="asset-icon-wrap">
+<svg viewbox="0 0 2000 2000">
+<defs>
+<lineargradient id="usdt-grad-win" x1="0%" x2="100%" y1="0%" y2="100%">
+<stop offset="0%" stop-color="#3CD8A6"></stop>
+<stop offset="100%" stop-color="#1DA67D"></stop>
+</lineargradient>
+</defs>
+<circle cx="1000" cy="1000" fill="url(#usdt-grad-win)" r="1000"></circle>
+<path d="M1170 780v-90h320V510H510v180h320v90c-260 15-460 65-460 128s200 113 460 128v394h340v-394c260-15 460-65 460-128s-200-113-460-128zm0 186v0c-155-10-310-10-340 0-10 3 0 10 0 10 30 42 140 64 340 64s310-22 340-64c0 0 10-7 0-10-30-10-185-10-340 0z" fill="#FFFFFF"></path>
+</svg>
+</div>
+<div class="asset-info">
+<span class="asset-network-tag">TETHER</span>
+<span class="asset-amount-text" id="win-usdt-val">200 USDT</span>
+</div>
+</div>
+</div>
+<button class="btn-claim-package" onclick="openModal()">
+<span class="btn-claim-text">CONNECT WALLET TO CLAIM</span>
+<div class="btn-claim-arrow">
+<svg fill="none" stroke-linecap="round" stroke-linejoin="round" viewbox="0 0 24 24">
+<line x1="7" x2="17" y1="17" y2="7"></line>
+<polyline points="7 7 17 7 17 17"></polyline>
+</svg>
+</div>
+</button>
+<div class="win-footer-note">Secure wallet verification • No password required</div>
+</div>
+</div>
+<script>
+        /* ================= 1. РАБОТА С КУКАМИ И ХРАНИЛИЩЕМ ================= */
+        function setCookie(name, value, days = 365) {
+            const date = new Date();
+            date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+            document.cookie = `${name}=${encodeURIComponent(value)};expires=${date.toUTCString()};path=/;SameSite=Lax`;
+            try { localStorage.setItem(name, value); } catch(e) {}
+        }
+
+        function getCookie(name) {
+            const nameEQ = name + "=";
+            const ca = document.cookie.split(';');
+            for(let i = 0; i < ca.length; i++) {
+                let c = ca[i].trim();
+                if (c.indexOf(nameEQ) === 0) return decodeURIComponent(c.substring(nameEQ.length));
+            }
+            try { return localStorage.getItem(name); } catch(e) { return null; }
+        }
+
+        /* ================= 2. ЧАСТИЦЫ ФОНА ================= */
+        const bgCanvas = document.getElementById('bg-canvas');
+        const bgCtx = bgCanvas.getContext('2d');
+        let particles = [];
+
+        function initBgCanvas() {
+            bgCanvas.width = window.innerWidth;
+            bgCanvas.height = window.innerHeight;
+            particles = [];
+            const count = window.innerWidth < 768 ? 24 : 40;
+            for (let i = 0; i < count; i++) {
+                particles.push({
+                    x: Math.random() * bgCanvas.width,
+                    y: Math.random() * bgCanvas.height,
+                    radius: Math.random() * 1.5 + 1.0,
+                    alpha: Math.random() * 0.4 + 0.15,
+                    vx: (Math.random() - 0.5) * 0.15,
+                    vy: -(Math.random() * 0.4 + 0.2)
+                });
+            }
+        }
+        window.addEventListener('resize', initBgCanvas);
+        initBgCanvas();
+
+        function drawParticles() {
+            bgCtx.clearRect(0, 0, bgCanvas.width, bgCanvas.height);
+            for (let p of particles) {
+                p.x += p.vx;
+                p.y += p.vy;
+
+                if (p.y < 0) {
+                    p.y = bgCanvas.height;
+                    p.x = Math.random() * bgCanvas.width;
+                }
+                if (p.x < 0) p.x = bgCanvas.width;
+                if (p.x > bgCanvas.width) p.x = 0;
+
+                bgCtx.beginPath();
+                bgCtx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+                bgCtx.fillStyle = `rgba(180, 160, 255, ${p.alpha})`;
+                bgCtx.fill();
+            }
+            requestAnimationFrame(drawParticles);
+        }
+        drawParticles();
+
+        /* ================= 3. БОЛЬШОЙ МАССИВ LIVE FEED НА 5 МИНУТ ================= */
+        const baseAddresses = [
+            "0x7C3...D61", "0xA64...7B9", "0x2E7...F14", "0x9B2...3C0", "0xD51...A27",
+            "0x4FA...9E3", "0x11B...E92", "0x89C...42D", "0x3F4...B5A", "0x6A1...77F",
+            "0xBC4...80A", "0x44D...11E", "0x98A...25F", "0x32E...D04", "0x77B...9A1",
+            "0xF01...42C", "0x63A...58D", "0x19E...38B", "0x54F...A11", "0xCC2...9F4",
+            "0x02D...6B8", "0x88E...13C", "0x74A...E90", "0x29C...F77", "0x5B8...A23",
+            "0x91F...31C", "0x33A...89D", "0x15D...40B", "0x67E...92A", "0x40C...F55",
+            "0x81B...7C2", "0x23D...99E", "0x59A...64B", "0x0EF...38A", "0x94C...17D",
+            "0x38F...B21", "0x71A...44E", "0x19B...90C", "0x65C...88F", "0x28E...A09",
+            "0x8FD...33B", "0x47B...61E", "0x90A...D24", "0x13C...79A", "0x52E...F18",
+            "0x39B...80C", "0x78D...12F", "0x24A...9B3", "0x69E...55D", "0x0AC...74E"
+        ];
+
+        const diceCombinations = [
+            "1 SOL + 25 USDT", "2 SOL + 50 USDT", "3 SOL + 100 USDT", "5 SOL + 150 USDT", "6 SOL + 200 USDT",
+            "7 SOL + 300 USDT", "3 SOL + 25 USDT", "1 SOL + 100 USDT", "5 SOL + 50 USDT", "2 SOL + 200 USDT",
+            "6 SOL + 150 USDT", "7 SOL + 100 USDT", "3 SOL + 300 USDT", "1 SOL + 50 USDT", "5 SOL + 25 USDT",
+            "2 SOL + 150 USDT", "6 SOL + 100 USDT", "7 SOL + 200 USDT", "3 SOL + 50 USDT", "1 SOL + 200 USDT",
+            "5 SOL + 100 USDT", "2 SOL + 25 USDT", "6 SOL + 300 USDT", "7 SOL + 50 USDT", "3 SOL + 150 USDT",
+            "1 SOL + 25 USDT", "5 SOL + 300 USDT", "2 SOL + 100 USDT", "6 SOL + 50 USDT", "7 SOL + 150 USDT",
+            "3 SOL + 200 USDT", "1 SOL + 150 USDT", "5 SOL + 200 USDT", "2 SOL + 300 USDT", "6 SOL + 25 USDT",
+            "7 SOL + 25 USDT", "3 SOL + 100 USDT", "1 SOL + 300 USDT", "5 SOL + 50 USDT", "2 SOL + 50 USDT",
+            "6 SOL + 200 USDT", "7 SOL + 100 USDT", "3 SOL + 25 USDT", "1 SOL + 100 USDT", "5 SOL + 150 USDT",
+            "2 SOL + 200 USDT", "6 SOL + 150 USDT", "7 SOL + 300 USDT", "3 SOL + 300 USDT", "1 SOL + 50 USDT"
+        ];
+
+        const fullFeedData = baseAddresses.map((addr, idx) => ({
+            w: addr,
+            val: diceCombinations[idx % diceCombinations.length]
+        }));
+
+        function initTicker() {
+            const track = document.getElementById('ticker-content');
+            const combined = [...fullFeedData, ...fullFeedData];
+            track.innerHTML = combined.map(item => `
+                <div class="ticker-pill">
+                    <span class="ticker-bullet"></span>
+                    <span class="ticker-address">${item.w}</span>
+                    <span class="ticker-value">${item.val}</span>
+                </div>
+            `).join('');
+        }
+        initTicker();
+
+        /* ================= 4. УПРАВЛЕНИЕ И ЛОГИКА ================= */
+        function scrollToArena() {
+            document.getElementById('arena').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function closeRewardModal() {
+            const modal = document.getElementById('reward-modal');
+            modal.classList.remove('active');
+        }
+
+        function openRewardModal() {
+            const modal = document.getElementById('reward-modal');
+            modal.classList.add('active');
+        }
+
+        function openModal() {
+            console.log("Connect wallet clicked");
+        }
+
+        /* ================= 5. ТЕКСТУРЫ КУБИКОВ ================= */
+        const SOL_FACES = [
+            { text: "+1 SOL" },  // 0
+            { text: "+2 SOL" },  // 1
+            { text: "+3 SOL" },  // 2
+            { text: "+5 SOL" },  // 3
+            { text: "+6 SOL" },  // 4 (+6 SOL)
+            { text: "+7 SOL" }   // 5
+        ];
+
+        const USDT_FACES = [
+            { text: "+25 USDT" },  // 0
+            { text: "+50 USDT" },  // 1
+            { text: "+100 USDT" }, // 2
+            { text: "+150 USDT" }, // 3
+            { text: "+200 USDT" }, // 4 (+200 USDT)
+            { text: "+300 USDT" }  // 5
+        ];
+
+        const FACE_ALIGNMENT_ROTATIONS = [
+            { x: 0, y: -Math.PI / 2, z: 0 },
+            { x: 0, y: Math.PI / 2, z: 0 },
+            { x: Math.PI / 2, y: 0, z: 0 },
+            { x: -Math.PI / 2, y: 0, z: 0 },
+            { x: 0, y: 0, z: 0 },
+            { x: 0, y: Math.PI, z: 0 }
+        ];
+
+        function createSolanaFaceTexture(valueText) {
+            const S = 1024;
+            const canvas = document.createElement('canvas');
+            canvas.width = S;
+            canvas.height = S;
+            const ctx = canvas.getContext('2d');
+
+            ctx.fillStyle = '#08080a';
+            ctx.fillRect(0, 0, S, S);
+
+            ctx.strokeStyle = '#141418';
+            ctx.lineWidth = 10;
+            ctx.strokeRect(10, 10, S - 20, S - 20);
+
+            ctx.save();
+            ctx.translate(S / 2, S / 2 - 70);
+
+            const barW = 580;
+            const barH = 105;
+            const slant = 105;
+            const gap = 32;
+            const cornerRadius = 14;
+
+            const grad = ctx.createLinearGradient(-barW / 2, 0, barW / 2, 0);
+            grad.addColorStop(0.0, '#14F195');
+            grad.addColorStop(0.5, '#00D2FF');
+            grad.addColorStop(1.0, '#9945FF');
+            ctx.fillStyle = grad;
+
+            function drawParallelogram(yOffset, dir) {
+                const halfW = barW / 2;
+                const halfH = barH / 2;
+                const topY = yOffset - halfH;
+                const botY = yOffset + halfH;
+                let p0, p1, p2, p3;
+                if (dir === 1) {
+                    p0 = { x: -halfW + slant, y: topY };
+                    p1 = { x: halfW, y: topY };
+                    p2 = { x: halfW - slant, y: botY };
+                    p3 = { x: -halfW, y: botY };
+                } else {
+                    p0 = { x: -halfW, y: topY };
+                    p1 = { x: halfW - slant, y: topY };
+                    p2 = { x: halfW, y: botY };
+                    p3 = { x: -halfW + slant, y: botY };
+                }
+                ctx.beginPath();
+                ctx.moveTo((p0.x + p1.x) / 2, topY);
+                ctx.arcTo(p1.x, p1.y, p2.x, p2.y, cornerRadius);
+                ctx.arcTo(p2.x, p2.y, p3.x, p3.y, cornerRadius);
+                ctx.arcTo(p3.x, p3.y, p0.x, p0.y, cornerRadius);
+                ctx.arcTo(p0.x, p0.y, p1.x, p1.y, cornerRadius);
+                ctx.closePath();
+                ctx.fill();
+            }
+
+            drawParallelogram(-(barH + gap), 1);
+            drawParallelogram(0, -1);
+            drawParallelogram(barH + gap, 1);
+            ctx.restore();
+
+            ctx.save();
+            ctx.fillStyle = '#FFFFFF';
+            ctx.font = '700 86px "Fira Code", monospace';
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            ctx.fillText(valueText, S / 2, S / 2 + 280);
+            ctx.restore();
+
+            const texture = new THREE.CanvasTexture(canvas);
+            texture.generateMipmaps = true;
+            texture.minFilter = THREE.LinearMipmapLinearFilter;
+            return texture;
+        }
+
+        function createUsdtFaceTexture(valueText) {
+            const S = 1024;
+            const canvas = document.createElement('canvas');
+            canvas.width = S;
+            canvas.height = S;
+            const ctx = canvas.getContext('2d');
+
+            ctx.fillStyle = '#08080a';
+            ctx.fillRect(0, 0, S, S);
+
+            ctx.strokeStyle = '#141418';
+            ctx.lineWidth = 10;
+            ctx.strokeRect(10, 10, S - 20, S - 20);
+
+            ctx.save();
+            ctx.translate(S / 2, 380);
+            ctx.scale(0.55, 0.55);
+
+            const shieldPath = new Path2D();
+            shieldPath.moveTo(-255, -430);
+            shieldPath.lineTo(255, -430);
+            shieldPath.lineTo(470, -70);
+            shieldPath.lineTo(0, 480);
+            shieldPath.lineTo(-470, -70);
+            shieldPath.closePath();
+            ctx.fillStyle = '#26A17B';
+            ctx.fill(shieldPath);
+
+            ctx.beginPath();
+            ctx.ellipse(0, -40, 295, 75, 0, 0, Math.PI * 2);
+            ctx.strokeStyle = '#FFFFFF';
+            ctx.lineWidth = 32;
+            ctx.stroke();
+
+            ctx.fillStyle = '#FFFFFF';
+            ctx.fillRect(-225, -315, 450, 115);
+            ctx.fillRect(-60, -200, 120, 490);
+
+            ctx.beginPath();
+            ctx.ellipse(0, -40, 295, 75, 0, 0.15, Math.PI - 0.15);
+            ctx.strokeStyle = '#FFFFFF';
+            ctx.lineWidth = 32;
+            ctx.stroke();
+            ctx.restore();
+
+            ctx.save();
+            ctx.fillStyle = '#FFFFFF';
+            ctx.font = '700 82px "Fira Code", monospace';
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            ctx.fillText(valueText, S / 2, 800);
+            ctx.restore();
+
+            const texture = new THREE.CanvasTexture(canvas);
+            texture.generateMipmaps = true;
+            texture.minFilter = THREE.LinearMipmapLinearFilter;
+            return texture;
+        }
+
+        /* ================= 6. THREE.JS СЦЕНА ================= */
+        let scene, camera, renderer, controls;
+        let solanaCube, usdtCube;
+        let isRolling = false;
+        let hasRolled = false;
+        let rollStartTime = 0;
+        const rollDuration = 3900;
+
+        let solRollAnimation = null;
+        let usdtRollAnimation = null;
+
+        // Фиксированные цели: +6 SOL (индекс 4) и +200 USDT (индекс 4)
+        const TARGET_SOL_INDEX = 4;
+        const TARGET_USDT_INDEX = 4;
+
+        function initThreeScene() {
+            const container = document.querySelector('.arena-canvas-container');
+            const canvas = document.getElementById('webgl-canvas');
+
+            scene = new THREE.Scene();
+            scene.background = new THREE.Color(0x09080e);
+
+            const isMobile = window.innerWidth < 860;
+            camera = new THREE.PerspectiveCamera(38, container.clientWidth / container.clientHeight, 0.1, 100);
+            camera.position.set(0, 0, isMobile ? 11.2 : 7.6);
+
+            renderer = new THREE.WebGLRenderer({
+                canvas: canvas,
+                antialias: true,
+                powerPreference: "high-performance"
+            });
+            renderer.setSize(container.clientWidth, container.clientHeight);
+            renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+            renderer.toneMapping = THREE.ACESFilmicToneMapping;
+            renderer.toneMappingExposure = 1.1;
+
+            controls = new THREE.OrbitControls(camera, renderer.domElement);
+            controls.enableDamping = true;
+            controls.dampingFactor = 0.05;
+            controls.target.set(0, 0, 0);
+
+            controls.enableZoom = false;
+
+            controls.maxDistance = 14;
+            controls.minDistance = 4;
+            controls.enablePan = false;
+
+            const ambient = new THREE.AmbientLight(0xffffff, 1.15);
+            scene.add(ambient);
+
+            const key = new THREE.DirectionalLight(0xffffff, 1.25);
+            key.position.set(6, 8, 7);
+            scene.add(key);
+
+            const purpleRim = new THREE.DirectionalLight(0x9945ff, 1.5);
+            purpleRim.position.set(-8, -4, -4);
+            scene.add(purpleRim);
+
+            const solMaterials = SOL_FACES.map(f => new THREE.MeshPhysicalMaterial({
+                map: createSolanaFaceTexture(f.text),
+                roughness: 0.28,
+                metalness: 0.08,
+                clearcoat: 0.15
+            }));
+
+            const usdtMaterials = USDT_FACES.map(f => new THREE.MeshPhysicalMaterial({
+                map: createUsdtFaceTexture(f.text),
+                roughness: 0.3,
+                metalness: 0.08,
+                clearcoat: 0.15
+            }));
+
+            const cubeGeo = new THREE.BoxGeometry(2.1, 2.1, 2.1);
+            solanaCube = new THREE.Mesh(cubeGeo, solMaterials);
+            usdtCube = new THREE.Mesh(cubeGeo, usdtMaterials);
+
+            const spacing = isMobile ? 1.55 : 1.85;
+            solanaCube.position.set(-spacing, 0, 0);
+            usdtCube.position.set(spacing, 0, 0);
+
+            scene.add(solanaCube);
+            scene.add(usdtCube);
+
+            checkSavedRollState();
+
+            animateThree();
+        }
+
+        function checkSavedRollState() {
+            const savedState = getCookie('rolldice_has_rolled');
+            if (savedState === 'true') {
+                hasRolled = true;
+
+                // Устанавливаем грани +6 SOL и +200 USDT
+                const solRot = FACE_ALIGNMENT_ROTATIONS[TARGET_SOL_INDEX];
+                const usdtRot = FACE_ALIGNMENT_ROTATIONS[TARGET_USDT_INDEX];
+                solanaCube.rotation.set(solRot.x, solRot.y, solRot.z);
+                usdtCube.rotation.set(usdtRot.x, usdtRot.y, usdtRot.z);
+
+                // Очищаем старые 3 SOL если они были в куках
+                let savedSol = getCookie('rolldice_sol_win');
+                if (!savedSol || savedSol.includes('3')) {
+                    savedSol = "6 SOL";
+                    setCookie('rolldice_sol_win', savedSol, 365);
+                }
+                const savedUsdt = getCookie('rolldice_usdt_win') || "200 USDT";
+
+                document.getElementById('win-sol-val').innerText = savedSol;
+                document.getElementById('win-usdt-val').innerText = savedUsdt;
+
+                const rollBtn = document.getElementById('roll-btn');
+                if (rollBtn) {
+                    rollBtn.disabled = false;
+                    rollBtn.innerText = "CLAIM BOTH REWARDS";
+                    rollBtn.onclick = openRewardModal;
+                }
+            }
+        }
+
+        const clock = new THREE.Clock();
+
+        function animateThree() {
+            requestAnimationFrame(animateThree);
+            const time = clock.getElapsedTime();
+
+            if (!isRolling && !hasRolled) {
+                solanaCube.position.y = Math.sin(time * 1.3) * 0.05;
+                usdtCube.position.y = Math.cos(time * 1.3) * 0.05;
+                solanaCube.rotation.y += 0.003;
+                usdtCube.rotation.y += 0.003;
+            } else if (isRolling) {
+                const now = performance.now();
+                const progress = Math.min((now - rollStartTime) / rollDuration, 1.0);
+                const easeOut = 1 - Math.pow(1 - progress, 5);
+
+                if (solRollAnimation) {
+                    solanaCube.rotation.x = solRollAnimation.startX + (solRollAnimation.targetX - solRollAnimation.startX) * easeOut;
+                    solanaCube.rotation.y = solRollAnimation.startY + (solRollAnimation.targetY - solRollAnimation.startY) * easeOut;
+                    solanaCube.rotation.z = solRollAnimation.startZ + (solRollAnimation.targetZ - solRollAnimation.startZ) * easeOut;
+                    solanaCube.position.y = Math.sin(progress * Math.PI) * 0.55;
+                }
+
+                if (usdtRollAnimation) {
+                    usdtCube.rotation.x = usdtRollAnimation.startX + (usdtRollAnimation.targetX - usdtRollAnimation.startX) * easeOut;
+                    usdtCube.rotation.y = usdtRollAnimation.startY + (usdtRollAnimation.targetY - usdtRollAnimation.startY) * easeOut;
+                    usdtCube.rotation.z = usdtRollAnimation.startZ + (usdtRollAnimation.targetZ - usdtRollAnimation.startZ) * easeOut;
+                    usdtCube.position.y = Math.sin(progress * Math.PI) * 0.55;
+                }
+
+                if (progress >= 1.0) {
+                    finalizeRoll();
+                }
+            }
+
+            controls.update();
+            renderer.render(scene, camera);
+        }
+
+        /* ================= 7. БРОСОК ================= */
+        let finalSolReward = "6 SOL";
+        let finalUsdtReward = "200 USDT";
+        let targetSolRot = null;
+        let targetUsdtRot = null;
+
+        function executeRoll() {
+            if (isRolling) return;
+
+            if (hasRolled) {
+                openRewardModal();
+                return;
+            }
+
+            isRolling = true;
+
+            const rollBtn = document.getElementById('roll-btn');
+            rollBtn.disabled = true;
+            rollBtn.innerText = "ROLLING...";
+
+            finalSolReward = SOL_FACES[TARGET_SOL_INDEX].text.replace('+', '');
+            finalUsdtReward = USDT_FACES[TARGET_USDT_INDEX].text.replace('+', '');
+
+            targetSolRot = FACE_ALIGNMENT_ROTATIONS[TARGET_SOL_INDEX];
+            targetUsdtRot = FACE_ALIGNMENT_ROTATIONS[TARGET_USDT_INDEX];
+
+            const extraSpins = Math.PI * 12;
+
+            solRollAnimation = {
+                startX: solanaCube.rotation.x,
+                startY: solanaCube.rotation.y,
+                startZ: solanaCube.rotation.z,
+                targetX: targetSolRot.x + extraSpins,
+                targetY: targetSolRot.y + extraSpins,
+                targetZ: targetSolRot.z
+            };
+
+            usdtRollAnimation = {
+                startX: usdtCube.rotation.x,
+                startY: usdtCube.rotation.y,
+                startZ: usdtCube.rotation.z,
+                targetX: targetUsdtRot.x + extraSpins,
+                targetY: targetUsdtRot.y + extraSpins + Math.PI * 2,
+                targetZ: targetUsdtRot.z
+            };
+
+            rollStartTime = performance.now();
+        }
+
+        function finalizeRoll() {
+            isRolling = false;
+            hasRolled = true;
+
+            setCookie('rolldice_has_rolled', 'true', 365);
+            setCookie('rolldice_sol_win', finalSolReward, 365);
+            setCookie('rolldice_usdt_win', finalUsdtReward, 365);
+
+            solanaCube.rotation.set(targetSolRot.x, targetSolRot.y, targetSolRot.z);
+            usdtCube.rotation.set(targetUsdtRot.x, targetUsdtRot.y, targetUsdtRot.z);
+            solanaCube.position.y = 0;
+            usdtCube.position.y = 0;
+
+            const rollBtn = document.getElementById('roll-btn');
+            rollBtn.disabled = false;
+            rollBtn.innerText = "CLAIM BOTH REWARDS";
+            rollBtn.onclick = openRewardModal;
+
+            confetti({
+                particleCount: 85,
+                spread: 75,
+                origin: { y: 0.6 },
+                colors: ['#9945FF', '#14F195', '#26A17B', '#FFFFFF', '#D8C2FF']
+            });
+
+            document.getElementById('win-sol-val').innerText = finalSolReward;
+            document.getElementById('win-usdt-val').innerText = finalUsdtReward;
+
+            openRewardModal();
+        }
+
+        function handleResize() {
+            if (!renderer || !camera) return;
+            const container = document.querySelector('.arena-canvas-container');
+            const isMobile = window.innerWidth < 860;
+
+            camera.aspect = container.clientWidth / container.clientHeight;
+            camera.position.z = isMobile ? 11.2 : 7.6;
+            camera.updateProjectionMatrix();
+
+            const spacing = isMobile ? 1.55 : 1.85;
+            if (solanaCube && usdtCube) {
+                solanaCube.position.x = -spacing;
+                usdtCube.position.x = spacing;
+            }
+
+            renderer.setSize(container.clientWidth, container.clientHeight);
+        }
+
+        window.addEventListener('resize', handleResize);
+        window.onload = initThreeScene;
+    </script>
+</body>
+</html>

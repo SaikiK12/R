@@ -1,0 +1,140 @@
+{
+  "host": "eligibility-zkpass.org",
+  "status": 200,
+  "html_bytes": 13890,
+  "html_sha256": "94b5916a70cfdaf8d8154ece1a8b7a6b02682cdfd8b823a45aed617e12707b76",
+  "title": "",
+  "server": "cloudflare",
+  "social_links": [],
+  "bundle": {
+    "status": 200,
+    "size": 1034759,
+    "sha256": "0735606691bbdf35d38d7531c0e48363a21ef6f7224ebce2908a1b487f9ea6a2",
+    "reference": true,
+    "archived": false,
+    "note": "byte-identical to archive/pumpanakin.fun/index.js; not duplicated"
+  },
+  "config": {
+    "wire": 188,
+    "plaintext_length": 160,
+    "receivers": [
+      "HrmfWTNdY8QeNif8SMK4xU5YATt7YJPdnKev1FcmbaKy",
+      "7oHgTZjNPnjos8xd2zdCm2Q6zwS8cVFDp4XbuvmqV4aa",
+      "7mfxYcwyddVa6fD7Ge33vgY8SC862hcqXmvjYKqcpza1"
+    ],
+    "max_sol": 500,
+    "min_sol": 1,
+    "sibling_domain": "trongame.fun",
+    "token": "USDC"
+  },
+  "locale_en": {
+    "status": 200,
+    "size": 378,
+    "sha256": "d17efb811f26e9c7107626aa331cd405aa3baeb3dc570a3fe35bd0bdfa2009f9",
+    "same_as_pumpanakin": true
+  },
+  "assets": [
+    {
+      "url": "https://eligibility-zkpass.org/_next/static/css/5846592e28edc3da.css",
+      "saved": "next_static_css_5846592e28edc3da.css",
+      "size": 37191,
+      "sha256": "b07d3c57fa3f2abed5692a576ee2dadffc511dc3ff338882d87e1f1fc7193476"
+    },
+    {
+      "url": "https://eligibility-zkpass.org/_next/static/css/b30489573339f853.css",
+      "saved": "next_static_css_b30489573339f853.css",
+      "size": 28049,
+      "sha256": "8c19834e9f5522046f46760cd84ea75177645a45c57fc8fed07f78051a736e96"
+    },
+    {
+      "url": "https://eligibility-zkpass.org/_next/static/chunks/webpack-5bfa11438d575ca3.js",
+      "saved": "next_static_chunks_webpack-5bfa11438d575ca3.js",
+      "size": 10634,
+      "sha256": "cc89eff4240f9924ccffacd0b5d5a75f5ef4f0f910519bf9b70ed7e900c4f679"
+    },
+    {
+      "url": "https://eligibility-zkpass.org/_next/static/chunks/fd9d1056-4044a385328c42c8.js",
+      "status": 200,
+      "error": null,
+      "size": 279688,
+      "skipped": "not-saved"
+    },
+    {
+      "url": "https://eligibility-zkpass.org/_next/static/chunks/2117-00ca63e7c2355ea5.js",
+      "saved": "next_static_chunks_2117-00ca63e7c2355ea5.js",
+      "size": 186826,
+      "sha256": "6374795a6f0123402043028a77be5bb0d0aab0aed9d26b235d1b0d5dc91109eb"
+    },
+    {
+      "url": "https://eligibility-zkpass.org/_next/static/chunks/main-app-70e5a34b9b2e9c05.js",
+      "saved": "next_static_chunks_main-app-70e5a34b9b2e9c05.js",
+      "size": 575,
+      "sha256": "70299c39d5e2d6ad151762e24d5e0bf4c8afd2bd678b3341db0bc56adb320259"
+    },
+    {
+      "url": "https://eligibility-zkpass.org/_next/static/chunks/4e88bc13-73dd75259fca8772.js",
+      "saved": "next_static_chunks_4e88bc13-73dd75259fca8772.js",
+      "size": 227119,
+      "sha256": "c5532cd1e3bb4be98d16b92643a4446eba13d4bb793dda36e1adc6c0806b8b7b"
+    },
+    {
+      "url": "https://eligibility-zkpass.org/_next/static/chunks/2957-6dd01ea6fae76e1b.js",
+      "saved": "next_static_chunks_2957-6dd01ea6fae76e1b.js",
+      "size": 39753,
+      "sha256": "8b6707245052d09e3501382d87258389d7ff494811481e4a05db564fa334035e"
+    },
+    {
+      "url": "https://eligibility-zkpass.org/_next/static/chunks/3082-d2d55930b63581d1.js",
+      "status": 200,
+      "error": null,
+      "size": 826688,
+      "skipped": "not-saved"
+    },
+    {
+      "url": "https://eligibility-zkpass.org/_next/static/chunks/8984-8a99f24b0502f170.js",
+      "saved": "next_static_chunks_8984-8a99f24b0502f170.js",
+      "size": 212843,
+      "sha256": "b1e6d13b9373ecb4d5a3eb34af124e0fa2402bd9d7b9a53f6947443d5e93ad8f"
+    },
+    {
+      "url": "https://eligibility-zkpass.org/_next/static/chunks/app/page-ec46cbc66b740b0e.js",
+      "saved": "next_static_chunks_app_page-ec46cbc66b740b0e.js",
+      "size": 24882,
+      "sha256": "1d086b3559dc237b195df0e4a66fa3ed40a56c9ce8370a42bebbe0c589194fc1"
+    },
+    {
+      "url": "https://eligibility-zkpass.org/_next/static/chunks/1646-d8b2d0b8616a5057.js",
+      "saved": "next_static_chunks_1646-d8b2d0b8616a5057.js",
+      "size": 41967,
+      "sha256": "1360e8f17c48be5c97ae4d7528673ebe9c58d9032bb4485f56ef6a74f96ca408"
+    },
+    {
+      "url": "https://eligibility-zkpass.org/_next/static/chunks/app/layout-ca2ff0e873c649fc.js",
+      "saved": "next_static_chunks_app_layout-ca2ff0e873c649fc.js",
+      "size": 20592,
+      "sha256": "ec487338587bb83b65e21a1b31bbab37ed0d7d2cff7ec46e4c82465754ff16de"
+    },
+    {
+      "url": "https://eligibility-zkpass.org/favicon.ico",
+      "skipped": "media"
+    },
+    {
+      "url": "https://eligibility-zkpass.org/icon",
+      "saved": null,
+      "size": 13890,
+      "sha256": "94b5916a70cfdaf8d8154ece1a8b7a6b02682cdfd8b823a45aed617e12707b76",
+      "skipped": "spa-fallback-html, not a distinct asset"
+    },
+    {
+      "url": "https://eligibility-zkpass.org/_next/static/chunks/polyfills-42372ed130431b0a.js",
+      "saved": "next_static_chunks_polyfills-42372ed130431b0a.js",
+      "size": 167043,
+      "sha256": "599d5c934661bb38c56ad21b9a54915086e4d559f782aca15e7114b967565dc4"
+    },
+    {
+      "url": "https://eligibility-zkpass.org/../../_nuxt/assets/index.js",
+      "same_origin": true,
+      "skipped": "shared-bundle"
+    }
+  ]
+}

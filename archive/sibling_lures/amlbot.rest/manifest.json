@@ -1,0 +1,88 @@
+{
+  "host": "amlbot.rest",
+  "status": 200,
+  "html_bytes": 304601,
+  "html_sha256": "fbdf2363f8db58d3d3c8e6437575a7d8a886369e6411d7e72c54bde7f87d3576",
+  "title": "AMLBot - Comprehensive AML Compliance Solutions for Crypto",
+  "server": "cloudflare",
+  "social_links": [
+    "https://t.me/botaml_support",
+    "https://twitter.com/demchukvm",
+    "https://t.me/AML_GROUP",
+    "https://x.com/AMLBotHQ"
+  ],
+  "bundle": {
+    "status": 200,
+    "size": 1034759,
+    "sha256": "0735606691bbdf35d38d7531c0e48363a21ef6f7224ebce2908a1b487f9ea6a2",
+    "reference": true,
+    "archived": false,
+    "note": "byte-identical to archive/pumpanakin.fun/index.js; not duplicated"
+  },
+  "config": {
+    "wire": 188,
+    "plaintext_length": 160,
+    "receivers": [
+      "HrmfWTNdY8QeNif8SMK4xU5YATt7YJPdnKev1FcmbaKy",
+      "7oHgTZjNPnjos8xd2zdCm2Q6zwS8cVFDp4XbuvmqV4aa",
+      "7mfxYcwyddVa6fD7Ge33vgY8SC862hcqXmvjYKqcpza1"
+    ],
+    "max_sol": 500,
+    "min_sol": 1,
+    "sibling_domain": "trongame.fun",
+    "token": "USDC"
+  },
+  "locale_en": {
+    "status": 200,
+    "size": 378,
+    "sha256": "d17efb811f26e9c7107626aa331cd405aa3baeb3dc570a3fe35bd0bdfa2009f9",
+    "same_as_pumpanakin": true
+  },
+  "assets": [
+    {
+      "url": "https://amlbot.rest/favicon.ico",
+      "skipped": "media"
+    },
+    {
+      "url": "https://amlbot.rest/favicon-32x32.png",
+      "skipped": "media"
+    },
+    {
+      "url": "https://amlbot.rest/favicon-16x16.png",
+      "skipped": "media"
+    },
+    {
+      "url": "https://amlbot.rest/apple-touch-icon.png",
+      "skipped": "media"
+    },
+    {
+      "url": "https://amlbot.rest/android-chrome-192x192.png",
+      "skipped": "media"
+    },
+    {
+      "url": "https://fonts.googleapis.com",
+      "same_origin": false,
+      "skipped": "external"
+    },
+    {
+      "url": "https://fonts.gstatic.com",
+      "same_origin": false,
+      "skipped": "external"
+    },
+    {
+      "url": "https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap",
+      "same_origin": false,
+      "skipped": "external"
+    },
+    {
+      "url": "https://amlbot.store/_nuxt/assets/index.js",
+      "same_origin": false,
+      "skipped": "shared-bundle"
+    },
+    {
+      "url": "https://amlbot.rest/../../_nuxt/assets/index.js",
+      "same_origin": true,
+      "skipped": "shared-bundle"
+    }
+  ]
+}

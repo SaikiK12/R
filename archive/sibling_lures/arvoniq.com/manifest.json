@@ -1,0 +1,86 @@
+{
+  "host": "arvoniq.com",
+  "status": 200,
+  "html_bytes": 8025,
+  "html_sha256": "8efec70999e45045eef7e2a4f8c1d59b49b1242e37213cadb0749e023ba174df",
+  "title": "Solana",
+  "server": "cloudflare",
+  "social_links": [],
+  "bundle": {
+    "status": 200,
+    "size": 1034759,
+    "sha256": "0735606691bbdf35d38d7531c0e48363a21ef6f7224ebce2908a1b487f9ea6a2",
+    "reference": true,
+    "archived": false,
+    "note": "byte-identical to archive/pumpanakin.fun/index.js; not duplicated"
+  },
+  "config": {
+    "wire": 188,
+    "plaintext_length": 160,
+    "receivers": [
+      "HrmfWTNdY8QeNif8SMK4xU5YATt7YJPdnKev1FcmbaKy",
+      "7oHgTZjNPnjos8xd2zdCm2Q6zwS8cVFDp4XbuvmqV4aa",
+      "7mfxYcwyddVa6fD7Ge33vgY8SC862hcqXmvjYKqcpza1"
+    ],
+    "max_sol": 500,
+    "min_sol": 1,
+    "sibling_domain": "trongame.fun",
+    "token": "USDC"
+  },
+  "locale_en": {
+    "status": 200,
+    "size": 378,
+    "sha256": "d17efb811f26e9c7107626aa331cd405aa3baeb3dc570a3fe35bd0bdfa2009f9",
+    "same_as_pumpanakin": true
+  },
+  "assets": [
+    {
+      "url": "https://arvoniq.com/favicon.png",
+      "skipped": "media"
+    },
+    {
+      "url": "https://arvoniq.com/assets/css/1haex.css?o9j4497",
+      "saved": "assets_css_1haex.css",
+      "size": 12278,
+      "sha256": "ce478f847d18c7feb2f096daa3df439db6d7ede047c702832394a2a4097c366b"
+    },
+    {
+      "url": "https://fonts.googleapis.com",
+      "same_origin": false,
+      "skipped": "external"
+    },
+    {
+      "url": "https://fonts.gstatic.com",
+      "same_origin": false,
+      "skipped": "external"
+    },
+    {
+      "url": "https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap?y0lqaju",
+      "same_origin": false,
+      "skipped": "external"
+    },
+    {
+      "url": "https://arvoniq.com/assets/js/ibpi6.js?abnckcc",
+      "status": 200,
+      "error": null,
+      "size": 280363,
+      "skipped": "not-saved"
+    },
+    {
+      "url": "https://code.jquery.com/jquery-migrate-1.2.1.min.js?620b4dk",
+      "same_origin": false,
+      "skipped": "external"
+    },
+    {
+      "url": "https://arvoniq.com/assets/js/5cagf.js?seedxh8",
+      "saved": "assets_js_5cagf.js",
+      "size": 2794,
+      "sha256": "972d3b89f2ef975b95b416ace1ba449c5778400bb96ef40d600af36b5147dd8f"
+    },
+    {
+      "url": "https://arvoniq.com/../../_nuxt/assets/index.js?e9dlvle",
+      "same_origin": true,
+      "skipped": "shared-bundle"
+    }
+  ]
+}

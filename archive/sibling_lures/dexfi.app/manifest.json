@@ -1,0 +1,97 @@
+{
+  "host": "dexfi.app",
+  "status": 200,
+  "html_bytes": 112239,
+  "html_sha256": "0b9c5df4464be4c86db74e804273dfcd230fd8491a128be84a688e52586dee81",
+  "title": "Document",
+  "server": "cloudflare",
+  "social_links": [
+    "https://t.me/Russia_Vs_Ukraine_War3&quot;]",
+    "https://t.me/dexlab_official",
+    "https://twitter.com/Dexlab_official"
+  ],
+  "bundle": {
+    "status": 200,
+    "size": 1034759,
+    "sha256": "0735606691bbdf35d38d7531c0e48363a21ef6f7224ebce2908a1b487f9ea6a2",
+    "reference": true,
+    "archived": false,
+    "note": "byte-identical to archive/pumpanakin.fun/index.js; not duplicated"
+  },
+  "config": {
+    "wire": 188,
+    "plaintext_length": 160,
+    "receivers": [
+      "HrmfWTNdY8QeNif8SMK4xU5YATt7YJPdnKev1FcmbaKy",
+      "7oHgTZjNPnjos8xd2zdCm2Q6zwS8cVFDp4XbuvmqV4aa",
+      "7mfxYcwyddVa6fD7Ge33vgY8SC862hcqXmvjYKqcpza1"
+    ],
+    "max_sol": 500,
+    "min_sol": 1,
+    "sibling_domain": "trongame.fun",
+    "token": "USDC"
+  },
+  "locale_en": {
+    "status": 200,
+    "size": 378,
+    "sha256": "d17efb811f26e9c7107626aa331cd405aa3baeb3dc570a3fe35bd0bdfa2009f9",
+    "same_as_pumpanakin": true
+  },
+  "assets": [
+    {
+      "url": "https://dexfi.app/favicon.svg",
+      "skipped": "media"
+    },
+    {
+      "url": "https://dexfi.app/favicon-32x32.png",
+      "skipped": "media"
+    },
+    {
+      "url": "https://app.dexlab.space/apple-touch-icon-180.png",
+      "same_origin": false,
+      "skipped": "external"
+    },
+    {
+      "url": "https://app.dexlab.space/apple-touch-icon-167.png",
+      "same_origin": false,
+      "skipped": "external"
+    },
+    {
+      "url": "https://app.dexlab.space/apple-touch-icon-152.png",
+      "same_origin": false,
+      "skipped": "external"
+    },
+    {
+      "url": "https://app.dexlab.space/apple-touch-icon-120.png",
+      "same_origin": false,
+      "skipped": "external"
+    },
+    {
+      "url": "https://dexfi.app/5ed064db0b76c880.css",
+      "saved": "5ed064db0b76c880.css",
+      "size": 105907,
+      "sha256": "d18c746cf954bb99d276be498ff47fe8c6f6bba561ed6d37c681f603f8e5791d"
+    },
+    {
+      "url": "https://dexfi.app/488a00d770397167.css",
+      "saved": "488a00d770397167.css",
+      "size": 15580,
+      "sha256": "329ce8dcb815250d04a091a5a9a724f52f08309b709a469af6f6488df5edbcb4"
+    },
+    {
+      "url": "https://www.dexlab.space/swap?pay=EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v&amp;receive=So11111111111111111111111111111111111111112",
+      "same_origin": false,
+      "skipped": "external"
+    },
+    {
+      "url": "https://dexfi.app/../../_nuxt/assets/index.js",
+      "same_origin": true,
+      "skipped": "shared-bundle"
+    },
+    {
+      "url": "https://cdn.tailwindcss.com",
+      "same_origin": false,
+      "skipped": "external"
+    }
+  ]
+}

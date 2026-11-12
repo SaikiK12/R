@@ -6,6 +6,13 @@ then live fetches of lure HTML and `/api/config` per domain (decrypted
 with the kit's own key derivation, purpose = hostname). No endpoint
 beyond public page assets and the public `/api/config` GET was touched.
 
+**Recapture 2026-11-12 17:00 UTC.** Pages, helper scripts, and decrypted
+configs are in `archive/sibling_lures/<host>/`. Fifteen hosts still
+decrypt to one config (receivers rotated again the same day; see
+`decompiled/iocs.json`). `dexscreener.fyi` does not host the kit: it
+loads it from `neatly-resonant.ext-helper.cc`, which does. The Nov 11
+table below is the original hunt, not the current receiver list.
+
 ## One operator, many costumes
 
 Every live sibling serves the **byte-identical bundle** and, where

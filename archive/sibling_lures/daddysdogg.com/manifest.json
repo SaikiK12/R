@@ -1,0 +1,77 @@
+{
+  "host": "daddysdogg.com",
+  "status": 200,
+  "html_bytes": 11518,
+  "html_sha256": "88c48d870909b478b3fb1b5ba1c0010b14d5b3be58d445aaac345df75a8e7b90",
+  "title": "Andrew Tate's Dog | Airdrop",
+  "server": "cloudflare",
+  "social_links": [
+    "https://x.com/GSolanaDog",
+    "https://t.me/tatesdogonsol"
+  ],
+  "bundle": {
+    "status": 200,
+    "size": 1034759,
+    "sha256": "0735606691bbdf35d38d7531c0e48363a21ef6f7224ebce2908a1b487f9ea6a2",
+    "reference": true,
+    "archived": false,
+    "note": "byte-identical to archive/pumpanakin.fun/index.js; not duplicated"
+  },
+  "config": {
+    "wire": 188,
+    "plaintext_length": 160,
+    "receivers": [
+      "HrmfWTNdY8QeNif8SMK4xU5YATt7YJPdnKev1FcmbaKy",
+      "7oHgTZjNPnjos8xd2zdCm2Q6zwS8cVFDp4XbuvmqV4aa",
+      "7mfxYcwyddVa6fD7Ge33vgY8SC862hcqXmvjYKqcpza1"
+    ],
+    "max_sol": 500,
+    "min_sol": 1,
+    "sibling_domain": "trongame.fun",
+    "token": "USDC"
+  },
+  "locale_en": {
+    "status": 200,
+    "size": 378,
+    "sha256": "d17efb811f26e9c7107626aa331cd405aa3baeb3dc570a3fe35bd0bdfa2009f9",
+    "same_as_pumpanakin": true
+  },
+  "assets": [
+    {
+      "url": "https://fonts.googleapis.com",
+      "same_origin": false,
+      "skipped": "external"
+    },
+    {
+      "url": "https://fonts.gstatic.com",
+      "same_origin": false,
+      "skipped": "external"
+    },
+    {
+      "url": "https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&display=swap",
+      "same_origin": false,
+      "skipped": "external"
+    },
+    {
+      "url": "https://daddysdogg.com/style-y3wyz.css",
+      "saved": "style-y3wyz.css",
+      "size": 14688,
+      "sha256": "703b71359a28462ed1e43db870c5db8eb5d6cbc10116e836dad305b6be465d72"
+    },
+    {
+      "url": "https://daddysdogg.com/QmWJ6BkRe9aVYd6o8iZYrMBPLv8hYbZRaTkyMzykT9NPE6.png",
+      "skipped": "media"
+    },
+    {
+      "url": "https://daddysdogg.com/../../_nuxt/assets/index.js",
+      "same_origin": true,
+      "skipped": "shared-bundle"
+    },
+    {
+      "url": "https://daddysdogg.com/script-npr34.js",
+      "saved": "script-npr34.js",
+      "size": 767,
+      "sha256": "e37ea3085b770fa7650c0952a1b3c251a4f548d702d981359764e693b416e5b6"
+    }
+  ]
+}

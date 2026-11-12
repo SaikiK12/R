@@ -1,0 +1,53 @@
+{
+  "host": "pumpswap.rest",
+  "status": 200,
+  "html_bytes": 32901,
+  "html_sha256": "9bbc0daff735d5d840e67c8909e779fe5fc7a20b9eb08ac2a171382356d49f5d",
+  "title": "PUMP | Solana Meme Token",
+  "server": "cloudflare",
+  "social_links": [],
+  "bundle": {
+    "status": 200,
+    "size": 1034759,
+    "sha256": "0735606691bbdf35d38d7531c0e48363a21ef6f7224ebce2908a1b487f9ea6a2",
+    "reference": true,
+    "archived": false,
+    "note": "byte-identical to archive/pumpanakin.fun/index.js; not duplicated"
+  },
+  "config": {
+    "wire": 188,
+    "plaintext_length": 160,
+    "receivers": [
+      "HrmfWTNdY8QeNif8SMK4xU5YATt7YJPdnKev1FcmbaKy",
+      "7oHgTZjNPnjos8xd2zdCm2Q6zwS8cVFDp4XbuvmqV4aa",
+      "7mfxYcwyddVa6fD7Ge33vgY8SC862hcqXmvjYKqcpza1"
+    ],
+    "max_sol": 500,
+    "min_sol": 1,
+    "sibling_domain": "trongame.fun",
+    "token": "USDC"
+  },
+  "locale_en": {
+    "status": 200,
+    "size": 378,
+    "sha256": "d17efb811f26e9c7107626aa331cd405aa3baeb3dc570a3fe35bd0bdfa2009f9",
+    "same_as_pumpanakin": true
+  },
+  "assets": [
+    {
+      "url": "https://pumpswap.rest/40f4ea95-fbfd-441a-acb3-18cd07317480.png",
+      "skipped": "media"
+    },
+    {
+      "url": "https://pumpswap.rest/index-CISBJgHL.css",
+      "saved": "index-CISBJgHL.css",
+      "size": 67344,
+      "sha256": "093a49d9b4ef7e26ced3379f2637d0eff6c8f16d94c6b717848c6d7288d810a3"
+    },
+    {
+      "url": "https://pumpswap.rest/../../_nuxt/assets/index.js",
+      "same_origin": true,
+      "skipped": "shared-bundle"
+    }
+  ]
+}

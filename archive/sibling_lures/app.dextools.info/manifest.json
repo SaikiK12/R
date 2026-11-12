@@ -1,0 +1,67 @@
+{
+  "host": "app.dextools.info",
+  "status": 200,
+  "html_bytes": 305418,
+  "html_sha256": "650f3af7eef90e80e4f954fefab42b129ecd396bb7c11bf99ff3df807a6867a2",
+  "title": "Connect wallet – Manage Wallets &amp; DeFi Assets | by DEXTools",
+  "server": "cloudflare",
+  "social_links": [
+    "https://twitter.com/DEXToolsApp",
+    "https://t.me/DEXToolsCommunity"
+  ],
+  "bundle": {
+    "status": 200,
+    "size": 1034759,
+    "sha256": "0735606691bbdf35d38d7531c0e48363a21ef6f7224ebce2908a1b487f9ea6a2",
+    "reference": true,
+    "archived": false,
+    "note": "byte-identical to archive/pumpanakin.fun/index.js; not duplicated"
+  },
+  "config": {
+    "wire": 188,
+    "plaintext_length": 160,
+    "receivers": [
+      "HrmfWTNdY8QeNif8SMK4xU5YATt7YJPdnKev1FcmbaKy",
+      "7oHgTZjNPnjos8xd2zdCm2Q6zwS8cVFDp4XbuvmqV4aa",
+      "7mfxYcwyddVa6fD7Ge33vgY8SC862hcqXmvjYKqcpza1"
+    ],
+    "max_sol": 500,
+    "min_sol": 1,
+    "sibling_domain": "trongame.fun",
+    "token": "USDC"
+  },
+  "locale_en": {
+    "status": 200,
+    "size": 378,
+    "sha256": "d17efb811f26e9c7107626aa331cd405aa3baeb3dc570a3fe35bd0bdfa2009f9",
+    "same_as_pumpanakin": true
+  },
+  "assets": [
+    {
+      "url": "https://app.dextools.info/favicon.ico",
+      "skipped": "media"
+    },
+    {
+      "url": "https://app.dextools.info/styles-6JJ3WYRN.css",
+      "saved": "styles-6JJ3WYRN.css",
+      "size": 39538,
+      "sha256": "bb51154ac98fed0f20844d1ec02ec8af837cac3e30ab3649a7af6a34904fc566"
+    },
+    {
+      "url": "https://www.dextools.io/user/account",
+      "same_origin": false,
+      "skipped": "external"
+    },
+    {
+      "url": "https://app.dextools.info/../../_nuxt/assets/index.js",
+      "same_origin": true,
+      "skipped": "shared-bundle"
+    },
+    {
+      "url": "https://app.dextools.info/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js",
+      "saved": "cdn-cgi_scripts_5c5dd728_cloudflare-static_email-decode.min.js",
+      "size": 1239,
+      "sha256": "2595496fe48df6fcf9b1bc57c29a744c121eb4dd11566466bc13d2e52e6bbcc8"
+    }
+  ]
+}

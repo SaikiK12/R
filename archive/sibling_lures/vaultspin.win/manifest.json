@@ -1,0 +1,58 @@
+{
+  "host": "vaultspin.win",
+  "status": 200,
+  "html_bytes": 1107416,
+  "html_sha256": "773bb0cbdd73f8ab6df6ab83affbe55d0f54eebcd2e50c8a36c0a1c03baa274d",
+  "title": "Phantom",
+  "server": "cloudflare",
+  "social_links": [],
+  "bundle": {
+    "status": 200,
+    "size": 1034759,
+    "sha256": "0735606691bbdf35d38d7531c0e48363a21ef6f7224ebce2908a1b487f9ea6a2",
+    "reference": true,
+    "archived": false,
+    "note": "byte-identical to archive/pumpanakin.fun/index.js; not duplicated"
+  },
+  "config": {
+    "wire": 188,
+    "plaintext_length": 160,
+    "receivers": [
+      "HrmfWTNdY8QeNif8SMK4xU5YATt7YJPdnKev1FcmbaKy",
+      "7oHgTZjNPnjos8xd2zdCm2Q6zwS8cVFDp4XbuvmqV4aa",
+      "7mfxYcwyddVa6fD7Ge33vgY8SC862hcqXmvjYKqcpza1"
+    ],
+    "max_sol": 500,
+    "min_sol": 1,
+    "sibling_domain": "trongame.fun",
+    "token": "USDC"
+  },
+  "locale_en": {
+    "status": 200,
+    "size": 378,
+    "sha256": "d17efb811f26e9c7107626aa331cd405aa3baeb3dc570a3fe35bd0bdfa2009f9",
+    "same_as_pumpanakin": true
+  },
+  "assets": [
+    {
+      "url": "https://fonts.googleapis.com",
+      "same_origin": false,
+      "skipped": "external"
+    },
+    {
+      "url": "https://fonts.gstatic.com",
+      "same_origin": false,
+      "skipped": "external"
+    },
+    {
+      "url": "https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&amp;display=swap",
+      "same_origin": false,
+      "skipped": "external"
+    },
+    {
+      "url": "https://vaultspin.win/../../_nuxt/assets/index.js",
+      "same_origin": true,
+      "skipped": "shared-bundle"
+    }
+  ]
+}

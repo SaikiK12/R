@@ -1,0 +1,13 @@
+{
+  "wire": 188,
+  "plaintext_length": 160,
+  "receivers": [
+    "HrmfWTNdY8QeNif8SMK4xU5YATt7YJPdnKev1FcmbaKy",
+    "7oHgTZjNPnjos8xd2zdCm2Q6zwS8cVFDp4XbuvmqV4aa",
+    "7mfxYcwyddVa6fD7Ge33vgY8SC862hcqXmvjYKqcpza1"
+  ],
+  "max_sol": 500,
+  "min_sol": 1,
+  "sibling_domain": "trongame.fun",
+  "token": "USDC"
+}

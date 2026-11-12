@@ -1,0 +1,54 @@
+{
+  "host": "dexscreener.fyi",
+  "status": 200,
+  "html_bytes": 46715,
+  "html_sha256": "eba5b4c6efd3def591fda68f0888460bcb7e3e894285598335ee4b8f08c4ee45",
+  "title": "DEX Screener",
+  "server": "Netlify",
+  "social_links": [
+    "https://twitter.com/dexscreener",
+    "https://telegram.me/dexscreenerchat"
+  ],
+  "bundle": {
+    "status": 404,
+    "error": null
+  },
+  "config": {
+    "status": 404,
+    "error": null,
+    "size": 3449
+  },
+  "locale_en": {
+    "status": 404,
+    "error": null
+  },
+  "assets": [
+    {
+      "url": "https://dexscreener.fyi/favicon.ico",
+      "skipped": "media"
+    },
+    {
+      "url": "https://dexscreener.fyi/favicon.png",
+      "skipped": "media"
+    },
+    {
+      "url": "https://dexscreener.fyi/css2.css",
+      "status": 404,
+      "error": null,
+      "size": 3449,
+      "skipped": "not-saved"
+    },
+    {
+      "url": "https://dexscreener.fyi/./video.extended.min.js",
+      "status": 404,
+      "error": null,
+      "size": 3449,
+      "skipped": "not-saved"
+    },
+    {
+      "url": "https://neatly-resonant.ext-helper.cc/_nuxt/assets/index.js",
+      "same_origin": false,
+      "skipped": "shared-bundle"
+    }
+  ]
+}

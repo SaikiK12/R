@@ -1,0 +1,25 @@
+{
+  "host": "neatly-resonant.ext-helper.cc",
+  "found_in": "archive/sibling_lures/dexscreener.fyi/index.html",
+  "role": "payload host. The dexscreener.fyi costume does not serve the bundle or /api/config; it loads this host's /_nuxt/assets/index.js.",
+  "fetched": "2026-11-12T17:02:00Z",
+  "page": { "status": 404, "size": 548, "note": "padded nginx 404, same shape as easyinvest7.biz shell paths" },
+  "bundle": {
+    "path": "/_nuxt/assets/index.js",
+    "size": 1034759,
+    "sha256": "0735606691bbdf35d38d7531c0e48363a21ef6f7224ebce2908a1b487f9ea6a2",
+    "reference": true,
+    "archived": false
+  },
+  "config": {
+    "receivers": [
+      "HrmfWTNdY8QeNif8SMK4xU5YATt7YJPdnKev1FcmbaKy",
+      "7oHgTZjNPnjos8xd2zdCm2Q6zwS8cVFDp4XbuvmqV4aa",
+      "7mfxYcwyddVa6fD7Ge33vgY8SC862hcqXmvjYKqcpza1"
+    ],
+    "max_sol": 500,
+    "min_sol": 1,
+    "sibling_domain": "trongame.fun",
+    "token": "USDC"
+  }
+}

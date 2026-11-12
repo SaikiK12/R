@@ -43,6 +43,18 @@ Desktop Chrome UA. Chain reads via public RPC.
   `4cfdFcVuJf8PPXpMWPMCDehSE4gV4C8oYwpZnLra7rtW`, and the only top-level
   program is still `TwrGADB9…`.
 
+## Sibling pages archived (17:00 UTC)
+
+The earlier passes hashed bundles and decrypted a handful of configs.
+They did not keep the other landings. `archive/sibling_lures/<host>/`
+now has the page, the decrypted config, and the small same-origin
+scripts for every family host that returned HTTP 200. Fifteen of those
+configs match the 16:54 UTC receiver set. `dexscreener.fyi` is the
+exception: no local bundle and no `/api/config`; the page loads
+`neatly-resonant.ext-helper.cc`, which serves the reference bundle and
+the same config. English `/api/locales` bodies match pumpanakin on all
+15 kit hosts, so the modal copy was not saved again.
+
 ## Operator API surface (2026-11-12 re-check)
 
 | Request | 2026-11-11 | 2026-11-12 | Notes |

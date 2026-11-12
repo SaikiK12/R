@@ -1,0 +1,78 @@
+{
+  "host": "isen.fund",
+  "status": 200,
+  "html_bytes": 10564,
+  "html_sha256": "2bebc660c04f64fc64a8885dae34bd1717f53a719a9b107196cfe282de215676",
+  "title": "isen.fund \u2014 Find the token. See the numbers.",
+  "server": "cloudflare",
+  "social_links": [],
+  "bundle": {
+    "status": 200,
+    "size": 1034759,
+    "sha256": "0735606691bbdf35d38d7531c0e48363a21ef6f7224ebce2908a1b487f9ea6a2",
+    "reference": true,
+    "archived": false,
+    "note": "byte-identical to archive/pumpanakin.fun/index.js; not duplicated"
+  },
+  "config": {
+    "wire": 188,
+    "plaintext_length": 160,
+    "receivers": [
+      "HrmfWTNdY8QeNif8SMK4xU5YATt7YJPdnKev1FcmbaKy",
+      "7oHgTZjNPnjos8xd2zdCm2Q6zwS8cVFDp4XbuvmqV4aa",
+      "7mfxYcwyddVa6fD7Ge33vgY8SC862hcqXmvjYKqcpza1"
+    ],
+    "max_sol": 500,
+    "min_sol": 1,
+    "sibling_domain": "trongame.fun",
+    "token": "USDC"
+  },
+  "locale_en": {
+    "status": 200,
+    "size": 378,
+    "sha256": "d17efb811f26e9c7107626aa331cd405aa3baeb3dc570a3fe35bd0bdfa2009f9",
+    "same_as_pumpanakin": true
+  },
+  "assets": [
+    {
+      "url": "https://isen.fund/mark-20261104-0270dd3bf799.svg",
+      "skipped": "media"
+    },
+    {
+      "url": "https://isen.fund/design.css?v=4",
+      "saved": "design.css",
+      "size": 26347,
+      "sha256": "cb3ed02c19055e644e96f42da346bf465dd9501dba05ca7caa7e8fbed6d9758d"
+    },
+    {
+      "url": "https://isen.fund/app.js?v=7",
+      "saved": "app.js",
+      "size": 14879,
+      "sha256": "9d0105601601b27080e1f08ad85457f5e807fd5885d3e23747c7b7ab20a42dfb"
+    },
+    {
+      "url": "https://isen.fund/./9d5e2daa5f.js",
+      "saved": "9d5e2daa5f.js",
+      "size": 8319,
+      "sha256": "b91d1eff0e71b999f888a414dbdb6d8bfd07d31fdbe1ba3ee0ac6b7da68e2372"
+    },
+    {
+      "url": "https://isen.fund/../../_nuxt/assets/index.js",
+      "same_origin": true,
+      "skipped": "shared-bundle"
+    },
+    {
+      "url": "https://isen.fund/cyberpunk.css?v=5",
+      "saved": "cyberpunk.css",
+      "size": 46017,
+      "sha256": "979a0e74a227cc9ebc443d25d9920a02577928a7999ffb2312caacbb8bbb7f4f"
+    },
+    {
+      "url": "https://isen.fund/",
+      "saved": null,
+      "size": 10564,
+      "sha256": "2bebc660c04f64fc64a8885dae34bd1717f53a719a9b107196cfe282de215676",
+      "skipped": "spa-fallback-html, not a distinct asset"
+    }
+  ]
+}

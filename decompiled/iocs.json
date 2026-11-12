@@ -8,7 +8,10 @@
   "locale_languages_note": "13 languages confirmed live 2026-11-12 16:54 UTC. vi (481 B) was added after the morning check. ru, uk, and nl return 404. Up from 3 (en/fr/zh) on 2026-11-11.",
   "domains": {
     "live_lure": ["pumpanakin.fun"],
-    "connect_domains": ["easyinvest7.biz (popup connect domain from 2026-11-11. At 16:54 UTC 2026-11-12 the HTML shell 404s — /, /connect.html, /connect/<token> — but /_nuxt/assets/index.js is still the reference bundle, /index-f916ac.js still calls openModal(), and /api/config + /api/locales answer. Cloudflare Web Analytics token on the 404 page: 19268545265c46b59114bf0caf342ee8.)"],
+    "connect_domains": [
+      "easyinvest7.biz (popup connect domain from 2026-11-11. At 16:54 UTC 2026-11-12 the HTML shell 404s — /, /connect.html, /connect/<token> — but /_nuxt/assets/index.js is still the reference bundle, /index-f916ac.js still calls openModal(), and /api/config + /api/locales answer. Cloudflare Web Analytics token on the 404 page: 19268545265c46b59114bf0caf342ee8.)",
+      "neatly-resonant.ext-helper.cc (payload host named by dexscreener.fyi, live 2026-11-12 17:02 UTC: root 404, reference bundle and the same /api/config as the lure family)"
+    ],
     "sibling_lures_2026_11_11": [
       "airdrop-floatlaunch.xyz", "claim-floatlaunch.xyz", "rank-floatlaunch.xyz",
       "www-meteora.ag-v2.ink", "sol-meteora.ag-v2.ink",
@@ -22,7 +25,12 @@
       "solchaindapps.com", "cryptocommerceohpmigration.online", "pumpstreams.expl.live"
     ],
     "sibling_in_live_config": ["trongame.fun (DNS-dead as of 2026-11-12 16:54 UTC)"],
-    "prewired_not_resolving": ["amlbot.store (NXDOMAIN 2026-11-12 16:54 UTC, but amlbot.rest HTML loads https://amlbot.store/_nuxt/assets/index.js). hexfomo.fun also NXDOMAIN."],
+    "prewired_not_resolving": [
+      "amlbot.store (NXDOMAIN 2026-11-12 17:02 UTC; amlbot.rest HTML loads https://amlbot.store/_nuxt/assets/index.js)",
+      "lens-badland.fontstack.cc (NXDOMAIN; named from pumpstreams.expl.live HTML)",
+      "voicechat.fun (NXDOMAIN; named from pumpstreams.expl.live HTML)",
+      "hexfomo.fun (NXDOMAIN)"
+    ],
     "kit_watermark": ["hexfomo.fun"],
     "in_string_table": ["nulltrace.app", "reactwalletback.com", "onlybulls.com", "onlybulls://wallet", "dlicom.me"],
     "note": "All sibling_lures serve the byte-identical reference bundle and the same decrypted /api/config; one centrally-managed operation. Details in FAMILY_MAP.md."
