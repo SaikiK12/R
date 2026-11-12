@@ -1,81 +1,45 @@
-# Anatomy of a Solana Drainer
+# solana-kit-analysis
 
-An educational research project: a complete map of the **pumpanakin.fun**
-JS-Confuser Solana drainer family — how the kit works, how the operation
-behind it is built, and how far its sophistication goes. Read it as a
-case study in how a modern crypto drainer actually fits together: the
-lure, the obfuscated bundle, the operator backend, and the on-chain
-machinery.
+Reverse-engineering notes on a JS-Confuser Solana bundle observed in the wild (November 2026). The bundle packs a full Reown AppKit wallet-connection UI, a custom on-chain program, and a multi-layer operator API — all inside a Nuxt static build. The goal here is to understand the whole stack: obfuscation layers, kit modules, on-chain program behavior, backend protocol, and traffic acquisition.
 
-## Reading order
+This started as "what does this do" and ended up being a complete reconstruction.
 
-1. `LURE_ANALYSIS.md` — what the victim sees: the two-layer page trick,
-   the decoded pitch dictionary, and the social-engineering playbook
-   across the family.
-2. `FORENSIC_REPORT.md` — the main write-up: the bundle, the operator
-   API, the payload formats, the drain transactions, live-mapping
-   results.
-3. `OPERATOR_ARCHITECTURE.md` — the whole machine on one page: traffic,
-   lure, connect, backend, and on-chain layers, and the design
-   principles behind them.
-4. `DYNAMIC_ANALYSIS.md` — the kit running live in a sandbox: the
-   connect-domain redirect, the balance gate, the fake confirm dialog,
-   and a captured drain transaction.
-5. `decompiled/kit/README.md` — the end-to-end flow map of the
-   reconstructed kit, organized into the three layers as deployed.
-6. `INFRASTRUCTURE.md` — the operation's stack: what they needed, what
-   it costs them, what changes between deployments.
-7. `FAMILY_MAP.md` — 30+ sibling lures run by the same operator, and
-   what the more elaborate ones do better.
-8. `GROWTH.md` — how they get victims: spam, TDS, aged domains, the
-   affiliate machine, the X/Twitter Rublevka campaign, and why there
-   is no SEO.
-9. `FLAWS.md` — where the operation is weak (22 proven flaws), and what
-   the next generation of the kit will probably fix.
-10. `INDUSTRY_CONTEXT.md` — where this operation fits in the November
-    2026 drainer landscape: the DaaS model, Rublevka Team attribution
-    context, the StepDrainer DNS-hijack incident, and wallet-side
-    defenses.
+---
 
-## Contents
+## What's here
 
-| Path | What it is |
-|---|---|
-| `LURE_ANALYSIS.md` | The lure pages as social-engineering case studies |
-| `OPERATOR_ARCHITECTURE.md` | The full operator architecture on one page |
-| `DYNAMIC_ANALYSIS.md` | The sandboxed live run: redirect, gates, dialogs, captured tx |
-| `GROWTH.md` | Traffic acquisition, the X/Twitter Rublevka campaign, and the affiliate machine |
-| `FLAWS.md` | Critical review: 22 proven weaknesses + next-gen projection |
-| `INDUSTRY_CONTEXT.md` | November 2026 drainer landscape: DaaS model, Rublevka context, StepDrainer DNS hijack |
-| `archive/` | Raw samples (bundle, lure HTML, connect app, program ELF, videos) with hashes and provenance — do not execute |
-| `FORENSIC_REPORT.md` | The report. One document, corrected against the live bundle |
-| `FAMILY_MAP.md` | Sibling lures and the sophistication gradient |
-| `INFRASTRUCTURE.md` | The operation's infrastructure and economics |
-| `ARCHITECTURE.md` | Pointer at the recovered modules |
-| `deobfuscate.py` | The static deobfuscator written for this analysis (strings, constants, global names) |
-| `decompiled/` | Decoded tables, the kit reconstruction layered as deployed (`kit/`), and 2026-11-11 live-mapping evidence (`live/`) |
-
-Reproduce the tables from a saved copy of the bundle:
-
-```bash
-python3 deobfuscate.py index.js --out-dir decompiled/
+```
+decompiled/          decoded string table, constants, reconstructed modules
+  kit/               the drainer code layer by layer
+    page/            lure + modal + wallet detection
+    operator/        backend API client + telemetry
+    chain/           RPC, Solflare, Jupiter, tx builders, stake drain
+  live/              live API captures (config blobs, all locales, tx captures)
+archive/             raw captured samples — static analysis only
 ```
 
-Requirements: Python 3.9+, no external dependencies.
+Top-level docs:
 
-## Scope
+| File | What it covers |
+|---|---|
+| `FORENSIC_REPORT.md` | Bundle internals: obfuscation layers, API shapes, payload formats, IOCs |
+| `DYNAMIC_ANALYSIS.md` | Sandbox run: popup flow, balance gate, fake dialog, captured drain tx |
+| `OPERATOR_ARCHITECTURE.md` | Full stack on one diagram: traffic → lure → connect → backend → chain |
+| `LURE_ANALYSIS.md` | HTML obfuscation tricks: zero-width chars, Cyrillic homoglyphs, filler text |
+| `INFRASTRUCTURE.md` | Cost model, pivot map, what changes between deployments |
+| `FAMILY_MAP.md` | 30+ sibling deployments sharing the same bundle hash |
+| `GROWTH.md` | Traffic acquisition: Telegram, TDS, X/Twitter, affiliate machine |
+| `FLAWS.md` | 22 weaknesses: OpSec holes, kit engineering gaps, what the next version fixes |
+| `COMPARISON.md` | How this kit stacks up against Inferno, Angel, Pink, and the EVM lineage |
+| `INDUSTRY_CONTEXT.md` | Ecosystem snapshot: DaaS model, Rublevka Team, StepDrainer DNS hijack |
+| `deobfuscate.py` | The static extractor (string table + constants + global name table) |
 
-Educational malware analysis. No attacker code was executed: the bundle
-was deobfuscated statically, and a handful of small state-machine
-functions were emulated in isolation with stubbed browser globals. No
-wallet was connected, nothing was signed, no funds were moved. The live
-site was mapped on 2026-11-11 with benign requests only — GETs of
-public assets/endpoints and the same `POST /api/visit` beacon any page
-load sends; the submit endpoints (`/process`, `/c/*`, `/api/handler`)
-were never contacted. On-chain data came from public Solana RPCs. The
-obfuscated bundle and the operator's program binary are not stored here;
-the docs explain how to reproduce everything from your own sample.
+---
 
-This project exists to document and explain an active threat. Nothing
-here is a guide to running one. The `archive/` directory contains live
-malware samples for research verification — do not execute them.
+## Reproduce the decode
+
+```bash
+python3 deobfuscate.py path/to/index.js --out-dir decompiled/
+```
+
+Python 3.9+, no external dependencies.
