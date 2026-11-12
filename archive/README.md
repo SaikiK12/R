@@ -22,6 +22,8 @@ Static analysis only — these are the files the decompiled reconstructions are 
 | `easyinvest7.biz/connect.html` | `a277ccaf360f954b50f17e3c93478ae54cb7121fa780ca1553ac2210a53cd6bc` | Shell page, 533 B |
 | `easyinvest7.biz/index-f916ac.js` | `b53dbb64786342d36a9a8be4bc5114a42e5ad28f707b3fabb7371526c1add82f` | Mobile detection shim, 158 B |
 | `easyinvest7.biz/app-924a52.js` | `0735606691bbdf35d38d7531c0e48363a21ef6f7224ebce2908a1b487f9ea6a2` | App bundle — byte-identical to `pumpanakin.fun/index.js` |
+| `easyinvest7.biz/api_config.bin` | — | Live `/api/config` ciphertext (rotates; captured 2026-11-12 22:12 UTC) |
+| `easyinvest7.biz/api_config.json` | — | Decrypted — plaintext identical to pumpanakin.fun's |
 
 ## On-chain program
 

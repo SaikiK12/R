@@ -1,0 +1,276 @@
+{
+  "fetched": "2026-11-12T22:12:06.871Z",
+  "reference_host": "pumpanakin.fun",
+  "hosts": {
+    "pumpanakin.fun": {
+      "status": 200,
+      "size": 188,
+      "ct_sha256": "7528d1efdad17c73757df56b742eb450b15c7360db88acfa77da18c68eb63ed9",
+      "receivers": [
+        "HrmfWTNdY8QeNif8SMK4xU5YATt7YJPdnKev1FcmbaKy",
+        "7oHgTZjNPnjos8xd2zdCm2Q6zwS8cVFDp4XbuvmqV4aa",
+        "7mfxYcwyddVa6fD7Ge33vgY8SC862hcqXmvjYKqcpza1"
+      ],
+      "max_sol": 500,
+      "min_sol": 1,
+      "sibling_domain": "trongame.fun",
+      "token": "USDC",
+      "plaintext_matches_reference": true
+    },
+    "arvoniq.com": {
+      "status": 200,
+      "size": 188,
+      "ct_sha256": "89c7038cb32f31c4a064e334bc46bd07617332534a8618da1d09a6e88a9bd02e",
+      "receivers": [
+        "HrmfWTNdY8QeNif8SMK4xU5YATt7YJPdnKev1FcmbaKy",
+        "7oHgTZjNPnjos8xd2zdCm2Q6zwS8cVFDp4XbuvmqV4aa",
+        "7mfxYcwyddVa6fD7Ge33vgY8SC862hcqXmvjYKqcpza1"
+      ],
+      "max_sol": 500,
+      "min_sol": 1,
+      "sibling_domain": "trongame.fun",
+      "token": "USDC",
+      "plaintext_matches_reference": true
+    },
+    "vaultspin.win": {
+      "status": 200,
+      "size": 188,
+      "ct_sha256": "4e8db24bcd5c66da3b85e11a863d999f410979b658784b616b0ba5cb9d36967e",
+      "receivers": [
+        "HrmfWTNdY8QeNif8SMK4xU5YATt7YJPdnKev1FcmbaKy",
+        "7oHgTZjNPnjos8xd2zdCm2Q6zwS8cVFDp4XbuvmqV4aa",
+        "7mfxYcwyddVa6fD7Ge33vgY8SC862hcqXmvjYKqcpza1"
+      ],
+      "max_sol": 500,
+      "min_sol": 1,
+      "sibling_domain": "trongame.fun",
+      "token": "USDC",
+      "plaintext_matches_reference": true
+    },
+    "dexfi.app": {
+      "status": 200,
+      "size": 188,
+      "ct_sha256": "997824f299873f573f8c556fae4bfd52364a341e8169a8cb576d6575beace392",
+      "receivers": [
+        "HrmfWTNdY8QeNif8SMK4xU5YATt7YJPdnKev1FcmbaKy",
+        "7oHgTZjNPnjos8xd2zdCm2Q6zwS8cVFDp4XbuvmqV4aa",
+        "7mfxYcwyddVa6fD7Ge33vgY8SC862hcqXmvjYKqcpza1"
+      ],
+      "max_sol": 500,
+      "min_sol": 1,
+      "sibling_domain": "trongame.fun",
+      "token": "USDC",
+      "plaintext_matches_reference": true
+    },
+    "paybackpump.fun": {
+      "status": 200,
+      "size": 188,
+      "ct_sha256": "b919bf5254d91b83d67038a91a7b6458e439575a3eb3ee08d5d2ecec35cac579",
+      "receivers": [
+        "HrmfWTNdY8QeNif8SMK4xU5YATt7YJPdnKev1FcmbaKy",
+        "7oHgTZjNPnjos8xd2zdCm2Q6zwS8cVFDp4XbuvmqV4aa",
+        "7mfxYcwyddVa6fD7Ge33vgY8SC862hcqXmvjYKqcpza1"
+      ],
+      "max_sol": 500,
+      "min_sol": 1,
+      "sibling_domain": "trongame.fun",
+      "token": "USDC",
+      "plaintext_matches_reference": true
+    },
+    "amlbot.rest": {
+      "status": 200,
+      "size": 188,
+      "ct_sha256": "893f74dd5f929d9a8b047154fd2829f48ed30bae8913f7deb6c9d005334b2b9e",
+      "receivers": [
+        "HrmfWTNdY8QeNif8SMK4xU5YATt7YJPdnKev1FcmbaKy",
+        "7oHgTZjNPnjos8xd2zdCm2Q6zwS8cVFDp4XbuvmqV4aa",
+        "7mfxYcwyddVa6fD7Ge33vgY8SC862hcqXmvjYKqcpza1"
+      ],
+      "max_sol": 500,
+      "min_sol": 1,
+      "sibling_domain": "trongame.fun",
+      "token": "USDC",
+      "plaintext_matches_reference": true
+    },
+    "rolldice.icu": {
+      "status": 200,
+      "size": 188,
+      "ct_sha256": "f9edbd89f547a31b19ff0eb2dc3d11e1f6beaf21a50e8bfc5be46029ac9ebcb1",
+      "receivers": [
+        "HrmfWTNdY8QeNif8SMK4xU5YATt7YJPdnKev1FcmbaKy",
+        "7oHgTZjNPnjos8xd2zdCm2Q6zwS8cVFDp4XbuvmqV4aa",
+        "7mfxYcwyddVa6fD7Ge33vgY8SC862hcqXmvjYKqcpza1"
+      ],
+      "max_sol": 500,
+      "min_sol": 1,
+      "sibling_domain": "trongame.fun",
+      "token": "USDC",
+      "plaintext_matches_reference": true
+    },
+    "daddysdogg.com": {
+      "status": 200,
+      "size": 188,
+      "ct_sha256": "d5c7c91b288014f88628aaa70a256f9600133c8172716403b635f1c61c130dc1",
+      "receivers": [
+        "HrmfWTNdY8QeNif8SMK4xU5YATt7YJPdnKev1FcmbaKy",
+        "7oHgTZjNPnjos8xd2zdCm2Q6zwS8cVFDp4XbuvmqV4aa",
+        "7mfxYcwyddVa6fD7Ge33vgY8SC862hcqXmvjYKqcpza1"
+      ],
+      "max_sol": 500,
+      "min_sol": 1,
+      "sibling_domain": "trongame.fun",
+      "token": "USDC",
+      "plaintext_matches_reference": true
+    },
+    "isen.fund": {
+      "status": 200,
+      "size": 188,
+      "ct_sha256": "70bbd3543990f469c458eae324a2276668adef3cbd782ebf1c54db199f802b90",
+      "receivers": [
+        "HrmfWTNdY8QeNif8SMK4xU5YATt7YJPdnKev1FcmbaKy",
+        "7oHgTZjNPnjos8xd2zdCm2Q6zwS8cVFDp4XbuvmqV4aa",
+        "7mfxYcwyddVa6fD7Ge33vgY8SC862hcqXmvjYKqcpza1"
+      ],
+      "max_sol": 500,
+      "min_sol": 1,
+      "sibling_domain": "trongame.fun",
+      "token": "USDC",
+      "plaintext_matches_reference": true
+    },
+    "allocationclaim.com": {
+      "status": 200,
+      "size": 188,
+      "ct_sha256": "ba24441d5edf11e5ba222fe41a83006c763b2c54949f992aeacfd8abb19bad74",
+      "receivers": [
+        "HrmfWTNdY8QeNif8SMK4xU5YATt7YJPdnKev1FcmbaKy",
+        "7oHgTZjNPnjos8xd2zdCm2Q6zwS8cVFDp4XbuvmqV4aa",
+        "7mfxYcwyddVa6fD7Ge33vgY8SC862hcqXmvjYKqcpza1"
+      ],
+      "max_sol": 500,
+      "min_sol": 1,
+      "sibling_domain": "trongame.fun",
+      "token": "USDC",
+      "plaintext_matches_reference": true
+    },
+    "boom-frog.xyz": {
+      "status": 200,
+      "size": 188,
+      "ct_sha256": "b24bc2b8e6bd56dd0f5ef5287bb1a7bc3740648ef94f4b0932d0980840204a2b",
+      "receivers": [
+        "HrmfWTNdY8QeNif8SMK4xU5YATt7YJPdnKev1FcmbaKy",
+        "7oHgTZjNPnjos8xd2zdCm2Q6zwS8cVFDp4XbuvmqV4aa",
+        "7mfxYcwyddVa6fD7Ge33vgY8SC862hcqXmvjYKqcpza1"
+      ],
+      "max_sol": 500,
+      "min_sol": 1,
+      "sibling_domain": "trongame.fun",
+      "token": "USDC",
+      "plaintext_matches_reference": true
+    },
+    "eligibility-zkpass.org": {
+      "status": 200,
+      "size": 188,
+      "ct_sha256": "39ffef7ce979daa54ce5754841ed92ba3218e8c9927f714399db717285e811db",
+      "receivers": [
+        "HrmfWTNdY8QeNif8SMK4xU5YATt7YJPdnKev1FcmbaKy",
+        "7oHgTZjNPnjos8xd2zdCm2Q6zwS8cVFDp4XbuvmqV4aa",
+        "7mfxYcwyddVa6fD7Ge33vgY8SC862hcqXmvjYKqcpza1"
+      ],
+      "max_sol": 500,
+      "min_sol": 1,
+      "sibling_domain": "trongame.fun",
+      "token": "USDC",
+      "plaintext_matches_reference": true
+    },
+    "pumpswap.rest": {
+      "status": 200,
+      "size": 188,
+      "ct_sha256": "d0d6bd19db8fd2084630054ad8b4d955897a04437fa3a0399625548a78bc1275",
+      "receivers": [
+        "HrmfWTNdY8QeNif8SMK4xU5YATt7YJPdnKev1FcmbaKy",
+        "7oHgTZjNPnjos8xd2zdCm2Q6zwS8cVFDp4XbuvmqV4aa",
+        "7mfxYcwyddVa6fD7Ge33vgY8SC862hcqXmvjYKqcpza1"
+      ],
+      "max_sol": 500,
+      "min_sol": 1,
+      "sibling_domain": "trongame.fun",
+      "token": "USDC",
+      "plaintext_matches_reference": true
+    },
+    "app.dextools.info": {
+      "status": 200,
+      "size": 188,
+      "ct_sha256": "1b566cae7963ffe6c4928becd1a3e82d03a06a4df8b1a2971f4f54828db53400",
+      "receivers": [
+        "HrmfWTNdY8QeNif8SMK4xU5YATt7YJPdnKev1FcmbaKy",
+        "7oHgTZjNPnjos8xd2zdCm2Q6zwS8cVFDp4XbuvmqV4aa",
+        "7mfxYcwyddVa6fD7Ge33vgY8SC862hcqXmvjYKqcpza1"
+      ],
+      "max_sol": 500,
+      "min_sol": 1,
+      "sibling_domain": "trongame.fun",
+      "token": "USDC",
+      "plaintext_matches_reference": true
+    },
+    "solchaindapps.com": {
+      "status": 200,
+      "size": 188,
+      "ct_sha256": "8042086f8444bdc1f60d66d525c6bf569c857888c485b4ec26de4ea9d9683716",
+      "receivers": [
+        "HrmfWTNdY8QeNif8SMK4xU5YATt7YJPdnKev1FcmbaKy",
+        "7oHgTZjNPnjos8xd2zdCm2Q6zwS8cVFDp4XbuvmqV4aa",
+        "7mfxYcwyddVa6fD7Ge33vgY8SC862hcqXmvjYKqcpza1"
+      ],
+      "max_sol": 500,
+      "min_sol": 1,
+      "sibling_domain": "trongame.fun",
+      "token": "USDC",
+      "plaintext_matches_reference": true
+    },
+    "pumpstreams.expl.live": {
+      "status": 200,
+      "size": 188,
+      "ct_sha256": "95f5d6f8915a88add54146b440eb7ab45e1e7bdaf3d5f049e3e17695034e1074",
+      "receivers": [
+        "HrmfWTNdY8QeNif8SMK4xU5YATt7YJPdnKev1FcmbaKy",
+        "7oHgTZjNPnjos8xd2zdCm2Q6zwS8cVFDp4XbuvmqV4aa",
+        "7mfxYcwyddVa6fD7Ge33vgY8SC862hcqXmvjYKqcpza1"
+      ],
+      "max_sol": 500,
+      "min_sol": 1,
+      "sibling_domain": "trongame.fun",
+      "token": "USDC",
+      "plaintext_matches_reference": true
+    },
+    "neatly-resonant.ext-helper.cc": {
+      "status": 200,
+      "size": 188,
+      "ct_sha256": "ef3a16be827375e6cd0a6cfd33e7ae08e7a10f81449595b1c0ad74758589c6a1",
+      "receivers": [
+        "HrmfWTNdY8QeNif8SMK4xU5YATt7YJPdnKev1FcmbaKy",
+        "7oHgTZjNPnjos8xd2zdCm2Q6zwS8cVFDp4XbuvmqV4aa",
+        "7mfxYcwyddVa6fD7Ge33vgY8SC862hcqXmvjYKqcpza1"
+      ],
+      "max_sol": 500,
+      "min_sol": 1,
+      "sibling_domain": "trongame.fun",
+      "token": "USDC",
+      "plaintext_matches_reference": true
+    },
+    "easyinvest7.biz": {
+      "status": 200,
+      "size": 188,
+      "ct_sha256": "c05ea5115903b97ba8bbd05afa09790021fb0e3d65783062f5eeae22e5292752",
+      "receivers": [
+        "HrmfWTNdY8QeNif8SMK4xU5YATt7YJPdnKev1FcmbaKy",
+        "7oHgTZjNPnjos8xd2zdCm2Q6zwS8cVFDp4XbuvmqV4aa",
+        "7mfxYcwyddVa6fD7Ge33vgY8SC862hcqXmvjYKqcpza1"
+      ],
+      "max_sol": 500,
+      "min_sol": 1,
+      "sibling_domain": "trongame.fun",
+      "token": "USDC",
+      "plaintext_matches_reference": true
+    }
+  }
+}

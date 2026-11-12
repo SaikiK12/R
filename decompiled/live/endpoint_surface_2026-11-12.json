@@ -1,0 +1,210 @@
+{
+  "fetched": "2026-11-12T22:12:06.871Z",
+  "host": "pumpanakin.fun",
+  "method": "GET only",
+  "paths": {
+    "/robots.txt": {
+      "status": 200,
+      "size": 1248,
+      "ctype": "text/plain; charset=utf-8"
+    },
+    "/sitemap.xml": {
+      "status": 404,
+      "size": 548,
+      "ctype": "text/html; charset=utf-8"
+    },
+    "/favicon.ico": {
+      "status": 200,
+      "size": 20222,
+      "ctype": "image/x-icon"
+    },
+    "/api/status": {
+      "status": 404,
+      "size": 548,
+      "ctype": "text/html; charset=utf-8"
+    },
+    "/api/health": {
+      "status": 404,
+      "size": 548,
+      "ctype": "text/html; charset=utf-8"
+    },
+    "/api/healthz": {
+      "status": 404,
+      "size": 548,
+      "ctype": "text/html; charset=utf-8"
+    },
+    "/api/version": {
+      "status": 404,
+      "size": 548,
+      "ctype": "text/html; charset=utf-8"
+    },
+    "/api/info": {
+      "status": 404,
+      "size": 548,
+      "ctype": "text/html; charset=utf-8"
+    },
+    "/api/stats": {
+      "status": 422,
+      "size": 22,
+      "ctype": "application/json",
+      "body": "{\"error\":\"VALIDATION\"}"
+    },
+    "/api/statistics": {
+      "status": 404,
+      "size": 548,
+      "ctype": "text/html; charset=utf-8"
+    },
+    "/api/admin": {
+      "status": 404,
+      "size": 548,
+      "ctype": "text/html; charset=utf-8"
+    },
+    "/api/dashboard": {
+      "status": 404,
+      "size": 548,
+      "ctype": "text/html; charset=utf-8"
+    },
+    "/api/panel": {
+      "status": 404,
+      "size": 548,
+      "ctype": "text/html; charset=utf-8"
+    },
+    "/api/tokens": {
+      "status": 404,
+      "size": 548,
+      "ctype": "text/html; charset=utf-8"
+    },
+    "/api/prices": {
+      "status": 404,
+      "size": 548,
+      "ctype": "text/html; charset=utf-8"
+    },
+    "/api/price": {
+      "status": 404,
+      "size": 548,
+      "ctype": "text/html; charset=utf-8"
+    },
+    "/api/rpc": {
+      "status": 404,
+      "size": 548,
+      "ctype": "text/html; charset=utf-8"
+    },
+    "/api/session": {
+      "status": 404,
+      "size": 548,
+      "ctype": "text/html; charset=utf-8"
+    },
+    "/api/log": {
+      "status": 404,
+      "size": 548,
+      "ctype": "text/html; charset=utf-8"
+    },
+    "/api/logs": {
+      "status": 404,
+      "size": 548,
+      "ctype": "text/html; charset=utf-8"
+    },
+    "/api/events": {
+      "status": 404,
+      "size": 548,
+      "ctype": "text/html; charset=utf-8"
+    },
+    "/api/telemetry": {
+      "status": 404,
+      "size": 548,
+      "ctype": "text/html; charset=utf-8"
+    },
+    "/api/config.json": {
+      "status": 404,
+      "size": 548,
+      "ctype": "text/html; charset=utf-8"
+    },
+    "/api/config/": {
+      "status": 200,
+      "size": 188,
+      "ctype": "text/plain; charset=utf-8",
+      "body": "�O��$y�\u0013LOV�FL\u0001ԏ�I㬢i\u0012\u0015��k���#�Y������nim�S)o�#\u0018w!���\u001e�\u0018m���\u0006���U��x�O��m� ��&p�:��Vl�Iy\u001d�]����M�BW�B���\u0017$m+ ݹgZ�Z\u00053��L���%\\\u001fy#\u0000�M�lH�h$��?i�%�%1�;� \u0013���\u0002������"
+    },
+    "/api/visits": {
+      "status": 404,
+      "size": 548,
+      "ctype": "text/html; charset=utf-8"
+    },
+    "/api/ban": {
+      "status": 404,
+      "size": 548,
+      "ctype": "text/html; charset=utf-8"
+    },
+    "/api/unban": {
+      "status": 404,
+      "size": 548,
+      "ctype": "text/html; charset=utf-8"
+    },
+    "/api/c": {
+      "status": 404,
+      "size": 548,
+      "ctype": "text/html; charset=utf-8"
+    },
+    "/api/c/": {
+      "status": 404,
+      "size": 548,
+      "ctype": "text/html; charset=utf-8"
+    },
+    "/api/handler": {
+      "status": 404,
+      "size": 548,
+      "ctype": "text/html; charset=utf-8"
+    },
+    "/api/process": {
+      "status": 404,
+      "size": 548,
+      "ctype": "text/html; charset=utf-8"
+    },
+    "/api/visit": {
+      "status": 404,
+      "size": 548,
+      "ctype": "text/html; charset=utf-8"
+    },
+    "/api/locales": {
+      "status": 422,
+      "size": 22,
+      "ctype": "application/json",
+      "body": "{\"error\":\"VALIDATION\"}"
+    },
+    "/api/lang": {
+      "status": 404,
+      "size": 548,
+      "ctype": "text/html; charset=utf-8"
+    },
+    "/api/locale": {
+      "status": 404,
+      "size": 548,
+      "ctype": "text/html; charset=utf-8"
+    },
+    "/api/i18n": {
+      "status": 404,
+      "size": 548,
+      "ctype": "text/html; charset=utf-8"
+    },
+    "/api/wallets": {
+      "status": 404,
+      "size": 548,
+      "ctype": "text/html; charset=utf-8"
+    },
+    "/api/receivers": {
+      "status": 404,
+      "size": 548,
+      "ctype": "text/html; charset=utf-8"
+    },
+    "/api/me": {
+      "status": 404,
+      "size": 548,
+      "ctype": "text/html; charset=utf-8"
+    },
+    "/api/user": {
+      "status": 404,
+      "size": 548,
+      "ctype": "text/html; charset=utf-8"
+    }
+  }
+}

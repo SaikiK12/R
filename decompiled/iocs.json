@@ -53,16 +53,19 @@
     "ab060a03-7874-4647-84d1-da019e4b51ea"
   ],
   "operator_paths": [
-    "/api/visit",
-    "/api/locales?lang=",
+    "/api/visit (POST-only; 404 to GET)",
+    "/api/locales?lang= (13 languages; all saved in decompiled/live/locales_*.json)",
     "/api/is-banned",
-    "/api/process",
+    "/api/process (POST-only; 404 to GET)",
     "/api/c/i",
     "/api/c/c/",
     "/api/c/f/",
-    "/api/handler",
-    "/api/config (live 2026-11-11, AES-GCM blob, not called by this bundle)"
+    "/api/handler (POST-only; 404 to GET)",
+    "/api/config (called by the bundle on every page load; corrected 2026-11-12)",
+    "/api/config/ (trailing-slash alias, same blob)",
+    "/api/stats (discovered 2026-11-12; 422 VALIDATION without unknown params; never called by the kit — operator-side)"
   ],
+  "endpoint_enumeration": "40 guessed paths GET-probed 2026-11-12, decompiled/live/endpoint_surface_2026-11-12.json. No status/health/admin/debug endpoints exposed. robots.txt is Cloudflare content-signals boilerplate.",
   "aes_key_salt": "B3ui3QZFrOPoGW7oMZgE4A",
   "runtime_fingerprints_2026_11_12": {
     "console_log": "1.18.4",

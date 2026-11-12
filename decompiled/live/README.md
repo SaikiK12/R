@@ -83,10 +83,10 @@ the same config. English `/api/locales` bodies match pumpanakin on all
 **Locale expansion** (2026-11-12): The backend now serves 11 languages
 (en, fr, zh, de, es, pt, it, ja, ko, ar, tr, pl). This is a significant
 expansion from 3 languages on 2026-11-11, indicating the operation is
-actively growing its geographic targeting. All locale files are in this
-directory. The pattern across all languages is identical: "Trust detected
-(0) issues" and "Perform transactions without confirmation" in every
-language.
+actively growing its geographic targeting. All 13 locale files are in this
+directory (`vi` saved 2026-11-12 22:12 UTC). The pattern across all
+languages is identical: "Trust detected (0) issues" and "Perform
+transactions without confirmation" in every language.
 
 **Receiver rotation** (between 2026-11-11 18:30 UTC and 2026-11-12 07:06 UTC):
 All three addresses in `/api/config` changed to fresh uninitialized wallets.

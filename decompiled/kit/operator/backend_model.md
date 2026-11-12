@@ -25,14 +25,23 @@ times and error shapes are consistent with a Node runtime.
 |---|---|---|---|---|---|
 | `/api/visit` | POST | none | — | `ok` / `banned` | Visit beacon; logs source, origin, tgid, tgus |
 | `/api/is-banned` | GET | none | — | `0` or `1` | Per-visitor ban check |
-| `/api/locales?lang={en\|fr\|zh}` | GET | none | — | 10-entry JSON array | Fake modal UI strings |
+| `/api/locales?lang={en\|fr\|zh\|…}` | GET | none | — | 10-entry JSON array | Fake modal UI strings (13 languages live 2026-11-12) |
 | `/api/config` | GET | none (AES-GCM encrypted response) | — | 188-byte AES-GCM blob | Live config: receivers, target token, amount range, sibling domain |
+| `/api/stats` | GET | **unknown — requires parameter(s) the kit never sends** | — | `422 {"error":"VALIDATION"}` | Discovered 2026-11-12 by surface enumeration. Not called by the bundle (no reference in the string table). Operator-side endpoint; params not recovered |
 | `/api/c/i` | POST | AES-GCM encrypted body | AES-GCM bytes as base64 | binary session response | Connect notification; server returns session ID and optional decoy config |
 | `/api/c/c/{a}/{b}` | POST | none | `{}` (empty JSON) | — | Confirm notification (victim clicked Confirm in fake dialog) |
 | `/api/c/f/{a}` | POST | none | packed byte arrays as base64 | — | Final notification (transaction submitted) |
 | `/api/process` | POST | none | binary payload as base64 | — | Receives signed transactions; server completes operator signatures and broadcasts |
 | `/api/handler` | POST | AES-GCM encrypted body | AES-GCM bytes as base64, keepalive | — | Encrypted telemetry events (wallet name, kit version, pubkey, language, tokens) |
 | `/config` | GET | — | — | lure HTML (SPA fallback) | Not a real endpoint; Nuxt SPA fallback |
+
+Full GET-only enumeration (2026-11-12, `decompiled/live/endpoint_surface_2026-11-12.json`):
+40 guessed paths probed. Everything 404s except the known surface,
+`/api/stats` (422), `/api/config/` (trailing-slash alias of `/api/config`,
+same 188-byte blob), and `/robots.txt` (200, 1,248 B — Cloudflare
+content-signals boilerplate, no path disclosures). `/api/handler`,
+`/api/process`, and `/api/visit` return 404 to GET: they are POST-only.
+No status/health/admin/debug endpoint is exposed.
 
 ## Endpoint detail
 
