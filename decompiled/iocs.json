@@ -58,6 +58,13 @@
     "deployed_slot": 461751300,
     "analysis": "decompiled/kit/chain/operator_program.md"
   },
+  "dynamic_captures_2026_11_11": {
+    "pumpanakin_tx": "decompiled/live/dynamic/captured_tx.txt",
+    "amlbot_usdt_staging": [
+      "A3znyaRYUvi7GbQv1pp9CqqiVo7anddU9rPKFH55V28R (placeholder-signer authority on the USDT decoy leg)",
+      "8hnVkd24Gp7s1QYVPBQSayS4uLokKEj1Uq6NFjk6PibK (USDT source account)"
+    ]
+  },
   "live_config_2026_11_11": {
     "target_token_mint": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v (USDC)",
     "receivers": [

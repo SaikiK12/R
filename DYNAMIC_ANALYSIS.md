@@ -96,6 +96,35 @@ two signature placeholders (treasury, receiver) are filled in by the
 operator after the partially-signed transaction arrives at
 `/api/process` — which is exactly why that endpoint exists.
 
+## Sibling live run: amlbot.rest (2026-11-11)
+
+The same harness against the fake-AML-costume sibling: identical flow
+shape (CTA → AppKit modal → popup connect flow → portfolio → fake
+confirm → one `signTransaction`), but the assembled transaction is a
+**richer decoy construction** (599 bytes, 10 accounts, 4 instructions):
+
+```
+ix0  operator program, disc 0x02, accounts [victim]            (theft leg)
+ix1  SystemProgram Transfer 1 SOL        treasury -> victim    (decoy)
+ix2  ATA program CreateAccount           treasury pays rent for a USDT
+     (data 01)                           token account OWNED BY THE VICTIM
+ix3  Token Transfer 500 USDT             8hnVkd24… -> that new ATA,
+     (500,000,000 base units)            authorized by A3znyaRY…
+```
+
+Differences from pumpanakin's tx: the decoy is **500 USDT** (Tether
+mint `Es9vMFrza…`, not USDC), and the kit first creates the victim's
+USDT token account with treasury funds — so the fake incoming balance
+shows up as a real, visible token account in the wallet UI. That is a
+strictly more convincing illusion than pumpanakin's bare USDC leg.
+New operator-side addresses from this capture: `A3znyaRYUvi7GbQv1pp9Cq
+iVo7anddU9rPKFH55V28R` (placeholder-signer authority) and
+`8hnVkd24Gp7s1QYVPBQSayS4uLokKEj1Uq6NFjk6PibK` (USDT source). Both
+flows share the same core: treasury fee payer, disc-02 theft leg,
+operator-completed co-signatures, `?b=1` connect flow. vaultspin.win
+serves 200 to curl but failed to load in the harness (about:blank) —
+noted for a later retry.
+
 ## What this adds over static analysis
 
 | Fact | Only provable live |
