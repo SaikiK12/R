@@ -1090,3 +1090,49 @@ per-kit choice.
 | On-chain persistence | None per victim (drain and done) | Program owns 1,019 wallets months later |
 | Split | `0x15 02 <pct>`: 75–80% affiliate / 20–25% vendor | 75/25 to two laundering addresses |
 | Detection hook | CPI-side token decreases; outer assertions pass | `WALLET_ASSIGNED` + later `DELEGATE_SPEND` |
+
+---
+
+# Public drainer-source collections (2026-11-13 inventory)
+
+What actually exists publicly, what we hold, and what it shows. Full
+inventory with hashes: `archive/external_samples/README.md`.
+
+**Collections that matter:**
+
+| Source | Contents | Held |
+|---|---|---|
+| muellerberndt's gists | Inferno + Angel deobfuscated listings, Inferno configs, his AST deobfuscator | yes (archived) |
+| HarukaMa gist | Inferno variant + backend traffic-decryption tooling | yes |
+| thegiver86/malware-drainer-samples | Inferno malspam kit, Ethane multichain demo, **Solana Phantom Drainer template**, 5 YARA rules (ZIP password `infected`) | yes (extracted) |
+| Mandiant CLINKSINK write-up | Solana drainer family (Jan 2024), source later leaked per reporting | analysis only |
+| saiyan1337/x-files, VenomDrainer mirrors, TN3T, sfeyt89x | turnkey/keys collections | documented, not mirrored |
+
+**The Solana generational line, now visible end to end:**
+
+1. **2024 turnkey templates** (Solana Phantom Drainer sample): one
+   obfuscated `index.js`, a one-page airdrop lure, and a Telegram bot
+   as the entire backend — receiver address and log channel hard-coded
+   in `wallet.js`. No on-chain program, no decoys, no config push, no
+   cloaking. Built for absolute beginners ("upload to Vercel").
+2. **CLINKSINK (Jan 2024, Mandiant):** professionalized JS, multiple
+   themed campaigns, and — per Mandiant — a source leak that spawned
+   more DaaS offerings.
+3. **2026 hexfomo-class kit (this repo's subject):** AppKit/Reown UX
+   layer, config-driven receiver rotation, AES-GCM telemetry, UA
+   cloaking, 14-language fake dialogs, decoy transactions that survive
+   wallet preview checks, an upgradeable on-chain program with the
+   affiliate split executed in-program (disc `0x15 <pct>`), and a
+   per-campaign on-chain ledger.
+
+The direction of travel: backend logic moved from a Telegram bot, to a
+PHP/Node panel, to the chain itself. Each generation moved more of the
+incriminating surface into places takedowns can't reach (upgradeable
+program, config push) while the disposable surface (lure domains)
+became cheaper to lose.
+
+**Config convergence.** Inferno's `config-global.json` (button
+classes/texts, WalletConnect project id, chain targets) is the same
+affiliate-facing config model as this kit's `/api/config` push. The
+DaaS vendors standardized the same shape: affiliates get knobs, the
+vendor keeps the keys.
