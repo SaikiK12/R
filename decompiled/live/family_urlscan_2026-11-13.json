@@ -1,0 +1,433 @@
+{
+  "source": "urlscan.io hash: pivot",
+  "query": "hash:0735606691bbdf35d38d7531c0e48363a21ef6f7224ebce2908a1b487f9ea6a2",
+  "fetched": "2026-11-13",
+  "total_scans": 77,
+  "note": "All serve the byte-identical reference bundle. Domains our sandbox IP cannot reach directly are still captured here because urlscan's crawler is not IP-blocked by the kit. oshivault.com and solbarn.cc re-verified live serving the reference bundle from our egress 2026-11-13.",
+  "domains": {
+    "www-meteora.ag-v2.ink": {
+      "apex": "ag-v2.ink",
+      "domainAgeDays": 1,
+      "first_result_seen": "2026-11-13",
+      "title": "Home | Meteora",
+      "ip": "150.251.227.160",
+      "asn": "UniFlex UniFlex Systems Limited, GB",
+      "click_id": true
+    },
+    "www-jup.ag-wc.ink": {
+      "apex": "ag-wc.ink",
+      "domainAgeDays": 0,
+      "first_result_seen": "2026-11-13",
+      "title": "Jupiter: The Home of Onchain Finance",
+      "ip": "150.251.227.160",
+      "asn": "UniFlex UniFlex Systems Limited, GB",
+      "click_id": true
+    },
+    "jup.ag-wc.ink": {
+      "apex": "ag-wc.ink",
+      "domainAgeDays": 0,
+      "first_result_seen": "2026-11-13",
+      "title": "Jupiter: The Home of Onchain Finance",
+      "ip": "150.251.227.160",
+      "asn": "UniFlex UniFlex Systems Limited, GB",
+      "click_id": true
+    },
+    "app.dextools.info": {
+      "apex": "dextools.info",
+      "domainAgeDays": 281,
+      "first_result_seen": "2026-11-13",
+      "title": "Connect wallet \u2013 Manage Wallets & DeFi Assets | by DEXTools",
+      "ip": "104.21.15.167",
+      "asn": "CLOUDFLARENET - Cloudflare, Inc., US",
+      "click_id": false
+    },
+    "solchaindapps.com": {
+      "apex": "solchaindapps.com",
+      "domainAgeDays": 125,
+      "first_result_seen": "2026-11-13",
+      "title": "Home | Meteora",
+      "ip": "188.114.96.3",
+      "asn": "CLOUDFLARENET - Cloudflare, Inc., US",
+      "click_id": false
+    },
+    "juplter.solroom.cc": {
+      "apex": "solroom.cc",
+      "domainAgeDays": 0,
+      "first_result_seen": "2026-11-13",
+      "title": "Jupiter l Christmas Distribution",
+      "ip": "104.21.39.110",
+      "asn": "CLOUDFLARENET - Cloudflare, Inc., US",
+      "click_id": false
+    },
+    "pumpstreamhub.live": {
+      "apex": "pumpstreamhub.live",
+      "domainAgeDays": 0,
+      "first_result_seen": "2026-11-12",
+      "title": "Pump",
+      "ip": "172.67.183.246",
+      "asn": "CLOUDFLARENET - Cloudflare, Inc., US",
+      "click_id": false
+    },
+    "jup-ag.solroom.cc": {
+      "apex": "solroom.cc",
+      "domainAgeDays": 0,
+      "first_result_seen": "2026-11-12",
+      "title": "Jupiter l Christmas Distribution",
+      "ip": "104.21.39.110",
+      "asn": "CLOUDFLARENET - Cloudflare, Inc., US",
+      "click_id": false
+    },
+    "jup-dex.solroom.cc": {
+      "apex": "solroom.cc",
+      "domainAgeDays": 0,
+      "first_result_seen": "2026-11-12",
+      "title": "Jupiter l Christmas Distribution",
+      "ip": "172.67.144.147",
+      "asn": "CLOUDFLARENET - Cloudflare, Inc., US",
+      "click_id": false
+    },
+    "jup.solroom.cc": {
+      "apex": "solroom.cc",
+      "domainAgeDays": 0,
+      "first_result_seen": "2026-11-12",
+      "title": "Jupiter l Christmas Distribution",
+      "ip": "104.21.39.110",
+      "asn": "CLOUDFLARENET - Cloudflare, Inc., US",
+      "click_id": false
+    },
+    "jupiter.solroom.cc": {
+      "apex": "solroom.cc",
+      "domainAgeDays": 0,
+      "first_result_seen": "2026-11-12",
+      "title": "Jupiter | Airdrop",
+      "ip": "172.67.144.147",
+      "asn": "CLOUDFLARENET - Cloudflare, Inc., US",
+      "click_id": false
+    },
+    "oshivault.com": {
+      "apex": "oshivault.com",
+      "domainAgeDays": 7,
+      "first_result_seen": "2026-11-12",
+      "title": "OSHI Allocation is Live | Claim Portal",
+      "ip": "188.114.97.3",
+      "asn": "CLOUDFLARENET - Cloudflare, Inc., US",
+      "click_id": false
+    },
+    "swap-jup.ag-wc.ink": {
+      "apex": "ag-wc.ink",
+      "domainAgeDays": 0,
+      "first_result_seen": "2026-11-12",
+      "title": "Jupiter: The Home of Onchain Finance",
+      "ip": "150.251.227.160",
+      "asn": "UniFlex UniFlex Systems Limited, GB",
+      "click_id": true
+    },
+    "updog.pumptracker.store": {
+      "apex": "pumptracker.store",
+      "domainAgeDays": 0,
+      "first_result_seen": "2026-11-12",
+      "title": "Pump | Voting",
+      "ip": "2606:4700:3031::ac43:d2e5",
+      "asn": "CLOUDFLARENET - Cloudflare, Inc., US",
+      "click_id": false
+    },
+    "amlbot.rest": {
+      "apex": "amlbot.rest",
+      "domainAgeDays": 1084,
+      "first_result_seen": "2026-11-12",
+      "title": "AMLBot - Comprehensive AML Compliance Solutions for Crypto",
+      "ip": "104.21.55.122",
+      "asn": "CLOUDFLARENET - Cloudflare, Inc., US",
+      "click_id": false
+    },
+    "meteora.ag-v2.ink": {
+      "apex": "ag-v2.ink",
+      "domainAgeDays": 0,
+      "first_result_seen": "2026-11-12",
+      "title": "Home | Meteora",
+      "ip": "150.251.227.160",
+      "asn": "UniFlex UniFlex Systems Limited, GB",
+      "click_id": true
+    },
+    "airdrop-floatlaunch.xyz": {
+      "apex": "airdrop-floatlaunch.xyz",
+      "domainAgeDays": 0,
+      "first_result_seen": "2026-11-11",
+      "title": "Float \u00b7 November 11 Airdrop",
+      "ip": "188.114.97.3",
+      "asn": "CLOUDFLARENET - Cloudflare, Inc., US",
+      "click_id": false
+    },
+    "tracker.web-jupiter.gd": {
+      "apex": "web-jupiter.gd",
+      "domainAgeDays": 2,
+      "first_result_seen": "2026-11-11",
+      "title": "Jupiter: The Home of Onchain Finance",
+      "ip": "150.251.227.160",
+      "asn": "UniFlex UniFlex Systems Limited, GB",
+      "click_id": false
+    },
+    "app.web-jupiter.gd": {
+      "apex": "web-jupiter.gd",
+      "domainAgeDays": 6,
+      "first_result_seen": "2026-11-11",
+      "title": "Jupiter: The Home of Onchain Finance",
+      "ip": "150.251.227.160",
+      "asn": "UniFlex UniFlex Systems Limited, GB",
+      "click_id": false
+    },
+    "sol-meteora.ag-v2.ink": {
+      "apex": "ag-v2.ink",
+      "domainAgeDays": 0,
+      "first_result_seen": "2026-11-11",
+      "title": "Home | Meteora",
+      "ip": "150.251.227.160",
+      "asn": "UniFlex UniFlex Systems Limited, GB",
+      "click_id": true
+    },
+    "arvoniq.com": {
+      "apex": "arvoniq.com",
+      "domainAgeDays": 88,
+      "first_result_seen": "2026-11-11",
+      "title": "Solana",
+      "ip": "188.114.96.3",
+      "asn": "CLOUDFLARENET - Cloudflare, Inc., US",
+      "click_id": false
+    },
+    "claim-floatlaunch.xyz": {
+      "apex": "claim-floatlaunch.xyz",
+      "domainAgeDays": 0,
+      "first_result_seen": "2026-11-11",
+      "title": "Float \u00b7 November 11 Airdrop",
+      "ip": "188.114.96.3",
+      "asn": "CLOUDFLARENET - Cloudflare, Inc., US",
+      "click_id": false
+    },
+    "dexfi.app": {
+      "apex": "dexfi.app",
+      "domainAgeDays": 151,
+      "first_result_seen": "2026-11-11",
+      "title": "Swap | Dexlab",
+      "ip": "172.67.134.16",
+      "asn": "CLOUDFLARENET - Cloudflare, Inc., US",
+      "click_id": false
+    },
+    "solme.top": {
+      "apex": "solme.top",
+      "domainAgeDays": 713,
+      "first_result_seen": "2026-11-11",
+      "title": "solme.top \u2014 Sol Sniper Bot",
+      "ip": "104.21.48.151",
+      "asn": "CLOUDFLARENET - Cloudflare, Inc., US",
+      "click_id": false
+    },
+    "eligibility-zkpass.org": {
+      "apex": "eligibility-zkpass.org",
+      "domainAgeDays": 294,
+      "first_result_seen": "2026-11-11",
+      "title": null,
+      "ip": "188.114.97.3",
+      "asn": "CLOUDFLARENET - Cloudflare, Inc., US",
+      "click_id": false
+    },
+    "daddysdogg.com": {
+      "apex": "daddysdogg.com",
+      "domainAgeDays": 723,
+      "first_result_seen": "2026-11-11",
+      "title": "Andrew Tate's Dog | Airdrop",
+      "ip": "188.114.96.3",
+      "asn": "CLOUDFLARENET - Cloudflare, Inc., US",
+      "click_id": false
+    },
+    "vaultspin.win": {
+      "apex": "vaultspin.win",
+      "domainAgeDays": 17,
+      "first_result_seen": "2026-11-11",
+      "title": "ClaudeTrade \u2014 trading agents",
+      "ip": "172.67.222.158",
+      "asn": "CLOUDFLARENET - Cloudflare, Inc., US",
+      "click_id": false
+    },
+    "boom-frog.xyz": {
+      "apex": "boom-frog.xyz",
+      "domainAgeDays": 2,
+      "first_result_seen": "2026-11-10",
+      "title": "BOOK OF MEME \u2014 BOME",
+      "ip": "188.114.97.3",
+      "asn": "CLOUDFLARENET - Cloudflare, Inc., US",
+      "click_id": false
+    },
+    "rank-floatlaunch.xyz": {
+      "apex": "rank-floatlaunch.xyz",
+      "domainAgeDays": 0,
+      "first_result_seen": "2026-11-10",
+      "title": "Float \u00b7 November 11 Airdrop",
+      "ip": "172.67.206.11",
+      "asn": "CLOUDFLARENET - Cloudflare, Inc., US",
+      "click_id": false
+    },
+    "luna-start.trade": {
+      "apex": "luna-start.trade",
+      "domainAgeDays": 1,
+      "first_result_seen": "2026-11-10",
+      "title": "Luna Launch",
+      "ip": "104.21.61.4",
+      "asn": "CLOUDFLARENET - Cloudflare, Inc., US",
+      "click_id": false
+    },
+    "pumpswap.rest": {
+      "apex": "pumpswap.rest",
+      "domainAgeDays": 261,
+      "first_result_seen": "2026-11-10",
+      "title": "PUMP | Solana Meme Token",
+      "ip": "172.67.164.145",
+      "asn": "CLOUDFLARENET - Cloudflare, Inc., US",
+      "click_id": false
+    },
+    "dexscreener.fyi": {
+      "apex": "dexscreener.fyi",
+      "domainAgeDays": 234,
+      "first_result_seen": "2026-11-10",
+      "title": "DEX Screener",
+      "ip": "35.157.26.135",
+      "asn": "AMAZON-02 - Amazon.com, Inc., US",
+      "click_id": false
+    },
+    "moonshot-claim.pages.dev": {
+      "apex": "moonshot-claim.pages.dev",
+      "domainAgeDays": 0,
+      "first_result_seen": "2026-11-10",
+      "title": "Vote to List \u2014 Powered by Moonshot",
+      "ip": "172.66.44.250",
+      "asn": "CLOUDFLARENET - Cloudflare, Inc., US",
+      "click_id": false
+    },
+    "allocationclaim.com": {
+      "apex": "allocationclaim.com",
+      "domainAgeDays": 872,
+      "first_result_seen": "2026-11-09",
+      "title": "BONK COIN",
+      "ip": "172.67.130.219",
+      "asn": "CLOUDFLARENET - Cloudflare, Inc., US",
+      "click_id": false
+    },
+    "cryptocommerceohpmigration.online": {
+      "apex": "cryptocommerceohpmigration.online",
+      "domainAgeDays": 0,
+      "first_result_seen": "2026-11-09",
+      "title": "Trade MHI",
+      "ip": "188.114.97.3",
+      "asn": "CLOUDFLARENET - Cloudflare, Inc., US",
+      "click_id": false
+    },
+    "login.web-jupiter.gd": {
+      "apex": "web-jupiter.gd",
+      "domainAgeDays": 2,
+      "first_result_seen": "2026-11-09",
+      "title": "Jupiter: The Home of Onchain Finance",
+      "ip": "31.76.120.11",
+      "asn": "nodehost-as NODE HOST LIMITED, GB",
+      "click_id": true
+    },
+    "meteora-exchange.pages.dev": {
+      "apex": "meteora-exchange.pages.dev",
+      "domainAgeDays": 47,
+      "first_result_seen": "2026-11-09",
+      "title": "Home | Meteora",
+      "ip": "172.67.184.208",
+      "asn": "CLOUDFLARENET - Cloudflare, Inc., US",
+      "click_id": true
+    },
+    "rolldice.icu": {
+      "apex": "rolldice.icu",
+      "domainAgeDays": 26,
+      "first_result_seen": "2026-11-09",
+      "title": "ROLLDICE \u2014 Two Dice. Double Rewards.",
+      "ip": "2606:4700:3035::ac43:acd3",
+      "asn": "CLOUDFLARENET - Cloudflare, Inc., US",
+      "click_id": false
+    },
+    "isen.fund": {
+      "apex": "isen.fund",
+      "domainAgeDays": 31,
+      "first_result_seen": "2026-11-08",
+      "title": "isen.fund \u2014 Token market overview",
+      "ip": "172.67.222.243",
+      "asn": "CLOUDFLARENET - Cloudflare, Inc., US",
+      "click_id": false
+    },
+    "meteora-exchange-1yz.pages.dev": {
+      "apex": "meteora-exchange-1yz.pages.dev",
+      "domainAgeDays": 0,
+      "first_result_seen": "2026-11-08",
+      "title": "Home | Meteora",
+      "ip": "172.66.44.58",
+      "asn": "CLOUDFLARENET - Cloudflare, Inc., US",
+      "click_id": true
+    },
+    "launchpad.web-jupiter.gd": {
+      "apex": "web-jupiter.gd",
+      "domainAgeDays": 0,
+      "first_result_seen": "2026-11-08",
+      "title": "Jupiter: The Home of Onchain Finance",
+      "ip": "31.59.120.58",
+      "asn": "AS56971 CGI GLOBAL LIMITED, HK",
+      "click_id": true
+    },
+    "meteora-exchange-5eq.pages.dev": {
+      "apex": "meteora-exchange-5eq.pages.dev",
+      "domainAgeDays": 0,
+      "first_result_seen": "2026-11-08",
+      "title": "Home | Meteora",
+      "ip": "172.66.44.163",
+      "asn": "CLOUDFLARENET - Cloudflare, Inc., US",
+      "click_id": true
+    },
+    "jupiter-verify.xyz": {
+      "apex": "jupiter-verify.xyz",
+      "domainAgeDays": 118,
+      "first_result_seen": "2026-11-07",
+      "title": "Rusk Inu: Dashboard | VRFD",
+      "ip": "172.67.200.195",
+      "asn": "CLOUDFLARENET - Cloudflare, Inc., US",
+      "click_id": false
+    },
+    "paybackpump.fun": {
+      "apex": "paybackpump.fun",
+      "domainAgeDays": 235,
+      "first_result_seen": "2026-11-07",
+      "title": "Pump",
+      "ip": "188.114.96.3",
+      "asn": "CLOUDFLARENET - Cloudflare, Inc., US",
+      "click_id": false
+    },
+    "pumpstreams.expl.live": {
+      "apex": "expl.live",
+      "domainAgeDays": 190,
+      "first_result_seen": "2026-11-07",
+      "title": "Pump",
+      "ip": "172.67.156.6",
+      "asn": "CLOUDFLARENET - Cloudflare, Inc., US",
+      "click_id": false
+    },
+    "scamsem.solbarn.cc": {
+      "apex": "solbarn.cc",
+      "domainAgeDays": 0,
+      "first_result_seen": "2026-11-07",
+      "title": "scamsem Airdrop",
+      "ip": "188.114.96.3",
+      "asn": "CLOUDFLARENET - Cloudflare, Inc., US",
+      "click_id": false
+    },
+    "meteora-ag-b5w.pages.dev": {
+      "apex": "meteora-ag-b5w.pages.dev",
+      "domainAgeDays": 2,
+      "first_result_seen": "2026-11-06",
+      "title": "Home | Meteora",
+      "ip": "188.114.96.3",
+      "asn": "CLOUDFLARENET - Cloudflare, Inc., US",
+      "click_id": true
+    }
+  },
+  "count_distinct": 47
+}

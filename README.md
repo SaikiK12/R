@@ -19,6 +19,7 @@ all of it proven by artifacts in this repo.
 | `FRONTEND_LAYER.md` | The lure pages as social engineering: filler text, homoglyphs, dictionary swap, per-lure tricks |
 | `WEAKNESSES.md` | F1–F22: where the operation is weak, with live re-verification and corrections |
 | `ECOSYSTEM.md` | Industry context (DaaS, Rublevka method, StepDrainer) + distribution channels and the affiliate machine |
+| `HUNTING.md` | Where and how to find live lures of this family: urlscan pivots, scam feeds, CT, on-chain, the hunting loop |
 | `MERGED_KIT.md` | Cross-kit analysis: Inferno/Rublevka/this kit compared, synthesized, and projected next generation |
 
 ## Evidence and reconstructions
