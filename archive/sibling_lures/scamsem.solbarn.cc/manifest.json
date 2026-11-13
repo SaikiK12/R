@@ -1,0 +1,51 @@
+{
+  "host": "scamsem.solbarn.cc",
+  "status": 200,
+  "html_bytes": 15373,
+  "html_sha256": "6a4481c26d117893f4964e28ae9ad127cb73b0e5351717aeb6b3f07c99a41c60",
+  "title": "scamsem Airdrop",
+  "server": "cloudflare",
+  "social_links": [],
+  "page_assets": [
+    "41WpXn15fxQXEGhiKnkqHcoJn14tNXXgmymLKE57pump.png",
+    "/_preview.png",
+    "style-awr6i.css",
+    "script-7unij.js",
+    "../../_nuxt/assets/index.js",
+    "assets/intro_background.svg",
+    "assets/intro.svg",
+    "assets/live.svg",
+    "assets/intro_info_about.svg",
+    "assets/intro_info_rules.svg",
+    "assets/intro_alert.svg",
+    "assets/intro_info_car.svg",
+    "assets/rules_waiting.svg"
+  ],
+  "bundle": {
+    "status": 200,
+    "size": 1034759,
+    "sha256": "0735606691bbdf35d38d7531c0e48363a21ef6f7224ebce2908a1b487f9ea6a2",
+    "reference": true
+  },
+  "config": {
+    "pt_len": 160,
+    "receivers": [
+      "HrmfWTNdY8QeNif8SMK4xU5YATt7YJPdnKev1FcmbaKy",
+      "7oHgTZjNPnjos8xd2zdCm2Q6zwS8cVFDp4XbuvmqV4aa",
+      "7mfxYcwyddVa6fD7Ge33vgY8SC862hcqXmvjYKqcpza1"
+    ],
+    "max": 500,
+    "min": 1,
+    "sibling": "trongame.fun",
+    "token": "USDC"
+  },
+  "locale_en": {
+    "status": 200,
+    "size": 378,
+    "same_as_pumpanakin": true
+  },
+  "is_banned": {
+    "status": 200,
+    "body": "0"
+  }
+}

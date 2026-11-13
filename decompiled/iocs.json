@@ -69,10 +69,13 @@
       "trongame.fun (DNS-dead as of 2026-11-12 16:54 UTC)"
     ],
     "urlscan_hash_pivot_2026_11_13": {
-      "method": "urlscan.io hash: pivot on the reference bundle SHA-256 — 77 scans, 47 distinct domains. Evidence: decompiled/live/family_urlscan_2026-11-13.json. Method guide: HUNTING.md.",
-      "verified_live_from_our_egress": ["oshivault.com", "solbarn.cc"],
+      "method": "urlscan.io hash: pivot on the reference bundle SHA-256 \u2014 77 scans, 47 distinct domains. Evidence: decompiled/live/family_urlscan_2026-11-13.json. Method guide: HUNTING.md.",
+      "verified_live_from_our_egress": [
+        "oshivault.com",
+        "solbarn.cc"
+      ],
       "newly_surfaced_clusters": [
-        "*.solroom.cc (jup, jupiter, juplter, jup-ag, jup-dex — Jupiter clones, age 0)",
+        "*.solroom.cc (jup, jupiter, juplter, jup-ag, jup-dex \u2014 Jupiter clones, age 0)",
         "jup.ag-wc.ink, www-jup.ag-wc.ink, swap-jup.ag-wc.ink (age 0)",
         "meteora.ag-v2.ink, sol-meteora.ag-v2.ink, www-meteora.ag-v2.ink (click_id TDS)",
         "web-meteora.com, web-meteora.at, web-meteora.st",
@@ -99,7 +102,18 @@
       "onlybulls://wallet",
       "dlicom.me"
     ],
-    "note": "All sibling_lures serve the byte-identical reference bundle and the same decrypted /api/config; one centrally-managed operation. Details in FAMILY_MAP.md."
+    "note": "All sibling_lures serve the byte-identical reference bundle and the same decrypted /api/config; one centrally-managed operation. Details in FAMILY_MAP.md.",
+    "payload_hosts_2026_11_13": [
+      "stockbox.cfd + radar-nutmeg.stockbox.cfd (payload hosts for updog.pumptracker.store, live 2026-11-13: reference bundle + same decrypted config as pumpanakin. The costume calls radar-nutmeg.stockbox.cfd/api/visit?origin=updog.pumptracker.store \u2014 the origin attribution param observed live)"
+    ],
+    "new_fleet_2026_11_13": {
+      "source": "urlscan hash pivot + live browser walk (HUNTING.md, archive/sibling_lures/manifest_newfleet_2026-11-13.json, screenshots in artifacts)",
+      "oshivault.com": "OSHI NFT allocation claim portal, per-rarity daily yield tiers (2/3/5/8/15 OSH/day). Costume built with LOVABLE (AI site builder: lovable.app preview links, cdn.gpteng.co/lovable.js, stray 'Edit with' button left in). Kit runtime identical (_0x5/_0x12, console 1.18.4, is-banned->config->visit, w3m-modal).",
+      "pumpstreamhub.live": "Full pump.fun terminal clone: fake trader leaderboard, livestream.mp4, charts, trade feed \u2014 backed by REAL dexscreener.com search API + live websocket wss://feed.dexscreener.com/feed/ws. Buy/Sell CTAs.",
+      "scamsem.solbarn.cc": "SCAMSEM token airdrop, phased rollout (Phase 1-4), homoglyph text. NOT a research mirror (corrects DEPLOYMENT_MAP note): serves the current operator config and queries lite-api.jup.ag/tokens/v2 for its own token mint BfJEEokcbSugKSjxEpgnAK1GU14jAM6c4Bvx1Gku1dFP (localStorage token-price-cache-SCAMSEM).",
+      "updog.pumptracker.store": "pump.fun voting clone ('Vote to Win', fake live vote feed in SOL, 886/3000 votes, FAQ). Own frontend app; kit loads cross-origin from radar-nutmeg.stockbox.cfd. New localStorage key ua_vid. Widgets: /_assets/widget-CLOUDFLAER/cloudflare.js (misspelled CLOUDFLAER), /__uploader_track/metric.js.",
+      "dead_or_cloaked": "solroom.cc cluster (403), ag-wc.ink + ag-v2.ink clusters (ECONNRESET), web-meteora.com/st (ECONNRESET), web-jupiter.gd (403), web-jupiter.st (302), juphub/juplaunch/solswap.ink (301), pumptracker.store root (NXDOMAIN), solbarn.cc root (404), web-meteora.at (parked domain, not kit)"
+    }
   },
   "rpc_endpoints": [
     "https://mainnet.helius-rpc.com/?api-key=0b9f580f-8102-4b89-928b-8770a62771f0 (live 2026-11-11)",

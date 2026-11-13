@@ -13,6 +13,24 @@ decrypt to one config (receivers rotated again the same day; see
 loads it from `neatly-resonant.ext-helper.cc`, which does. The Nov 11
 table below is the original hunt, not the current receiver list.
 
+**New fleet, 2026-11-13 (urlscan hash pivot → live walk).** Full detail:
+`decompiled/iocs.json` → `new_fleet_2026_11_13`. Four new costumes,
+each walked live:
+
+| Host | Costume | Distinct features |
+|---|---|---|
+| oshivault.com | OSHI NFT allocation portal | **Built with Lovable (AI site builder)** — preview links and an "Edit with" button left in. Per-rarity yield tiers (2–15 OSH/day) |
+| pumpstreamhub.live | pump.fun trading terminal | **Real market data**: dexscreener.com search API + live `wss://feed.dexscreener.com/feed/ws` websocket; livestream.mp4, fake leaderboard, Buy/Sell |
+| scamsem.solbarn.cc | SCAMSEM token airdrop | Phased rollout (Phase 1–4); queries **lite-api.jup.ag** for its own token mint `BfJEEokcbSugKSjxEpgnAK1GU14jAM6c4Bvx1Gku1dFP`. **Correction: this is operator infra, not a research mirror** — it serves the current config |
+| updog.pumptracker.store | pump.fun "Vote to Win" clone | Own frontend app; the kit loads cross-origin from **`radar-nutmeg.stockbox.cfd`** (new payload host) and calls `/api/visit?origin=updog.pumptracker.store` — the origin-attribution param, live. New `ua_vid` localStorage key |
+
+All four run the identical kit runtime (`_0x5`/`_0x12`, console
+`1.18.4`, is-banned → config → visit, w3m-modal) and decrypt to the
+same live config. The rest of the urlscan-surfaced clusters
+(solroom.cc, ag-wc.ink, ag-v2.ink, web-meteora/web-jupiter variants,
+juphub/juplaunch/solswap.ink) are UA/IP-cloaked or dead to our egress;
+urlscan's crawler has them on record.
+
 ## One operator, many costumes
 
 Every live sibling serves the **byte-identical bundle** and, where

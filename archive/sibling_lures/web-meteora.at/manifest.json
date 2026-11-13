@@ -1,0 +1,39 @@
+{
+  "host": "web-meteora.at",
+  "status": 200,
+  "html_bytes": 17867,
+  "html_sha256": "8ffe4da8afd488ac170f0b8132f6036355156cae5e2698d33fedc60af4471326",
+  "title": "web-meteora.at - Domains & Hosting von helloly",
+  "server": "Apache",
+  "social_links": [],
+  "page_assets": [
+    "css/font.css",
+    "css/custom.css",
+    "css/all.min.css",
+    "css/custom_color.css",
+    "./fontawesome-all.min.css",
+    "./images/massage-icon.png",
+    "./images/helloly_logo.png",
+    "./images/light-icon.png",
+    "./images/system.png",
+    "./images/premium.gif",
+    "./images/trustedshops.png"
+  ],
+  "bundle": {
+    "status": 404,
+    "error": null
+  },
+  "config": {
+    "status": 404,
+    "error": null,
+    "size": 196
+  },
+  "locale_en": {
+    "status": 404,
+    "error": null
+  },
+  "is_banned": {
+    "status": 404,
+    "body": "<!DOCTYPE HTML PUBLIC \"-//IETF//DTD HTML 2.0//EN\">\n<html><head>\n<title>404 Not Found</title>\n</head><body>\n<h1>Not Found</h1>\n<p>The requested URL was not found on this server.</p>\n</body></html>\n"
+  }
+}

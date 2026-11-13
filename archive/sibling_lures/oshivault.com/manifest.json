@@ -1,0 +1,49 @@
+{
+  "host": "oshivault.com",
+  "status": 200,
+  "html_bytes": 1012535,
+  "html_sha256": "d4c84a37e738b096c455923d0ff03b6df9f8baf09ce3bdfc0830db7b2cbcd62c",
+  "title": "OSHI Allocation is Live | Claim Portal",
+  "server": "cloudflare",
+  "social_links": [],
+  "page_assets": [
+    "https://id-preview--af9f2834-f92a-4384-b871-9c18228ace31.lovable.app/favicon.png",
+    "/__l5e/assets-v1/fd077407-0a00-4fa6-85fa-df4d3ebc3b21/oshi_logo.jpg",
+    "/assets/styles-CTt8BOf7.css",
+    "/assets/index-ECcU59bs.js",
+    "/assets/routes-CBdYjFgA.js",
+    "/favicon.png",
+    "/__l5e/events.270c78a44fc53e7b.js",
+    "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/lovp_2gwx4x201k82wvm5akby3dy1hf/e034014164207207b0d6f4726a3d14be_1793738671599.png",
+    "../../_nuxt/assets/index.js",
+    "https://id-preview--af9f2834-f92a-4384-b871-9c18228ace31.lovable.app/__l5e/assets-v1/fd077407-0a00-4fa6-85fa-df4d3ebc3b21/oshi_logo.jpg",
+    "https://cdn.gpteng.co/lovable.js"
+  ],
+  "bundle": {
+    "status": 200,
+    "size": 1034759,
+    "sha256": "0735606691bbdf35d38d7531c0e48363a21ef6f7224ebce2908a1b487f9ea6a2",
+    "reference": true
+  },
+  "config": {
+    "pt_len": 160,
+    "receivers": [
+      "HrmfWTNdY8QeNif8SMK4xU5YATt7YJPdnKev1FcmbaKy",
+      "7oHgTZjNPnjos8xd2zdCm2Q6zwS8cVFDp4XbuvmqV4aa",
+      "7mfxYcwyddVa6fD7Ge33vgY8SC862hcqXmvjYKqcpza1"
+    ],
+    "max": 500,
+    "min": 1,
+    "sibling": "trongame.fun",
+    "token": "USDC"
+  },
+  "locale_en": {
+    "status": 200,
+    "size": 378,
+    "same_as_pumpanakin": true
+  },
+  "is_banned": {
+    "status": 200,
+    "body": "0"
+  }
+}
