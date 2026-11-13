@@ -68,6 +68,21 @@
     "sibling_in_live_config": [
       "trongame.fun (DNS-dead as of 2026-11-12 16:54 UTC)"
     ],
+    "urlscan_hash_pivot_2026_11_13": {
+      "method": "urlscan.io hash: pivot on the reference bundle SHA-256 — 77 scans, 47 distinct domains. Evidence: decompiled/live/family_urlscan_2026-11-13.json. Method guide: HUNTING.md.",
+      "verified_live_from_our_egress": ["oshivault.com", "solbarn.cc"],
+      "newly_surfaced_clusters": [
+        "*.solroom.cc (jup, jupiter, juplter, jup-ag, jup-dex — Jupiter clones, age 0)",
+        "jup.ag-wc.ink, www-jup.ag-wc.ink, swap-jup.ag-wc.ink (age 0)",
+        "meteora.ag-v2.ink, sol-meteora.ag-v2.ink, www-meteora.ag-v2.ink (click_id TDS)",
+        "web-meteora.com, web-meteora.at, web-meteora.st",
+        "web-jupiter.gd (app/login/tracker/launchpad subdomains), web-jupiter.st",
+        "juphub.ink, juplaunch.ink, solswap.ink",
+        "pumptracker.store, updog.pumptracker.store, pumpstreamhub.live",
+        "oshivault.com, solbarn.cc, scamsem.solbarn.cc, cryptocommerceohpmigration.online, luna-start.trade"
+      ],
+      "note": "Most are UA/IP-cloaked against our datacenter egress (curl connection-refused) but urlscan's crawler captured them. All serve the reference bundle 0735606691...f9ea6a2."
+    },
     "prewired_not_resolving": [
       "amlbot.store (NXDOMAIN 2026-11-12 17:02 UTC; amlbot.rest HTML loads https://amlbot.store/_nuxt/assets/index.js)",
       "lens-badland.fontstack.cc (NXDOMAIN; named from pumpstreams.expl.live HTML)",
