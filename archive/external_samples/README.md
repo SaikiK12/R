@@ -75,3 +75,22 @@ this repo has far better pivots (`decompiled/iocs.json`).
   sales mirrors; existence noted, content not redistributed.
 - `TN3T/Solana-Nft-Drainer` — 2022-era Solana NFT drainer template.
 - `kikeex/solana-drainer` — educational anti-drainer demo (defensive).
+
+## npm supply-chain drainer
+
+`npm_supplychain/debug_analysis.md` — analysis of a browser-side
+drainer shipped via compromised npm packages: hijacks `fetch` and
+`XMLHttpRequest` for address swapping + transaction hijacking. Same
+class as the August 2025 AI-generated npm Solana-drainer campaign.
+Delivery is supply-chain rather than lures; the client-side goal is
+the same.
+
+## Documented turnkey layer (not mirrored)
+
+`pitchbardsay/Drainer-Tool-Solana`, `H4CKL0RD/wallet-drainer` (Phantom
+universal links + HMAC sessions), `fklv228/Best-Solana-NFT-Drainer-main`,
+`ruanlopes0913-blip/phantom-drainer-page-v2` + `-bot`,
+`kiberkarasi161616-byte/telegram-gift-drainer` (TG mini-app gifts).
+Same template class as the archived Phantom sample, repackaged on a
+weekly cycle. The `0x32Moon/Wall-of-Shames` tracker the sellers cite
+is already deleted.

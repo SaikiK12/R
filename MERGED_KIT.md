@@ -1136,3 +1136,49 @@ classes/texts, WalletConnect project id, chain targets) is the same
 affiliate-facing config model as this kit's `/api/config` push. The
 DaaS vendors standardized the same shape: affiliates get knobs, the
 vendor keeps the keys.
+
+---
+
+# Round two of the hunt (2026-11-13): what deeper digging adds
+
+**A third Solana drainer architecture exists — and there is no public
+source for it.** Aqua and Vanish (Blowfish, February 2024,
+[coverage](https://cointelegraph.com/news/scam-as-a-service-new-solana-drainers-identified)):
+the dApp gets authority to submit on the victim's behalf, the victim
+signs a valid-looking transaction, the drainer *holds* it, and flips a
+conditional inside the dApp's own on-chain program with a separate
+transaction — "receive SOL" becomes "drain account" after the
+signature. Marketplace-only; no sample has ever leaked publicly. That
+makes four documented Solana architectures:
+
+| Architecture | Family | Public source? |
+|---|---|---|
+| Same-tx decoy sweep (this repo's subject) | hexfomo-class kit | the kit itself (archived) |
+| Assign wallet ownership, drain later | SlowMist Nov 2025 (`GKJBELftW5…`) | no — program on-chain only |
+| Conditional bit-flip after signing | Aqua, Vanish | no — marketplace only |
+| Turnkey template + Telegram bot | Solana Phantom Drainer (2025), NFT templates | yes (`archive/external_samples/solana_phantom/`) |
+
+**The npm supply-chain vector.** Archived analysis
+(`archive/external_samples/npm_supplychain/debug_analysis.md`,
+[gist](https://gist.github.com/dbidwell94/597fbdb999b2c9b3c62987efc13a0fe2)):
+a browser-side drainer shipped inside compromised npm packages that
+hijacks `fetch`/`XMLHttpRequest` for address swapping and transaction
+hijacking. Same campaign class as the August 2025 AI-generated npm
+package that drained Solana wallets at scale. Different delivery
+(supply chain, not lures), same client-side goal.
+
+**Turnkey marketplace layer on GitHub (documented, not mirrored).**
+`pitchbardsay/Drainer-Tool-Solana` (sales shell), `H4CKL0RD/wallet-drainer`
+(Phantom universal links + HMAC sessions + Telegram), `fklv228/
+Best-Solana-NFT-Drainer-main` (template with hosting instructions),
+`ruanlopes0913-blip/phantom-drainer-page-v2` + `-bot` (page + TG bot),
+`kiberkarasi161616-byte/telegram-gift-drainer` (Telegram mini-app gift
+drainer, Russian). These are the bottom of the market — the same
+template class as the archived Phantom sample, repackaged weekly.
+
+**Confirmed negatives, useful as evidence.** No public code anywhere
+contains this kit's AES salt, its affiliate marker format, or its
+bundle hash — the hexfomo kit has never leaked. MalwareBazaar has no
+indexed Solana drainer JS. The `0x32Moon/Wall-of-Shames` tracker the
+turnkey sellers reference is already deleted — the turnover at the
+bottom of the market is weeks, not months.
