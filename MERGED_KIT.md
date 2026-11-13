@@ -1050,3 +1050,43 @@ The weakest part of the kit — the identical bundle hash and the
 world-readable AES config key — are also the cheapest to fix. Expect them
 to close the moment the SEAL domain-blocking rate becomes noticeable in
 the operator's traffic.
+
+---
+
+# External cross-checks (2026-11-12 web hunt)
+
+**The kit is not leaked publicly.** Searches for the vendor watermark
+(`hexfomo.fun`), the on-chain program, the bundle hash, and the
+connect domains return nothing — no source leak, no indexed scam
+reports, no public sample. The closest public collections of private
+drainer sources (`thegiver86/malware-drainer-samples`, mirrored in
+`archive/external_samples/`) are EVM-centric and password-protected.
+Everything known about this kit comes from the kit itself and the
+chain, not from anyone else's write-up. `petramon.xyz` and
+`easyinvest7.biz` have **zero urlscan results** in 30 days — the UA
+cloaking and token-gated paths keep the connect domains invisible to
+public scanners.
+
+**A different Solana drainer architecture, same split economics.**
+SlowMist's November 2025 case
+([write-up](https://slowmist.medium.com/beware-of-solana-phishing-attacks-wallet-owner-permissions-may-be-altered-708bbb30518e),
+program `GKJBELftW5Rjg24wP88NRaKGsEBtrPLgMiv3DhbJwbzQ`) works on the
+opposite timing model from `TwrGADB9…`: the victim signs a transaction
+that **reassigns wallet ownership to the drainer program** and approves
+delegates; the program drains later, in transactions the victim never
+signed. That program still owned 1,019 wallets months later
+([tracebrief/tracebrief-solana](https://github.com/tracebrief/tracebrief-solana/blob/main/VALIDATION.md),
+an open-source detector for this incident class — `WALLET_ASSIGNED`,
+`DELEGATE_SPEND`, `PROGRAM_OUTFLOW` detectors validated against real
+thefts). Two independent Solana drainer programs, two architectures
+(same-tx decoy sweep vs. assign-and-delegate), and **both settle at a
+75/25 split** — the DaaS revenue share is an industry constant, not a
+per-kit choice.
+
+| | This kit (`TwrGADB9…`) | SlowMist case (`GKJBELftW5…`) |
+|---|---|---|
+| Timing | Instant: decoy + theft in one atomic tx | Delayed: assign once, drain later without victim |
+| Victim signature | One, on a decoy-shaped tx | One, on an ownership-assignment tx |
+| On-chain persistence | None per victim (drain and done) | Program owns 1,019 wallets months later |
+| Split | `0x15 02 <pct>`: 75–80% affiliate / 20–25% vendor | 75/25 to two laundering addresses |
+| Detection hook | CPI-side token decreases; outer assertions pass | `WALLET_ASSIGNED` + later `DELEGATE_SPEND` |

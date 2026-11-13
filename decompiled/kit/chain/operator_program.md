@@ -9,9 +9,11 @@ getAccountInfo(TwrGADB9…)            # owner BPFLoaderUpgradeab1e…, 36-byte 
 getAccountInfo(HwWXKu3…)             # 60,805 bytes: 45-byte header + ELF
 ```
 
-The binary itself is not stored in this repo (same policy as the JS
-bundle). Facts below come from the disassembly (`llvm-objdump -d
---triple=bpfel`) and from real transactions on mainnet.
+The ELF is archived at `archive/operator_program/program.elf` (60,760 B,
+SHA-256 `6de98643…`). Facts below come from the disassembly
+(`llvm-objdump -d --triple=bpfel`) and from real transactions on
+mainnet, including six decoded on 2026-11-12
+(`decompiled/live/dynamic/real_drain_txs_2026-11-12.json`).
 
 ## Account facts
 
@@ -53,9 +55,19 @@ A real drain transaction is a sequence:
    Token-2022 **TransferCheckedWithFee** (seen in program logs) — i.e.
    it sweeps pump.fun-style Token-2022 tokens with transfer fees, not
    just legacy SPL.
-3. **SOL sweep (disc 21, ~2.8k CU).** Accounts: victim, receiver
-   (`6cwsqBqm…` in the sampled tx), SystemProgram. Variants carry two
-   argument bytes (`15 02 4b`, `15 02 50`, plain `15 00`).
+3. **SOL sweep with the revenue split (disc 21 = 0x15, ~2.8k CU).**
+   Accounts: victim, collector, campaign receiver, SystemProgram.
+   **Proven 2026-11-12:** the argument bytes are `15 02 <pct>` where
+   `<pct>` is the affiliate percentage — `0x4b` = 75%, `0x50` = 80%.
+   The victim's loss splits `pct%` to the per-campaign receiver and
+   the remainder to the vendor collector `6cwsqBqm…`. The `15 00`
+   variant is a zero-percent (no-split) sweep.
+
+## Live-confirmed marker tags (2026-11-12)
+
+`1kd1mz4r-|1|`, `1kd1m5up7|1|`, `1kd1m4gfq|1|`, `1k7_ccf5p|1|` — same
+format as the 2026-11-11 samples, plaintext ASCII in the marker ix.
+Every campaign is individually named, publicly, forever.
 
 Victim addresses observed in these transactions are intentionally not
 catalogued in this repo.
