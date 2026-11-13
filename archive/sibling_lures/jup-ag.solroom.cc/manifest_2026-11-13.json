@@ -1,0 +1,21 @@
+{
+ "host": "jup-ag.solroom.cc",
+ "ip": "172.67.144.147",
+ "status": 403,
+ "server": "cloudflare",
+ "bundle": {
+  "status": 404,
+  "url": "https://jup-ag.solroom.cc/_nuxt/assets/index.js"
+ },
+ "config": {
+  "status": 404,
+  "host": "jup-ag.solroom.cc"
+ },
+ "is_banned": {
+  "status": 404,
+  "body": "<html>\r\n<head><title>404 Not Found</title></head>\r\n<body>\r\n<center><h1>404 Not Found</h1></center>\r\n<hr><center>nginx</center>\r\n<script type=\"module\" src=\"https://static.cloudflareinsights.com/beacon."
+ },
+ "locale_en": {
+  "status": 404
+ }
+}

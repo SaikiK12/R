@@ -1,0 +1,21 @@
+{
+ "host": "juplter.solroom.cc",
+ "ip": "104.21.39.110",
+ "status": 403,
+ "server": "cloudflare",
+ "bundle": {
+  "status": 404,
+  "url": "https://juplter.solroom.cc/_nuxt/assets/index.js"
+ },
+ "config": {
+  "status": 404,
+  "host": "juplter.solroom.cc"
+ },
+ "is_banned": {
+  "status": 404,
+  "body": "<html>\r\n<head><title>404 Not Found</title></head>\r\n<body>\r\n<center><h1>404 Not Found</h1></center>\r\n<hr><center>nginx</center>\r\n<script type=\"module\" src=\"https://static.cloudflareinsights.com/beacon."
+ },
+ "locale_en": {
+  "status": 404
+ }
+}

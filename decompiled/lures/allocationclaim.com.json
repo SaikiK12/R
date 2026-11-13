@@ -1,0 +1,520 @@
+{
+ "host": "allocationclaim.com",
+ "fetched": "2026-11-13T11:21:55.702Z",
+ "ip": "172.67.130.219",
+ "root": {
+  "status": 200,
+  "size": 5435,
+  "ctype": "text/html; charset=utf-8",
+  "server": "cloudflare",
+  "acao": null,
+  "location": null,
+  "cookies": [],
+  "html": true,
+  "body": "<!DOCTYPE html><html lang=\"ru\" class=\"notranslate\" translate=\"no\"><head><meta charset=\"UTF-8\"><meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\"><meta name=\"viewport\" content=\"wi"
+ },
+ "html": {
+  "title": "BONK COIN",
+  "bytes": 5435,
+  "sha256": "19840bea5f5cbb9475aca41bee31da0d0a4aaaef15f32e9f76b07f1089d7e65f",
+  "bom": false,
+  "kit_refs": [
+   "../../_nuxt/assets/index.js"
+  ],
+  "click_id": false,
+  "turnstile": false,
+  "inline_scripts": 1,
+  "inline_bytes": 1775,
+  "text_sample": "BONK COIN humor stop fix assault shame edge mild relief air dilemma permission dictionary Koran referral concentration loyalty spread finished twin predator publisher reconcile jewel glimpse color-blind lost subway album sausage just cope range possibility strap date global railcar acquisition twitch reward digital register capital crime enemy short convenience cook candidate craftsman bolt complication helicopter lay heal manage offense hold menu agriculture roof throne progressive float courtesy represent decay calf guitar correspondence piece waiter exaggerate spit aware defeat up trench radio trade trap standard"
+ },
+ "inline": [
+  {
+   "file": "inline-0.js",
+   "bytes": 1955,
+   "sha256": "3834eee2a0a3eb0e07afaac114f6957a2f47a44000bd4e13e339020671f4ab14",
+   "obfuscated": false,
+   "urls": [],
+   "apis": [],
+   "storage_keys": [],
+   "websockets": [],
+   "pubkey_like": [],
+   "wallet_hits": []
+  }
+ ],
+ "kit": {
+  "url": "https://allocationclaim.com/_nuxt/assets/index.js",
+  "host": "allocationclaim.com",
+  "size": 1034759,
+  "sha256": "0735606691bbdf35d38d7531c0e48363a21ef6f7224ebce2908a1b487f9ea6a2",
+  "reference": true,
+  "truncated": false
+ },
+ "assets": [
+  {
+   "url": "https://allocationclaim.com/favicon.png",
+   "saved": "favicon.png",
+   "size": 2838,
+   "sha256": "8e3c2e710d1e2a92774d04447840577ea9d00e557a4b35d4001a334adf5b02ff",
+   "ctype": "image/png",
+   "truncated": false
+  },
+  {
+   "url": "https://allocationclaim.com/assets/css/style-aoda0.css",
+   "saved": "assets/css/style-aoda0.css",
+   "size": 6571,
+   "sha256": "9ec15bd000e73af11fe1691c2c6c18c92b5a135b88b86595281054b81d3f515d",
+   "ctype": "text/css",
+   "truncated": false
+  },
+  {
+   "url": "https://allocationclaim.com/assets/js/jquery-3-0a83q.js",
+   "saved": "assets/js/jquery-3-0a83q.js",
+   "size": 280363,
+   "sha256": "f5ad72b13a3ba6614caeb70e4306d690f6939b752e28dc0ec48c2182647761f5",
+   "ctype": "application/javascript; charset=utf-8",
+   "truncated": false
+  },
+  {
+   "url": "https://allocationclaim.com/assets/js/script-ti3v9.js",
+   "saved": "assets/js/script-ti3v9.js",
+   "size": 187,
+   "sha256": "e21f37a653ad6f1bab149dc374c41a64dfddd1f1d99be9b6695a0fa0508b83d0",
+   "ctype": "application/javascript; charset=utf-8",
+   "truncated": false
+  },
+  {
+   "url": "https://allocationclaim.com/assets/img/logo.svg",
+   "saved": "assets/img/logo.svg",
+   "size": 1911051,
+   "sha256": "ccc2743f2c94a1b48138fae4db10246fb216dacf8cb4ea26b335b933d071485a",
+   "ctype": "image/svg+xml",
+   "truncated": false
+  },
+  {
+   "url": "https://allocationclaim.com/assets/img/main_image.png",
+   "saved": "assets/img/main_image.png",
+   "size": 46786,
+   "sha256": "c685d44520b17667fd4eaafb886780508bfe47589addd202cd4c4b8355f8e99d",
+   "ctype": "image/png",
+   "truncated": false
+  },
+  {
+   "url": "https://allocationclaim.com/assets/img/main_bottom_connect.svg",
+   "saved": "assets/img/main_bottom_connect.svg",
+   "size": 662,
+   "sha256": "606def7cc6cd8541298dff8aea157fe8aaac23cc14d3addf1968d0cf7a185d9f",
+   "ctype": "image/svg+xml",
+   "truncated": false
+  },
+  {
+   "url": "https://allocationclaim.com/assets/img/main_bottom_earn.svg",
+   "saved": "assets/img/main_bottom_earn.svg",
+   "size": 989,
+   "sha256": "7086419e1d106a43aa87cbaf7d64b4ec27e5dd0827dcfb05ed82c5bc0b6d8c49",
+   "ctype": "image/svg+xml",
+   "truncated": false
+  },
+  {
+   "url": "https://allocationclaim.com/assets/img/main_bottom_share.svg",
+   "saved": "assets/img/main_bottom_share.svg",
+   "size": 1080,
+   "sha256": "18f2c4441cc8cb19cbb99249d29ce4b4d2cf99a2a289bf2f25b2feaac067136d",
+   "ctype": "image/svg+xml",
+   "truncated": false
+  },
+  {
+   "url": "https://allocationclaim.com/assets/img/footer_x.svg",
+   "saved": "assets/img/footer_x.svg",
+   "size": 334,
+   "sha256": "76dc6ff269ca7f909876ac26381e2bce49af11728bdfa57e26e131559c3c593f",
+   "ctype": "image/svg+xml",
+   "truncated": false
+  },
+  {
+   "url": "https://allocationclaim.com/assets/img/footer_tg.svg",
+   "saved": "assets/img/footer_tg.svg",
+   "size": 782,
+   "sha256": "b7127a4b897497087f28ada5c925a076862ee9fe2a9f1558a6e59af1b2813384",
+   "ctype": "image/svg+xml",
+   "truncated": false
+  },
+  {
+   "url": "https://allocationclaim.com/assets/img/bg.png",
+   "saved": "assets/img/bg.png",
+   "size": 540612,
+   "sha256": "eebf4fe0fa7852e41ccf1c91905dbc4666c27e30a27d0e728d2142de7f8e0438",
+   "ctype": "image/png",
+   "truncated": false
+  },
+  {
+   "url": "https://allocationclaim.com/assets/fonts/GoogleSans-Medium.ttf",
+   "saved": "assets/fonts/GoogleSans-Medium.ttf",
+   "size": 141304,
+   "sha256": "e6f0f07d0986344d835a66d77f9dd9857323f2b17f907b60d042c744d457dc41",
+   "ctype": "application/octet-stream",
+   "truncated": false
+  },
+  {
+   "url": "https://allocationclaim.com/assets/fonts/GoogleSans-Regular.ttf",
+   "saved": "assets/fonts/GoogleSans-Regular.ttf",
+   "size": 142960,
+   "sha256": "50d3bceb30c5376c5849055a4917022d4c9a336f0319cbd71fe0f8ba5638007a",
+   "ctype": "application/octet-stream",
+   "truncated": false
+  },
+  {
+   "url": "https://allocationclaim.com/assets/js/jquery-3-0a83q.js#",
+   "saved": "assets/js/jquery-3-0a83q.js",
+   "size": 280363,
+   "sha256": "f5ad72b13a3ba6614caeb70e4306d690f6939b752e28dc0ec48c2182647761f5",
+   "ctype": "application/javascript; charset=utf-8",
+   "truncated": false
+  }
+ ],
+ "external": [
+  "https://code.jquery.com/jquery-migrate-1.2.1.min.js",
+  "https://x.com/bonk_inu",
+  "https://t.me/Official_Bonk_Inu"
+ ],
+ "js": [
+  {
+   "file": "assets/js/jquery-3-0a83q.js",
+   "bytes": 280363,
+   "sha256": "f5ad72b13a3ba6614caeb70e4306d690f6939b752e28dc0ec48c2182647761f5",
+   "obfuscated": false,
+   "urls": [
+    "https://jquery.com/",
+    "https://sizzlejs.com/",
+    "https://jquery.org/license",
+    "https://github.com/whatwg/html/issues/2369",
+    "https://html.spec.whatwg.org/#nonce-attributes",
+    "https://js.foundation/",
+    "https://jsperf.com/thor-indexof-vs-for/5",
+    "http://www.w3.org/TR/css3-selectors/#whitespace",
+    "http://www.w3.org/TR/CSS21/syndata.html#value-def-identifier",
+    "http://www.w3.org/TR/selectors/#attribute-selectors",
+    "http://www.w3.org/TR/CSS21/syndata.html#escaped-characters",
+    "https://drafts.csswg.org/cssom/#common-serializing-idioms",
+    "https://html.spec.whatwg.org/multipage/scripting.html#selector-enabled",
+    "https://html.spec.whatwg.org/multipage/scripting.html#selector-disabled",
+    "https://html.spec.whatwg.org/multipage/forms.html#category-listed",
+    "https://html.spec.whatwg.org/multipage/forms.html#concept-fe-disabled",
+    "https://html.spec.whatwg.org/multipage/forms.html#concept-option-disabled",
+    "https://bugs.jquery.com/ticket/4833",
+    "https://bugs.jquery.com/ticket/13378",
+    "https://bugs.jquery.com/ticket/12359",
+    "https://msdn.microsoft.com/en-us/library/ie/hh465388.aspx#attribute_section",
+    "http://www.w3.org/TR/2011/REC-css3-selectors-20110929/#checked",
+    "https://bugs.webkit.org/show_bug.cgi?id=136851",
+    "https://github.com/jquery/sizzle/pull/225",
+    "http://www.w3.org/TR/selectors/#pseudo-classes",
+    "http://www.w3.org/TR/selectors/#lang-pseudo",
+    "http://www.w3.org/TR/selectors/#empty-pseudo",
+    "https://msdn.microsoft.com/en-us/library/ms536429%28VS.85%29.aspx",
+    "https://promisesaplus.com/#point-59",
+    "https://promisesaplus.com/#point-48",
+    "https://promisesaplus.com/#point-54",
+    "https://promisesaplus.com/#point-75",
+    "https://promisesaplus.com/#point-64",
+    "https://promisesaplus.com/#point-61",
+    "https://promisesaplus.com/#point-57",
+    "https://bugs.chromium.org/p/chromium/issues/detail?id=378607",
+    "https://bugs.jquery.com/ticket/13393",
+    "https://www.w3.org/TR/DOM-Level-3-Events/#event-type-click",
+    "https://www.w3.org/TR/2003/WD-DOM-Level-3-Events-20030331/ecma-script-binding.html",
+    "https://bugs.chromium.org/p/chromium/issues/detail?id=470258"
+   ],
+   "apis": [],
+   "storage_keys": [],
+   "websockets": [],
+   "pubkey_like": [],
+   "wallet_hits": []
+  },
+  {
+   "file": "assets/js/script-ti3v9.js",
+   "bytes": 187,
+   "sha256": "e21f37a653ad6f1bab149dc374c41a64dfddd1f1d99be9b6695a0fa0508b83d0",
+   "obfuscated": false,
+   "urls": [],
+   "apis": [],
+   "storage_keys": [],
+   "websockets": [],
+   "pubkey_like": [],
+   "wallet_hits": []
+  },
+  {
+   "file": "assets/js/jquery-3-0a83q.js",
+   "bytes": 280363,
+   "sha256": "f5ad72b13a3ba6614caeb70e4306d690f6939b752e28dc0ec48c2182647761f5",
+   "obfuscated": false,
+   "urls": [
+    "https://jquery.com/",
+    "https://sizzlejs.com/",
+    "https://jquery.org/license",
+    "https://github.com/whatwg/html/issues/2369",
+    "https://html.spec.whatwg.org/#nonce-attributes",
+    "https://js.foundation/",
+    "https://jsperf.com/thor-indexof-vs-for/5",
+    "http://www.w3.org/TR/css3-selectors/#whitespace",
+    "http://www.w3.org/TR/CSS21/syndata.html#value-def-identifier",
+    "http://www.w3.org/TR/selectors/#attribute-selectors",
+    "http://www.w3.org/TR/CSS21/syndata.html#escaped-characters",
+    "https://drafts.csswg.org/cssom/#common-serializing-idioms",
+    "https://html.spec.whatwg.org/multipage/scripting.html#selector-enabled",
+    "https://html.spec.whatwg.org/multipage/scripting.html#selector-disabled",
+    "https://html.spec.whatwg.org/multipage/forms.html#category-listed",
+    "https://html.spec.whatwg.org/multipage/forms.html#concept-fe-disabled",
+    "https://html.spec.whatwg.org/multipage/forms.html#concept-option-disabled",
+    "https://bugs.jquery.com/ticket/4833",
+    "https://bugs.jquery.com/ticket/13378",
+    "https://bugs.jquery.com/ticket/12359",
+    "https://msdn.microsoft.com/en-us/library/ie/hh465388.aspx#attribute_section",
+    "http://www.w3.org/TR/2011/REC-css3-selectors-20110929/#checked",
+    "https://bugs.webkit.org/show_bug.cgi?id=136851",
+    "https://github.com/jquery/sizzle/pull/225",
+    "http://www.w3.org/TR/selectors/#pseudo-classes",
+    "http://www.w3.org/TR/selectors/#lang-pseudo",
+    "http://www.w3.org/TR/selectors/#empty-pseudo",
+    "https://msdn.microsoft.com/en-us/library/ms536429%28VS.85%29.aspx",
+    "https://promisesaplus.com/#point-59",
+    "https://promisesaplus.com/#point-48",
+    "https://promisesaplus.com/#point-54",
+    "https://promisesaplus.com/#point-75",
+    "https://promisesaplus.com/#point-64",
+    "https://promisesaplus.com/#point-61",
+    "https://promisesaplus.com/#point-57",
+    "https://bugs.chromium.org/p/chromium/issues/detail?id=378607",
+    "https://bugs.jquery.com/ticket/13393",
+    "https://www.w3.org/TR/DOM-Level-3-Events/#event-type-click",
+    "https://www.w3.org/TR/2003/WD-DOM-Level-3-Events-20030331/ecma-script-binding.html",
+    "https://bugs.chromium.org/p/chromium/issues/detail?id=470258"
+   ],
+   "apis": [],
+   "storage_keys": [],
+   "websockets": [],
+   "pubkey_like": [],
+   "wallet_hits": []
+  }
+ ],
+ "api": {
+  "gets": {
+   "/api/config": {
+    "status": 200,
+    "size": 188,
+    "ctype": "text/plain; charset=utf-8",
+    "server": "cloudflare",
+    "acao": "*",
+    "location": null,
+    "cookies": [],
+    "html": false,
+    "body": "�� �I#�x\u0014�: ��.{�\u0003+��,祘\u0015^\u0011&k��#h�P�;Vs)nZ����u�z\u001f���Z٭\u001b�gٹ�dH�N� ����`Y�z� s��=K�O�5�� : ���~y���|����(Ƒp��Ř�1�8�n�ըyK�K�h�8g�\u0017\u0000W\u0017���\u0011t���e\u0014>�/�#��¦����s����v�5���+�w�s�x\u0014A��5�"
+   },
+   "/api/is-banned": {
+    "status": 200,
+    "size": 1,
+    "ctype": "text/plain;charset=utf-8",
+    "server": "cloudflare",
+    "acao": "*",
+    "location": null,
+    "cookies": [],
+    "html": false,
+    "body": "0"
+   },
+   "/api/stats": {
+    "status": 422,
+    "size": 22,
+    "ctype": "application/json",
+    "server": "cloudflare",
+    "acao": "*",
+    "location": null,
+    "cookies": [],
+    "html": false,
+    "body": "{\"error\":\"VALIDATION\"}"
+   },
+   "/api/visit": {
+    "status": 404,
+    "size": 548,
+    "ctype": "text/html; charset=utf-8",
+    "server": "cloudflare",
+    "acao": null,
+    "location": null,
+    "cookies": [],
+    "html": true,
+    "body": "<html> <head><title>404 Not Found</title></head> <body> <center><h1>404 Not Found</h1></center> <hr><center>nginx</center> </body> </html> <!-- a padding to disable MSIE and Chrome"
+   },
+   "/api/handler": {
+    "status": 404,
+    "size": 548,
+    "ctype": "text/html; charset=utf-8",
+    "server": "cloudflare",
+    "acao": null,
+    "location": null,
+    "cookies": [],
+    "html": true,
+    "body": "<html> <head><title>404 Not Found</title></head> <body> <center><h1>404 Not Found</h1></center> <hr><center>nginx</center> </body> </html> <!-- a padding to disable MSIE and Chrome"
+   },
+   "/api/process": {
+    "status": 404,
+    "size": 548,
+    "ctype": "text/html; charset=utf-8",
+    "server": "cloudflare",
+    "acao": null,
+    "location": null,
+    "cookies": [],
+    "html": true,
+    "body": "<html> <head><title>404 Not Found</title></head> <body> <center><h1>404 Not Found</h1></center> <hr><center>nginx</center> </body> </html> <!-- a padding to disable MSIE and Chrome"
+   },
+   "/api/c/i": {
+    "status": 404,
+    "size": 548,
+    "ctype": "text/html; charset=utf-8",
+    "server": "cloudflare",
+    "acao": null,
+    "location": null,
+    "cookies": [],
+    "html": true,
+    "body": "<html> <head><title>404 Not Found</title></head> <body> <center><h1>404 Not Found</h1></center> <hr><center>nginx</center> </body> </html> <!-- a padding to disable MSIE and Chrome"
+   },
+   "/robots.txt": {
+    "status": 200,
+    "size": 1248,
+    "ctype": "text/plain; charset=utf-8",
+    "server": "cloudflare",
+    "acao": null,
+    "location": null,
+    "cookies": [],
+    "html": false,
+    "body": "# As a condition of accessing this website, you agree to abide by the following # content signals: # (a) If a content-signal = yes, you may collect content for the corresponding # "
+   }
+  },
+  "locales": {
+   "en": {
+    "status": 200,
+    "size": 378,
+    "sha256": "d17efb811f26e9c7107626aa331cd405aa3baeb3dc570a3fe35bd0bdfa2009f9"
+   },
+   "fr": {
+    "status": 200,
+    "size": 437,
+    "sha256": "d838a1d4cafaa4c46ce2beb8de0afaef4586245109c717a6c7a15431032e7bda"
+   },
+   "zh": {
+    "status": 200,
+    "size": 342,
+    "sha256": "24a9f7b592b22b6cb806436903fad603715053cd8227c8464c2e8e18eb9fe882"
+   },
+   "de": {
+    "status": 200,
+    "size": 449,
+    "sha256": "58ae6782fdfd618c36f4fdf9395c7a85ce3f717b057470a38053f7b47322443c"
+   },
+   "es": {
+    "status": 200,
+    "size": 405,
+    "sha256": "07e309ee2f9150cc9321ddb08051ede228dac9ad5c33f259ea06ef698439d610"
+   },
+   "pt": {
+    "status": 200,
+    "size": 407,
+    "sha256": "9cec7bf902425be3df8a9a6b68656b6fc382982341afbf71a2ba36d77b4c8c17"
+   },
+   "it": {
+    "status": 200,
+    "size": 441,
+    "sha256": "0b52025ca9b6ca80f4b400420012075997ab5df9febe6e59f06698a8f8a7ae46"
+   },
+   "ja": {
+    "status": 200,
+    "size": 534,
+    "sha256": "83b0010f3bc52ae57975cc7f4fd9f01c5c7e21d2748447a06e9f3459fc3a9789"
+   },
+   "ko": {
+    "status": 200,
+    "size": 414,
+    "sha256": "54efefa1d1de12ceb874d27ed890fc2c6bb82e2212df466b70d647a33aef2e55"
+   },
+   "ar": {
+    "status": 200,
+    "size": 552,
+    "sha256": "95c890389b1330cd7e7a638417afffe35846527fb1265d9a02fa0de1d720bcd4"
+   },
+   "tr": {
+    "status": 200,
+    "size": 386,
+    "sha256": "330b1fdf725fef9c5356a2e3247bc825fd0a9ade48f6dca3f103d73794eba3bd"
+   },
+   "pl": {
+    "status": 200,
+    "size": 409,
+    "sha256": "6639520395117eec9b7b589ee347efa81aeaef4afcddd14699d1a578cfaa0413"
+   },
+   "vi": {
+    "status": 200,
+    "size": 481,
+    "sha256": "61307650b9a5827b9b7e7258ec8ae9010f73a4576168a7104ead786abe13cdf9"
+   },
+   "id": {
+    "status": 200,
+    "size": 380,
+    "sha256": "8817bf107a2db86f7ad69e9f1adfc51003968501382e64eca0bb3c6730594283"
+   }
+  },
+  "posts": {
+   "POST /api/visit?source=deep-dump": {
+    "status": 200,
+    "size": 2,
+    "ctype": "text/plain;charset=utf-8",
+    "server": "cloudflare",
+    "acao": "*",
+    "location": null,
+    "cookies": [],
+    "html": false,
+    "body": "ok"
+   },
+   "POST /api/handler": {
+    "status": 422,
+    "size": 22,
+    "ctype": "application/json",
+    "server": "cloudflare",
+    "acao": "*",
+    "location": null,
+    "cookies": [],
+    "html": false,
+    "body": "{\"error\":\"VALIDATION\"}"
+   },
+   "POST /api/process": {
+    "status": 422,
+    "size": 22,
+    "ctype": "application/json",
+    "server": "cloudflare",
+    "acao": "*",
+    "location": null,
+    "cookies": [],
+    "html": false,
+    "body": "{\"error\":\"VALIDATION\"}"
+   },
+   "POST /api/c/i": {
+    "status": 404,
+    "size": 548,
+    "ctype": "text/html; charset=utf-8",
+    "server": "cloudflare",
+    "acao": null,
+    "location": null,
+    "cookies": [],
+    "html": true,
+    "body": "<html> <head><title>404 Not Found</title></head> <body> <center><h1>404 Not Found</h1></center> <hr><center>nginx</center> </body> </html> <!-- a padding to disable MSIE and Chrome"
+   },
+   "POST /api/stats {}": {
+    "status": 404,
+    "size": 548,
+    "ctype": "text/html; charset=utf-8",
+    "server": "cloudflare",
+    "acao": null,
+    "location": null,
+    "cookies": [],
+    "html": true,
+    "body": "<html> <head><title>404 Not Found</title></head> <body> <center><h1>404 Not Found</h1></center> <hr><center>nginx</center> </body> </html> <!-- a padding to disable MSIE and Chrome"
+   }
+  }
+ }
+}

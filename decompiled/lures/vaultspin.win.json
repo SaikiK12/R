@@ -1,0 +1,350 @@
+{
+ "host": "vaultspin.win",
+ "fetched": "2026-11-13T11:21:33.768Z",
+ "ip": "172.67.222.158",
+ "root": {
+  "status": 200,
+  "size": 1107416,
+  "ctype": "text/html; charset=utf-8",
+  "server": "cloudflare",
+  "acao": null,
+  "location": null,
+  "cookies": [],
+  "html": true,
+  "body": "<!DOCTYPE html> <html lang=\"en\"> <head> <meta charset=\"utf-8\"/> <meta content=\"width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover, user-scalable=no\" name=\"vie"
+ },
+ "html": {
+  "title": "Phantom",
+  "bytes": 1107416,
+  "sha256": "773bb0cbdd73f8ab6df6ab83affbe55d0f54eebcd2e50c8a36c0a1c03baa274d",
+  "bom": false,
+  "kit_refs": [
+   "../../_nuxt/assets/index.js"
+  ],
+  "click_id": false,
+  "turnstile": false,
+  "inline_scripts": 1,
+  "inline_bytes": 947015,
+  "text_sample": "Phantom"
+ },
+ "inline": [
+  {
+   "file": "inline-0.js",
+   "bytes": 947015,
+   "sha256": "f20e39da45e9e6e731f87e17ea8f8cd5339cb5b6d669c340087a8a54aa22d346",
+   "obfuscated": false,
+   "urls": [
+    "https://react.dev/errors/",
+    "http://www.w3.org/2000/svg",
+    "http://www.w3.org/1998/Math/MathML",
+    "http://www.w3.org/1999/xlink",
+    "http://www.w3.org/XML/1998/namespace",
+    "https://logo.clearbit.com/",
+    "https://financialmodelingprep.com/image-stock/",
+    "https://icons.duckduckgo.com/ip3/",
+    "https://www.google.com/s2/favicons?domain=",
+    "https://cdn.jsdelivr.net/gh/spothq/cryptocurrency-icons@master/svg/color/",
+    "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=",
+    "https://api.dexscreener.com/latest/dex/tokens/",
+    "https://api.coingecko.com/api/v3/coins/",
+    "https://api.coingecko.com/api/v3/search/trending",
+    "https://api.dexscreener.com/token-profiles/latest/v1"
+   ],
+   "apis": [
+    "/api/v3/coins/markets?vs_currency=usd&ids=",
+    "/api/v3/coins/",
+    "/api/v3/search/trending"
+   ],
+   "storage_keys": [
+    "phantom-wallets-v2",
+    "phantom-account",
+    "phantom-notif",
+    "phantom-alerts",
+    "phantom-demo-chats"
+   ],
+   "websockets": [],
+   "pubkey_like": [
+    "mDjiCMUKF6PPkDAPPmpAhMgGdRqtU4zPCkpKX",
+    "oqKioeJfZbLZYzCGZvuiV652DsnVEUfzvf",
+    "yMawTojnjXq9Xq1KgVCp6RLN3gZiJFEd21d",
+    "MPv4GKCgbqtjrSGBk8dHiVh57dQQg1NjY",
+    "MchDf4nmyivarC9Pnra3TUzjaf9upZLgi9x",
+    "MBEybwdqU8EAibLq6uqHHnxq7969MqSDV",
+    "iotuqc23wcWD5JE6wz9RxStF5rL5Xrknw",
+    "3fffedPHky6JLQ5GBycrLRaAT2kyBQiVKPBwQJg",
+    "cSPw4hJBSrb744otXXX2DXq9nSAQ9So6cRkYYrry8",
+    "esWKFUYjqPcHP8WyLNAa5sx57bXX8vLygmaCYZjPP",
+    "i5MmTf9zwDfwZYyst6gwqVaqzz54rSW1L",
+    "u9tgMAAvAwxN5MGesWDxLz9vLzpoQoyEJYkFQUw",
+    "pg7UFjU1nywq3r9o4WJSVxs6e9Dnn8WYMerT",
+    "RJegq5jn3qqaemzYY4ukR61HLd6KQaR98CSxBM",
+    "kL3ZZPVThYCPK9jGGV49VbvLVBo7qptSYux1",
+    "FwBuDzhdXExT68XhAyVyqVXRZqdQSWZefNm1dXV",
+    "DNH79ZyTz4YtwQWQkXqRZkvPF1rttR2UG4aKmqkUH8k3",
+    "9KMSthBvWsEcPRrQWb2TgiYtr5AsjKk1DG9gWANfv",
+    "CtFL2zMthBup7WSD8bfRMKFCWxeScEXtW8HM",
+    "1hUFNtebkATTZnJLtqpGx3owEnmuaEt5yt",
+    "JjaLH4K79FVqonC7BRReNwjaKt4vKptVe2JV7GE",
+    "oasiSyK31Ew8aZjQjHVML5E7UmABtn3338ff",
+    "Jn8rhBuj51pFYtFtE7VsdpewuzKTFSvq",
+    "U7fZMKfcTwgi7CDwXdvcGzC69q8pmNm5",
+    "hvFUYUCB5e4wzfSKo7E9mBYM63AEFmEHjrQ"
+   ],
+   "wallet_hits": [
+    "solana",
+    "phantom"
+   ]
+  }
+ ],
+ "kit": {
+  "url": "https://vaultspin.win/_nuxt/assets/index.js",
+  "host": "vaultspin.win",
+  "size": 1034759,
+  "sha256": "0735606691bbdf35d38d7531c0e48363a21ef6f7224ebce2908a1b487f9ea6a2",
+  "reference": true,
+  "truncated": false
+ },
+ "assets": [],
+ "external": [
+  "https://fonts.googleapis.com/",
+  "https://fonts.gstatic.com/",
+  "https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap",
+  "https://react.dev/errors/",
+  "http://www.w3.org/2000/svg",
+  "http://www.w3.org/1998/Math/MathML",
+  "http://www.w3.org/1999/xlink",
+  "http://www.w3.org/XML/1998/namespace",
+  "https://logo.clearbit.com/",
+  "https://financialmodelingprep.com/image-stock/",
+  "https://icons.duckduckgo.com/ip3/",
+  "https://www.google.com/s2/favicons?domain=",
+  "https://cdn.jsdelivr.net/gh/spothq/cryptocurrency-icons@master/svg/color/",
+  "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=",
+  "https://api.dexscreener.com/latest/dex/tokens/",
+  "https://api.coingecko.com/api/v3/coins/",
+  "https://api.coingecko.com/api/v3/search/trending",
+  "https://api.dexscreener.com/token-profiles/latest/v1"
+ ],
+ "js": [],
+ "api": {
+  "gets": {
+   "/api/config": {
+    "status": 200,
+    "size": 188,
+    "ctype": "text/plain; charset=utf-8",
+    "server": "cloudflare",
+    "acao": "*",
+    "location": null,
+    "cookies": [],
+    "html": false,
+    "body": "*� 3<4ڑ���d���C���AR<�RY\u001c�R\"�X���z�S��\u0001K\u001a\u001e��N����\u0017�Qa�����0�g\u001b���\\�e�L�YI%R�AY\u0012��1\u0018�\u00111�+Fp�\u0007�+�\u000eͬ� Z����%�P�7l\u0007ЯnӮ\u0004��*�T&���J�\u001f�:&6�2@\u0010+�߉���H�zޗ�\u0019��\u0003Z��\"��,����<����4�ZC�\u0007��"
+   },
+   "/api/is-banned": {
+    "status": 200,
+    "size": 1,
+    "ctype": "text/plain;charset=utf-8",
+    "server": "cloudflare",
+    "acao": "*",
+    "location": null,
+    "cookies": [],
+    "html": false,
+    "body": "0"
+   },
+   "/api/stats": {
+    "status": 422,
+    "size": 22,
+    "ctype": "application/json",
+    "server": "cloudflare",
+    "acao": "*",
+    "location": null,
+    "cookies": [],
+    "html": false,
+    "body": "{\"error\":\"VALIDATION\"}"
+   },
+   "/api/visit": {
+    "status": 404,
+    "size": 548,
+    "ctype": "text/html; charset=utf-8",
+    "server": "cloudflare",
+    "acao": null,
+    "location": null,
+    "cookies": [],
+    "html": true,
+    "body": "<html> <head><title>404 Not Found</title></head> <body> <center><h1>404 Not Found</h1></center> <hr><center>nginx</center> </body> </html> <!-- a padding to disable MSIE and Chrome"
+   },
+   "/api/handler": {
+    "status": 404,
+    "size": 548,
+    "ctype": "text/html; charset=utf-8",
+    "server": "cloudflare",
+    "acao": null,
+    "location": null,
+    "cookies": [],
+    "html": true,
+    "body": "<html> <head><title>404 Not Found</title></head> <body> <center><h1>404 Not Found</h1></center> <hr><center>nginx</center> </body> </html> <!-- a padding to disable MSIE and Chrome"
+   },
+   "/api/process": {
+    "status": 404,
+    "size": 548,
+    "ctype": "text/html; charset=utf-8",
+    "server": "cloudflare",
+    "acao": null,
+    "location": null,
+    "cookies": [],
+    "html": true,
+    "body": "<html> <head><title>404 Not Found</title></head> <body> <center><h1>404 Not Found</h1></center> <hr><center>nginx</center> </body> </html> <!-- a padding to disable MSIE and Chrome"
+   },
+   "/api/c/i": {
+    "status": 404,
+    "size": 548,
+    "ctype": "text/html; charset=utf-8",
+    "server": "cloudflare",
+    "acao": null,
+    "location": null,
+    "cookies": [],
+    "html": true,
+    "body": "<html> <head><title>404 Not Found</title></head> <body> <center><h1>404 Not Found</h1></center> <hr><center>nginx</center> </body> </html> <!-- a padding to disable MSIE and Chrome"
+   },
+   "/robots.txt": {
+    "status": 200,
+    "size": 1248,
+    "ctype": "text/plain; charset=utf-8",
+    "server": "cloudflare",
+    "acao": null,
+    "location": null,
+    "cookies": [],
+    "html": false,
+    "body": "# As a condition of accessing this website, you agree to abide by the following # content signals: # (a) If a content-signal = yes, you may collect content for the corresponding # "
+   }
+  },
+  "locales": {
+   "en": {
+    "status": 200,
+    "size": 378,
+    "sha256": "d17efb811f26e9c7107626aa331cd405aa3baeb3dc570a3fe35bd0bdfa2009f9"
+   },
+   "fr": {
+    "status": 200,
+    "size": 437,
+    "sha256": "d838a1d4cafaa4c46ce2beb8de0afaef4586245109c717a6c7a15431032e7bda"
+   },
+   "zh": {
+    "status": 200,
+    "size": 342,
+    "sha256": "24a9f7b592b22b6cb806436903fad603715053cd8227c8464c2e8e18eb9fe882"
+   },
+   "de": {
+    "status": 200,
+    "size": 449,
+    "sha256": "58ae6782fdfd618c36f4fdf9395c7a85ce3f717b057470a38053f7b47322443c"
+   },
+   "es": {
+    "status": 200,
+    "size": 405,
+    "sha256": "07e309ee2f9150cc9321ddb08051ede228dac9ad5c33f259ea06ef698439d610"
+   },
+   "pt": {
+    "status": 200,
+    "size": 407,
+    "sha256": "9cec7bf902425be3df8a9a6b68656b6fc382982341afbf71a2ba36d77b4c8c17"
+   },
+   "it": {
+    "status": 200,
+    "size": 441,
+    "sha256": "0b52025ca9b6ca80f4b400420012075997ab5df9febe6e59f06698a8f8a7ae46"
+   },
+   "ja": {
+    "status": 200,
+    "size": 534,
+    "sha256": "83b0010f3bc52ae57975cc7f4fd9f01c5c7e21d2748447a06e9f3459fc3a9789"
+   },
+   "ko": {
+    "status": 200,
+    "size": 414,
+    "sha256": "54efefa1d1de12ceb874d27ed890fc2c6bb82e2212df466b70d647a33aef2e55"
+   },
+   "ar": {
+    "status": 200,
+    "size": 552,
+    "sha256": "95c890389b1330cd7e7a638417afffe35846527fb1265d9a02fa0de1d720bcd4"
+   },
+   "tr": {
+    "status": 200,
+    "size": 386,
+    "sha256": "330b1fdf725fef9c5356a2e3247bc825fd0a9ade48f6dca3f103d73794eba3bd"
+   },
+   "pl": {
+    "status": 200,
+    "size": 409,
+    "sha256": "6639520395117eec9b7b589ee347efa81aeaef4afcddd14699d1a578cfaa0413"
+   },
+   "vi": {
+    "status": 200,
+    "size": 481,
+    "sha256": "61307650b9a5827b9b7e7258ec8ae9010f73a4576168a7104ead786abe13cdf9"
+   },
+   "id": {
+    "status": 200,
+    "size": 380,
+    "sha256": "8817bf107a2db86f7ad69e9f1adfc51003968501382e64eca0bb3c6730594283"
+   }
+  },
+  "posts": {
+   "POST /api/visit?source=deep-dump": {
+    "status": 200,
+    "size": 2,
+    "ctype": "text/plain;charset=utf-8",
+    "server": "cloudflare",
+    "acao": "*",
+    "location": null,
+    "cookies": [],
+    "html": false,
+    "body": "ok"
+   },
+   "POST /api/handler": {
+    "status": 422,
+    "size": 22,
+    "ctype": "application/json",
+    "server": "cloudflare",
+    "acao": "*",
+    "location": null,
+    "cookies": [],
+    "html": false,
+    "body": "{\"error\":\"VALIDATION\"}"
+   },
+   "POST /api/process": {
+    "status": 422,
+    "size": 22,
+    "ctype": "application/json",
+    "server": "cloudflare",
+    "acao": "*",
+    "location": null,
+    "cookies": [],
+    "html": false,
+    "body": "{\"error\":\"VALIDATION\"}"
+   },
+   "POST /api/c/i": {
+    "status": 404,
+    "size": 548,
+    "ctype": "text/html; charset=utf-8",
+    "server": "cloudflare",
+    "acao": null,
+    "location": null,
+    "cookies": [],
+    "html": true,
+    "body": "<html> <head><title>404 Not Found</title></head> <body> <center><h1>404 Not Found</h1></center> <hr><center>nginx</center> </body> </html> <!-- a padding to disable MSIE and Chrome"
+   },
+   "POST /api/stats {}": {
+    "status": 404,
+    "size": 548,
+    "ctype": "text/html; charset=utf-8",
+    "server": "cloudflare",
+    "acao": null,
+    "location": null,
+    "cookies": [],
+    "html": true,
+    "body": "<html> <head><title>404 Not Found</title></head> <body> <center><h1>404 Not Found</h1></center> <hr><center>nginx</center> </body> </html> <!-- a padding to disable MSIE and Chrome"
+   }
+  }
+ }
+}

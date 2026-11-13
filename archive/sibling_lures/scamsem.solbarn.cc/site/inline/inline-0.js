@@ -1,0 +1,3 @@
+window.TOKEN_ADDRESS = "BfJEEokcbSugKSjxEpgnAK1GU14jAM6c4Bvx1Gku1dFP"
+            window.TOKEN_SYMBOL = "SCAMSEM"
+            window.INITIAL_PRICE = 0.00001903535839522088

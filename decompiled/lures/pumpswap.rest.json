@@ -1,0 +1,305 @@
+{
+ "host": "pumpswap.rest",
+ "fetched": "2026-11-13T11:21:26.617Z",
+ "ip": "104.21.89.196",
+ "root": {
+  "status": 200,
+  "size": 32901,
+  "ctype": "text/html; charset=utf-8",
+  "server": "cloudflare",
+  "acao": null,
+  "location": null,
+  "cookies": [],
+  "html": true,
+  "body": "<!DOCTYPE html><html lang=\"en\" data-scrapbook-source=\"https://www.pumpfuninsol.com/\" data-scrapbook-create=\"20250605022001466\" data-scrapbook-title=\"PUMP | Solana Meme Token\"><head"
+ },
+ "html": {
+  "title": "PUMP | Solana Meme Token",
+  "bytes": 32901,
+  "sha256": "9bbc0daff735d5d840e67c8909e779fe5fc7a20b9eb08ac2a171382356d49f5d",
+  "bom": false,
+  "kit_refs": [
+   "../../_nuxt/assets/index.js"
+  ],
+  "click_id": false,
+  "turnstile": false,
+  "inline_scripts": 0,
+  "inline_bytes": 0,
+  "text_sample": "PUMP | Solana Meme Token PUMP.FUN The ultimate pill that pumps your portfolio to the moon! 🚀 Join the most potent meme coin on Solana. 💊 CLAIM PUMP.FUN 📈 View Chart Live Chart Preview Watch PUMP.FUN in real-time on DexScreener 📈 Live Data Contract Address 2vnvoy64hpirkhvgegbjujgtqptpqesocrfzfx2grfcb Price Live on DEX 24h Change Live on DEX Volume Live on DEX View Full Chart About PUMP.FUN Pump.fun made $700M in fees and now wants $1B at a $4B valuation. We're front-running the grift with our own memecoin. No VCs. No insiders. Just pure pump. 💊🚀 Join The Community 💬 Telegram Join Twitter Join 📊 DexScreener Join 💊 PumpSwap Join Tokenomics Token Details 💊 Total Supply: TBA 🚀 Fair Launch via PumpFun 🔥 No Team Allocation 👥 Community Driven Security Features 💚 0% Tax 🔒 LP Burned ✅ Ownership Renounced 🎯 100% Pump Powered PUMP.FUN 💊 Launched on PumpFun • Built on Solana • Powere"
+ },
+ "inline": [],
+ "kit": {
+  "url": "https://pumpswap.rest/_nuxt/assets/index.js",
+  "host": "pumpswap.rest",
+  "size": 1034759,
+  "sha256": "0735606691bbdf35d38d7531c0e48363a21ef6f7224ebce2908a1b487f9ea6a2",
+  "reference": true,
+  "truncated": false
+ },
+ "assets": [
+  {
+   "url": "https://pumpswap.rest/40f4ea95-fbfd-441a-acb3-18cd07317480.png",
+   "saved": "40f4ea95-fbfd-441a-acb3-18cd07317480.png",
+   "size": 53231,
+   "sha256": "d92838929a12dec460360c7d28358ce49c5438109b28a8c70ac1bda7bd6370d8",
+   "ctype": "image/png",
+   "truncated": false
+  },
+  {
+   "url": "https://pumpswap.rest/index-CISBJgHL.css",
+   "saved": "index-CISBJgHL.css",
+   "size": 67344,
+   "sha256": "093a49d9b4ef7e26ced3379f2637d0eff6c8f16d94c6b717848c6d7288d810a3",
+   "ctype": "text/css",
+   "truncated": false
+  },
+  {
+   "url": "https://pumpswap.rest/index_1.html",
+   "saved": "index_1.html",
+   "size": 299712,
+   "sha256": "381ec1e3f5ddb9abbfaf4d56f7c4eba2a273f16b51d7241aba85ef4b970915c9",
+   "ctype": "text/html; charset=utf-8",
+   "truncated": false
+  },
+  {
+   "url": "https://pumpswap.rest/bfc3009d-f0b6-4dc0-95b1-7b356fbad050.jpg",
+   "saved": "bfc3009d-f0b6-4dc0-95b1-7b356fbad050.jpg",
+   "size": 71083,
+   "sha256": "3508f16c4546cb9be3107416756c38422ebd5ac400f4b97eee7a75aefb3d67ee",
+   "ctype": "image/jpeg",
+   "truncated": false
+  },
+  {
+   "url": "https://pumpswap.rest/lovable-uploads/40f4ea95-fbfd-441a-acb3-18cd07317480.png",
+   "status": 404,
+   "error": null,
+   "html_fallback": true
+  }
+ ],
+ "external": [
+  "https://www.pumpfuninsol.com/",
+  "http://www.w3.org/2000/svg"
+ ],
+ "js": [],
+ "api": {
+  "gets": {
+   "/api/config": {
+    "status": 200,
+    "size": 188,
+    "ctype": "text/plain; charset=utf-8",
+    "server": "cloudflare",
+    "acao": "*",
+    "location": null,
+    "cookies": [],
+    "html": false,
+    "body": "w, ��R9�:m�{\u001f\b�\u0011\u0003\u0015���4�\u0001�\u0016��0\u0013�\u0001\u0000�~'�0?,\u001f�:+z&�'�PQa\u0000�}m���\u000f�G_T��V6 ˨6%Kg(��\u0006�������|Rq�jY!_v�nB�Z�ˤ�z9B�=�K S�Ӹ��k��/ / P�۳�8_��cء�w�'\u0017��Y\u0006���{��\u0014l�A�Rc�\u0012N�6H�2ШX\u0018�\u0001c�_��r:-"
+   },
+   "/api/is-banned": {
+    "status": 200,
+    "size": 1,
+    "ctype": "text/plain;charset=utf-8",
+    "server": "cloudflare",
+    "acao": "*",
+    "location": null,
+    "cookies": [],
+    "html": false,
+    "body": "0"
+   },
+   "/api/stats": {
+    "status": 422,
+    "size": 22,
+    "ctype": "application/json",
+    "server": "cloudflare",
+    "acao": "*",
+    "location": null,
+    "cookies": [],
+    "html": false,
+    "body": "{\"error\":\"VALIDATION\"}"
+   },
+   "/api/visit": {
+    "status": 404,
+    "size": 548,
+    "ctype": "text/html; charset=utf-8",
+    "server": "cloudflare",
+    "acao": null,
+    "location": null,
+    "cookies": [],
+    "html": true,
+    "body": "<html> <head><title>404 Not Found</title></head> <body> <center><h1>404 Not Found</h1></center> <hr><center>nginx</center> </body> </html> <!-- a padding to disable MSIE and Chrome"
+   },
+   "/api/handler": {
+    "status": 404,
+    "size": 548,
+    "ctype": "text/html; charset=utf-8",
+    "server": "cloudflare",
+    "acao": null,
+    "location": null,
+    "cookies": [],
+    "html": true,
+    "body": "<html> <head><title>404 Not Found</title></head> <body> <center><h1>404 Not Found</h1></center> <hr><center>nginx</center> </body> </html> <!-- a padding to disable MSIE and Chrome"
+   },
+   "/api/process": {
+    "status": 404,
+    "size": 548,
+    "ctype": "text/html; charset=utf-8",
+    "server": "cloudflare",
+    "acao": null,
+    "location": null,
+    "cookies": [],
+    "html": true,
+    "body": "<html> <head><title>404 Not Found</title></head> <body> <center><h1>404 Not Found</h1></center> <hr><center>nginx</center> </body> </html> <!-- a padding to disable MSIE and Chrome"
+   },
+   "/api/c/i": {
+    "status": 404,
+    "size": 548,
+    "ctype": "text/html; charset=utf-8",
+    "server": "cloudflare",
+    "acao": null,
+    "location": null,
+    "cookies": [],
+    "html": true,
+    "body": "<html> <head><title>404 Not Found</title></head> <body> <center><h1>404 Not Found</h1></center> <hr><center>nginx</center> </body> </html> <!-- a padding to disable MSIE and Chrome"
+   },
+   "/robots.txt": {
+    "status": 200,
+    "size": 1248,
+    "ctype": "text/plain; charset=utf-8",
+    "server": "cloudflare",
+    "acao": null,
+    "location": null,
+    "cookies": [],
+    "html": false,
+    "body": "# As a condition of accessing this website, you agree to abide by the following # content signals: # (a) If a content-signal = yes, you may collect content for the corresponding # "
+   }
+  },
+  "locales": {
+   "en": {
+    "status": 200,
+    "size": 378,
+    "sha256": "d17efb811f26e9c7107626aa331cd405aa3baeb3dc570a3fe35bd0bdfa2009f9"
+   },
+   "fr": {
+    "status": 200,
+    "size": 437,
+    "sha256": "d838a1d4cafaa4c46ce2beb8de0afaef4586245109c717a6c7a15431032e7bda"
+   },
+   "zh": {
+    "status": 200,
+    "size": 342,
+    "sha256": "24a9f7b592b22b6cb806436903fad603715053cd8227c8464c2e8e18eb9fe882"
+   },
+   "de": {
+    "status": 200,
+    "size": 449,
+    "sha256": "58ae6782fdfd618c36f4fdf9395c7a85ce3f717b057470a38053f7b47322443c"
+   },
+   "es": {
+    "status": 200,
+    "size": 405,
+    "sha256": "07e309ee2f9150cc9321ddb08051ede228dac9ad5c33f259ea06ef698439d610"
+   },
+   "pt": {
+    "status": 200,
+    "size": 407,
+    "sha256": "9cec7bf902425be3df8a9a6b68656b6fc382982341afbf71a2ba36d77b4c8c17"
+   },
+   "it": {
+    "status": 200,
+    "size": 441,
+    "sha256": "0b52025ca9b6ca80f4b400420012075997ab5df9febe6e59f06698a8f8a7ae46"
+   },
+   "ja": {
+    "status": 200,
+    "size": 534,
+    "sha256": "83b0010f3bc52ae57975cc7f4fd9f01c5c7e21d2748447a06e9f3459fc3a9789"
+   },
+   "ko": {
+    "status": 200,
+    "size": 414,
+    "sha256": "54efefa1d1de12ceb874d27ed890fc2c6bb82e2212df466b70d647a33aef2e55"
+   },
+   "ar": {
+    "status": 200,
+    "size": 552,
+    "sha256": "95c890389b1330cd7e7a638417afffe35846527fb1265d9a02fa0de1d720bcd4"
+   },
+   "tr": {
+    "status": 200,
+    "size": 386,
+    "sha256": "330b1fdf725fef9c5356a2e3247bc825fd0a9ade48f6dca3f103d73794eba3bd"
+   },
+   "pl": {
+    "status": 200,
+    "size": 409,
+    "sha256": "6639520395117eec9b7b589ee347efa81aeaef4afcddd14699d1a578cfaa0413"
+   },
+   "vi": {
+    "status": 200,
+    "size": 481,
+    "sha256": "61307650b9a5827b9b7e7258ec8ae9010f73a4576168a7104ead786abe13cdf9"
+   },
+   "id": {
+    "status": 200,
+    "size": 380,
+    "sha256": "8817bf107a2db86f7ad69e9f1adfc51003968501382e64eca0bb3c6730594283"
+   }
+  },
+  "posts": {
+   "POST /api/visit?source=deep-dump": {
+    "status": 200,
+    "size": 2,
+    "ctype": "text/plain;charset=utf-8",
+    "server": "cloudflare",
+    "acao": "*",
+    "location": null,
+    "cookies": [],
+    "html": false,
+    "body": "ok"
+   },
+   "POST /api/handler": {
+    "status": 422,
+    "size": 22,
+    "ctype": "application/json",
+    "server": "cloudflare",
+    "acao": "*",
+    "location": null,
+    "cookies": [],
+    "html": false,
+    "body": "{\"error\":\"VALIDATION\"}"
+   },
+   "POST /api/process": {
+    "status": 422,
+    "size": 22,
+    "ctype": "application/json",
+    "server": "cloudflare",
+    "acao": "*",
+    "location": null,
+    "cookies": [],
+    "html": false,
+    "body": "{\"error\":\"VALIDATION\"}"
+   },
+   "POST /api/c/i": {
+    "status": 404,
+    "size": 548,
+    "ctype": "text/html; charset=utf-8",
+    "server": "cloudflare",
+    "acao": null,
+    "location": null,
+    "cookies": [],
+    "html": true,
+    "body": "<html> <head><title>404 Not Found</title></head> <body> <center><h1>404 Not Found</h1></center> <hr><center>nginx</center> </body> </html> <!-- a padding to disable MSIE and Chrome"
+   },
+   "POST /api/stats {}": {
+    "status": 404,
+    "size": 548,
+    "ctype": "text/html; charset=utf-8",
+    "server": "cloudflare",
+    "acao": null,
+    "location": null,
+    "cookies": [],
+    "html": true,
+    "body": "<html> <head><title>404 Not Found</title></head> <body> <center><h1>404 Not Found</h1></center> <hr><center>nginx</center> </body> </html> <!-- a padding to disable MSIE and Chrome"
+   }
+  }
+ }
+}

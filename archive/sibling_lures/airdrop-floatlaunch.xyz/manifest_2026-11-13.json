@@ -1,0 +1,21 @@
+{
+ "host": "airdrop-floatlaunch.xyz",
+ "ip": "104.21.47.204",
+ "status": 403,
+ "server": "cloudflare",
+ "bundle": {
+  "status": 404,
+  "url": "https://airdrop-floatlaunch.xyz/_nuxt/assets/index.js"
+ },
+ "config": {
+  "status": 403,
+  "host": "airdrop-floatlaunch.xyz"
+ },
+ "is_banned": {
+  "status": 403,
+  "body": "<!DOCTYPE html><html lang=\"en-US\"><head><title>Just a moment...</title><meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\"><meta http-equiv=\"X-UA-Compatible\" content=\"IE=Edge\"><meta nam"
+ },
+ "locale_en": {
+  "status": 403
+ }
+}

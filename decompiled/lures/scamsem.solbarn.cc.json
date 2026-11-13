@@ -1,0 +1,418 @@
+{
+ "host": "scamsem.solbarn.cc",
+ "fetched": "2026-11-13T11:23:58.651Z",
+ "ip": "172.67.170.76",
+ "root": {
+  "status": 200,
+  "size": 15373,
+  "ctype": "text/html; charset=utf-8",
+  "server": "cloudflare",
+  "acao": null,
+  "location": null,
+  "cookies": [],
+  "html": true,
+  "body": "<!doctype html><html lang=\"en\" class=\"notranslate\" translate=\"no\"><head><meta charset=\"UTF-8\"><meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\"><meta name=\"viewport\" content=\"wi"
+ },
+ "html": {
+  "title": "scamsem Airdrop",
+  "bytes": 15373,
+  "sha256": "6a4481c26d117893f4964e28ae9ad127cb73b0e5351717aeb6b3f07c99a41c60",
+  "bom": false,
+  "kit_refs": [
+   "../../_nuxt/assets/index.js"
+  ],
+  "click_id": false,
+  "turnstile": false,
+  "inline_scripts": 1,
+  "inline_bytes": 171,
+  "text_sample": "scamsem Airdrop SCAMSEM L⁠IVЕ‌ Е⁠VЕN⁠Т‌ Н​оm‌е Аbо​​ut How does it work Rules ⁠I⁠ns​⁠tr​uсt‌iоns Participate Official event from scamsem J​оin о⁠ur lаr⁠g⁠е-s‌с⁠аlе⁠​​ ⁠⁠$S⁠С​АМSЕМ ‌аir‌drо​p!​ ⁠Сh‌eс‌k оut‌ thе​ ‌r‌ul⁠es​ аnd​ dо​​n⁠'​t mi⁠s​⁠s th‌is⁠‌ оppоrtu‌‌ni​tу. ​ Yо​u​ c‌аn⁠ ​оnl⁠у pа‌rt⁠iсi​⁠p​аtе‌ ‌onсе! Participate ‌ А​b​о⁠ut а‌‌ir⁠drоp ​Wе‌ beliеvе​ t​hаt‌ ‌⁠​cr​⁠у​pt​​осu‌rr⁠еncу‌ m‌ass‌​ аd‌о⁠⁠p⁠tiоn wil​l mа‌kе th‌⁠⁠е w‌о​rld⁠ mоr‌e ​fаi⁠‌r​. ‌​То ‌аc⁠​сеlеrаtе t‌h⁠is ​pr​⁠⁠ос​еss​,⁠ wе dеcid​​‌еd ‌tо l​‌‌​aunс⁠h⁠ scа⁠msem А⁠ir⁠⁠d⁠rоp wi​th mаssivе с​r⁠уp‌t​о rеw‌ards‌ f⁠о⁠r ‌оur cо⁠m​munit‌у ​ ⁠⁠R‌ulеs ⁠ ⁠​Sim​plе аn‌d⁠ t⁠ra​nspаr​еnt p‌а⁠rt⁠i‌ci​⁠p​аti‌оn ⁠ Pаr​⁠t​i⁠c​ipа​‌‌t‌iо‌n i​n⁠ sсa⁠m⁠s⁠е​m Аir‌d​​rop ‌is i⁠‌nсrеdibly ​simplе‌. J‌us⁠t​ ⁠сon‌⁠nес‌t⁠ у⁠o​⁠​u‌r​ сr⁠‌уptос​ur⁠rе⁠n​с​y ‌wаlle⁠⁠t ‌аnd ​d⁠‌еm​оnstr‌​аtе ⁠уоur асtivе ‌еng‌​a‌gеmеnt in ​thе blос​k​сhаin⁠ ес"
+ },
+ "inline": [
+  {
+   "file": "inline-0.js",
+   "bytes": 171,
+   "sha256": "22c67049031922440a81994ca1187f67b6417168aecdaf595a4c4c1181842be1",
+   "obfuscated": false,
+   "urls": [],
+   "apis": [],
+   "storage_keys": [],
+   "websockets": [],
+   "pubkey_like": [
+    "BfJEEokcbSugKSjxEpgnAK1GU14jAM6c4Bvx1Gku1dFP"
+   ],
+   "wallet_hits": []
+  }
+ ],
+ "kit": {
+  "url": "https://scamsem.solbarn.cc/_nuxt/assets/index.js",
+  "host": "scamsem.solbarn.cc",
+  "size": 1034759,
+  "sha256": "0735606691bbdf35d38d7531c0e48363a21ef6f7224ebce2908a1b487f9ea6a2",
+  "reference": true,
+  "truncated": false
+ },
+ "assets": [
+  {
+   "url": "https://scamsem.solbarn.cc/41WpXn15fxQXEGhiKnkqHcoJn14tNXXgmymLKE57pump.png",
+   "saved": "41WpXn15fxQXEGhiKnkqHcoJn14tNXXgmymLKE57pump.png",
+   "size": 1202,
+   "sha256": "f39779f31f9572538a3acd26d768c53a9a41991cd2dca880b7156834d847eee0",
+   "ctype": "image/png",
+   "truncated": false
+  },
+  {
+   "url": "https://scamsem.solbarn.cc/style-awr6i.css",
+   "saved": "style-awr6i.css",
+   "size": 31832,
+   "sha256": "3557454dfe8176e60213402bb247ce748aaa3a1c158410ef07edc0f86533a1b8",
+   "ctype": "text/css",
+   "truncated": false
+  },
+  {
+   "url": "https://scamsem.solbarn.cc/script-7unij.js",
+   "saved": "script-7unij.js",
+   "size": 4552,
+   "sha256": "6547580c70bf36799c16e12201800098c587be859c48f406c20dbc84523f53cf",
+   "ctype": "application/javascript; charset=utf-8",
+   "truncated": false
+  },
+  {
+   "url": "https://scamsem.solbarn.cc/assets/intro_background.svg",
+   "saved": "assets/intro_background.svg",
+   "size": 9448,
+   "sha256": "a5325b5eb90a39e56b24b3defecd0516c560eb0a8950207b130930de1b8dee04",
+   "ctype": "image/svg+xml",
+   "truncated": false
+  },
+  {
+   "url": "https://scamsem.solbarn.cc/assets/intro.svg",
+   "saved": "assets/intro.svg",
+   "size": 20890,
+   "sha256": "8ada9b17462d0aaba5e4e467adc5d2f4de4b6eedea9cf497ac1421d00ede9afe",
+   "ctype": "image/svg+xml",
+   "truncated": false
+  },
+  {
+   "url": "https://scamsem.solbarn.cc/assets/live.svg",
+   "saved": "assets/live.svg",
+   "size": 241,
+   "sha256": "c2715312916a89b25c7776a4bc33127e2f79dc0d4256a19ef74d0a69d428e518",
+   "ctype": "image/svg+xml",
+   "truncated": false
+  },
+  {
+   "url": "https://scamsem.solbarn.cc/assets/intro_info_about.svg",
+   "saved": "assets/intro_info_about.svg",
+   "size": 3101,
+   "sha256": "c2ac29ec68057db59a72b534ea252391a28a6246b2d4f9640a8198ffe3105108",
+   "ctype": "image/svg+xml",
+   "truncated": false
+  },
+  {
+   "url": "https://scamsem.solbarn.cc/assets/intro_info_rules.svg",
+   "saved": "assets/intro_info_rules.svg",
+   "size": 1491,
+   "sha256": "95445ae35e8d38e34ae755ce4d9e5d63ab4272f1481f394263a9242980c0651a",
+   "ctype": "image/svg+xml",
+   "truncated": false
+  },
+  {
+   "url": "https://scamsem.solbarn.cc/assets/intro_alert.svg",
+   "saved": "assets/intro_alert.svg",
+   "size": 1018,
+   "sha256": "08c42708347296486598d04d57950320a3f1be626e757940f147214f10401d5c",
+   "ctype": "image/svg+xml",
+   "truncated": false
+  },
+  {
+   "url": "https://scamsem.solbarn.cc/assets/intro_info_car.svg",
+   "saved": "assets/intro_info_car.svg",
+   "size": 483003,
+   "sha256": "26e1ec551b3e5febe3176e4f6206198e3cfbf2cd761b80669a90b62399a7dab3",
+   "ctype": "image/svg+xml",
+   "truncated": false
+  },
+  {
+   "url": "https://scamsem.solbarn.cc/assets/rules_waiting.svg",
+   "saved": "assets/rules_waiting.svg",
+   "size": 2530,
+   "sha256": "83742ae08ba492906ebe826c37e24dafb905bdeabc1d31957ed3934ad4055fba",
+   "ctype": "image/svg+xml",
+   "truncated": false
+  },
+  {
+   "url": "https://scamsem.solbarn.cc/_preview.png",
+   "saved": "_preview.png",
+   "size": 501889,
+   "sha256": "d27496a4437895e87a66b2747f6db594da6809db5ba8c28919437d0b5feca5fd",
+   "ctype": "image/png",
+   "truncated": false
+  },
+  {
+   "url": "https://scamsem.solbarn.cc/assets/SFUIDisplay-Medium.ttf",
+   "saved": "assets/SFUIDisplay-Medium.ttf",
+   "size": 179924,
+   "sha256": "4751b1a82a3399f8d4544fbdc140b66107d67bb5f926aee632503d82f208f018",
+   "ctype": "application/octet-stream",
+   "truncated": false
+  },
+  {
+   "url": "https://scamsem.solbarn.cc/assets/SFUIDisplay-Regular.ttf",
+   "saved": "assets/SFUIDisplay-Regular.ttf",
+   "size": 170404,
+   "sha256": "ce43ea3e3e3bcea43a3aa5080c9aebabe95ae6fdc3a7a9f15ef5cf5fc1bcd424",
+   "ctype": "application/octet-stream",
+   "truncated": false
+  },
+  {
+   "url": "https://scamsem.solbarn.cc/assets/SFUIDisplay-Semibold.ttf",
+   "saved": "assets/SFUIDisplay-Semibold.ttf",
+   "size": 181492,
+   "sha256": "9c8cc4fb7d2dc26e2820fa8011f99de5a6bddc933d826f2fecbc1ca1e9085b6c",
+   "ctype": "application/octet-stream",
+   "truncated": false
+  }
+ ],
+ "external": [
+  "http://www.w3.org/2000/svg",
+  "https://lite-api.jup.ag/tokens/v2/search?query="
+ ],
+ "js": [
+  {
+   "file": "script-7unij.js",
+   "bytes": 4552,
+   "sha256": "6547580c70bf36799c16e12201800098c587be859c48f406c20dbc84523f53cf",
+   "obfuscated": false,
+   "urls": [
+    "https://lite-api.jup.ag/tokens/v2/search?query=",
+    "http://www.w3.org/2000/svg"
+   ],
+   "apis": [],
+   "storage_keys": [],
+   "websockets": [],
+   "pubkey_like": [],
+   "wallet_hits": []
+  }
+ ],
+ "api": {
+  "gets": {
+   "/api/config": {
+    "status": 200,
+    "size": 188,
+    "ctype": "text/plain; charset=utf-8",
+    "server": "cloudflare",
+    "acao": "*",
+    "location": null,
+    "cookies": [],
+    "html": false,
+    "body": "'\u0016�Z�\u00110�\u001d5Oɩ�^���#\u001a�J��ŗ�|h�W��Р�\b����A�,���lf� 1\u001d\"��G��b�@\u0014�$A��΀`��k7;���g~�!�]D9U� \u0005d�z�c�: ��E\u0001��\u001a�3�o���nq#� S��\\�` \u0003��ȋH͇\\� ���\u000eO\u0011�~(�^m\u0010��m�Uf ��5��m\u0001� ��ٙ��\u001a�X\u0012M�w\u0004y"
+   },
+   "/api/is-banned": {
+    "status": 200,
+    "size": 1,
+    "ctype": "text/plain;charset=utf-8",
+    "server": "cloudflare",
+    "acao": "*",
+    "location": null,
+    "cookies": [],
+    "html": false,
+    "body": "0"
+   },
+   "/api/stats": {
+    "status": 422,
+    "size": 22,
+    "ctype": "application/json",
+    "server": "cloudflare",
+    "acao": "*",
+    "location": null,
+    "cookies": [],
+    "html": false,
+    "body": "{\"error\":\"VALIDATION\"}"
+   },
+   "/api/visit": {
+    "status": 404,
+    "size": 548,
+    "ctype": "text/html; charset=utf-8",
+    "server": "cloudflare",
+    "acao": null,
+    "location": null,
+    "cookies": [],
+    "html": true,
+    "body": "<html> <head><title>404 Not Found</title></head> <body> <center><h1>404 Not Found</h1></center> <hr><center>nginx</center> </body> </html> <!-- a padding to disable MSIE and Chrome"
+   },
+   "/api/handler": {
+    "status": 404,
+    "size": 548,
+    "ctype": "text/html; charset=utf-8",
+    "server": "cloudflare",
+    "acao": null,
+    "location": null,
+    "cookies": [],
+    "html": true,
+    "body": "<html> <head><title>404 Not Found</title></head> <body> <center><h1>404 Not Found</h1></center> <hr><center>nginx</center> </body> </html> <!-- a padding to disable MSIE and Chrome"
+   },
+   "/api/process": {
+    "status": 404,
+    "size": 548,
+    "ctype": "text/html; charset=utf-8",
+    "server": "cloudflare",
+    "acao": null,
+    "location": null,
+    "cookies": [],
+    "html": true,
+    "body": "<html> <head><title>404 Not Found</title></head> <body> <center><h1>404 Not Found</h1></center> <hr><center>nginx</center> </body> </html> <!-- a padding to disable MSIE and Chrome"
+   },
+   "/api/c/i": {
+    "status": 404,
+    "size": 548,
+    "ctype": "text/html; charset=utf-8",
+    "server": "cloudflare",
+    "acao": null,
+    "location": null,
+    "cookies": [],
+    "html": true,
+    "body": "<html> <head><title>404 Not Found</title></head> <body> <center><h1>404 Not Found</h1></center> <hr><center>nginx</center> </body> </html> <!-- a padding to disable MSIE and Chrome"
+   },
+   "/robots.txt": {
+    "status": 200,
+    "size": 1248,
+    "ctype": "text/plain; charset=utf-8",
+    "server": "cloudflare",
+    "acao": null,
+    "location": null,
+    "cookies": [],
+    "html": false,
+    "body": "# As a condition of accessing this website, you agree to abide by the following # content signals: # (a) If a content-signal = yes, you may collect content for the corresponding # "
+   }
+  },
+  "locales": {
+   "en": {
+    "status": 200,
+    "size": 378,
+    "sha256": "d17efb811f26e9c7107626aa331cd405aa3baeb3dc570a3fe35bd0bdfa2009f9"
+   },
+   "fr": {
+    "status": 200,
+    "size": 437,
+    "sha256": "d838a1d4cafaa4c46ce2beb8de0afaef4586245109c717a6c7a15431032e7bda"
+   },
+   "zh": {
+    "status": 200,
+    "size": 342,
+    "sha256": "24a9f7b592b22b6cb806436903fad603715053cd8227c8464c2e8e18eb9fe882"
+   },
+   "de": {
+    "status": 200,
+    "size": 449,
+    "sha256": "58ae6782fdfd618c36f4fdf9395c7a85ce3f717b057470a38053f7b47322443c"
+   },
+   "es": {
+    "status": 200,
+    "size": 405,
+    "sha256": "07e309ee2f9150cc9321ddb08051ede228dac9ad5c33f259ea06ef698439d610"
+   },
+   "pt": {
+    "status": 200,
+    "size": 407,
+    "sha256": "9cec7bf902425be3df8a9a6b68656b6fc382982341afbf71a2ba36d77b4c8c17"
+   },
+   "it": {
+    "status": 200,
+    "size": 441,
+    "sha256": "0b52025ca9b6ca80f4b400420012075997ab5df9febe6e59f06698a8f8a7ae46"
+   },
+   "ja": {
+    "status": 200,
+    "size": 534,
+    "sha256": "83b0010f3bc52ae57975cc7f4fd9f01c5c7e21d2748447a06e9f3459fc3a9789"
+   },
+   "ko": {
+    "status": 200,
+    "size": 414,
+    "sha256": "54efefa1d1de12ceb874d27ed890fc2c6bb82e2212df466b70d647a33aef2e55"
+   },
+   "ar": {
+    "status": 200,
+    "size": 552,
+    "sha256": "95c890389b1330cd7e7a638417afffe35846527fb1265d9a02fa0de1d720bcd4"
+   },
+   "tr": {
+    "status": 200,
+    "size": 386,
+    "sha256": "330b1fdf725fef9c5356a2e3247bc825fd0a9ade48f6dca3f103d73794eba3bd"
+   },
+   "pl": {
+    "status": 200,
+    "size": 409,
+    "sha256": "6639520395117eec9b7b589ee347efa81aeaef4afcddd14699d1a578cfaa0413"
+   },
+   "vi": {
+    "status": 200,
+    "size": 481,
+    "sha256": "61307650b9a5827b9b7e7258ec8ae9010f73a4576168a7104ead786abe13cdf9"
+   },
+   "id": {
+    "status": 200,
+    "size": 380,
+    "sha256": "8817bf107a2db86f7ad69e9f1adfc51003968501382e64eca0bb3c6730594283"
+   }
+  },
+  "posts": {
+   "POST /api/visit?source=deep-dump": {
+    "status": 200,
+    "size": 2,
+    "ctype": "text/plain;charset=utf-8",
+    "server": "cloudflare",
+    "acao": "*",
+    "location": null,
+    "cookies": [],
+    "html": false,
+    "body": "ok"
+   },
+   "POST /api/handler": {
+    "status": 422,
+    "size": 22,
+    "ctype": "application/json",
+    "server": "cloudflare",
+    "acao": "*",
+    "location": null,
+    "cookies": [],
+    "html": false,
+    "body": "{\"error\":\"VALIDATION\"}"
+   },
+   "POST /api/process": {
+    "status": 422,
+    "size": 22,
+    "ctype": "application/json",
+    "server": "cloudflare",
+    "acao": "*",
+    "location": null,
+    "cookies": [],
+    "html": false,
+    "body": "{\"error\":\"VALIDATION\"}"
+   },
+   "POST /api/c/i": {
+    "status": 404,
+    "size": 548,
+    "ctype": "text/html; charset=utf-8",
+    "server": "cloudflare",
+    "acao": null,
+    "location": null,
+    "cookies": [],
+    "html": true,
+    "body": "<html> <head><title>404 Not Found</title></head> <body> <center><h1>404 Not Found</h1></center> <hr><center>nginx</center> </body> </html> <!-- a padding to disable MSIE and Chrome"
+   },
+   "POST /api/stats {}": {
+    "status": 404,
+    "size": 548,
+    "ctype": "text/html; charset=utf-8",
+    "server": "cloudflare",
+    "acao": null,
+    "location": null,
+    "cookies": [],
+    "html": true,
+    "body": "<html> <head><title>404 Not Found</title></head> <body> <center><h1>404 Not Found</h1></center> <hr><center>nginx</center> </body> </html> <!-- a padding to disable MSIE and Chrome"
+   }
+  }
+ }
+}

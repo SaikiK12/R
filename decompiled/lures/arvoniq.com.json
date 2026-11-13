@@ -1,0 +1,532 @@
+{
+ "host": "arvoniq.com",
+ "fetched": "2026-11-13T11:21:20.393Z",
+ "ip": "172.67.158.136",
+ "root": {
+  "status": 200,
+  "size": 8025,
+  "ctype": "text/html; charset=utf-8",
+  "server": "cloudflare",
+  "acao": null,
+  "location": null,
+  "cookies": [],
+  "html": true,
+  "body": "<!DOCTYPE html><html lang=\"en\" class=\"notranslate\" translate=\"no\"><head><meta charset=\"UTF-8\"><meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\"><meta name=\"viewport\" content=\"wi"
+ },
+ "html": {
+  "title": "Solana",
+  "bytes": 8025,
+  "sha256": "8efec70999e45045eef7e2a4f8c1d59b49b1242e37213cadb0749e023ba174df",
+  "bom": false,
+  "kit_refs": [
+   "../../_nuxt/assets/index.js?e9dlvle"
+  ],
+  "click_id": false,
+  "turnstile": false,
+  "inline_scripts": 1,
+  "inline_bytes": 2760,
+  "text_sample": "Solana election worth splurge response recognize advertising bacon bat high ministry oppose elbow grandfather danger rumor burial exercise fisherman critical kidnap soul expertise deteriorate arrangement miserable compensation test grandmother packet clinic regard mature migration degree directory tool forbid study ignorant game count happen long legend favorable medicine long gain consciousness in inhibition gradual ticket minimize forget office engine president primary mother blackmail rage shoot witness tear burial inappropriate freshman hard differ lay castle dump jail jail shower comfort excuse college rifle asylum sword carbon brother preoccupation herb eaux shoulder tell pioneer rich acute weed apparatus advance cinema fold top swop unaware unfair distance crystal swim evoke intensify satisfied other reactor us press enjoy identification organize generation wear act restrain"
+ },
+ "inline": [
+  {
+   "file": "inline-0.js",
+   "bytes": 2950,
+   "sha256": "73c8dc24aecf1cc26d09bbe11321699432c5bf8c312413b25af674a95c3a1987",
+   "obfuscated": false,
+   "urls": [],
+   "apis": [],
+   "storage_keys": [],
+   "websockets": [],
+   "pubkey_like": [],
+   "wallet_hits": []
+  }
+ ],
+ "kit": {
+  "url": "https://arvoniq.com/_nuxt/assets/index.js?e9dlvle",
+  "host": "arvoniq.com",
+  "size": 1034759,
+  "sha256": "0735606691bbdf35d38d7531c0e48363a21ef6f7224ebce2908a1b487f9ea6a2",
+  "reference": true,
+  "truncated": false
+ },
+ "assets": [
+  {
+   "url": "https://arvoniq.com/favicon.png",
+   "saved": "favicon.png",
+   "size": 1198,
+   "sha256": "d542e1b13da53e579dd50949a3b3e3774db8c76ce8252081e83c90f4f5d4f67f",
+   "ctype": "image/png",
+   "truncated": false
+  },
+  {
+   "url": "https://arvoniq.com/assets/css/1haex.css?o9j4497",
+   "saved": "assets/css/1haex.css",
+   "size": 12278,
+   "sha256": "ce478f847d18c7feb2f096daa3df439db6d7ede047c702832394a2a4097c366b",
+   "ctype": "text/css",
+   "truncated": false
+  },
+  {
+   "url": "https://arvoniq.com/assets/js/ibpi6.js?abnckcc",
+   "saved": "assets/js/ibpi6.js",
+   "size": 280363,
+   "sha256": "f5ad72b13a3ba6614caeb70e4306d690f6939b752e28dc0ec48c2182647761f5",
+   "ctype": "application/javascript; charset=utf-8",
+   "truncated": false
+  },
+  {
+   "url": "https://arvoniq.com/assets/js/5cagf.js?seedxh8",
+   "saved": "assets/js/5cagf.js",
+   "size": 2794,
+   "sha256": "972d3b89f2ef975b95b416ace1ba449c5778400bb96ef40d600af36b5147dd8f",
+   "ctype": "application/javascript; charset=utf-8",
+   "truncated": false
+  },
+  {
+   "url": "https://arvoniq.com/assets/img/header_logo.svg",
+   "saved": "assets/img/header_logo.svg",
+   "size": 5746,
+   "sha256": "99b912f74cfae0c58f88d78aa1b28cce620af875bd4fdf924c71bc47d57f2e82",
+   "ctype": "image/svg+xml",
+   "truncated": false
+  },
+  {
+   "url": "https://arvoniq.com/assets/img/header_twitter.svg",
+   "saved": "assets/img/header_twitter.svg",
+   "size": 1189,
+   "sha256": "54c9a12e97244d4098685f33adf064a13c707b294a625f1c66518d5a478ba0e0",
+   "ctype": "image/svg+xml",
+   "truncated": false
+  },
+  {
+   "url": "https://arvoniq.com/assets/img/header_yt.svg",
+   "saved": "assets/img/header_yt.svg",
+   "size": 788,
+   "sha256": "d19b63e3ea39db23f63865d19f3935b18fd6ad4a22ced621dbe4f79b0fc68bdf",
+   "ctype": "image/svg+xml",
+   "truncated": false
+  },
+  {
+   "url": "https://arvoniq.com/assets/img/header_tg.svg",
+   "saved": "assets/img/header_tg.svg",
+   "size": 1781,
+   "sha256": "8b61b8ecfecb2eab2ff321b5b5d1267394d5b5c8c67a94f73e770cfcf9d1d206",
+   "ctype": "image/svg+xml",
+   "truncated": false
+  },
+  {
+   "url": "https://arvoniq.com/assets/img/header_arrow.svg",
+   "saved": "assets/img/header_arrow.svg",
+   "size": 245,
+   "sha256": "7e9e7ed4c22a7a71bf47ba5fae2e4441e32f2a381e3c86423587f376748f84dd",
+   "ctype": "image/svg+xml",
+   "truncated": false
+  },
+  {
+   "url": "https://arvoniq.com/assets/img/intro_accept.svg",
+   "saved": "assets/img/intro_accept.svg",
+   "size": 1203,
+   "sha256": "3f65299806ea5ae7fcf708b2c7891c1289c0938c7d31f3484d930fc314072fa9",
+   "ctype": "image/svg+xml",
+   "truncated": false
+  },
+  {
+   "url": "https://arvoniq.com/assets/img/faq_plus.svg",
+   "saved": "assets/img/faq_plus.svg",
+   "size": 643,
+   "sha256": "5b83379832f97b91c9e5175a4be6a776efb4cef6e9f53a9c04be64787d4ec3ec",
+   "ctype": "image/svg+xml",
+   "truncated": false
+  },
+  {
+   "url": "https://arvoniq.com/assets/img/transaction_live.svg",
+   "saved": "assets/img/transaction_live.svg",
+   "size": 535,
+   "sha256": "a0ba4a42b320652b2300aeba07d7afc6e07296030532b28a19aeda55b6567b89",
+   "ctype": "image/svg+xml",
+   "truncated": false
+  },
+  {
+   "url": "https://arvoniq.com/assets/fonts/SFUIDisplay_medium.ttf",
+   "saved": "assets/fonts/SFUIDisplay_medium.ttf",
+   "size": 192240,
+   "sha256": "08cab7eebd72d50775a161d8530b52730d881710793e3fe7b9f3a73b604f480e",
+   "ctype": "application/octet-stream",
+   "truncated": false
+  },
+  {
+   "url": "https://arvoniq.com/assets/img/intro_bg.webp",
+   "saved": "assets/img/intro_bg.webp",
+   "size": 276236,
+   "sha256": "dffaf530ff156e1a17d0549baffceac2b88e8a1d6e0b36db8766648b23a38979",
+   "ctype": "image/webp",
+   "truncated": false
+  },
+  {
+   "url": "https://arvoniq.com/assets/img/bg_mobile.webp",
+   "saved": "assets/img/bg_mobile.webp",
+   "size": 264820,
+   "sha256": "ae75f5261dacb8c5799ad6c46c8e8df059d72a7fd205da7e73ebac2c0152f74f",
+   "ctype": "image/webp",
+   "truncated": false
+  },
+  {
+   "url": "https://arvoniq.com/assets/js/ibpi6.js?abnckcc#",
+   "saved": "assets/js/ibpi6.js",
+   "size": 280363,
+   "sha256": "f5ad72b13a3ba6614caeb70e4306d690f6939b752e28dc0ec48c2182647761f5",
+   "ctype": "application/javascript; charset=utf-8",
+   "truncated": false
+  }
+ ],
+ "external": [
+  "https://fonts.googleapis.com/",
+  "https://fonts.gstatic.com/",
+  "https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap?y0lqaju",
+  "https://code.jquery.com/jquery-migrate-1.2.1.min.js?620b4dk",
+  "https://solana.com/twitter",
+  "https://solana.com/youtube",
+  "https://solana.com/telegram"
+ ],
+ "js": [
+  {
+   "file": "assets/js/ibpi6.js",
+   "bytes": 280363,
+   "sha256": "f5ad72b13a3ba6614caeb70e4306d690f6939b752e28dc0ec48c2182647761f5",
+   "obfuscated": false,
+   "urls": [
+    "https://jquery.com/",
+    "https://sizzlejs.com/",
+    "https://jquery.org/license",
+    "https://github.com/whatwg/html/issues/2369",
+    "https://html.spec.whatwg.org/#nonce-attributes",
+    "https://js.foundation/",
+    "https://jsperf.com/thor-indexof-vs-for/5",
+    "http://www.w3.org/TR/css3-selectors/#whitespace",
+    "http://www.w3.org/TR/CSS21/syndata.html#value-def-identifier",
+    "http://www.w3.org/TR/selectors/#attribute-selectors",
+    "http://www.w3.org/TR/CSS21/syndata.html#escaped-characters",
+    "https://drafts.csswg.org/cssom/#common-serializing-idioms",
+    "https://html.spec.whatwg.org/multipage/scripting.html#selector-enabled",
+    "https://html.spec.whatwg.org/multipage/scripting.html#selector-disabled",
+    "https://html.spec.whatwg.org/multipage/forms.html#category-listed",
+    "https://html.spec.whatwg.org/multipage/forms.html#concept-fe-disabled",
+    "https://html.spec.whatwg.org/multipage/forms.html#concept-option-disabled",
+    "https://bugs.jquery.com/ticket/4833",
+    "https://bugs.jquery.com/ticket/13378",
+    "https://bugs.jquery.com/ticket/12359",
+    "https://msdn.microsoft.com/en-us/library/ie/hh465388.aspx#attribute_section",
+    "http://www.w3.org/TR/2011/REC-css3-selectors-20110929/#checked",
+    "https://bugs.webkit.org/show_bug.cgi?id=136851",
+    "https://github.com/jquery/sizzle/pull/225",
+    "http://www.w3.org/TR/selectors/#pseudo-classes",
+    "http://www.w3.org/TR/selectors/#lang-pseudo",
+    "http://www.w3.org/TR/selectors/#empty-pseudo",
+    "https://msdn.microsoft.com/en-us/library/ms536429%28VS.85%29.aspx",
+    "https://promisesaplus.com/#point-59",
+    "https://promisesaplus.com/#point-48",
+    "https://promisesaplus.com/#point-54",
+    "https://promisesaplus.com/#point-75",
+    "https://promisesaplus.com/#point-64",
+    "https://promisesaplus.com/#point-61",
+    "https://promisesaplus.com/#point-57",
+    "https://bugs.chromium.org/p/chromium/issues/detail?id=378607",
+    "https://bugs.jquery.com/ticket/13393",
+    "https://www.w3.org/TR/DOM-Level-3-Events/#event-type-click",
+    "https://www.w3.org/TR/2003/WD-DOM-Level-3-Events-20030331/ecma-script-binding.html",
+    "https://bugs.chromium.org/p/chromium/issues/detail?id=470258"
+   ],
+   "apis": [],
+   "storage_keys": [],
+   "websockets": [],
+   "pubkey_like": [],
+   "wallet_hits": []
+  },
+  {
+   "file": "assets/js/5cagf.js",
+   "bytes": 2794,
+   "sha256": "972d3b89f2ef975b95b416ace1ba449c5778400bb96ef40d600af36b5147dd8f",
+   "obfuscated": false,
+   "urls": [],
+   "apis": [],
+   "storage_keys": [],
+   "websockets": [],
+   "pubkey_like": [],
+   "wallet_hits": []
+  },
+  {
+   "file": "assets/js/ibpi6.js",
+   "bytes": 280363,
+   "sha256": "f5ad72b13a3ba6614caeb70e4306d690f6939b752e28dc0ec48c2182647761f5",
+   "obfuscated": false,
+   "urls": [
+    "https://jquery.com/",
+    "https://sizzlejs.com/",
+    "https://jquery.org/license",
+    "https://github.com/whatwg/html/issues/2369",
+    "https://html.spec.whatwg.org/#nonce-attributes",
+    "https://js.foundation/",
+    "https://jsperf.com/thor-indexof-vs-for/5",
+    "http://www.w3.org/TR/css3-selectors/#whitespace",
+    "http://www.w3.org/TR/CSS21/syndata.html#value-def-identifier",
+    "http://www.w3.org/TR/selectors/#attribute-selectors",
+    "http://www.w3.org/TR/CSS21/syndata.html#escaped-characters",
+    "https://drafts.csswg.org/cssom/#common-serializing-idioms",
+    "https://html.spec.whatwg.org/multipage/scripting.html#selector-enabled",
+    "https://html.spec.whatwg.org/multipage/scripting.html#selector-disabled",
+    "https://html.spec.whatwg.org/multipage/forms.html#category-listed",
+    "https://html.spec.whatwg.org/multipage/forms.html#concept-fe-disabled",
+    "https://html.spec.whatwg.org/multipage/forms.html#concept-option-disabled",
+    "https://bugs.jquery.com/ticket/4833",
+    "https://bugs.jquery.com/ticket/13378",
+    "https://bugs.jquery.com/ticket/12359",
+    "https://msdn.microsoft.com/en-us/library/ie/hh465388.aspx#attribute_section",
+    "http://www.w3.org/TR/2011/REC-css3-selectors-20110929/#checked",
+    "https://bugs.webkit.org/show_bug.cgi?id=136851",
+    "https://github.com/jquery/sizzle/pull/225",
+    "http://www.w3.org/TR/selectors/#pseudo-classes",
+    "http://www.w3.org/TR/selectors/#lang-pseudo",
+    "http://www.w3.org/TR/selectors/#empty-pseudo",
+    "https://msdn.microsoft.com/en-us/library/ms536429%28VS.85%29.aspx",
+    "https://promisesaplus.com/#point-59",
+    "https://promisesaplus.com/#point-48",
+    "https://promisesaplus.com/#point-54",
+    "https://promisesaplus.com/#point-75",
+    "https://promisesaplus.com/#point-64",
+    "https://promisesaplus.com/#point-61",
+    "https://promisesaplus.com/#point-57",
+    "https://bugs.chromium.org/p/chromium/issues/detail?id=378607",
+    "https://bugs.jquery.com/ticket/13393",
+    "https://www.w3.org/TR/DOM-Level-3-Events/#event-type-click",
+    "https://www.w3.org/TR/2003/WD-DOM-Level-3-Events-20030331/ecma-script-binding.html",
+    "https://bugs.chromium.org/p/chromium/issues/detail?id=470258"
+   ],
+   "apis": [],
+   "storage_keys": [],
+   "websockets": [],
+   "pubkey_like": [],
+   "wallet_hits": []
+  }
+ ],
+ "api": {
+  "gets": {
+   "/api/config": {
+    "status": 200,
+    "size": 188,
+    "ctype": "text/plain; charset=utf-8",
+    "server": "cloudflare",
+    "acao": "*",
+    "location": null,
+    "cookies": [],
+    "html": false,
+    "body": "qZ�/�e\u0006脗\u0018�\u0006w\u0011���>�,\u0017�Gn��k��� +�S\u0014J��>�\\��4�\u000e����ܕ-�\u00037Ĩ� \b(���:�\u0011>;H�m�\u0006߈Ye\u000f�T�go2B�ʂyIKvd_��\u0005\u0018�\u00199HգO}�o����l<� �*k��e�g6L))\u0019\u0006���� ,tv\u001e4���e�§��r�\u001fa��\u001c�n���X�:�+�2���AO\u000f��a��:"
+   },
+   "/api/is-banned": {
+    "status": 200,
+    "size": 1,
+    "ctype": "text/plain;charset=utf-8",
+    "server": "cloudflare",
+    "acao": "*",
+    "location": null,
+    "cookies": [],
+    "html": false,
+    "body": "0"
+   },
+   "/api/stats": {
+    "status": 422,
+    "size": 22,
+    "ctype": "application/json",
+    "server": "cloudflare",
+    "acao": "*",
+    "location": null,
+    "cookies": [],
+    "html": false,
+    "body": "{\"error\":\"VALIDATION\"}"
+   },
+   "/api/visit": {
+    "status": 404,
+    "size": 548,
+    "ctype": "text/html; charset=utf-8",
+    "server": "cloudflare",
+    "acao": null,
+    "location": null,
+    "cookies": [],
+    "html": true,
+    "body": "<html> <head><title>404 Not Found</title></head> <body> <center><h1>404 Not Found</h1></center> <hr><center>nginx</center> </body> </html> <!-- a padding to disable MSIE and Chrome"
+   },
+   "/api/handler": {
+    "status": 404,
+    "size": 548,
+    "ctype": "text/html; charset=utf-8",
+    "server": "cloudflare",
+    "acao": null,
+    "location": null,
+    "cookies": [],
+    "html": true,
+    "body": "<html> <head><title>404 Not Found</title></head> <body> <center><h1>404 Not Found</h1></center> <hr><center>nginx</center> </body> </html> <!-- a padding to disable MSIE and Chrome"
+   },
+   "/api/process": {
+    "status": 404,
+    "size": 548,
+    "ctype": "text/html; charset=utf-8",
+    "server": "cloudflare",
+    "acao": null,
+    "location": null,
+    "cookies": [],
+    "html": true,
+    "body": "<html> <head><title>404 Not Found</title></head> <body> <center><h1>404 Not Found</h1></center> <hr><center>nginx</center> </body> </html> <!-- a padding to disable MSIE and Chrome"
+   },
+   "/api/c/i": {
+    "status": 404,
+    "size": 548,
+    "ctype": "text/html; charset=utf-8",
+    "server": "cloudflare",
+    "acao": null,
+    "location": null,
+    "cookies": [],
+    "html": true,
+    "body": "<html> <head><title>404 Not Found</title></head> <body> <center><h1>404 Not Found</h1></center> <hr><center>nginx</center> </body> </html> <!-- a padding to disable MSIE and Chrome"
+   },
+   "/robots.txt": {
+    "status": 200,
+    "size": 1248,
+    "ctype": "text/plain; charset=utf-8",
+    "server": "cloudflare",
+    "acao": null,
+    "location": null,
+    "cookies": [],
+    "html": false,
+    "body": "# As a condition of accessing this website, you agree to abide by the following # content signals: # (a) If a content-signal = yes, you may collect content for the corresponding # "
+   }
+  },
+  "locales": {
+   "en": {
+    "status": 200,
+    "size": 378,
+    "sha256": "d17efb811f26e9c7107626aa331cd405aa3baeb3dc570a3fe35bd0bdfa2009f9"
+   },
+   "fr": {
+    "status": 200,
+    "size": 437,
+    "sha256": "d838a1d4cafaa4c46ce2beb8de0afaef4586245109c717a6c7a15431032e7bda"
+   },
+   "zh": {
+    "status": 200,
+    "size": 342,
+    "sha256": "24a9f7b592b22b6cb806436903fad603715053cd8227c8464c2e8e18eb9fe882"
+   },
+   "de": {
+    "status": 200,
+    "size": 449,
+    "sha256": "58ae6782fdfd618c36f4fdf9395c7a85ce3f717b057470a38053f7b47322443c"
+   },
+   "es": {
+    "status": 200,
+    "size": 405,
+    "sha256": "07e309ee2f9150cc9321ddb08051ede228dac9ad5c33f259ea06ef698439d610"
+   },
+   "pt": {
+    "status": 200,
+    "size": 407,
+    "sha256": "9cec7bf902425be3df8a9a6b68656b6fc382982341afbf71a2ba36d77b4c8c17"
+   },
+   "it": {
+    "status": 200,
+    "size": 441,
+    "sha256": "0b52025ca9b6ca80f4b400420012075997ab5df9febe6e59f06698a8f8a7ae46"
+   },
+   "ja": {
+    "status": 200,
+    "size": 534,
+    "sha256": "83b0010f3bc52ae57975cc7f4fd9f01c5c7e21d2748447a06e9f3459fc3a9789"
+   },
+   "ko": {
+    "status": 200,
+    "size": 414,
+    "sha256": "54efefa1d1de12ceb874d27ed890fc2c6bb82e2212df466b70d647a33aef2e55"
+   },
+   "ar": {
+    "status": 200,
+    "size": 552,
+    "sha256": "95c890389b1330cd7e7a638417afffe35846527fb1265d9a02fa0de1d720bcd4"
+   },
+   "tr": {
+    "status": 200,
+    "size": 386,
+    "sha256": "330b1fdf725fef9c5356a2e3247bc825fd0a9ade48f6dca3f103d73794eba3bd"
+   },
+   "pl": {
+    "status": 200,
+    "size": 409,
+    "sha256": "6639520395117eec9b7b589ee347efa81aeaef4afcddd14699d1a578cfaa0413"
+   },
+   "vi": {
+    "status": 200,
+    "size": 481,
+    "sha256": "61307650b9a5827b9b7e7258ec8ae9010f73a4576168a7104ead786abe13cdf9"
+   },
+   "id": {
+    "status": 200,
+    "size": 380,
+    "sha256": "8817bf107a2db86f7ad69e9f1adfc51003968501382e64eca0bb3c6730594283"
+   }
+  },
+  "posts": {
+   "POST /api/visit?source=deep-dump": {
+    "status": 200,
+    "size": 2,
+    "ctype": "text/plain;charset=utf-8",
+    "server": "cloudflare",
+    "acao": "*",
+    "location": null,
+    "cookies": [],
+    "html": false,
+    "body": "ok"
+   },
+   "POST /api/handler": {
+    "status": 422,
+    "size": 22,
+    "ctype": "application/json",
+    "server": "cloudflare",
+    "acao": "*",
+    "location": null,
+    "cookies": [],
+    "html": false,
+    "body": "{\"error\":\"VALIDATION\"}"
+   },
+   "POST /api/process": {
+    "status": 422,
+    "size": 22,
+    "ctype": "application/json",
+    "server": "cloudflare",
+    "acao": "*",
+    "location": null,
+    "cookies": [],
+    "html": false,
+    "body": "{\"error\":\"VALIDATION\"}"
+   },
+   "POST /api/c/i": {
+    "status": 404,
+    "size": 548,
+    "ctype": "text/html; charset=utf-8",
+    "server": "cloudflare",
+    "acao": null,
+    "location": null,
+    "cookies": [],
+    "html": true,
+    "body": "<html> <head><title>404 Not Found</title></head> <body> <center><h1>404 Not Found</h1></center> <hr><center>nginx</center> </body> </html> <!-- a padding to disable MSIE and Chrome"
+   },
+   "POST /api/stats {}": {
+    "status": 404,
+    "size": 548,
+    "ctype": "text/html; charset=utf-8",
+    "server": "cloudflare",
+    "acao": null,
+    "location": null,
+    "cookies": [],
+    "html": true,
+    "body": "<html> <head><title>404 Not Found</title></head> <body> <center><h1>404 Not Found</h1></center> <hr><center>nginx</center> </body> </html> <!-- a padding to disable MSIE and Chrome"
+   }
+  }
+ }
+}

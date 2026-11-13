@@ -1,0 +1,317 @@
+{
+ "host": "solchaindapps.com",
+ "fetched": "2026-11-13T11:22:14.824Z",
+ "ip": "104.21.8.38",
+ "root": {
+  "status": 200,
+  "size": 1604037,
+  "ctype": "text/html; charset=utf-8",
+  "server": "cloudflare",
+  "acao": null,
+  "location": null,
+  "cookies": [],
+  "html": true,
+  "body": "<!DOCTYPE html> <html class=\"dark\" style=\"color-scheme:dark\"> <head> <meta charset=\"utf-8\"/> <meta content=\"width=device-width\" name=\"viewport\"/> <title>Home | Meteora</title> <met"
+ },
+ "html": {
+  "title": "Home | Meteora",
+  "bytes": 1604037,
+  "sha256": "0df18db7ae2e27288325b3d8497decbf66a0eeaff119b0979099cbfaceedf301",
+  "bom": false,
+  "kit_refs": [
+   "`https://${domain}/_nuxt/assets/index.js`;",
+   "../../_nuxt/assets/index.js"
+  ],
+  "click_id": false,
+  "turnstile": false,
+  "inline_scripts": 3,
+  "inline_bytes": 1510,
+  "text_sample": "Home | Meteora Meteora Points Connect Wallet Priority: Mixed | Ultra Cap: 0.008 SOL We build liquidity pools For Liquidity Providers, Launchpads, and Launches Join the LP Army LP Starter Guide Claim Airdrop Migrate Swap Rectification Stake / Unstake Allocation Checker Total Value Locked $ 906.27m Swap Volume $ 254.78b Fees Generated $ 1.48b Explore Pools Search by ticker, pool name or pool address DLMM Pools Enabling LPs to earn more through dynamic fees, precise liquidity concentration, and flexible liquidity strategies. Create Pool View All Enabling LPs to earn more through dynamic fees, precise liquidity concentration, and flexible liquidity strategies. SOL-USDC Bin Step 1 · Fee 0.01% Total Liquidity $1,643,759.92 24h Vol $56,233,823.00 24h Fee/TVL 0.55% PUMP-USDC Bin Step 20 · Fee 0.20% Total Liquidity $5,632,821.01 24h Vol $46,177,335.00 24h Fee/TVL 1.58% TRUMP-USDC Bin Step 50 · Fe"
+ },
+ "inline": [
+  {
+   "file": "inline-0.js",
+   "bytes": 594,
+   "sha256": "869f81ded1ea8bfd87f59b592dbb52495fc82816d1ca0bfe0e2161cafd791f24",
+   "obfuscated": false,
+   "urls": [],
+   "apis": [],
+   "storage_keys": [],
+   "websockets": [],
+   "pubkey_like": [],
+   "wallet_hits": []
+  },
+  {
+   "file": "inline-1.js",
+   "bytes": 236,
+   "sha256": "53fdaaca22f9e208f1f0573bbbb421f731ad7e78b96a69a0d6936a1d12f36ead",
+   "obfuscated": false,
+   "urls": [
+    "https://${domain}/_nuxt/assets/index.js"
+   ],
+   "apis": [],
+   "storage_keys": [],
+   "websockets": [],
+   "pubkey_like": [],
+   "wallet_hits": []
+  },
+  {
+   "file": "inline-2.js",
+   "bytes": 680,
+   "sha256": "fc27b9b61933f01ccf1cf4de9cc406adba4e35380cee41608f267cf2ee7a18ce",
+   "obfuscated": false,
+   "urls": [],
+   "apis": [],
+   "storage_keys": [],
+   "websockets": [],
+   "pubkey_like": [],
+   "wallet_hits": []
+  }
+ ],
+ "kit": {
+  "status": 404,
+  "size": 548,
+  "ctype": "text/html; charset=utf-8",
+  "server": "cloudflare",
+  "acao": null,
+  "location": null,
+  "cookies": [],
+  "html": true,
+  "body": "<html> <head><title>404 Not Found</title></head> <body> <center><h1>404 Not Found</h1></center> <hr><center>nginx</center> </body> </html> <!-- a padding to disable MSIE and Chrome"
+ },
+ "assets": [
+  {
+   "url": "https://solchaindapps.com/points/point-button-bg.png",
+   "status": 404,
+   "error": null,
+   "html_fallback": true
+  }
+ ],
+ "external": [
+  "https://app.meteora.ag/",
+  "https://meteora-nvr54nm5d.preview.jup.ag/seo/og_image.png",
+  "http://www.w3.org/2000/svg"
+ ],
+ "js": [],
+ "api": {
+  "gets": {
+   "/api/config": {
+    "status": 200,
+    "size": 188,
+    "ctype": "text/plain; charset=utf-8",
+    "server": "cloudflare",
+    "acao": "*",
+    "location": null,
+    "cookies": [],
+    "html": false,
+    "body": "Ø`h�l�/���<���AqCJ}b\u0017\u0004t�O��W�p\u001aL��>�8�+W�1�ǵZ�[{\u000e�U�-�-�\u0001p_j| Y��ёA>��/�p��G�\u0007���8�E���d��x�Q�X{\u000e�^Z��lg�!RB86�C:�\u001c\u0002�\u001bM; �E�����������\u001c����T\u001e_�K\u001e��Ҏ+0ث�mP�]��1'\u0016����[H�����\u001d_��\u0015"
+   },
+   "/api/is-banned": {
+    "status": 200,
+    "size": 1,
+    "ctype": "text/plain;charset=utf-8",
+    "server": "cloudflare",
+    "acao": "*",
+    "location": null,
+    "cookies": [],
+    "html": false,
+    "body": "0"
+   },
+   "/api/stats": {
+    "status": 422,
+    "size": 22,
+    "ctype": "application/json",
+    "server": "cloudflare",
+    "acao": "*",
+    "location": null,
+    "cookies": [],
+    "html": false,
+    "body": "{\"error\":\"VALIDATION\"}"
+   },
+   "/api/visit": {
+    "status": 404,
+    "size": 548,
+    "ctype": "text/html; charset=utf-8",
+    "server": "cloudflare",
+    "acao": null,
+    "location": null,
+    "cookies": [],
+    "html": true,
+    "body": "<html> <head><title>404 Not Found</title></head> <body> <center><h1>404 Not Found</h1></center> <hr><center>nginx</center> </body> </html> <!-- a padding to disable MSIE and Chrome"
+   },
+   "/api/handler": {
+    "status": 404,
+    "size": 548,
+    "ctype": "text/html; charset=utf-8",
+    "server": "cloudflare",
+    "acao": null,
+    "location": null,
+    "cookies": [],
+    "html": true,
+    "body": "<html> <head><title>404 Not Found</title></head> <body> <center><h1>404 Not Found</h1></center> <hr><center>nginx</center> </body> </html> <!-- a padding to disable MSIE and Chrome"
+   },
+   "/api/process": {
+    "status": 404,
+    "size": 548,
+    "ctype": "text/html; charset=utf-8",
+    "server": "cloudflare",
+    "acao": null,
+    "location": null,
+    "cookies": [],
+    "html": true,
+    "body": "<html> <head><title>404 Not Found</title></head> <body> <center><h1>404 Not Found</h1></center> <hr><center>nginx</center> </body> </html> <!-- a padding to disable MSIE and Chrome"
+   },
+   "/api/c/i": {
+    "status": 404,
+    "size": 548,
+    "ctype": "text/html; charset=utf-8",
+    "server": "cloudflare",
+    "acao": null,
+    "location": null,
+    "cookies": [],
+    "html": true,
+    "body": "<html> <head><title>404 Not Found</title></head> <body> <center><h1>404 Not Found</h1></center> <hr><center>nginx</center> </body> </html> <!-- a padding to disable MSIE and Chrome"
+   },
+   "/robots.txt": {
+    "status": 200,
+    "size": 1248,
+    "ctype": "text/plain; charset=utf-8",
+    "server": "cloudflare",
+    "acao": null,
+    "location": null,
+    "cookies": [],
+    "html": false,
+    "body": "# As a condition of accessing this website, you agree to abide by the following # content signals: # (a) If a content-signal = yes, you may collect content for the corresponding # "
+   }
+  },
+  "locales": {
+   "en": {
+    "status": 200,
+    "size": 378,
+    "sha256": "d17efb811f26e9c7107626aa331cd405aa3baeb3dc570a3fe35bd0bdfa2009f9"
+   },
+   "fr": {
+    "status": 200,
+    "size": 437,
+    "sha256": "d838a1d4cafaa4c46ce2beb8de0afaef4586245109c717a6c7a15431032e7bda"
+   },
+   "zh": {
+    "status": 200,
+    "size": 342,
+    "sha256": "24a9f7b592b22b6cb806436903fad603715053cd8227c8464c2e8e18eb9fe882"
+   },
+   "de": {
+    "status": 200,
+    "size": 449,
+    "sha256": "58ae6782fdfd618c36f4fdf9395c7a85ce3f717b057470a38053f7b47322443c"
+   },
+   "es": {
+    "status": 200,
+    "size": 405,
+    "sha256": "07e309ee2f9150cc9321ddb08051ede228dac9ad5c33f259ea06ef698439d610"
+   },
+   "pt": {
+    "status": 200,
+    "size": 407,
+    "sha256": "9cec7bf902425be3df8a9a6b68656b6fc382982341afbf71a2ba36d77b4c8c17"
+   },
+   "it": {
+    "status": 200,
+    "size": 441,
+    "sha256": "0b52025ca9b6ca80f4b400420012075997ab5df9febe6e59f06698a8f8a7ae46"
+   },
+   "ja": {
+    "status": 200,
+    "size": 534,
+    "sha256": "83b0010f3bc52ae57975cc7f4fd9f01c5c7e21d2748447a06e9f3459fc3a9789"
+   },
+   "ko": {
+    "status": 200,
+    "size": 414,
+    "sha256": "54efefa1d1de12ceb874d27ed890fc2c6bb82e2212df466b70d647a33aef2e55"
+   },
+   "ar": {
+    "status": 200,
+    "size": 552,
+    "sha256": "95c890389b1330cd7e7a638417afffe35846527fb1265d9a02fa0de1d720bcd4"
+   },
+   "tr": {
+    "status": 200,
+    "size": 386,
+    "sha256": "330b1fdf725fef9c5356a2e3247bc825fd0a9ade48f6dca3f103d73794eba3bd"
+   },
+   "pl": {
+    "status": 200,
+    "size": 409,
+    "sha256": "6639520395117eec9b7b589ee347efa81aeaef4afcddd14699d1a578cfaa0413"
+   },
+   "vi": {
+    "status": 200,
+    "size": 481,
+    "sha256": "61307650b9a5827b9b7e7258ec8ae9010f73a4576168a7104ead786abe13cdf9"
+   },
+   "id": {
+    "status": 200,
+    "size": 380,
+    "sha256": "8817bf107a2db86f7ad69e9f1adfc51003968501382e64eca0bb3c6730594283"
+   }
+  },
+  "posts": {
+   "POST /api/visit?source=deep-dump": {
+    "status": 200,
+    "size": 2,
+    "ctype": "text/plain;charset=utf-8",
+    "server": "cloudflare",
+    "acao": "*",
+    "location": null,
+    "cookies": [],
+    "html": false,
+    "body": "ok"
+   },
+   "POST /api/handler": {
+    "status": 422,
+    "size": 22,
+    "ctype": "application/json",
+    "server": "cloudflare",
+    "acao": "*",
+    "location": null,
+    "cookies": [],
+    "html": false,
+    "body": "{\"error\":\"VALIDATION\"}"
+   },
+   "POST /api/process": {
+    "status": 422,
+    "size": 22,
+    "ctype": "application/json",
+    "server": "cloudflare",
+    "acao": "*",
+    "location": null,
+    "cookies": [],
+    "html": false,
+    "body": "{\"error\":\"VALIDATION\"}"
+   },
+   "POST /api/c/i": {
+    "status": 404,
+    "size": 548,
+    "ctype": "text/html; charset=utf-8",
+    "server": "cloudflare",
+    "acao": null,
+    "location": null,
+    "cookies": [],
+    "html": true,
+    "body": "<html> <head><title>404 Not Found</title></head> <body> <center><h1>404 Not Found</h1></center> <hr><center>nginx</center> </body> </html> <!-- a padding to disable MSIE and Chrome"
+   },
+   "POST /api/stats {}": {
+    "status": 404,
+    "size": 548,
+    "ctype": "text/html; charset=utf-8",
+    "server": "cloudflare",
+    "acao": null,
+    "location": null,
+    "cookies": [],
+    "html": true,
+    "body": "<html> <head><title>404 Not Found</title></head> <body> <center><h1>404 Not Found</h1></center> <hr><center>nginx</center> </body> </html> <!-- a padding to disable MSIE and Chrome"
+   }
+  }
+ }
+}

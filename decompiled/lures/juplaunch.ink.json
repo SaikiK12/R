@@ -1,0 +1,294 @@
+{
+ "host": "juplaunch.ink",
+ "fetched": "2026-11-13T11:23:34.987Z",
+ "ip": "150.251.227.160",
+ "root": {
+  "status": 301,
+  "size": 175,
+  "ctype": "text/html",
+  "server": "openresty/1.31.8.1",
+  "acao": null,
+  "location": "https://web-jupiter.st/",
+  "cookies": [],
+  "html": true,
+  "body": "<html> <head><title>301 Moved Permanently</title></head> <body> <center><h1>301 Moved Permanently</h1></center> <hr><center>openresty/1.31.8.1</center> </body> </html>"
+ },
+ "root_saved": "root_301.bin",
+ "path_probe": {
+  "/index.html": {
+   "status": 301,
+   "error": null,
+   "size": 175,
+   "costume": false
+  },
+  "/app": {
+   "status": 301,
+   "error": null,
+   "size": 175,
+   "costume": false
+  },
+  "/swap": {
+   "status": 301,
+   "error": null,
+   "size": 175,
+   "costume": false
+  },
+  "/airdrop": {
+   "status": 301,
+   "error": null,
+   "size": 175,
+   "costume": false
+  },
+  "/claim": {
+   "status": 301,
+   "error": null,
+   "size": 175,
+   "costume": false
+  },
+  "/connect": {
+   "status": 301,
+   "error": null,
+   "size": 175,
+   "costume": false
+  },
+  "/home": {
+   "status": 301,
+   "error": null,
+   "size": 175,
+   "costume": false
+  },
+  "/login": {
+   "status": 301,
+   "error": null,
+   "size": 175,
+   "costume": false
+  },
+  "/presale": {
+   "status": 301,
+   "error": null,
+   "size": 175,
+   "costume": false
+  }
+ },
+ "kit": {
+  "status": 301,
+  "size": 175,
+  "ctype": "text/html",
+  "server": "openresty/1.31.8.1",
+  "acao": null,
+  "location": "https://web-jupiter.st/_nuxt/assets/index.js",
+  "cookies": [],
+  "html": true,
+  "body": "<html> <head><title>301 Moved Permanently</title></head> <body> <center><h1>301 Moved Permanently</h1></center> <hr><center>openresty/1.31.8.1</center> </body> </html>"
+ },
+ "assets": [],
+ "external": [],
+ "js": [],
+ "api": {
+  "gets": {
+   "/api/config": {
+    "status": 301,
+    "size": 175,
+    "ctype": "text/html",
+    "server": "openresty/1.31.8.1",
+    "acao": null,
+    "location": "https://web-jupiter.st/api/config",
+    "cookies": [],
+    "html": true,
+    "body": "<html> <head><title>301 Moved Permanently</title></head> <body> <center><h1>301 Moved Permanently</h1></center> <hr><center>openresty/1.31.8.1</center> </body> </html>"
+   },
+   "/api/is-banned": {
+    "status": 301,
+    "size": 175,
+    "ctype": "text/html",
+    "server": "openresty/1.31.8.1",
+    "acao": null,
+    "location": "https://web-jupiter.st/api/is-banned",
+    "cookies": [],
+    "html": true,
+    "body": "<html> <head><title>301 Moved Permanently</title></head> <body> <center><h1>301 Moved Permanently</h1></center> <hr><center>openresty/1.31.8.1</center> </body> </html>"
+   },
+   "/api/stats": {
+    "status": 301,
+    "size": 175,
+    "ctype": "text/html",
+    "server": "openresty/1.31.8.1",
+    "acao": null,
+    "location": "https://web-jupiter.st/api/stats",
+    "cookies": [],
+    "html": true,
+    "body": "<html> <head><title>301 Moved Permanently</title></head> <body> <center><h1>301 Moved Permanently</h1></center> <hr><center>openresty/1.31.8.1</center> </body> </html>"
+   },
+   "/api/visit": {
+    "status": 301,
+    "size": 175,
+    "ctype": "text/html",
+    "server": "openresty/1.31.8.1",
+    "acao": null,
+    "location": "https://web-jupiter.st/api/visit",
+    "cookies": [],
+    "html": true,
+    "body": "<html> <head><title>301 Moved Permanently</title></head> <body> <center><h1>301 Moved Permanently</h1></center> <hr><center>openresty/1.31.8.1</center> </body> </html>"
+   },
+   "/api/handler": {
+    "status": 301,
+    "size": 175,
+    "ctype": "text/html",
+    "server": "openresty/1.31.8.1",
+    "acao": null,
+    "location": "https://web-jupiter.st/api/handler",
+    "cookies": [],
+    "html": true,
+    "body": "<html> <head><title>301 Moved Permanently</title></head> <body> <center><h1>301 Moved Permanently</h1></center> <hr><center>openresty/1.31.8.1</center> </body> </html>"
+   },
+   "/api/process": {
+    "status": 301,
+    "size": 175,
+    "ctype": "text/html",
+    "server": "openresty/1.31.8.1",
+    "acao": null,
+    "location": "https://web-jupiter.st/api/process",
+    "cookies": [],
+    "html": true,
+    "body": "<html> <head><title>301 Moved Permanently</title></head> <body> <center><h1>301 Moved Permanently</h1></center> <hr><center>openresty/1.31.8.1</center> </body> </html>"
+   },
+   "/api/c/i": {
+    "status": 301,
+    "size": 175,
+    "ctype": "text/html",
+    "server": "openresty/1.31.8.1",
+    "acao": null,
+    "location": "https://web-jupiter.st/api/c/i",
+    "cookies": [],
+    "html": true,
+    "body": "<html> <head><title>301 Moved Permanently</title></head> <body> <center><h1>301 Moved Permanently</h1></center> <hr><center>openresty/1.31.8.1</center> </body> </html>"
+   },
+   "/robots.txt": {
+    "status": 301,
+    "size": 175,
+    "ctype": "text/html",
+    "server": "openresty/1.31.8.1",
+    "acao": null,
+    "location": "https://web-jupiter.st/robots.txt",
+    "cookies": [],
+    "html": true,
+    "body": "<html> <head><title>301 Moved Permanently</title></head> <body> <center><h1>301 Moved Permanently</h1></center> <hr><center>openresty/1.31.8.1</center> </body> </html>"
+   }
+  },
+  "locales": {
+   "en": {
+    "status": 301,
+    "html": true
+   },
+   "fr": {
+    "status": 301,
+    "html": true
+   },
+   "zh": {
+    "status": 301,
+    "html": true
+   },
+   "de": {
+    "status": 301,
+    "html": true
+   },
+   "es": {
+    "status": 301,
+    "html": true
+   },
+   "pt": {
+    "status": 301,
+    "html": true
+   },
+   "it": {
+    "status": 301,
+    "html": true
+   },
+   "ja": {
+    "status": 301,
+    "html": true
+   },
+   "ko": {
+    "status": 301,
+    "html": true
+   },
+   "ar": {
+    "status": 301,
+    "html": true
+   },
+   "tr": {
+    "status": 301,
+    "html": true
+   },
+   "pl": {
+    "status": 301,
+    "html": true
+   },
+   "vi": {
+    "status": 301,
+    "html": true
+   },
+   "id": {
+    "status": 301,
+    "html": true
+   }
+  },
+  "posts": {
+   "POST /api/visit?source=deep-dump": {
+    "status": 301,
+    "size": 175,
+    "ctype": "text/html",
+    "server": "openresty/1.31.8.1",
+    "acao": null,
+    "location": "https://web-jupiter.st/api/visit?source=deep-dump",
+    "cookies": [],
+    "html": true,
+    "body": "<html> <head><title>301 Moved Permanently</title></head> <body> <center><h1>301 Moved Permanently</h1></center> <hr><center>openresty/1.31.8.1</center> </body> </html>"
+   },
+   "POST /api/handler": {
+    "status": 301,
+    "size": 175,
+    "ctype": "text/html",
+    "server": "openresty/1.31.8.1",
+    "acao": null,
+    "location": "https://web-jupiter.st/api/handler",
+    "cookies": [],
+    "html": true,
+    "body": "<html> <head><title>301 Moved Permanently</title></head> <body> <center><h1>301 Moved Permanently</h1></center> <hr><center>openresty/1.31.8.1</center> </body> </html>"
+   },
+   "POST /api/process": {
+    "status": 301,
+    "size": 175,
+    "ctype": "text/html",
+    "server": "openresty/1.31.8.1",
+    "acao": null,
+    "location": "https://web-jupiter.st/api/process",
+    "cookies": [],
+    "html": true,
+    "body": "<html> <head><title>301 Moved Permanently</title></head> <body> <center><h1>301 Moved Permanently</h1></center> <hr><center>openresty/1.31.8.1</center> </body> </html>"
+   },
+   "POST /api/c/i": {
+    "status": 301,
+    "size": 175,
+    "ctype": "text/html",
+    "server": "openresty/1.31.8.1",
+    "acao": null,
+    "location": "https://web-jupiter.st/api/c/i",
+    "cookies": [],
+    "html": true,
+    "body": "<html> <head><title>301 Moved Permanently</title></head> <body> <center><h1>301 Moved Permanently</h1></center> <hr><center>openresty/1.31.8.1</center> </body> </html>"
+   },
+   "POST /api/stats {}": {
+    "status": 301,
+    "size": 175,
+    "ctype": "text/html",
+    "server": "openresty/1.31.8.1",
+    "acao": null,
+    "location": "https://web-jupiter.st/api/stats",
+    "cookies": [],
+    "html": true,
+    "body": "<html> <head><title>301 Moved Permanently</title></head> <body> <center><h1>301 Moved Permanently</h1></center> <hr><center>openresty/1.31.8.1</center> </body> </html>"
+   }
+  }
+ }
+}

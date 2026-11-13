@@ -1,0 +1,324 @@
+{
+ "host": "web-meteora.st",
+ "fetched": "2026-11-13T11:23:28.922Z",
+ "ip": "150.251.227.160",
+ "root": {
+  "status": 302,
+  "size": 151,
+  "ctype": "text/html",
+  "server": "openresty/1.31.8.1",
+  "acao": null,
+  "location": "https://meteora.ag-v2.ink/en.html?click_id=d20dca09-6a18-4989-8c52-fb0d2f4f2165",
+  "cookies": [
+   "tr_dec",
+   "tr_off_115"
+  ],
+  "html": true,
+  "body": "<html> <head><title>302 Found</title></head> <body> <center><h1>302 Found</h1></center> <hr><center>openresty/1.31.8.1</center> </body> </html>"
+ },
+ "root_saved": "root_302.bin",
+ "path_probe": {
+  "/index.html": {
+   "status": 302,
+   "error": null,
+   "size": 151,
+   "costume": false
+  },
+  "/app": {
+   "status": 302,
+   "error": null,
+   "size": 151,
+   "costume": false
+  },
+  "/swap": {
+   "status": 302,
+   "error": null,
+   "size": 151,
+   "costume": false
+  },
+  "/airdrop": {
+   "status": 302,
+   "error": null,
+   "size": 151,
+   "costume": false
+  },
+  "/claim": {
+   "status": 302,
+   "error": null,
+   "size": 151,
+   "costume": false
+  },
+  "/connect": {
+   "status": 302,
+   "error": null,
+   "size": 151,
+   "costume": false
+  },
+  "/home": {
+   "status": 302,
+   "error": null,
+   "size": 151,
+   "costume": false
+  },
+  "/login": {
+   "status": 302,
+   "error": null,
+   "size": 151,
+   "costume": false
+  },
+  "/presale": {
+   "status": 302,
+   "error": null,
+   "size": 151,
+   "costume": false
+  }
+ },
+ "kit": {
+  "status": 302,
+  "size": 151,
+  "ctype": "text/html",
+  "server": "openresty/1.31.8.1",
+  "acao": null,
+  "location": "https://meteora.ag-v2.ink/en.html?click_id=04f2ecaf-6eea-4134-835b-a292dcf55cc7",
+  "cookies": [
+   "tr_dec",
+   "tr_off_115"
+  ],
+  "html": true,
+  "body": "<html> <head><title>302 Found</title></head> <body> <center><h1>302 Found</h1></center> <hr><center>openresty/1.31.8.1</center> </body> </html>"
+ },
+ "assets": [],
+ "external": [],
+ "js": [],
+ "api": {
+  "gets": {
+   "/api/config": {
+    "status": 302,
+    "size": 151,
+    "ctype": "text/html",
+    "server": "openresty/1.31.8.1",
+    "acao": null,
+    "location": "https://meteora.ag-v2.ink/en.html?click_id=321d79e9-a68b-4780-8283-fcfad1ec0626",
+    "cookies": [
+     "tr_dec",
+     "tr_off_115"
+    ],
+    "html": true,
+    "body": "<html> <head><title>302 Found</title></head> <body> <center><h1>302 Found</h1></center> <hr><center>openresty/1.31.8.1</center> </body> </html>"
+   },
+   "/api/is-banned": {
+    "status": 302,
+    "size": 151,
+    "ctype": "text/html",
+    "server": "openresty/1.31.8.1",
+    "acao": null,
+    "location": "https://meteora.ag-v2.ink/en.html?click_id=78a6fa72-5669-4686-b1ec-4982d15d6c25",
+    "cookies": [
+     "tr_dec",
+     "tr_off_115"
+    ],
+    "html": true,
+    "body": "<html> <head><title>302 Found</title></head> <body> <center><h1>302 Found</h1></center> <hr><center>openresty/1.31.8.1</center> </body> </html>"
+   },
+   "/api/stats": {
+    "status": 302,
+    "size": 151,
+    "ctype": "text/html",
+    "server": "openresty/1.31.8.1",
+    "acao": null,
+    "location": "https://meteora.ag-v2.ink/en.html?click_id=4abfa44d-634e-4c62-86c6-3bfe7459d604",
+    "cookies": [
+     "tr_dec",
+     "tr_off_115"
+    ],
+    "html": true,
+    "body": "<html> <head><title>302 Found</title></head> <body> <center><h1>302 Found</h1></center> <hr><center>openresty/1.31.8.1</center> </body> </html>"
+   },
+   "/api/visit": {
+    "status": 302,
+    "size": 151,
+    "ctype": "text/html",
+    "server": "openresty/1.31.8.1",
+    "acao": null,
+    "location": "https://meteora.ag-v2.ink/en.html?click_id=8b5e7ba1-4695-4eff-9f4f-cfc6bf969be4",
+    "cookies": [
+     "tr_dec",
+     "tr_off_115"
+    ],
+    "html": true,
+    "body": "<html> <head><title>302 Found</title></head> <body> <center><h1>302 Found</h1></center> <hr><center>openresty/1.31.8.1</center> </body> </html>"
+   },
+   "/api/handler": {
+    "status": 302,
+    "size": 151,
+    "ctype": "text/html",
+    "server": "openresty/1.31.8.1",
+    "acao": null,
+    "location": "https://meteora.ag-v2.ink/en.html?click_id=28afe674-0f37-4888-a549-c8c4c913b109",
+    "cookies": [
+     "tr_dec",
+     "tr_off_115"
+    ],
+    "html": true,
+    "body": "<html> <head><title>302 Found</title></head> <body> <center><h1>302 Found</h1></center> <hr><center>openresty/1.31.8.1</center> </body> </html>"
+   },
+   "/api/process": {
+    "status": 302,
+    "size": 151,
+    "ctype": "text/html",
+    "server": "openresty/1.31.8.1",
+    "acao": null,
+    "location": "https://meteora.ag-v2.ink/en.html?click_id=c4a35e3f-e5a2-4e99-82f7-c5f35fd4e0fc",
+    "cookies": [
+     "tr_dec",
+     "tr_off_115"
+    ],
+    "html": true,
+    "body": "<html> <head><title>302 Found</title></head> <body> <center><h1>302 Found</h1></center> <hr><center>openresty/1.31.8.1</center> </body> </html>"
+   },
+   "/api/c/i": {
+    "status": 302,
+    "size": 151,
+    "ctype": "text/html",
+    "server": "openresty/1.31.8.1",
+    "acao": null,
+    "location": "https://meteora.ag-v2.ink/en.html?click_id=184f6271-4054-4fb7-af0d-7bc39eeeef5a",
+    "cookies": [
+     "tr_dec",
+     "tr_off_115"
+    ],
+    "html": true,
+    "body": "<html> <head><title>302 Found</title></head> <body> <center><h1>302 Found</h1></center> <hr><center>openresty/1.31.8.1</center> </body> </html>"
+   },
+   "/robots.txt": {
+    "status": 302,
+    "size": 151,
+    "ctype": "text/html",
+    "server": "openresty/1.31.8.1",
+    "acao": null,
+    "location": "https://meteora.ag-v2.ink/en.html?click_id=6417e17d-adea-435e-9dd4-1f8cc101bd16",
+    "cookies": [
+     "tr_dec",
+     "tr_off_115"
+    ],
+    "html": true,
+    "body": "<html> <head><title>302 Found</title></head> <body> <center><h1>302 Found</h1></center> <hr><center>openresty/1.31.8.1</center> </body> </html>"
+   }
+  },
+  "locales": {
+   "en": {
+    "status": 302,
+    "html": true
+   },
+   "fr": {
+    "status": 302,
+    "html": true
+   },
+   "zh": {
+    "status": 302,
+    "html": true
+   },
+   "de": {
+    "status": 302,
+    "html": true
+   },
+   "es": {
+    "status": 302,
+    "html": true
+   },
+   "pt": {
+    "status": 302,
+    "html": true
+   },
+   "it": {
+    "status": 302,
+    "html": true
+   },
+   "ja": {
+    "status": 302,
+    "html": true
+   },
+   "ko": {
+    "status": 302,
+    "html": true
+   },
+   "ar": {
+    "status": 302,
+    "html": true
+   },
+   "tr": {
+    "status": 302,
+    "html": true
+   },
+   "pl": {
+    "status": 302,
+    "html": true
+   },
+   "vi": {
+    "status": 302,
+    "html": true
+   },
+   "id": {
+    "status": 302,
+    "html": true
+   }
+  },
+  "posts": {
+   "POST /api/visit?source=deep-dump": {
+    "status": 404,
+    "size": 548,
+    "ctype": "text/html",
+    "server": "openresty/1.31.8.1",
+    "acao": null,
+    "location": null,
+    "cookies": [],
+    "html": true,
+    "body": "<html> <head><title>404 Not Found</title></head> <body> <center><h1>404 Not Found</h1></center> <hr><center>nginx</center> </body> </html> <!-- a padding to disable MSIE and Chrome"
+   },
+   "POST /api/handler": {
+    "status": 404,
+    "size": 548,
+    "ctype": "text/html",
+    "server": "openresty/1.31.8.1",
+    "acao": null,
+    "location": null,
+    "cookies": [],
+    "html": true,
+    "body": "<html> <head><title>404 Not Found</title></head> <body> <center><h1>404 Not Found</h1></center> <hr><center>nginx</center> </body> </html> <!-- a padding to disable MSIE and Chrome"
+   },
+   "POST /api/process": {
+    "status": 404,
+    "size": 548,
+    "ctype": "text/html",
+    "server": "openresty/1.31.8.1",
+    "acao": null,
+    "location": null,
+    "cookies": [],
+    "html": true,
+    "body": "<html> <head><title>404 Not Found</title></head> <body> <center><h1>404 Not Found</h1></center> <hr><center>nginx</center> </body> </html> <!-- a padding to disable MSIE and Chrome"
+   },
+   "POST /api/c/i": {
+    "status": 404,
+    "size": 548,
+    "ctype": "text/html",
+    "server": "openresty/1.31.8.1",
+    "acao": null,
+    "location": null,
+    "cookies": [],
+    "html": true,
+    "body": "<html> <head><title>404 Not Found</title></head> <body> <center><h1>404 Not Found</h1></center> <hr><center>nginx</center> </body> </html> <!-- a padding to disable MSIE and Chrome"
+   },
+   "POST /api/stats {}": {
+    "status": 404,
+    "size": 548,
+    "ctype": "text/html",
+    "server": "openresty/1.31.8.1",
+    "acao": null,
+    "location": null,
+    "cookies": [],
+    "html": true,
+    "body": "<html> <head><title>404 Not Found</title></head> <body> <center><h1>404 Not Found</h1></center> <hr><center>nginx</center> </body> </html> <!-- a padding to disable MSIE and Chrome"
+   }
+  }
+ }
+}

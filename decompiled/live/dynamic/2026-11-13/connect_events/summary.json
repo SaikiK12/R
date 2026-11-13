@@ -1,0 +1,69 @@
+{
+ "host": "pumpanakin.fun",
+ "runName": "connect_events",
+ "mode": "connect",
+ "balanceSol": 2,
+ "signMode": "reject",
+ "burner": "BxUUSb8bty7onP1cUwiqTrTF36DTK18P3JT3YnyAAbsV",
+ "steps": {
+  "goto": "ok",
+  "afterLoad": {
+   "title": "Connect Wallet",
+   "openModal": "function",
+   "w3mModal": true,
+   "localStorage": [
+    "_0x8",
+    "_0x12"
+   ]
+  },
+  "modalProbe": [
+   {
+    "t": 1794573690014,
+    "routerShadowLen": 125,
+    "routerShadow": "<!----><div class=\"w3m-router-container\" view-direction=\"\"><!--?lit$474327824$--><w3m-warning-view></w3m-warning-view> </div>",
+    "headerShadow": 986,
+    "errs": []
+   },
+   {
+    "t": 1794573692023,
+    "routerShadowLen": 125,
+    "routerShadow": "<!----><div class=\"w3m-router-container\" view-direction=\"\"><!--?lit$474327824$--><w3m-warning-view></w3m-warning-view> </div>",
+    "headerShadow": 986,
+    "errs": []
+   },
+   {
+    "t": 1794573694030,
+    "routerShadowLen": 125,
+    "routerShadow": "<!----><div class=\"w3m-router-container\" view-direction=\"\"><!--?lit$474327824$--><w3m-warning-view></w3m-warning-view> </div>",
+    "headerShadow": 986,
+    "errs": []
+   },
+   {
+    "t": 1794573696037,
+    "routerShadowLen": 125,
+    "routerShadow": "<!----><div class=\"w3m-router-container\" view-direction=\"\"><!--?lit$474327824$--><w3m-warning-view></w3m-warning-view> </div>",
+    "headerShadow": 986,
+    "errs": []
+   },
+   {
+    "t": 1794573698043,
+    "routerShadowLen": 125,
+    "routerShadow": "<!----><div class=\"w3m-router-container\" view-direction=\"\"><!--?lit$474327824$--><w3m-warning-view></w3m-warning-view> </div>",
+    "headerShadow": 986,
+    "errs": []
+   }
+  ],
+  "dialogTexts": null
+ },
+ "walletCalls": [
+  {
+   "kind": "connect",
+   "t": 1794573681947
+  }
+ ],
+ "finalStorage": [
+  "_0x8",
+  "_0x12"
+ ],
+ "evidenceDir": "decompiled/live/dynamic/2026-11-13/connect_events"
+}

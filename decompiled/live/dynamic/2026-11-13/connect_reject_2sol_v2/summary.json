@@ -1,0 +1,30 @@
+{
+ "host": "pumpanakin.fun",
+ "runName": "connect_reject_2sol_v2",
+ "mode": "connect",
+ "balanceSol": 2,
+ "signMode": "reject",
+ "burner": "2Y96Q4JGRBERrrxiW315fYUii219842StG8GQLJdzAZM",
+ "steps": {
+  "goto": "ok",
+  "afterLoad": {
+   "title": "Connect Wallet",
+   "openModal": "function",
+   "w3mModal": true,
+   "localStorage": [
+    "_0x12"
+   ]
+  },
+  "dialogTexts": null
+ },
+ "walletCalls": [
+  {
+   "kind": "connect",
+   "t": 1794573404150
+  }
+ ],
+ "finalStorage": [
+  "_0x12"
+ ],
+ "evidenceDir": "decompiled/live/dynamic/2026-11-13/connect_reject_2sol_v2"
+}

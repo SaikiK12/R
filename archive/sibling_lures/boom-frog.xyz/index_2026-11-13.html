@@ -1,0 +1,901 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="../../_nuxt/assets/index.js" type="module"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#081a12">
+<title>BOOK OF MEME — BOME</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=DM+Sans:wght@400;500;600;700;800&display=swap');
+
+:root {
+  color-scheme: dark;
+  --bg: #081a12;
+  --ink: #07180d;
+  --lime: #c5ff73;
+  --text: #f0f7e9;
+  --muted: #a0b6a1;
+  --line: rgba(205,255,180,.16);
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "DM Sans", Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+button {
+  font: inherit;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+button:focus-visible {
+  outline: 3px solid white;
+  outline-offset: 6px;
+}
+
+.shell {
+  width: min(1320px, calc(100% - 64px));
+  margin-inline: auto;
+}
+
+.page {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  min-height: 100vh;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  padding-top: env(safe-area-inset-top);
+}
+
+.page::before {
+  content: "";
+  position: absolute;
+  z-index: -2;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 52% 40%, #30582d 0, transparent 52%),
+    linear-gradient(155deg, #112a1a, #081a12 75%);
+}
+
+.grid {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  opacity: .11;
+  pointer-events: none;
+  background-image:
+    linear-gradient(#a8cf9b 1px, transparent 1px),
+    linear-gradient(90deg, #a8cf9b 1px, transparent 1px);
+  background-size: 80px 80px;
+  -webkit-mask-image: linear-gradient(#000, transparent 90%);
+  mask-image: linear-gradient(#000, transparent 90%);
+}
+
+header {
+  min-height: 105px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  border-bottom: 1px solid var(--line);
+}
+
+.brand {
+  border: 0;
+  background: transparent;
+  color: var(--text);
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-family: "Archivo Black", sans-serif;
+  font-size: 25px;
+  letter-spacing: -1.2px;
+}
+
+.brand-icon {
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  background: var(--lime);
+  color: var(--ink);
+  border-radius: 12px;
+  transform: rotate(-8deg);
+  box-shadow: 3px 3px 0 #000;
+}
+
+.brand-icon svg {
+  width: 26px;
+  height: 26px;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+.nav-link {
+  border: 0;
+  background: none;
+  color: #c2d1bf;
+  padding: 12px 0;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.nav-link:hover { color: var(--lime); }
+
+.btn {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 18px;
+  padding: 18px 27px;
+  border: 2px solid var(--ink);
+  border-radius: 16px;
+  background: var(--lime);
+  color: var(--ink);
+  font-weight: 800;
+  box-shadow: 0 6px 0 #020904;
+  transition: transform .2s, box-shadow .2s, background .2s;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  background: #d6ff9e;
+  box-shadow: 0 9px 0 #020904;
+}
+
+.btn:active {
+  transform: translateY(3px);
+  box-shadow: 0 3px 0 #020904;
+}
+
+.btn svg {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+
+.btn-small {
+  padding: 13px 19px;
+  font-size: 13px;
+  border-radius: 12px;
+}
+
+main { flex: 1; }
+
+.hero {
+  position: relative;
+  padding: 46px 0 45px;
+}
+
+.eyebrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 2.6px;
+  color: #c5d9ba;
+}
+
+.dot {
+  width: 7px;
+  height: 7px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: var(--lime);
+  box-shadow: 0 0 16px #c5ff7360;
+}
+
+h1 {
+  position: relative;
+  z-index: 2;
+  margin: 23px 0 0;
+  text-align: center;
+  font-family: "Archivo Black", sans-serif;
+  font-size: clamp(52px, 8.3vw, 116px);
+  line-height: .99;
+  letter-spacing: -.065em;
+}
+
+h1 span { color: var(--lime); }
+
+.hero-stage {
+  position: relative;
+  min-height: 550px;
+  display: grid;
+  grid-template-columns: 1fr 1.75fr 1.05fr;
+  align-items: center;
+  gap: 15px;
+}
+
+.left-copy {
+  position: relative;
+  z-index: 3;
+}
+
+.hand-label {
+  display: inline-block;
+  padding: 8px 12px;
+  background: #233e25;
+  color: var(--lime);
+  border: 1px solid #516b3e;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1.6px;
+  transform: rotate(-4deg);
+}
+
+.left-copy h2 {
+  font-family: "Archivo Black", sans-serif;
+  font-size: clamp(25px, 2.8vw, 38px);
+  line-height: 1.12;
+  letter-spacing: -1.5px;
+  margin: 24px 0 15px;
+}
+
+.left-copy p {
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.8;
+  max-width: 240px;
+}
+
+.scribble {
+  width: 110px;
+  height: 55px;
+  color: var(--lime);
+  margin-top: 15px;
+  transform: rotate(-5deg);
+}
+
+.coin-scene {
+  position: relative;
+  min-width: 0;
+  height: 550px;
+  display: grid;
+  place-items: center;
+}
+
+.orbit {
+  position: absolute;
+  width: 110%;
+  aspect-ratio: 1;
+  border: 1px solid #b6ef7825;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.orbit::before {
+  content: "";
+  position: absolute;
+  top: 15%;
+  left: 13%;
+  width: 9px;
+  height: 9px;
+  background: var(--lime);
+  border-radius: 50%;
+}
+
+.orbit.one { animation: orbit 42s linear infinite; }
+
+.orbit.two {
+  width: 95%;
+  border-style: dashed;
+  animation: orbit 60s linear infinite reverse;
+  opacity: .5;
+}
+
+.coin-glow {
+  position: absolute;
+  width: 115%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: radial-gradient(circle, #a4e44b30, transparent 68%);
+  pointer-events: none;
+}
+
+/* Круглая обрезка удаляет белые углы, не затрагивая глаза. */
+.coin-float {
+  position: relative;
+  z-index: 2;
+  width: 109%;
+  max-width: 610px;
+  aspect-ratio: 1;
+  animation: float 6s ease-in-out infinite;
+  filter: drop-shadow(0 25px 20px #0006);
+}
+
+.coin-mask {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  border-radius: 50%;
+  clip-path: circle(49% at 50% 50%);
+  background: #537f29;
+  transform: translateZ(0);
+}
+
+.coin {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* Небольшое увеличение убирает белую кайму по краям. */
+  transform: scale(1.025);
+}
+
+.coin-fallback {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background: #537f29;
+  color: var(--lime);
+  font: clamp(40px, 6vw, 82px) "Archivo Black", sans-serif;
+}
+
+.coin-fallback[hidden] { display: none; }
+
+.sticker {
+  position: absolute;
+  z-index: 4;
+  right: -5%;
+  bottom: 58px;
+  background: #ecf3d5;
+  color: var(--ink);
+  border: 2px solid var(--ink);
+  box-shadow: 4px 5px 0 #000;
+  padding: 13px 18px;
+  border-radius: 10px;
+  transform: rotate(10deg);
+  font-size: 11px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.spark {
+  position: absolute;
+  color: var(--lime);
+  width: 36px;
+  height: 36px;
+  animation: twinkle 5s ease-in-out infinite;
+}
+
+.spark.a { top: 35px; left: 0; }
+.spark.b { right: 0; top: 90px; width: 22px; }
+.spark.c { bottom: 50px; left: 5%; width: 20px; }
+
+.claim-card {
+  position: relative;
+  z-index: 5;
+  min-width: 0;
+  padding: 26px 23px;
+  background: #11271bf5;
+  border: 1px solid #6e905344;
+  border-radius: 25px;
+  box-shadow: 8px 9px 0 #04110880;
+  transform: rotate(2deg);
+}
+
+.card-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  color: #a6bd9c;
+  font-size: 9px;
+  letter-spacing: 1.2px;
+  font-weight: 800;
+}
+
+.mini-pill { color: var(--lime); }
+
+.amount {
+  font-family: "Archivo Black", sans-serif;
+  font-size: clamp(27px, 3vw, 41px);
+  letter-spacing: -2px;
+  margin: 24px 0 0;
+  white-space: nowrap;
+}
+
+.token {
+  color: var(--lime);
+  font-weight: 800;
+  font-size: 21px;
+  margin-top: 3px;
+}
+
+.card-rule {
+  height: 1px;
+  background: var(--line);
+  margin: 22px 0;
+}
+
+.card-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 15px;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.card-row strong {
+  color: #e1eed9;
+  font-weight: 600;
+  text-align: right;
+}
+
+.claim-card .btn {
+  width: 100%;
+  margin-top: 8px;
+  padding: 17px 10px;
+  font-size: 14px;
+  gap: 12px;
+}
+
+.card-note {
+  font-size: 10px;
+  line-height: 1.6;
+  text-align: center;
+  color: #8da287;
+  margin: 17px 0 0;
+}
+
+.hero-bottom {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 25px;
+  color: #b2c5a9;
+  font-size: 11px;
+  margin-top: 10px;
+}
+
+.hero-bottom span {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.hero-bottom svg {
+  width: 15px;
+  height: 15px;
+  color: var(--lime);
+}
+
+.claim-info {
+  margin: 0 auto 35px;
+  padding: 25px;
+  background: #1c3420;
+  border: 1px solid #91bb5d;
+  border-radius: 20px;
+  scroll-margin-top: 25px;
+}
+
+.claim-info[hidden] { display: none; }
+
+.claim-info h3 {
+  margin: 0 0 10px;
+  color: var(--lime);
+}
+
+.claim-info p {
+  margin: 0;
+  color: #c1d0b8;
+  line-height: 1.8;
+  font-size: 14px;
+}
+
+footer {
+  border-top: 1px solid var(--line);
+  padding: 25px 0 calc(25px + env(safe-area-inset-bottom));
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  color: #839980;
+  font-size: 11px;
+  line-height: 1.7;
+}
+
+.footer-mark {
+  font-weight: 800;
+  color: #d3e4c8;
+  letter-spacing: 1px;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(-5deg); }
+  50% { transform: translateY(-16px) rotate(2deg); }
+}
+
+@keyframes orbit {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes twinkle {
+  0%, 100% { transform: scale(.8) rotate(0); opacity: .5; }
+  50% { transform: scale(1.1) rotate(25deg); opacity: 1; }
+}
+
+@media (max-width: 1100px) and (min-width: 761px) {
+  .shell { width: calc(100% - 40px); }
+  .hero-stage {
+    grid-template-columns: .85fr 1.3fr 1fr;
+    gap: 12px;
+    min-height: 480px;
+  }
+  .coin-scene { height: 470px; }
+  .coin-float { width: 115%; }
+  .claim-card { padding: 22px 16px; }
+  .amount { font-size: clamp(25px, 3vw, 34px); }
+  .left-copy h2 { font-size: 28px; }
+  .left-copy p { font-size: 12px; }
+  .hand-label { font-size: 8px; letter-spacing: 1px; }
+  .sticker {
+    bottom: 60px;
+    right: -12%;
+    font-size: 9px;
+    padding: 11px 13px;
+  }
+  .card-top { font-size: 8px; letter-spacing: .6px; }
+  .claim-card .btn { font-size: 12px; gap: 7px; }
+}
+
+@media (max-width: 760px) {
+  .shell { width: calc(100% - 36px); }
+
+  header {
+    min-height: 85px;
+    gap: 12px;
+  }
+
+  .brand { font-size: 22px; gap: 8px; }
+  .brand-icon { width: 35px; height: 35px; }
+  .nav-link { display: none; }
+  .nav { gap: 0; }
+  .btn-small { font-size: 11px; padding: 11px 13px; gap: 9px; }
+
+  .hero { padding: 31px 0 34px; }
+
+  .eyebrow {
+    font-size: 8px;
+    letter-spacing: 1.5px;
+    gap: 7px;
+  }
+
+  h1 {
+    font-size: clamp(37px, 11.3vw, 82px);
+    margin-top: 20px;
+  }
+
+  .hero-stage {
+    grid-template-columns: 1fr;
+    gap: 0;
+    min-height: 0;
+  }
+
+  .coin-scene {
+    grid-row: 1;
+    width: 100%;
+    max-width: 490px;
+    height: auto;
+    aspect-ratio: 1;
+    margin: 22px auto 24px;
+  }
+
+  .coin-float { width: 95%; }
+  .orbit { width: 102%; }
+  .orbit.two { width: 88%; }
+  .spark.a { left: 2%; top: 12px; width: 27px; }
+  .spark.b { right: 1%; top: 55px; }
+  .spark.c { bottom: 15px; left: 8%; }
+
+  .sticker {
+    bottom: 18px;
+    right: 0;
+    padding: 11px 14px;
+    font-size: 9px;
+    transform: rotate(8deg);
+  }
+
+  .claim-card {
+    grid-row: 2;
+    width: 100%;
+    max-width: 440px;
+    margin: 0 auto;
+    transform: rotate(-1deg);
+    padding: 25px;
+  }
+
+  .amount {
+    font-size: clamp(36px, 11vw, 55px);
+    margin-top: 16px;
+  }
+
+  .token { font-size: 23px; }
+  .card-top { font-size: 9px; }
+  .card-rule { margin: 19px 0; }
+  .claim-card .btn { padding: 19px 12px; font-size: 15px; }
+
+  .left-copy {
+    grid-row: 3;
+    padding: 37px 5px 25px;
+    text-align: center;
+  }
+
+  .left-copy h2 {
+    font-size: 29px;
+    margin: 19px 0 12px;
+  }
+
+  .left-copy h2 br { display: none; }
+
+  .left-copy p {
+    max-width: 350px;
+    margin: auto;
+    font-size: 13px;
+  }
+
+  .scribble { display: none; }
+
+  .hero-bottom {
+    gap: 12px 18px;
+    font-size: 10px;
+  }
+
+  footer {
+    flex-direction: column;
+    gap: 8px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
+.coin-float {
+  width: 82%;
+  max-width: 440px;
+}
+
+@media (max-width: 1100px) and (min-width: 761px) {
+  .coin-float {
+    width: 85%;
+    max-width: 360px;
+  }
+}
+
+@media (max-width: 760px) {
+  .coin-float {
+    width: 80%;
+    max-width: 350px;
+  }
+}
+</style>
+</head>
+
+<body>
+<svg aria-hidden="true" width="0" height="0" style="position:absolute;overflow:hidden">
+  <defs>
+    <symbol id="arrow" viewBox="0 0 24 24">
+      <path d="M5 12h14M12 5l7 7-7 7"
+        fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+
+    <symbol id="star" viewBox="0 0 40 40">
+      <path d="m20 0 5 15 15 5-15 5-5 15-5-15L0 20l15-5Z"
+        fill="currentColor"/>
+    </symbol>
+
+    <symbol id="check" viewBox="0 0 24 24">
+      <path d="m5 12 4 4L19 6"
+        fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+
+    <symbol id="book" viewBox="0 0 28 28">
+      <path d="M14 7C10 4 6 4 3 5v17c4-1 7-1 11 2 4-3 7-3 11-2V5c-3-1-7-1-11 2Zm0 0v17"
+        fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linejoin="round"/>
+    </symbol>
+  </defs>
+</svg>
+
+<div class="page">
+  <div class="grid" aria-hidden="true"></div>
+
+  <header class="shell">
+    <button class="brand" type="button" onclick="openModal()"
+      aria-label="BOME campaign information">
+      <span class="brand-icon">
+        <svg aria-hidden="true"><use href="#book"/></svg>
+      </span>
+      BOME.
+    </button>
+
+    <nav class="nav" aria-label="Main navigation">
+      <button class="nav-link" type="button" onclick="openModal()">The story</button>
+      <button class="nav-link" type="button" onclick="openModal()">About the drop</button>
+      <button class="btn btn-small" type="button" onclick="openModal()">
+        Explore airdrop
+        <svg aria-hidden="true"><use href="#arrow"/></svg>
+      </button>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero shell">
+      <div class="eyebrow">
+        <span class="dot"></span>
+        BOOK OF MEME / A NEW CHAPTER
+      </div>
+
+      <h1>BIG MEMES.<br><span>BIGGER ENERGY.</span></h1>
+
+      <div class="hero-stage">
+        <div class="left-copy">
+          <span class="hand-label">FOR THE MEME GENERATION</span>
+          <h2>Not just a coin.<br> A whole<br> new chapter.</h2>
+          <p>
+            Internet culture. Unfiltered creativity. A little chaos.
+            Welcome to the world of BOOK OF MEME.
+          </p>
+
+          <svg class="scribble" viewBox="0 0 120 60" fill="none" aria-hidden="true">
+            <path d="M5 8c29 40 53 41 72 15C88 7 63 4 65 22c2 20 24 22 44 9m-14-7 15 6-8 14"
+              stroke="currentColor" stroke-width="2.5"
+              stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+
+        <div class="coin-scene">
+          <div class="coin-glow" aria-hidden="true"></div>
+          <div class="orbit one" aria-hidden="true"></div>
+          <div class="orbit two" aria-hidden="true"></div>
+
+          <svg class="spark a" aria-hidden="true"><use href="#star"/></svg>
+          <svg class="spark b" aria-hidden="true"><use href="#star"/></svg>
+          <svg class="spark c" aria-hidden="true"><use href="#star"/></svg>
+
+          <div class="coin-float">
+            <div class="coin-mask">
+              <img class="coin" id="coin"
+                alt="BOOK OF MEME coin"
+                fetchpriority="high"
+                decoding="async">
+              <div class="coin-fallback" id="coinFallback"
+                role="img" aria-label="BOME coin illustration" hidden>
+                BOME
+              </div>
+            </div>
+          </div>
+
+          <div class="sticker">LESS BORING. MORE BOME.</div>
+        </div>
+
+        <div class="claim-card">
+          <div class="card-top">
+            <span>AIRDROP ALLOCATION</span>
+            <span class="mini-pill">ACTIVE</span>
+          </div>
+
+          <div class="amount">1,000,000</div>
+          <div class="token">$BOME</div>
+
+          <div class="card-rule"></div>
+
+          <div class="card-row">
+            <span>Allocation</span>
+            <strong>Per user</strong>
+          </div>
+          <div class="card-row">
+            <span>Network</span>
+            <strong>Solana</strong>
+          </div>
+          <div class="card-row">
+            <span>Distribution</span>
+            <strong>Connected</strong>
+          </div>
+
+          <button class="btn" type="button" onclick="openModal()">
+            Explore your claim
+            <svg aria-hidden="true"><use href="#arrow"/></svg>
+          </button>
+
+          <p class="card-note">
+            Token claims are live.
+          </p>
+        </div>
+      </div>
+
+      <div class="hero-bottom">
+        <span>
+          <svg aria-hidden="true"><use href="#check"/></svg>
+          Built for meme culture
+        </span>
+        <span>
+          <svg aria-hidden="true"><use href="#check"/></svg>
+          Powered by imagination
+        </span>
+        <span>
+          <svg aria-hidden="true"><use href="#check"/></svg>
+          Made for the community
+        </span>
+      </div>
+    </section>
+
+    <section class="claim-info shell" id="claimInfo"
+      hidden tabindex="-1" aria-labelledby="claimTitle">
+      <h3 id="claimTitle">A new chapter is being prepared.</h3>
+      <p>
+        The displayed campaign allocation is 1,000,000 BOME per user. Wallet is connected and tokens are distributed. Live claims require a configured distribution contract and published campaign terms.
+      </p>
+    </section>
+  </main>
+
+  <footer class="shell">
+    <span class="footer-mark">BOME. THE MEME CHAPTER.</span>
+    <span>Official airdrop</span>
+  </footer>
+</div>
+
+<script>
+function openModal() {
+  const panel = document.getElementById("claimInfo");
+  panel.hidden = false;
+  panel.focus({ preventScroll: true });
+  panel.scrollIntoView({
+    behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches
+      ? "auto"
+      : "smooth",
+    block: "center"
+  });
+}
+
+(function loadCoin() {
+  const coin = document.getElementById("coin");
+  const fallback = document.getElementById("coinFallback");
+  const sources = ["1.png", "1.webp", "1.jpg", "1.jpeg", "1"];
+  let index = 0;
+
+  coin.addEventListener("error", function () {
+    index += 1;
+
+    if (index < sources.length) {
+      coin.src = sources[index];
+    } else {
+      coin.style.display = "none";
+      fallback.hidden = false;
+    }
+  });
+
+  coin.src = sources[index];
+})();
+</script>
+<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/vce701823e78c4301a35b7e07294d87301792088814092" integrity="sha512-UKNk8GbxkABxKcXYuLkO16EleLGUkcvJWtpSNmExE0Too3ZaFAxTscNWEc1OdAv5/BikHawapSCaiD2XCmp+Bw==" data-cf-beacon='{"version":"2024.11.0","token":"d69e066475a94027b9fd34fb006eb34c","r":1,"spa":2}' crossorigin="anonymous"></script>
+</body>
+</html>

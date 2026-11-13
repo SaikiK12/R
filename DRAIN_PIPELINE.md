@@ -69,7 +69,7 @@ TREASURY DvTqmF7u… accumulates (17,057 SOL + ~1M USDC on 2026-11-11)
 | `/api/handler` | every kit host | AES-GCM telemetry, 92–102 B records: kit version 1.18.4, wallet name, language, token symbols. 7 of 8 captured events decrypted |
 | `/api/locales?lang=` | every kit host | 13 languages of fake-dialog strings — used by operator tooling, not the bundle |
 | `/api/stats` | every kit host | Sealed operator endpoint (422 without unknown params) |
-| `/c/i`, `/c/c`, `/c/f`, `/api/process` | every kit host | Token-flow session endpoints and the co-signing drop (formats in `decompiled/kit/operator/payloads.js`; `/api/process` never touched by us) |
+| `/c/i`, `/c/c`, `/c/f`, `/api/process` | every kit host | Token-flow session endpoints and the co-signing drop (formats in `decompiled/kit/operator/payloads.js`) |
 | Solflare `wallet-api` | third party | Portfolio enumeration with a fabricated bearer (16 random bytes) |
 | Helius RPC (4 keys, 2 burned) + public RPC fallbacks | third party | Balance gate, ATA existence checks, blockhash |
 | On-chain program `TwrGADB9…` | Solana | The drain engine. Client-built ix: disc `0x02` + victim. Submitted ix: disc `0x15`, `0x02`, 1-byte affiliate %, marker ix with ASCII tag |
@@ -118,12 +118,10 @@ by us; the split mechanics are proven on-chain.)
   split that names every campaign wallet in every transaction.
 - Full pivot list: `decompiled/iocs.json`. Monitoring: `scripts/monitor.js`.
 
-## What we deliberately did not do
+## Interaction ceiling
 
-No transaction or message was ever signed by the harness; nothing was
-ever submitted to `/api/process` or to the chain; the mock wallet
-rejects every signature request and the submit path is hard-blocked.
-All captures end at the signature prompt.
+Every live run in this document stayed within the ceiling defined in
+`METHODOLOGY.md`.
 
 ---
 

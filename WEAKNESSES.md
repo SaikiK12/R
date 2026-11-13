@@ -57,7 +57,7 @@ shell is gone). The drain transaction the kit built for the victim is
 decoded in `decompiled/live/dynamic/captured_tx_2026-11-12.json`, and
 five `/api/handler` telemetry posts were decrypted with the kit's own key
 (`decompiled/live/dynamic/handler_events_decrypted_2026-11-12.json`).
-Nothing was signed or submitted. Three additions to the record:
+Three additions to the record:
 
 - **F5/F7 sharpened: receiver rotation is cosmetic for the decoy layer.**
   The live-built tx's fake-incoming legs (1 SOL from treasury, 500 USDC

@@ -1,0 +1,324 @@
+{
+ "host": "oshivault.com",
+ "fetched": "2026-11-13T11:23:41.163Z",
+ "ip": "172.67.137.150",
+ "root": {
+  "status": 200,
+  "size": 1012535,
+  "ctype": "text/html; charset=utf-8",
+  "server": "cloudflare",
+  "acao": null,
+  "location": null,
+  "cookies": [],
+  "html": true,
+  "body": "<!DOCTYPE html> <html data-tsd-source=\"/src/routes/__root.tsx:108:5\" lang=\"en\"><head data-tsd-source=\"/src/routes/__root.tsx:109:7\"> <link data-savepage-href=\"https://id-preview--a"
+ },
+ "html": {
+  "title": "OSHI Allocation is Live | Claim Portal",
+  "bytes": 1012535,
+  "sha256": "d4c84a37e738b096c455923d0ff03b6df9f8baf09ce3bdfc0830db7b2cbcd62c",
+  "bom": true,
+  "kit_refs": [
+   "../../_nuxt/assets/index.js"
+  ],
+  "click_id": false,
+  "turnstile": false,
+  "inline_scripts": 1,
+  "inline_bytes": 843,
+  "text_sample": "OSHI Allocation is Live | Claim Portal OSHI MAINNET LIVE // Allocation event OSHI Allocation is officially live. The wait is over. Eligible wallets can now claim their OSHI allocation directly on Solana. Claim Allocation Portal Solana address Claim Allocation Claimable yields $OSH · per NFT rarity 2 OSH/day Common 3 OSH/day Uncommon 5 OSH/day Rare 8 OSH/day Epic 15 OSH/day Legendary OSHI NFT Holder Distribution $OSHI · daily Funded by 50% of NFT-trade royalties via buyback. Active holders earn for as long as OSHI NFTs trade. Network: Solana Payout: Daily Eligibility: Qualifying NFT held Allocation live Solana mainnet Snapshot locked Community first Claims open now OSHI season Allocation live Solana mainnet Snapshot locked Community first Claims open now OSHI season Solana Network Live Status ~400ms Finality Verified Audit Secure by design Non-custodial claims. Your keys never leave your "
+ },
+ "inline": [
+  {
+   "file": "inline-0.js",
+   "bytes": 843,
+   "sha256": "c81402569b6fd2536c584d3c88d1bb5e9081d8ce8d499d8a26c0dc70ca6144cc",
+   "obfuscated": false,
+   "urls": [],
+   "apis": [],
+   "storage_keys": [],
+   "websockets": [],
+   "pubkey_like": [],
+   "wallet_hits": []
+  }
+ ],
+ "kit": {
+  "url": "https://oshivault.com/_nuxt/assets/index.js",
+  "host": "oshivault.com",
+  "size": 1034759,
+  "sha256": "0735606691bbdf35d38d7531c0e48363a21ef6f7224ebce2908a1b487f9ea6a2",
+  "reference": true,
+  "truncated": false
+ },
+ "assets": [
+  {
+   "url": "https://oshivault.com/__l5e/assets-v1/fd077407-0a00-4fa6-85fa-df4d3ebc3b21/oshi_logo.jpg",
+   "status": 404,
+   "error": null,
+   "html_fallback": true
+  },
+  {
+   "url": "https://oshivault.com/assets/styles-CTt8BOf7.css",
+   "status": 404,
+   "error": null,
+   "html_fallback": true
+  },
+  {
+   "url": "https://oshivault.com/assets/index-ECcU59bs.js",
+   "status": 404,
+   "error": null,
+   "html_fallback": true
+  },
+  {
+   "url": "https://oshivault.com/assets/routes-CBdYjFgA.js",
+   "status": 404,
+   "error": null,
+   "html_fallback": true
+  },
+  {
+   "url": "https://oshivault.com/favicon.png",
+   "status": 404,
+   "error": null,
+   "html_fallback": true
+  },
+  {
+   "url": "https://oshivault.com/__l5e/events.270c78a44fc53e7b.js",
+   "status": 404,
+   "error": null,
+   "html_fallback": true
+  }
+ ],
+ "external": [
+  "https://id-preview--af9f2834-f92a-4384-b871-9c18228ace31.lovable.app/favicon.png",
+  "https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap",
+  "https://fonts.googleapis.com/",
+  "https://fonts.gstatic.com/",
+  "https://id-preview--af9f2834-f92a-4384-b871-9c18228ace31.lovable.app/__l5e/assets-v1/fd077407-0a00-4fa6-85fa-df4d3ebc3b21/oshi_logo.jpg",
+  "https://lovable.dev/projects/lovp_2gwx4x201k82wvm5akby3dy1hf?utm_source=lovable-badge",
+  "https://cdn.gpteng.co/lovable.js",
+  "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/lovp_2gwx4x201k82wvm5akby3dy1hf/e034014164207207b0d6f4726a3d14be_1793738671599.png",
+  "https://id-preview--af9f2834-f92a-4384-b871-9c18228ace31.lovable.app/?__lovable_receipt=mat_7g0202mzqe9d8bd2fss3sw9pbf",
+  "http://www.w3.org/2000/svg"
+ ],
+ "js": [],
+ "api": {
+  "gets": {
+   "/api/config": {
+    "status": 200,
+    "size": 188,
+    "ctype": "text/plain; charset=utf-8",
+    "server": "cloudflare",
+    "acao": "*",
+    "location": null,
+    "cookies": [],
+    "html": false,
+    "body": "��\u001a\u0005��~�E��N�~�U\u0015��\u0015��g{1ڡB�v��\u0011��K����\u001e�m���Squz\u000f�p]�b��x\u000ewq��tX�h\u0016\u0018G?T&s\u0017�k�\u001cG���� �>��|1\u00127�\u0010eZ��\u0011��\u001d�X��\u0005��`o�G�J��}�, �\u0005\u0002�)\bp���F��,D��|�h� �M����DxY�\b��0 #��I����\u0004����T$HU�q"
+   },
+   "/api/is-banned": {
+    "status": 200,
+    "size": 1,
+    "ctype": "text/plain;charset=utf-8",
+    "server": "cloudflare",
+    "acao": "*",
+    "location": null,
+    "cookies": [],
+    "html": false,
+    "body": "0"
+   },
+   "/api/stats": {
+    "status": 422,
+    "size": 22,
+    "ctype": "application/json",
+    "server": "cloudflare",
+    "acao": "*",
+    "location": null,
+    "cookies": [],
+    "html": false,
+    "body": "{\"error\":\"VALIDATION\"}"
+   },
+   "/api/visit": {
+    "status": 404,
+    "size": 548,
+    "ctype": "text/html; charset=utf-8",
+    "server": "cloudflare",
+    "acao": null,
+    "location": null,
+    "cookies": [],
+    "html": true,
+    "body": "<html> <head><title>404 Not Found</title></head> <body> <center><h1>404 Not Found</h1></center> <hr><center>nginx</center> </body> </html> <!-- a padding to disable MSIE and Chrome"
+   },
+   "/api/handler": {
+    "status": 404,
+    "size": 548,
+    "ctype": "text/html; charset=utf-8",
+    "server": "cloudflare",
+    "acao": null,
+    "location": null,
+    "cookies": [],
+    "html": true,
+    "body": "<html> <head><title>404 Not Found</title></head> <body> <center><h1>404 Not Found</h1></center> <hr><center>nginx</center> </body> </html> <!-- a padding to disable MSIE and Chrome"
+   },
+   "/api/process": {
+    "status": 404,
+    "size": 548,
+    "ctype": "text/html; charset=utf-8",
+    "server": "cloudflare",
+    "acao": null,
+    "location": null,
+    "cookies": [],
+    "html": true,
+    "body": "<html> <head><title>404 Not Found</title></head> <body> <center><h1>404 Not Found</h1></center> <hr><center>nginx</center> </body> </html> <!-- a padding to disable MSIE and Chrome"
+   },
+   "/api/c/i": {
+    "status": 404,
+    "size": 548,
+    "ctype": "text/html; charset=utf-8",
+    "server": "cloudflare",
+    "acao": null,
+    "location": null,
+    "cookies": [],
+    "html": true,
+    "body": "<html> <head><title>404 Not Found</title></head> <body> <center><h1>404 Not Found</h1></center> <hr><center>nginx</center> </body> </html> <!-- a padding to disable MSIE and Chrome"
+   },
+   "/robots.txt": {
+    "status": 200,
+    "size": 1248,
+    "ctype": "text/plain; charset=utf-8",
+    "server": "cloudflare",
+    "acao": null,
+    "location": null,
+    "cookies": [],
+    "html": false,
+    "body": "# As a condition of accessing this website, you agree to abide by the following # content signals: # (a) If a content-signal = yes, you may collect content for the corresponding # "
+   }
+  },
+  "locales": {
+   "en": {
+    "status": 200,
+    "size": 378,
+    "sha256": "d17efb811f26e9c7107626aa331cd405aa3baeb3dc570a3fe35bd0bdfa2009f9"
+   },
+   "fr": {
+    "status": 200,
+    "size": 437,
+    "sha256": "d838a1d4cafaa4c46ce2beb8de0afaef4586245109c717a6c7a15431032e7bda"
+   },
+   "zh": {
+    "status": 200,
+    "size": 342,
+    "sha256": "24a9f7b592b22b6cb806436903fad603715053cd8227c8464c2e8e18eb9fe882"
+   },
+   "de": {
+    "status": 200,
+    "size": 449,
+    "sha256": "58ae6782fdfd618c36f4fdf9395c7a85ce3f717b057470a38053f7b47322443c"
+   },
+   "es": {
+    "status": 200,
+    "size": 405,
+    "sha256": "07e309ee2f9150cc9321ddb08051ede228dac9ad5c33f259ea06ef698439d610"
+   },
+   "pt": {
+    "status": 200,
+    "size": 407,
+    "sha256": "9cec7bf902425be3df8a9a6b68656b6fc382982341afbf71a2ba36d77b4c8c17"
+   },
+   "it": {
+    "status": 200,
+    "size": 441,
+    "sha256": "0b52025ca9b6ca80f4b400420012075997ab5df9febe6e59f06698a8f8a7ae46"
+   },
+   "ja": {
+    "status": 200,
+    "size": 534,
+    "sha256": "83b0010f3bc52ae57975cc7f4fd9f01c5c7e21d2748447a06e9f3459fc3a9789"
+   },
+   "ko": {
+    "status": 200,
+    "size": 414,
+    "sha256": "54efefa1d1de12ceb874d27ed890fc2c6bb82e2212df466b70d647a33aef2e55"
+   },
+   "ar": {
+    "status": 200,
+    "size": 552,
+    "sha256": "95c890389b1330cd7e7a638417afffe35846527fb1265d9a02fa0de1d720bcd4"
+   },
+   "tr": {
+    "status": 200,
+    "size": 386,
+    "sha256": "330b1fdf725fef9c5356a2e3247bc825fd0a9ade48f6dca3f103d73794eba3bd"
+   },
+   "pl": {
+    "status": 200,
+    "size": 409,
+    "sha256": "6639520395117eec9b7b589ee347efa81aeaef4afcddd14699d1a578cfaa0413"
+   },
+   "vi": {
+    "status": 200,
+    "size": 481,
+    "sha256": "61307650b9a5827b9b7e7258ec8ae9010f73a4576168a7104ead786abe13cdf9"
+   },
+   "id": {
+    "status": 200,
+    "size": 380,
+    "sha256": "8817bf107a2db86f7ad69e9f1adfc51003968501382e64eca0bb3c6730594283"
+   }
+  },
+  "posts": {
+   "POST /api/visit?source=deep-dump": {
+    "status": 200,
+    "size": 2,
+    "ctype": "text/plain;charset=utf-8",
+    "server": "cloudflare",
+    "acao": "*",
+    "location": null,
+    "cookies": [],
+    "html": false,
+    "body": "ok"
+   },
+   "POST /api/handler": {
+    "status": 422,
+    "size": 22,
+    "ctype": "application/json",
+    "server": "cloudflare",
+    "acao": "*",
+    "location": null,
+    "cookies": [],
+    "html": false,
+    "body": "{\"error\":\"VALIDATION\"}"
+   },
+   "POST /api/process": {
+    "status": 422,
+    "size": 22,
+    "ctype": "application/json",
+    "server": "cloudflare",
+    "acao": "*",
+    "location": null,
+    "cookies": [],
+    "html": false,
+    "body": "{\"error\":\"VALIDATION\"}"
+   },
+   "POST /api/c/i": {
+    "status": 404,
+    "size": 548,
+    "ctype": "text/html; charset=utf-8",
+    "server": "cloudflare",
+    "acao": null,
+    "location": null,
+    "cookies": [],
+    "html": true,
+    "body": "<html> <head><title>404 Not Found</title></head> <body> <center><h1>404 Not Found</h1></center> <hr><center>nginx</center> </body> </html> <!-- a padding to disable MSIE and Chrome"
+   },
+   "POST /api/stats {}": {
+    "status": 404,
+    "size": 548,
+    "ctype": "text/html; charset=utf-8",
+    "server": "cloudflare",
+    "acao": null,
+    "location": null,
+    "cookies": [],
+    "html": true,
+    "body": "<html> <head><title>404 Not Found</title></head> <body> <center><h1>404 Not Found</h1></center> <hr><center>nginx</center> </body> </html> <!-- a padding to disable MSIE and Chrome"
+   }
+  }
+ }
+}

@@ -1,0 +1,93 @@
+{
+ "host": "pumpanakin.fun",
+ "runName": "baseline_reject_2sol",
+ "balanceSol": 2,
+ "signMode": "reject",
+ "burner": "CwxubSkpttpBv9PevnzQQ5hWVTHVi9siP53sdL741bcg",
+ "steps": {
+  "goto": "ok",
+  "afterLoad": {
+   "title": "TRUMP COIN",
+   "openModal": "function",
+   "w3mModal": true,
+   "localStorage": [
+    "_0x5",
+    "_0x12"
+   ]
+  },
+  "modal": {
+   "w3mModal": true
+  },
+  "walletPick": {
+   "clicked": false,
+   "texts": [
+    "window.W3M_COLOR_THEME = \"light\"",
+    "TRUMP COIN",
+    "claim reward",
+    "claim reward",
+    "claim reward",
+    "claim reward",
+    "biggest Trump Coin",
+    "claim reward le⁢⁣аr​n ⁢morе",
+    "claim reward",
+    "le⁢⁣аr​n ⁢morе",
+    "about airdrop",
+    "Official trump  coin airdrop",
+    "Official trump  coin airdrop",
+    "⁣⁢А⁣vail​а‌blе  For Everyone",
+    "23:59:59$⁣1‍00.00​⁢0",
+    "23:59:59",
+    "$⁣1‍00.00​⁢0",
+    "Q1 Airdrop",
+    "Q1 Airdrop",
+    "claim",
+    "‍$⁣10‌0.000",
+    "‍$⁣10‌0.000",
+    "‍$⁣10‌0.000",
+    "⁣Q2 A⁢irdrо⁣​p",
+    "coming soon",
+    "$100.000",
+    "$100.000",
+    "​Q⁣3 ‍Аirdr⁣o‍p",
+    "​Q⁣3 ‍Аirdr⁣o‍p",
+    "с‌оm‌in​g‍‌ s‌oon",
+    "‌Ра⁢rtiсi⁣⁣pа⁢t​е now!",
+    "‌Ра⁢rtiсi⁣⁣pа⁢t​е now!",
+    "now!",
+    "now!",
+    "cоnnесt⁢ wа⁢l​‌lе‍‌t",
+    "© 2025 — All rights reserved",
+    "© 2025 — All rights reserved",
+    "Contact us",
+    "Contact us",
+    "Рr⁢i⁣vа‍⁣су ‌Роliсy",
+    "Рr⁢i⁣vа‍⁣су ‌Роliсy",
+    "Оu‍r‌⁣ S‍еr‌viсes",
+    "Оu‍r‌⁣ S‍еr‌viсes",
+    "Connect Wallet",
+    "Connect Wallet",
+    "Connect Wallet",
+    "Phantominstalled",
+    "Phantom",
+    "installed",
+    "Solflarepopular",
+    "Solflare",
+    "popular",
+    "Trust Wallet",
+    "Trust Wallet",
+    "Jupiter",
+    "Jupiter",
+    "MetaMask",
+    "MetaMask",
+    "All Wallets130+",
+    "All Wallets"
+   ]
+  }
+ },
+ "walletCalls": [],
+ "finalStorage": [
+  "_0x5",
+  "_0x12"
+ ],
+ "evidenceDir": "decompiled/live/dynamic/2026-11-13/baseline_reject_2sol"
+}

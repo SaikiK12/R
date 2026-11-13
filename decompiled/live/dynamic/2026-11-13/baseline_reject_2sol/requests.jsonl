@@ -1,0 +1,46 @@
+{"t":"2026-11-13T12:28:23.520Z","event":"run_start","host":"pumpanakin.fun","balanceSol":2,"signMode":"reject","burner_pubkey":"CwxubSkpttpBv9PevnzQQ5hWVTHVi9siP53sdL741bcg","burner_funding":"none — random pubkey, never funded, on-chain balance check N/A (no private key exists)"}
+{"t":"2026-11-13T12:28:24.063Z","dir":"kit->harness","method":"GET","url":"https://pumpanakin.fun/","body_b64":null,"status":200,"note":null,"parsed":null,"decrypted":null}
+{"t":"2026-11-13T12:28:24.072Z","dir":"kit->harness","method":"GET","url":"https://pumpanakin.fun/assets/css/wzi2d.css?fmgixv9","body_b64":null,"status":404,"note":null,"parsed":null,"decrypted":null}
+{"t":"2026-11-13T12:28:24.072Z","dir":"kit->harness","method":"GET","url":"https://pumpanakin.fun/assets/js/jxi33.js?0s3xodk","body_b64":null,"status":404,"note":null,"parsed":null,"decrypted":null}
+{"t":"2026-11-13T12:28:24.075Z","dir":"blocked","method":"GET","url":"https://code.jquery.com/jquery-migrate-1.2.1.min.js?3r3yueh"}
+{"t":"2026-11-13T12:28:24.075Z","dir":"kit->harness","method":"GET","url":"https://pumpanakin.fun/_nuxt/assets/index.js?aa6524x","body_b64":null,"status":200,"note":null,"parsed":null,"decrypted":null}
+{"t":"2026-11-13T12:28:24.076Z","dir":"kit->harness","method":"GET","url":"https://pumpanakin.fun/assets/img/header_logo.svg","body_b64":null,"status":404,"note":null,"parsed":null,"decrypted":null}
+{"t":"2026-11-13T12:28:24.076Z","dir":"kit->harness","method":"GET","url":"https://pumpanakin.fun/assets/img/header_tw.svg","body_b64":null,"status":404,"note":null,"parsed":null,"decrypted":null}
+{"t":"2026-11-13T12:28:24.085Z","dir":"console","type":"error","text":"Failed to load resource: the server responded with a status of 404 (Not Found)"}
+{"t":"2026-11-13T12:28:24.085Z","dir":"console","type":"error","text":"Failed to load resource: the server responded with a status of 404 (Not Found)"}
+{"t":"2026-11-13T12:28:24.086Z","dir":"console","type":"error","text":"Failed to load resource: net::ERR_FAILED"}
+{"t":"2026-11-13T12:28:24.086Z","dir":"kit->harness","method":"GET","url":"https://pumpanakin.fun/assets/img/header_yt.svg","body_b64":null,"status":404,"note":null,"parsed":null,"decrypted":null}
+{"t":"2026-11-13T12:28:24.087Z","dir":"kit->harness","method":"GET","url":"https://pumpanakin.fun/assets/img/header_tg.svg","body_b64":null,"status":404,"note":null,"parsed":null,"decrypted":null}
+{"t":"2026-11-13T12:28:24.087Z","dir":"kit->harness","method":"GET","url":"https://pumpanakin.fun/assets/img/header_ds.svg","body_b64":null,"status":404,"note":null,"parsed":null,"decrypted":null}
+{"t":"2026-11-13T12:28:24.087Z","dir":"kit->harness","method":"GET","url":"https://pumpanakin.fun/assets/js/sbdst.js?717o97x","body_b64":null,"status":404,"note":null,"parsed":null,"decrypted":null}
+{"t":"2026-11-13T12:28:24.088Z","dir":"kit->harness","method":"GET","url":"https://pumpanakin.fun/assets/img/header_mail.svg","body_b64":null,"status":404,"note":null,"parsed":null,"decrypted":null}
+{"t":"2026-11-13T12:28:24.088Z","dir":"kit->harness","method":"GET","url":"https://pumpanakin.fun/assets/img/intro_image.png","body_b64":null,"status":404,"note":null,"parsed":null,"decrypted":null}
+{"t":"2026-11-13T12:28:24.088Z","dir":"kit->harness","method":"GET","url":"https://pumpanakin.fun/assets/img/about_image1.png","body_b64":null,"status":404,"note":null,"parsed":null,"decrypted":null}
+{"t":"2026-11-13T12:28:24.088Z","dir":"kit->harness","method":"GET","url":"https://pumpanakin.fun/assets/img/about_image2.png","body_b64":null,"status":404,"note":null,"parsed":null,"decrypted":null}
+{"t":"2026-11-13T12:28:24.088Z","dir":"kit->harness","method":"GET","url":"https://pumpanakin.fun/assets/img/about_block_stars.svg","body_b64":null,"status":404,"note":null,"parsed":null,"decrypted":null}
+{"t":"2026-11-13T12:28:24.088Z","dir":"kit->harness","method":"GET","url":"https://pumpanakin.fun/assets/img/about_block_image.png","body_b64":null,"status":404,"note":null,"parsed":null,"decrypted":null}
+{"t":"2026-11-13T12:28:24.089Z","dir":"kit->harness","method":"GET","url":"https://pumpanakin.fun/assets/img/participate_left_top.png","body_b64":null,"status":404,"note":null,"parsed":null,"decrypted":null}
+{"t":"2026-11-13T12:28:24.089Z","dir":"kit->harness","method":"GET","url":"https://pumpanakin.fun/assets/img/participate_left_bottom.png","body_b64":null,"status":404,"note":null,"parsed":null,"decrypted":null}
+{"t":"2026-11-13T12:28:24.089Z","dir":"kit->harness","method":"GET","url":"https://pumpanakin.fun/assets/img/participate_right.png","body_b64":null,"status":404,"note":null,"parsed":null,"decrypted":null}
+{"t":"2026-11-13T12:28:24.090Z","dir":"kit->harness","method":"GET","url":"https://pumpanakin.fun/assets/img/footer_logo.svg","body_b64":null,"status":404,"note":null,"parsed":null,"decrypted":null}
+{"t":"2026-11-13T12:28:24.111Z","dir":"console","type":"error","text":"Failed to load resource: the server responded with a status of 404 (Not Found)"}
+{"t":"2026-11-13T12:28:24.111Z","dir":"console","type":"error","text":"Failed to load resource: the server responded with a status of 404 (Not Found)"}
+{"t":"2026-11-13T12:28:24.111Z","dir":"console","type":"error","text":"Failed to load resource: the server responded with a status of 404 (Not Found)"}
+{"t":"2026-11-13T12:28:24.112Z","dir":"console","type":"error","text":"Failed to load resource: the server responded with a status of 404 (Not Found)"}
+{"t":"2026-11-13T12:28:24.112Z","dir":"console","type":"error","text":"Failed to load resource: the server responded with a status of 404 (Not Found)"}
+{"t":"2026-11-13T12:28:24.112Z","dir":"console","type":"error","text":"Failed to load resource: the server responded with a status of 404 (Not Found)"}
+{"t":"2026-11-13T12:28:24.112Z","dir":"console","type":"error","text":"Failed to load resource: the server responded with a status of 404 (Not Found)"}
+{"t":"2026-11-13T12:28:24.113Z","dir":"console","type":"error","text":"Failed to load resource: the server responded with a status of 404 (Not Found)"}
+{"t":"2026-11-13T12:28:24.113Z","dir":"console","type":"error","text":"Failed to load resource: the server responded with a status of 404 (Not Found)"}
+{"t":"2026-11-13T12:28:24.113Z","dir":"console","type":"error","text":"Failed to load resource: the server responded with a status of 404 (Not Found)"}
+{"t":"2026-11-13T12:28:24.113Z","dir":"console","type":"error","text":"Failed to load resource: the server responded with a status of 404 (Not Found)"}
+{"t":"2026-11-13T12:28:24.113Z","dir":"console","type":"error","text":"Failed to load resource: the server responded with a status of 404 (Not Found)"}
+{"t":"2026-11-13T12:28:24.113Z","dir":"console","type":"error","text":"Failed to load resource: the server responded with a status of 404 (Not Found)"}
+{"t":"2026-11-13T12:28:24.113Z","dir":"console","type":"error","text":"Failed to load resource: the server responded with a status of 404 (Not Found)"}
+{"t":"2026-11-13T12:28:24.113Z","dir":"console","type":"error","text":"Failed to load resource: the server responded with a status of 404 (Not Found)"}
+{"t":"2026-11-13T12:28:24.113Z","dir":"console","type":"error","text":"Failed to load resource: the server responded with a status of 404 (Not Found)"}
+{"t":"2026-11-13T12:28:24.342Z","dir":"console","type":"log","text":"1.18.4"}
+{"t":"2026-11-13T12:28:24.377Z","dir":"kit->harness","method":"GET","url":"https://pumpanakin.fun/api/is-banned","body_b64":null,"status":200,"note":null,"parsed":null,"decrypted":null}
+{"t":"2026-11-13T12:28:24.377Z","dir":"kit->harness","method":"GET","url":"https://pumpanakin.fun/api/config","body_b64":null,"status":200,"note":null,"parsed":null,"decrypted":null}
+{"t":"2026-11-13T12:28:24.384Z","dir":"kit->harness","method":"POST","url":"https://pumpanakin.fun/api/visit","body_b64":null,"status":200,"note":null,"parsed":null,"decrypted":null}
+{"t":"2026-11-13T12:28:41.159Z","event":"run_end","wallet_calls":0,"steps":["goto","afterLoad","modal","walletPick"]}

@@ -1,0 +1,21 @@
+{
+ "host": "www-meteora.ag-v2.ink",
+ "ip": "150.251.227.160",
+ "status": 403,
+ "server": "openresty/1.31.8.1",
+ "bundle": {
+  "status": 404,
+  "url": "https://www-meteora.ag-v2.ink/_nuxt/assets/index.js"
+ },
+ "config": {
+  "status": 404,
+  "host": "www-meteora.ag-v2.ink"
+ },
+ "is_banned": {
+  "status": 404,
+  "body": "<html>\r\n<head><title>404 Not Found</title></head>\r\n<body>\r\n<center><h1>404 Not Found</h1></center>\r\n<hr><center>nginx</center>\r\n</body>\r\n</html>\r\n<!-- a padding to disable MSIE and Chrome friendly err"
+ },
+ "locale_en": {
+  "status": 404
+ }
+}

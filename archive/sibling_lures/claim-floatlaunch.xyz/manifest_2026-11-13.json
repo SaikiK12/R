@@ -1,0 +1,21 @@
+{
+ "host": "claim-floatlaunch.xyz",
+ "ip": "172.67.182.231",
+ "status": 403,
+ "server": "cloudflare",
+ "bundle": {
+  "status": 525,
+  "url": "https://claim-floatlaunch.xyz/_nuxt/assets/index.js"
+ },
+ "config": {
+  "status": 403,
+  "host": "claim-floatlaunch.xyz"
+ },
+ "is_banned": {
+  "status": 403,
+  "body": "<!DOCTYPE html><html lang=\"en-US\"><head><title>Just a moment...</title><meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\"><meta http-equiv=\"X-UA-Compatible\" content=\"IE=Edge\"><meta nam"
+ },
+ "locale_en": {
+  "status": 403
+ }
+}

@@ -1,0 +1,57 @@
+{
+ "host": "rolldice.icu",
+ "ip": "172.67.172.211",
+ "status": 200,
+ "server": "cloudflare",
+ "html_bytes": 60538,
+ "html_sha256": "9709cced60916d1df505ddd452cdb4b2a9266ec28ba46412822336c58f7ed912",
+ "title": "ROLLDICE — Two Dice. Double Rewards.",
+ "saved_html": "index_2026-11-13.html",
+ "page_assets": [
+  "https://api.fontshare.com/v2/css?f[]=uncut-sans@600,700,800&amp;f[]=general-sans@400,500,600,700&amp;display=swap",
+  "https://fonts.googleapis.com/",
+  "https://fonts.gstatic.com/",
+  "https://fonts.googleapis.com/css2?family=Fira+Code:wght@500;600;700&amp;display=swap",
+  "https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js",
+  "https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js",
+  "https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js",
+  "https://rolldice.icu/_nuxt/assets/index.js",
+  "https://rolldice.icu/#arena",
+  "https://rolldice.icu/#process",
+  "https://static.cloudflareinsights.com/beacon.min.js/vce701823e78c4301a35b7e07294d87301792088814092"
+ ],
+ "bundle": {
+  "status": 200,
+  "size": 1034759,
+  "sha256": "0735606691bbdf35d38d7531c0e48363a21ef6f7224ebce2908a1b487f9ea6a2",
+  "reference": true,
+  "url": "https://rolldice.icu/_nuxt/assets/index.js"
+ },
+ "config": {
+  "status": 200,
+  "wire_bytes": 188,
+  "host": "rolldice.icu",
+  "saved_bin": "api_config_2026-11-13.bin",
+  "pt_len": 160,
+  "receivers": [
+   "HrmfWTNdY8QeNif8SMK4xU5YATt7YJPdnKev1FcmbaKy",
+   "7oHgTZjNPnjos8xd2zdCm2Q6zwS8cVFDp4XbuvmqV4aa",
+   "7mfxYcwyddVa6fD7Ge33vgY8SC862hcqXmvjYKqcpza1"
+  ],
+  "max": 500,
+  "min": 1,
+  "sibling": "trongame.fun",
+  "token": "USDC",
+  "plaintext_hex": "880003e8030000c6fa7af3bedbad3a3d65f36aabc97431b1bbe4c2d2f6e0e47ca60203452f5d61606501b302e1801892f80a2979f585f8855d0f2034790a2455f744fac503d7b5276497ba0bb8659172b72edd8c66e18f561764d9c86a610a3a7e0f79c0baf9db06407f4000000000003ff000000000000005000000050000000000000000010000000000000c74726f6e67616d652e66756e04555344430000",
+  "saved_json": "api_config_2026-11-13.json"
+ },
+ "is_banned": {
+  "status": 200,
+  "body": "0"
+ },
+ "locale_en": {
+  "status": 200,
+  "size": 378,
+  "same_as_pumpanakin": true
+ }
+}

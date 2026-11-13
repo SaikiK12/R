@@ -1,10 +1,8 @@
 # Live mapping — 2026-11-11 (initial) + 2026-11-12 (re-verification)
 
-Results of benign probing of the live lure. Only requests a normal page
-load would make were sent to the operator host; the submit endpoints
-(`/process`, `/c/*`, `/api/handler` POST) were never touched. On-chain
-data came from public RPCs and Helius. No wallet was connected, nothing
-was signed, no victim data was sent.
+Results of benign probing of the live lure. Requests were
+page-load-equivalent (ceiling: `../../METHODOLOGY.md`); on-chain data
+came from public RPCs and Helius.
 
 **2026-11-12 re-verification** used a real desktop Chrome UA
 (`Mozilla/5.0 … Chrome/131.0.0.0`) via a headless browser. All pages

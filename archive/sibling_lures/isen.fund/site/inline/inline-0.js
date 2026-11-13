@@ -1,0 +1,1 @@
+document.querySelector('#email').textContent = `Email: info@${document.location.host}`

@@ -1,0 +1,53 @@
+{
+ "host": "web-meteora.at",
+ "ip": "185.198.232.16",
+ "status": 200,
+ "server": "Apache",
+ "html_bytes": 17867,
+ "html_sha256": "8ffe4da8afd488ac170f0b8132f6036355156cae5e2698d33fedc60af4471326",
+ "title": "web-meteora.at - Domains & Hosting von helloly",
+ "saved_html": "index_2026-11-13.html",
+ "page_assets": [
+  "https://web-meteora.at/css/font.css",
+  "https://web-meteora.at/css/custom.css",
+  "https://web-meteora.at/css/all.min.css",
+  "https://web-meteora.at/css/custom_color.css",
+  "https://web-meteora.at/fontawesome-all.min.css",
+  "https://web-meteora.at/images/helloly_logo.png",
+  "https://web-meteora.at/#",
+  "https://web-meteora.at/images/light-icon.png",
+  "https://www.helloly.com/domaincheck",
+  "https://web-meteora.at/images/system.png",
+  "https://www.helloly.com/webhosting",
+  "https://www.helloly.com/homepage-baukasten",
+  "https://web-meteora.at/images/premium.gif",
+  "https://web-meteora.at/images/trustedshops.png",
+  "mailto:support@helloly.com",
+  "https://www.helloly.com/domain-kaufen",
+  "https://www.helloly.com/impressum",
+  "https://www.helloly.com/agb",
+  "https://www.helloly.com/datenschutzerklaerung"
+ ],
+ "bundle": {
+  "status": 404,
+  "url": "https://web-meteora.at/_nuxt/assets/index.js"
+ },
+ "config": {
+  "status": 404,
+  "host": "web-meteora.at"
+ },
+ "is_banned": {
+  "status": 404,
+  "body": "<!DOCTYPE HTML PUBLIC \"-//IETF//DTD HTML 2.0//EN\">\n<html><head>\n<title>404 Not Found</title>\n</head><body>\n<h1>Not Found</h1>\n<p>The requested URL was not found on this server.</p>\n</body></html>\n"
+ },
+ "locale_en": {
+  "status": 404
+ },
+ "saved_assets": [
+  "font_2026-11-13.css",
+  "custom_2026-11-13.css",
+  "all.min_2026-11-13.css",
+  "custom_color_2026-11-13.css",
+  "fontawesome-all.min_2026-11-13.css"
+ ]
+}

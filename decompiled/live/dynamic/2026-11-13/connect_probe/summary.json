@@ -1,0 +1,38 @@
+{
+ "host": "pumpanakin.fun",
+ "runName": "connect_probe",
+ "mode": "connect",
+ "balanceSol": 2,
+ "signMode": "reject",
+ "burner": "9nU8z5vumWNVtuivmpfgLK58HpVPUcEXxQU2WdDPFXyA",
+ "steps": {
+  "goto": "ok",
+  "afterLoad": {
+   "title": "Connect Wallet",
+   "openModal": "function",
+   "w3mModal": true,
+   "localStorage": [
+    "_0x12"
+   ]
+  },
+  "modalProbe": {
+   "modalAttrs": [
+    "class=open"
+   ],
+   "routerChildren": "",
+   "routerShadow": 131,
+   "errs": []
+  },
+  "dialogTexts": null
+ },
+ "walletCalls": [
+  {
+   "kind": "connect",
+   "t": 1794573525180
+  }
+ ],
+ "finalStorage": [
+  "_0x12"
+ ],
+ "evidenceDir": "decompiled/live/dynamic/2026-11-13/connect_probe"
+}

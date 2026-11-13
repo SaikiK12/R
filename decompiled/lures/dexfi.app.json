@@ -1,0 +1,579 @@
+{
+ "host": "dexfi.app",
+ "fetched": "2026-11-13T11:21:20.394Z",
+ "ip": "172.67.134.16",
+ "root": {
+  "status": 200,
+  "size": 112239,
+  "ctype": "text/html; charset=utf-8",
+  "server": "cloudflare",
+  "acao": null,
+  "location": null,
+  "cookies": [],
+  "html": true,
+  "body": "<!DOCTYPE html> <html class=\"dark\" data-scrapbook-adoptedstylesheet-0=\"div[data-id-advertdfpconf] { display: none !important; } [class^=&quot;amp-ad-&quot;] { display: none !import"
+ },
+ "html": {
+  "title": "Swap | Dexlab",
+  "bytes": 112239,
+  "sha256": "0b9c5df4464be4c86db74e804273dfcd230fd8491a128be84a688e52586dee81",
+  "bom": false,
+  "kit_refs": [
+   "../../_nuxt/assets/index.js"
+  ],
+  "click_id": false,
+  "turnstile": true,
+  "inline_scripts": 3,
+  "inline_bytes": 7141,
+  "text_sample": "Swap | Dexlab × Please sync your wallet to access DEX features. Connect Trade Swap Pools Token Hub Token Factory More Factory Bot Document Telegram Medium Twitter © DEXLAB 2025 swap Launch DEX Swap 1.00% You pay Balance : 0 USDC Half Max USDC You Receive Balance : 0 SOL SOL Launch DEX Trade Hub Factory More Swap | Dexlab"
+ },
+ "inline": [
+  {
+   "file": "inline-0.js",
+   "bytes": 279,
+   "sha256": "a0ee774af5422207f4b830604a52bacab12ccc8384f60279bdc65ceeccec256f",
+   "obfuscated": false,
+   "urls": [],
+   "apis": [],
+   "storage_keys": [],
+   "websockets": [],
+   "pubkey_like": [],
+   "wallet_hits": []
+  },
+  {
+   "file": "inline-1.js",
+   "bytes": 6513,
+   "sha256": "31e3d042cb3c62a7d0972b1f7883dad827ed3622ba9ddd31242b3e48edf387a3",
+   "obfuscated": false,
+   "urls": [],
+   "apis": [],
+   "storage_keys": [],
+   "websockets": [],
+   "pubkey_like": [],
+   "wallet_hits": []
+  },
+  {
+   "file": "inline-2.js",
+   "bytes": 349,
+   "sha256": "31db747c66f754384687568b6d0162a40f94321a77d5446f409006196bddfe14",
+   "obfuscated": false,
+   "urls": [],
+   "apis": [],
+   "storage_keys": [],
+   "websockets": [],
+   "pubkey_like": [],
+   "wallet_hits": []
+  }
+ ],
+ "kit": {
+  "url": "https://dexfi.app/_nuxt/assets/index.js",
+  "host": "dexfi.app",
+  "size": 1034759,
+  "sha256": "0735606691bbdf35d38d7531c0e48363a21ef6f7224ebce2908a1b487f9ea6a2",
+  "reference": true,
+  "truncated": false
+ },
+ "assets": [
+  {
+   "url": "https://dexfi.app/favicon.svg",
+   "saved": "favicon.svg",
+   "size": 2418,
+   "sha256": "39fd37064ee4a1907fdb10ef09fc62095d523c80fdbf0a29be3ca511c1fd8e13",
+   "ctype": "image/svg+xml",
+   "truncated": false
+  },
+  {
+   "url": "https://dexfi.app/favicon-32x32.png",
+   "saved": "favicon-32x32.png",
+   "size": 901,
+   "sha256": "f1d2be9868ea87f357dbc89f3b12c2ffc1195683426e2dca971140aeb50d1d51",
+   "ctype": "image/png",
+   "truncated": false
+  },
+  {
+   "url": "https://dexfi.app/5ed064db0b76c880.css",
+   "saved": "5ed064db0b76c880.css",
+   "size": 105907,
+   "sha256": "d18c746cf954bb99d276be498ff47fe8c6f6bba561ed6d37c681f603f8e5791d",
+   "ctype": "text/css",
+   "truncated": false
+  },
+  {
+   "url": "https://dexfi.app/488a00d770397167.css",
+   "saved": "488a00d770397167.css",
+   "size": 15580,
+   "sha256": "329ce8dcb815250d04a091a5a9a724f52f08309b709a469af6f6488df5edbcb4",
+   "ctype": "text/css",
+   "truncated": false
+  },
+  {
+   "url": "https://dexfi.app/logo-1.png",
+   "saved": "logo-1.png",
+   "size": 9276,
+   "sha256": "6d14601d0b1109046e366592b8c0f256ffb075f69180b65dddd97ae665d49f9e",
+   "ctype": "image/png",
+   "truncated": false
+  },
+  {
+   "url": "https://dexfi.app/logo.png",
+   "saved": "logo.png",
+   "size": 32126,
+   "sha256": "943c48e760ec717f55363835067d501ff4bd6825a29732a18955e141ba536602",
+   "ctype": "image/png",
+   "truncated": false
+  },
+  {
+   "url": "https://dexfi.app/css2.css",
+   "saved": "css2.css",
+   "size": 2112,
+   "sha256": "0a0b13c690f1a1ed9e59cf520667bb9f3d3cee7e8ea89318a03f40ba9b9cf05b",
+   "ctype": "text/css",
+   "truncated": false
+  },
+  {
+   "url": "https://dexfi.app/jetbrains-mono-latin-100-normal.1e96c535.woff2",
+   "saved": "jetbrains-mono-latin-100-normal.1e96c535.woff2",
+   "size": 21276,
+   "sha256": "8f8404bc7cdddde1d2df7c36891c208ebe1123131421ad85418192325b5c7aa8",
+   "ctype": "font/woff2",
+   "truncated": false
+  },
+  {
+   "url": "https://dexfi.app/jetbrains-mono-latin-100-normal.f313cb50.woff",
+   "saved": "jetbrains-mono-latin-100-normal.f313cb50.woff",
+   "size": 27632,
+   "sha256": "e9f7ea54bda9f418cce3097402f174d743a757937ef78308937109d3f22a3733",
+   "ctype": "font/woff",
+   "truncated": false
+  },
+  {
+   "url": "https://dexfi.app/jetbrains-mono-latin-200-normal.1895916a.woff2",
+   "saved": "jetbrains-mono-latin-200-normal.1895916a.woff2",
+   "size": 21888,
+   "sha256": "a00a542263bae83335b11be020abd3891140122e705f5ffdf7fcd4cabadb4549",
+   "ctype": "font/woff2",
+   "truncated": false
+  },
+  {
+   "url": "https://dexfi.app/jetbrains-mono-latin-200-normal.ccdc1243.woff",
+   "saved": "jetbrains-mono-latin-200-normal.ccdc1243.woff",
+   "size": 28184,
+   "sha256": "8d84c930a37c478d639fc6d7c981214aa76e226a3c9cb353cb88298a9be08aa3",
+   "ctype": "font/woff",
+   "truncated": false
+  },
+  {
+   "url": "https://dexfi.app/jetbrains-mono-latin-300-normal.66df0abf.woff2",
+   "saved": "jetbrains-mono-latin-300-normal.66df0abf.woff2",
+   "size": 21956,
+   "sha256": "722972afda59a9739c5837279d0cc636d179240b3ec9d052b8ef147681874e61",
+   "ctype": "font/woff2",
+   "truncated": false
+  },
+  {
+   "url": "https://dexfi.app/jetbrains-mono-latin-300-normal.4b871ef4.woff",
+   "saved": "jetbrains-mono-latin-300-normal.4b871ef4.woff",
+   "size": 28280,
+   "sha256": "df5fb63c678dbbe0503cdb948892d30761e9dee19fb007e327154760493768ff",
+   "ctype": "font/woff",
+   "truncated": false
+  },
+  {
+   "url": "https://dexfi.app/jetbrains-mono-latin-400-normal.db9d659a.woff2",
+   "saved": "jetbrains-mono-latin-400-normal.db9d659a.woff2",
+   "size": 21168,
+   "sha256": "14425ba9c695763c1547f48a206b7aa60350a33ae23de09f0407877f3fcd89eb",
+   "ctype": "font/woff2",
+   "truncated": false
+  },
+  {
+   "url": "https://dexfi.app/jetbrains-mono-latin-400-normal.b0c7be19.woff",
+   "saved": "jetbrains-mono-latin-400-normal.b0c7be19.woff",
+   "size": 27496,
+   "sha256": "658b9ee07b0249cf910a8d6f3d812d46c962bae81d7379a0355b1db35c61586f",
+   "ctype": "font/woff",
+   "truncated": false
+  },
+  {
+   "url": "https://dexfi.app/jetbrains-mono-latin-500-normal.af2e87f5.woff2",
+   "saved": "jetbrains-mono-latin-500-normal.af2e87f5.woff2",
+   "size": 21832,
+   "sha256": "cb182feeed4d798ff6961d3c79f7026279448fca0676438aaecb21f3fc39553a",
+   "ctype": "font/woff2",
+   "truncated": false
+  },
+  {
+   "url": "https://dexfi.app/jetbrains-mono-latin-500-normal.24c9023a.woff",
+   "saved": "jetbrains-mono-latin-500-normal.24c9023a.woff",
+   "size": 28208,
+   "sha256": "a270dd0bf13d91053b8999b7c120ffadb59680cfd63fe1a6b388a13bf2809fe1",
+   "ctype": "font/woff",
+   "truncated": false
+  },
+  {
+   "url": "https://dexfi.app/jetbrains-mono-latin-600-normal.ebeb24f1.woff2",
+   "saved": "jetbrains-mono-latin-600-normal.ebeb24f1.woff2",
+   "size": 21860,
+   "sha256": "400c6bfda18d5d14acad1c15d6dcb9f8e13c015e7286317e0b9a482539bef147",
+   "ctype": "font/woff2",
+   "truncated": false
+  },
+  {
+   "url": "https://dexfi.app/jetbrains-mono-latin-600-normal.1a59e979.woff",
+   "saved": "jetbrains-mono-latin-600-normal.1a59e979.woff",
+   "size": 28180,
+   "sha256": "3f4ad0687bcb0edc596c7c85138c5140ba3a9c5a3ce2ee944f27608c0f18bab9",
+   "ctype": "font/woff",
+   "truncated": false
+  },
+  {
+   "url": "https://dexfi.app/jetbrains-mono-latin-700-normal.9545a3d1.woff2",
+   "saved": "jetbrains-mono-latin-700-normal.9545a3d1.woff2",
+   "size": 21908,
+   "sha256": "d0d4e818808f2a0ba39b2b09d1989366f63494e295f003c7ef436697378507e8",
+   "ctype": "font/woff2",
+   "truncated": false
+  },
+  {
+   "url": "https://dexfi.app/jetbrains-mono-latin-700-normal.c9484cde.woff",
+   "saved": "jetbrains-mono-latin-700-normal.c9484cde.woff",
+   "size": 28208,
+   "sha256": "5e7319f25a5ef89d2c01c323029ef0bedefad204108e601455ff6f8ae12ca3ff",
+   "ctype": "font/woff",
+   "truncated": false
+  },
+  {
+   "url": "https://dexfi.app/jetbrains-mono-latin-800-normal.93e25f31.woff2",
+   "saved": "jetbrains-mono-latin-800-normal.93e25f31.woff2",
+   "size": 21236,
+   "sha256": "237d0cbcf1aacd607e07f610d79cbc880edbffcc99ebcf417c502f8fa873ee53",
+   "ctype": "font/woff2",
+   "truncated": false
+  },
+  {
+   "url": "https://dexfi.app/jetbrains-mono-latin-800-normal.3308794c.woff",
+   "saved": "jetbrains-mono-latin-800-normal.3308794c.woff",
+   "size": 27388,
+   "sha256": "81e7815969d34be9f582082e87e868fdaa5d07739925f5a0e759c4b947c966c4",
+   "ctype": "font/woff",
+   "truncated": false
+  },
+  {
+   "url": "https://dexfi.app/space-grotesk-latin-300-normal.f2fb27bf.woff2",
+   "saved": "space-grotesk-latin-300-normal.f2fb27bf.woff2",
+   "size": 12972,
+   "sha256": "28d04405722e03a1a05ac7b200001cd21f1ba5301041b3a880512558f05ddd0a",
+   "ctype": "font/woff2",
+   "truncated": false
+  },
+  {
+   "url": "https://dexfi.app/space-grotesk-latin-300-normal.8516f8cf.woff",
+   "saved": "space-grotesk-latin-300-normal.8516f8cf.woff",
+   "size": 16648,
+   "sha256": "000e4b45999b6fff9f005eda51039a619fd2e7bd43ad246d08e803bb7e2ed9d6",
+   "ctype": "font/woff",
+   "truncated": false
+  },
+  {
+   "url": "https://dexfi.app/space-grotesk-latin-400-normal.5c1eb586.woff2",
+   "saved": "space-grotesk-latin-400-normal.5c1eb586.woff2",
+   "size": 13456,
+   "sha256": "7e743892abc0e91731cdf942c89e62ed86ca7ac4da2dd3f367734abdc099eb1f",
+   "ctype": "font/woff2",
+   "truncated": false
+  },
+  {
+   "url": "https://dexfi.app/space-grotesk-latin-400-normal.fef268f8.woff",
+   "saved": "space-grotesk-latin-400-normal.fef268f8.woff",
+   "size": 17012,
+   "sha256": "3453710173dccedf252620b49b28aa6ab5fa06cd4472e02412f70403531f18c4",
+   "ctype": "font/woff",
+   "truncated": false
+  },
+  {
+   "url": "https://dexfi.app/space-grotesk-latin-500-normal.52f2374e.woff2",
+   "saved": "space-grotesk-latin-500-normal.52f2374e.woff2",
+   "size": 13268,
+   "sha256": "b44b71f623fcf4a4ed91b70539e6cf4439599a5e3c746871e17703aa1aad90f3",
+   "ctype": "font/woff2",
+   "truncated": false
+  },
+  {
+   "url": "https://dexfi.app/space-grotesk-latin-500-normal.061aa75c.woff",
+   "saved": "space-grotesk-latin-500-normal.061aa75c.woff",
+   "size": 16992,
+   "sha256": "c4eafc5ad1d15377b6435bca80b7f720f1fe9ba79b43353e2aca0a715ff611c3",
+   "ctype": "font/woff",
+   "truncated": false
+  },
+  {
+   "url": "https://dexfi.app/space-grotesk-latin-600-normal.0bfc1bdd.woff2",
+   "saved": "space-grotesk-latin-600-normal.0bfc1bdd.woff2",
+   "size": 13292,
+   "sha256": "e5b2596788170dc4041f756cb56f2d9096b638a3d49dac9fc17e998908797b1e",
+   "ctype": "font/woff2",
+   "truncated": false
+  },
+  {
+   "url": "https://dexfi.app/space-grotesk-latin-600-normal.a9ff1ef2.woff",
+   "saved": "space-grotesk-latin-600-normal.a9ff1ef2.woff",
+   "size": 16884,
+   "sha256": "5dae3712faf706603312e32d0d7023d548611b518349f296045d1929d440e70a",
+   "ctype": "font/woff",
+   "truncated": false
+  },
+  {
+   "url": "https://dexfi.app/space-grotesk-latin-700-normal.a9249e80.woff2",
+   "saved": "space-grotesk-latin-700-normal.a9249e80.woff2",
+   "size": 12780,
+   "sha256": "8640d7dcce31a093ed62b99472bf25c5159eb7d74f9f112f9b566dbe096a1222",
+   "ctype": "font/woff2",
+   "truncated": false
+  },
+  {
+   "url": "https://dexfi.app/space-grotesk-latin-700-normal.b81e97fa.woff",
+   "saved": "space-grotesk-latin-700-normal.b81e97fa.woff",
+   "size": 16416,
+   "sha256": "74dfb06a9333ec870b65fbdbd7f081592add9ae777dea7f5c9976658f75ef1ee",
+   "ctype": "font/woff",
+   "truncated": false
+  }
+ ],
+ "external": [
+  "https://app.dexlab.space/apple-touch-icon-180.png",
+  "https://app.dexlab.space/apple-touch-icon-167.png",
+  "https://app.dexlab.space/apple-touch-icon-152.png",
+  "https://app.dexlab.space/apple-touch-icon-120.png",
+  "https://www.dexlab.space/swap?pay=EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v&receive=So11111111111111111111111111111111111111112",
+  "https://t.me/dexlab_official",
+  "https://dexlab-space.medium.com/",
+  "https://twitter.com/Dexlab_official",
+  "https://cdn.tailwindcss.com/",
+  "https://app.dexlab.space/swap?pay=EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v&receive=So11111111111111111111111111111111111111112",
+  "https://raw.githubusercontent.com/dexlab-protocol/assets/master/dexlab/web_preview.png",
+  "https://dexorb.com/",
+  "http://www.w3.org/2000/svg"
+ ],
+ "js": [],
+ "api": {
+  "gets": {
+   "/api/config": {
+    "status": 200,
+    "size": 188,
+    "ctype": "text/plain; charset=utf-8",
+    "server": "cloudflare",
+    "acao": "*",
+    "location": null,
+    "cookies": [],
+    "html": false,
+    "body": "���{��\u001e�J\u0002���\u0002��3\u0004���/�r\u0002\u0017$ø�C�ف>�x'ԅ\u0003�L��\u000e��#��i\u0011�k\u0007\u0013\u0007u�\u0004����K9+�B�~�>Ea�\u0011\u001bF\u0015~aͳ�Z\u001e)I�)ǐ�5a�\u0019B\u0012F�\u0004���C\u0007i)��\u001f��,�\u000f\\~��姑(��띡 \u0016 %2���\u0015�\"ز8��y�^�u�\u0005\u0002\u0018�7\u0005d��qp}S�6[��ta\u000f�\\\u001a̋f4"
+   },
+   "/api/is-banned": {
+    "status": 200,
+    "size": 1,
+    "ctype": "text/plain;charset=utf-8",
+    "server": "cloudflare",
+    "acao": "*",
+    "location": null,
+    "cookies": [],
+    "html": false,
+    "body": "0"
+   },
+   "/api/stats": {
+    "status": 422,
+    "size": 22,
+    "ctype": "application/json",
+    "server": "cloudflare",
+    "acao": "*",
+    "location": null,
+    "cookies": [],
+    "html": false,
+    "body": "{\"error\":\"VALIDATION\"}"
+   },
+   "/api/visit": {
+    "status": 404,
+    "size": 548,
+    "ctype": "text/html; charset=utf-8",
+    "server": "cloudflare",
+    "acao": null,
+    "location": null,
+    "cookies": [],
+    "html": true,
+    "body": "<html> <head><title>404 Not Found</title></head> <body> <center><h1>404 Not Found</h1></center> <hr><center>nginx</center> </body> </html> <!-- a padding to disable MSIE and Chrome"
+   },
+   "/api/handler": {
+    "status": 404,
+    "size": 548,
+    "ctype": "text/html; charset=utf-8",
+    "server": "cloudflare",
+    "acao": null,
+    "location": null,
+    "cookies": [],
+    "html": true,
+    "body": "<html> <head><title>404 Not Found</title></head> <body> <center><h1>404 Not Found</h1></center> <hr><center>nginx</center> </body> </html> <!-- a padding to disable MSIE and Chrome"
+   },
+   "/api/process": {
+    "status": 404,
+    "size": 548,
+    "ctype": "text/html; charset=utf-8",
+    "server": "cloudflare",
+    "acao": null,
+    "location": null,
+    "cookies": [],
+    "html": true,
+    "body": "<html> <head><title>404 Not Found</title></head> <body> <center><h1>404 Not Found</h1></center> <hr><center>nginx</center> </body> </html> <!-- a padding to disable MSIE and Chrome"
+   },
+   "/api/c/i": {
+    "status": 404,
+    "size": 548,
+    "ctype": "text/html; charset=utf-8",
+    "server": "cloudflare",
+    "acao": null,
+    "location": null,
+    "cookies": [],
+    "html": true,
+    "body": "<html> <head><title>404 Not Found</title></head> <body> <center><h1>404 Not Found</h1></center> <hr><center>nginx</center> </body> </html> <!-- a padding to disable MSIE and Chrome"
+   },
+   "/robots.txt": {
+    "status": 200,
+    "size": 1248,
+    "ctype": "text/plain; charset=utf-8",
+    "server": "cloudflare",
+    "acao": null,
+    "location": null,
+    "cookies": [],
+    "html": false,
+    "body": "# As a condition of accessing this website, you agree to abide by the following # content signals: # (a) If a content-signal = yes, you may collect content for the corresponding # "
+   }
+  },
+  "locales": {
+   "en": {
+    "status": 200,
+    "size": 378,
+    "sha256": "d17efb811f26e9c7107626aa331cd405aa3baeb3dc570a3fe35bd0bdfa2009f9"
+   },
+   "fr": {
+    "status": 200,
+    "size": 437,
+    "sha256": "d838a1d4cafaa4c46ce2beb8de0afaef4586245109c717a6c7a15431032e7bda"
+   },
+   "zh": {
+    "status": 200,
+    "size": 342,
+    "sha256": "24a9f7b592b22b6cb806436903fad603715053cd8227c8464c2e8e18eb9fe882"
+   },
+   "de": {
+    "status": 200,
+    "size": 449,
+    "sha256": "58ae6782fdfd618c36f4fdf9395c7a85ce3f717b057470a38053f7b47322443c"
+   },
+   "es": {
+    "status": 200,
+    "size": 405,
+    "sha256": "07e309ee2f9150cc9321ddb08051ede228dac9ad5c33f259ea06ef698439d610"
+   },
+   "pt": {
+    "status": 200,
+    "size": 407,
+    "sha256": "9cec7bf902425be3df8a9a6b68656b6fc382982341afbf71a2ba36d77b4c8c17"
+   },
+   "it": {
+    "status": 200,
+    "size": 441,
+    "sha256": "0b52025ca9b6ca80f4b400420012075997ab5df9febe6e59f06698a8f8a7ae46"
+   },
+   "ja": {
+    "status": 200,
+    "size": 534,
+    "sha256": "83b0010f3bc52ae57975cc7f4fd9f01c5c7e21d2748447a06e9f3459fc3a9789"
+   },
+   "ko": {
+    "status": 200,
+    "size": 414,
+    "sha256": "54efefa1d1de12ceb874d27ed890fc2c6bb82e2212df466b70d647a33aef2e55"
+   },
+   "ar": {
+    "status": 200,
+    "size": 552,
+    "sha256": "95c890389b1330cd7e7a638417afffe35846527fb1265d9a02fa0de1d720bcd4"
+   },
+   "tr": {
+    "status": 200,
+    "size": 386,
+    "sha256": "330b1fdf725fef9c5356a2e3247bc825fd0a9ade48f6dca3f103d73794eba3bd"
+   },
+   "pl": {
+    "status": 200,
+    "size": 409,
+    "sha256": "6639520395117eec9b7b589ee347efa81aeaef4afcddd14699d1a578cfaa0413"
+   },
+   "vi": {
+    "status": 200,
+    "size": 481,
+    "sha256": "61307650b9a5827b9b7e7258ec8ae9010f73a4576168a7104ead786abe13cdf9"
+   },
+   "id": {
+    "status": 200,
+    "size": 380,
+    "sha256": "8817bf107a2db86f7ad69e9f1adfc51003968501382e64eca0bb3c6730594283"
+   }
+  },
+  "posts": {
+   "POST /api/visit?source=deep-dump": {
+    "status": 200,
+    "size": 2,
+    "ctype": "text/plain;charset=utf-8",
+    "server": "cloudflare",
+    "acao": "*",
+    "location": null,
+    "cookies": [],
+    "html": false,
+    "body": "ok"
+   },
+   "POST /api/handler": {
+    "status": 422,
+    "size": 22,
+    "ctype": "application/json",
+    "server": "cloudflare",
+    "acao": "*",
+    "location": null,
+    "cookies": [],
+    "html": false,
+    "body": "{\"error\":\"VALIDATION\"}"
+   },
+   "POST /api/process": {
+    "status": 422,
+    "size": 22,
+    "ctype": "application/json",
+    "server": "cloudflare",
+    "acao": "*",
+    "location": null,
+    "cookies": [],
+    "html": false,
+    "body": "{\"error\":\"VALIDATION\"}"
+   },
+   "POST /api/c/i": {
+    "status": 404,
+    "size": 548,
+    "ctype": "text/html; charset=utf-8",
+    "server": "cloudflare",
+    "acao": null,
+    "location": null,
+    "cookies": [],
+    "html": true,
+    "body": "<html> <head><title>404 Not Found</title></head> <body> <center><h1>404 Not Found</h1></center> <hr><center>nginx</center> </body> </html> <!-- a padding to disable MSIE and Chrome"
+   },
+   "POST /api/stats {}": {
+    "status": 404,
+    "size": 548,
+    "ctype": "text/html; charset=utf-8",
+    "server": "cloudflare",
+    "acao": null,
+    "location": null,
+    "cookies": [],
+    "html": true,
+    "body": "<html> <head><title>404 Not Found</title></head> <body> <center><h1>404 Not Found</h1></center> <hr><center>nginx</center> </body> </html> <!-- a padding to disable MSIE and Chrome"
+   }
+  }
+ }
+}

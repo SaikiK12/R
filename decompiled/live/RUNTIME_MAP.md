@@ -132,8 +132,8 @@ dialog, and a captured drain transaction.
 Headless Chromium (Playwright), desktop UA. A **zero-balance burner
 wallet** (`4Lj6MdBFVpz8pBEyxB4Zf3dYFHiDwF83zdZVVcGnw7u8`) injected both
 ways (legacy `window.solana` + wallet-standard registration). All
-signing methods **record and reject** — nothing was ever signed. The
-kit was fed a synthetic but consistent world: Solflare portfolio and
+signing methods **record and reject** (ceiling: `../../METHODOLOGY.md`).
+The kit was fed a synthetic but consistent world: Solflare portfolio and
 JSON-RPC responses for 2 SOL, 750 USDC, 250k of a pump.fun Token-2022
 (funded burner system account, real ATA addresses, real mint layouts).
 Real endpoints passed through only for public data (blockhash). The
@@ -261,5 +261,4 @@ noted for a later retry.
 Methodology note: every "user" action here is what any victim's browser
 does (load page, click connect, click confirm). The divergence points
 were: signing methods record-and-reject, the submit endpoints blocked,
-and the portfolio/chain state synthetic. No real assets were ever at
-risk, and nothing was signed or broadcast.
+and the portfolio/chain state synthetic (ceiling: `../../METHODOLOGY.md`).
