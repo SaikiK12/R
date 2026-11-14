@@ -1,7 +1,24 @@
-Wasted one afternoon to manually deobfuscate the js from one drainer website. (see [here](https://gist.github.com/HarukaMa/776be3dc44a687e15145030c14fe714e) for the "deobfuscated" reference js and script used to generate the file)
+# Inferno Backend Decryption — Notes
 
-You can use the code to decrypt the traffic and even create arbitrary payload to send to their backend server.
+`decrypt.py` is a traffic decryption tool for the Inferno backend protocol.
+It was developed through manual deobfuscation of the Inferno JS bundle
+(reference: [muellerberndt's public gist](https://gist.github.com/HarukaMa/776be3dc44a687e15145030c14fe714e)).
 
-What's the domain of that backend server? You need to find it out yourself.
+The tool reconstructs the plaintext of Inferno backend requests and allows
+crafting arbitrary payloads for the backend server. Finding the backend domain
+requires tracing the bundle's config or observing live traffic.
 
-The code below is in public domain.
+All code in `decrypt.py` is released to the public domain by its original author.
+
+## Relationship to hexfomo kit
+
+The hexfomo kit uses a different encryption scheme:
+
+| Property | Inferno | hexfomo |
+|---|---|---|
+| Encryption | (see decrypt.py) | AES-GCM |
+| Key derivation | (see bundle) | `SHA-256(apiHost + purpose + "B3ui3QZFrOPoGW7oMZgE4A")` |
+| Config endpoint | `/api/config` | `/api/config` (same pattern) |
+| Event endpoint | varies | `/api/handler` |
+
+For the hexfomo key derivation and payload layouts, see `data/core/`.

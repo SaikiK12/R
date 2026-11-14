@@ -1,54 +1,83 @@
-# Rebuilt Kit — hexfomo.fun / pumpanakin.fun Solana Drainer
+# Kit Modules — Reconstruction Index
 
-Full reconstruction of every component from: static analysis of the original
-bundle, the Babel AST deobfuscation output (`decompiled/deobfuscated/`), and
-dynamic captures (`decompiled/live/`).
-
-**This is a research artifact for documenting how the malware works.**
-It is not runnable and contains no live credentials, operator keys, or
-receiver addresses. All Solana pubkeys, Helius API keys, and RPC endpoints
-are reproduced from the IOC catalog (`decompiled/iocs.json`) for attribution
-purposes only.
+The deobfuscated bundle (`data/deobfuscated/bundle.deobfuscated.js`,
+34,134 lines, 1.4 MB) splits into three layers. Source files are under
+`data/core/`.
 
 ---
 
-## Directory layout
+## `page/` — Lure Page Layer
 
-```
-rebuilt/
-  README.md                 ← this file
-  ARCHITECTURE.md           ← full system narrative
-  core/
-    crypto.js               ← AES-GCM, CRC32, base58, base-x, packing helpers
-    state.js                ← central state machine and flow types
-    config_parser.js        ← /api/config binary struct parser
-  chain/
-    rpc.js                  ← 8-endpoint RPC client + Proxy
-    solflare.js             ← Solflare portfolio API client
-    jupiter.js              ← Jupiter price API client
-    tx_builders.js          ← drain transaction assembly
-    stake.js                ← native stake account drain
-    submit.js               ← signed-tx submit + self-broadcast
-  operator/
-    client.js               ← OperatorClient — all 6 API endpoints
-    payloads.js             ← /c/i and /process binary payload builders
-    telemetry.js            ← /api/handler encrypted telemetry
-  page/
-    params.js               ← campaign source, pageHost, slug decode
-    visit.js                ← /api/visit beacon
-    ban_check.js            ← /api/is-banned + locale load
-    balance_gate.js         ← wallet account + SOL balance check
-    siws.js                 ← Sign-In-With-Solana verify flow
-    mobile.js               ← mobile detection + connect popup + deep-links
-    lure_dom.js             ← DOM injection, obfuscated pitch dictionary
-    runtime.js              ← polyfills, kit entrypoint, full flow
-  config/
-    iocs.js                 ← all extracted IOCs as constants
-```
+Runs in the victim's browser before and during wallet interaction.
+
+| File | Purpose |
+|---|---|
+| `runtime.js` | Polyfills: `AbortSignal["Be"]` (timeout), `Promise.withResolvers`, `String/Array.prototype.at` |
+| `params.js` | `readCampaignSource()` — localStorage `_0x6` → utm_source → referrer; `pageHost()` — slug decode from `&d=` or `/connect/` path |
+| `visit.js` | `sendVisit()` — `POST /api/visit?source=…&tgid=…&tgus=…` with 900s cooldown |
+| `telegram.js` | `isTelegramWebView()`, `getTelegramUser()`, `getTelegramContext()` — Telegram WebApp detection; extracts tg user id + username for `/api/visit` |
+| `mobile.js` | `isMobile()` — UA + innerWidth check; `openConnectPopup()` — 360×450 popup to connect domain; `generateConnectToken()` — base-x slug encoding of pageHost |
+| `check.js` | `isBanned()` — `GET /api/is-banned`; `loadLocales()` — `GET /api/locales` with en/fr/zh fallback |
+| `amount.js` | `setSolAmount()` — validates amount ∈ [0.001, 1,000,000], stores in `state.K` |
+| `siws.js` | `buildSiwsMessage()` — SIWS EIP-4361 message template; `canSignAll()` — checks `solana:signAllTransactions` for 200-tx flow |
+| `gate.js` | `checkWallet()` — SOL balance gate (insufficient / watch address / target); 6-pubkey exclusion set |
+| `state.js` | Session object structure; flow type bytes (0=drain, 1=SIWS, 2=200tx); error/retry messages; video paths; Phantom-spoof modal copy |
+| `dom.js` | 36-entry pitch dictionary; DOMContentLoaded injection; zero-width/homoglyph/split-literal obfuscation |
+| `deeplinks.js` | 20+ wallet deep-link table; mobile connect URL construction; Chrome nag; App Store URL builder |
+| `deeplinks_ext.js` | Extended deep-link handling for additional wallet families |
+| `modal.js` | Fake confirm dialog rendering; video playback; countdown timer |
 
 ---
 
-## Kit version
+## `operator/` — API Layer
 
-`1.18.4` — the value sent in every `/api/handler` telemetry event.
-Kit vendor watermark: `hexfomo.fun` (string table index 350).
+Talks to `https://{apiHost}`.
+
+| File | Purpose |
+|---|---|
+| `client.js` | `OperatorClient` class; all 7 endpoints with request/response layouts and retry logic |
+| `payloads.js` | Binary builders: `buildProcessPayload()` (52-byte header + signed txs), `buildConnectPayload()` (59-byte + CRC32), `encodeAccounts()`, AES-GCM key derivation |
+| `telemetry.js` | `sendEvent()` — `/api/handler` AES-GCM encrypted events; rate limiting (5s / once per kind 4); 5-attempt retry with 150ms×attempt backoff |
+
+---
+
+## `chain/` — Solana Layer
+
+Talks directly to Solana and Solflare/Jupiter APIs.
+
+| File | Purpose |
+|---|---|
+| `rpc.js` | 8-endpoint failover RPC client; wallet address as User-Agent; 2.5s timeout |
+| `solflare.js` | `solPrice()`, `portfolio()` — Solflare free backend; random bearer token; victim token enumeration including Token-2022 and fee extension detection |
+| `jupiter.js` | `priceTokens()`, `searchToken()` — 5 Jupiter free-tier API keys; rotate on 429 |
+| `submit.js` | `submitSignedTransactions()` — POST to `/process` + optional self-broadcast via RPC with `skipPreflight: true` after 2.5s |
+| `tx_builders.js` | Drain tx assembly: ComputeBudget, marker instruction, operator program calls (disc 2/3/4/18), vault PDA derivation, dummy-tx spam builder |
+| `tokens.js` | Token-2022 / TransferCheckedWithFee handling; pump.fun bonding curve detection; Meteora/Raydium/Orca LP detection; compute unit adjustments |
+| `stake.js` | Native Stake account processing: Solflare stake endpoint, Stake.withdraw instruction builder, 23 stake pool addresses |
+
+---
+
+## `vendor.js` — Kit Vendor Fingerprint
+
+Decodes string[350] blob: vendor domain `hexfomo.fun`, default target token
+`USDC`, revenue split values (80/80).
+
+---
+
+## Deobfuscation Pipeline Stats
+
+The bundle was produced by a multi-pass Babel AST pipeline:
+
+| Pass | Count |
+|---|---|
+| Constants inlined | 32,156 |
+| String table lookups resolved | 1,090 |
+| Global-name calls resolved | 559 |
+| String concatenations folded | 3,467 |
+| `峟()` noop calls unwrapped | 3,219 |
+| `with()` statements removed | 190 |
+| Computed member accesses simplified | 6,915 |
+| Comma sequences split | 4,624 |
+| CFF while-switch loops linearized | 29 |
+
+Output: `data/deobfuscated/bundle.deobfuscated.js` (34,134 lines, 1.4 MB)

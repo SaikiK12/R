@@ -1,174 +1,151 @@
-# The drain pipeline: how the operation pulls it off, end to end
+# Transaction Flow — Step by Step
 
-Everything below is proven by artifacts in this repo — the kit bundle
-itself, decrypted server responses, a live-captured drain transaction
-built for our burner, and six real victim transactions decoded from the
-public ledger. Where a step is inference it says so.
-
-## The kill chain
-
-```
-TELEGRAM / X ADS (affiliates, per-campaign tags)
-      │
-      ▼
-LURE PAGE (16+ costumes, one bundle)         pumpanakin.fun, amlbot.rest, …
-      │  serves /_nuxt/assets/index.js (same SHA-256 everywhere)
-      │  GET /api/is-banned → GET /api/config → POST /api/visit
-      ▼
-APPKIT MODAL (victim picks a wallet)
-      │
-      ▼
-CONNECT DOMAIN POPUP (rotates)               easyinvest7.biz → petramon.xyz
-      │  578-byte shell + 158-byte shim (openModal on load) + same bundle
-      │  kit calls the LURE's API — the connect token carries the origin
-      ▼
-PORTFOLIO SCAN
-      │  Solflare wallet-api (fake bearer) → token list
-      │  Helius RPC getAccountInfo → SOL gate (≥ ~1 SOL)
-      │  telemetry: POST /api/handler (AES-GCM, key = SHA-256(host+"log"+salt))
-      ▼
-FAKE "CONFIRM TRANSACTION" DIALOG (kit's own UI, not the wallet's)
-      │  streams /_nuxt/media/refund.webm as social proof
-      │  localized into 13 languages (operator tooling endpoint /api/locales)
-      ▼
-DRAIN TRANSACTION BUILT CLIENT-SIDE
-      │  ix0  operator program TwrGADB9, disc 0x02, [victim]     ← THEFT (CPI)
-      │  ix1  System: treasury → victim 1 SOL                    ← DECOY
-      │  ix2  ATA CreateIdempotent: victim's USDC ATA            ← SETUP (if needed)
-      │  ix3  Token: 500 USDC relay → victim ATA                 ← DECOY
-      │  wallet preview reads "+1 SOL, +500 USDC incoming"
-      ▼
-VICTIM SIGNS (one signature, in their wallet)
-      ▼
-POST /api/process (partially-signed tx, base64 binary)
-      │  server adds operator signatures (treasury / decoy authority)
-      │  and restructures into the SUBMITTED shape:
-      │    ComputeBudget ×2
-      │    marker ix: ASCII affiliate tag "1kd1mz4r-|1|"
-      │    main ix: disc 0x15, 0x02, <1 byte = affiliate %>
-      ▼
-SOLANA MAINNET — atomic:
-      │  victim loses portfolio
-      │  per-campaign receiver gets 75–80%
-      │  collector 6cwsqBqm gets 20–25% (the DaaS cut)
-      ▼
-TREASURY DvTqmF7u… accumulates (17,057 SOL + ~1M USDC on 2026-11-11)
-```
-
-## The files and services they use, and what each one does
-
-| Piece | Lives at | Role |
-|---|---|---|
-| Kit bundle `app-924a52.js` / `/_nuxt/assets/index.js` | every lure + connect host (1,034,759 B, JS-Confuser) | The whole client: wallet detection, AppKit modal, portfolio scan, tx builders, telemetry, fake dialog |
-| Connect shell `connect.html` (578 B) + `index-f916ac.js` (158 B) | petramon.xyz `/connect/<token>` | Auto-opens the modal on desktop; mobile/desktop switch via `window.embedded` |
-| `sbdst.js`, `jxi33.js` | lure origins | Countdown/parallax dressing, jQuery |
-| Media (`refund.webm`, `200tx.webm`, `malicious.webm`) | `/_nuxt/media/*` on lure and connect hosts | Social-proof videos; `refund.webm` plays inside the fake confirm dialog |
-| `/api/config` (188→220 B AES-GCM blob) | every kit host | Live push: receivers, token target, min/max, connect domain, appended staging address. Key = SHA-256(host + salt), salt shipped in the bundle |
-| `/api/is-banned` | every kit host | Per-IP kill switch (`0`/`1`) |
-| `/api/visit` | every kit host | Visit beacon: source tag, Telegram id/username, IP |
-| `/api/handler` | every kit host | AES-GCM telemetry, 92–102 B records: kit version 1.18.4, wallet name, language, token symbols. 7 of 8 captured events decrypted |
-| `/api/locales?lang=` | every kit host | 13 languages of fake-dialog strings — used by operator tooling, not the bundle |
-| `/api/stats` | every kit host | Sealed operator endpoint (422 without unknown params) |
-| `/c/i`, `/c/c`, `/c/f`, `/api/process` | every kit host | Token-flow session endpoints and the co-signing drop (formats in `decompiled/kit/operator/payloads.js`) |
-| Solflare `wallet-api` | third party | Portfolio enumeration with a fabricated bearer (16 random bytes) |
-| Helius RPC (4 keys, 2 burned) + public RPC fallbacks | third party | Balance gate, ATA existence checks, blockhash |
-| On-chain program `TwrGADB9…` | Solana | The drain engine. Client-built ix: disc `0x02` + victim. Submitted ix: disc `0x15`, `0x02`, 1-byte affiliate %, marker ix with ASCII tag |
-| Treasury `DvTqmF7u…` | Solana | Fee payer on decoy variants, decoy SOL source, accumulation (17k SOL) |
-| Collector `6cwsqBqm…` | Solana | The operator's constant 20–25% share wallet (356 SOL + 185 USDC) |
-| Decoy pair `7VHUFJHW…` + `3emsAVdm…` | Solana / string table | Fake-incoming legs: 500 USDC relay + the key that co-signs it. Pinned in the bundle — NOT rotated by config push |
-| Per-campaign receivers (HJtzvDEK…, HF4jWNAY…, 4ZcPRoe…) | Solana | Affiliate payout wallets; get the 75–80% cut per tx |
-| Affiliate tags (`1kd1mz4r-|1|` …) | marker ix data, ASCII | Per-campaign attribution, publicly readable forever |
-| Telegram bot + admin accounts | Telegram (per SEAL/industry reporting) | Victim notifications, affiliate panel (not directly observed here) |
-
-## The two transaction shapes, proven
-
-**Client-built decoy variant** (captured twice live from the kit,
-`decompiled/live/dynamic/captured_tx_2026-11-12.json` and
-`captured_tx_token_2026-11-12.json`): theft leg + 1 SOL decoy + 500 USDC
-decoy, 3 signers (treasury / victim / `7VHUFJHW…`). The wallet preview
-shows money arriving.
-
-**Submitted split variant** (six real drains decoded,
-`decompiled/live/dynamic/real_drain_txs_2026-11-12.json`): ComputeBudget
-×2, marker ix with the affiliate tag in ASCII, main ix
-`0x15 0x02 <pct>` routing `pct%` of the victim's loss to a campaign
-wallet and the rest to `6cwsqBqm…`. `pct` observed: 75 and 80.
-
-The server side bridges them: the victim signs the decoy variant; the
-operator co-signs and submits the split variant. (The transformation is
-inferred from the two shapes — the /api/process payload was never sent
-by us; the split mechanics are proven on-chain.)
-
-## Why it works on victims
-
-1. The decoy legs make the wallet preview read as incoming money.
-2. The theft is a CPI inside the operator program — outer-balance
-   wallet checks (including Lighthouse assertions, observed failing to
-   stop two real drains) don't see CPI-side token decreases.
-3. The fake confirm dialog is the kit's own UI — victims think they're
-   re-confirming an incoming transfer, in their own language.
-4. Credibility dressing: real brand clones (Phantom, Jupiter, pump.fun,
-   Dexscreener, AML services), social-proof videos, localized copy.
-
-## Why it is nonetheless exposed
-
-- One bundle hash on 16+ hosts; one AES salt for three purposes;
-  world-readable live config; plaintext affiliate tags on-chain; a
-  pinned decoy keypair; a hard-coded treasury and collector; and a DaaS
-  split that names every campaign wallet in every transaction.
-- Full pivot list: `decompiled/iocs.json`. Monitoring: `scripts/monitor.js`.
-
-## Interaction ceiling
-
-Every live run in this document stayed within the ceiling defined in
-`METHODOLOGY.md`.
+This document traces the full sequence from page load to on-chain settlement.
 
 ---
 
-# Design principles and trust boundaries
+## Phase 1 — Page Initialization
 
-*(Merged from the former `SYSTEM_OVERVIEW.md`, 2026-11-12.)*
+1. Page loads. Bundle polyfills `AbortSignal.Be`, `Promise.withResolvers`,
+   `String/Array.prototype.at`.
+2. `readCampaignSource()` reads utm_source / referrer from localStorage `_0x6`
+   or URL params. Stored for `/api/visit`.
+3. `pageHost()` decodes the connect domain from `&d=` query param or
+   `/connect/<slug>` path using base-x encoding.
+4. `isTelegramWebView()` checks for Telegram WebApp context; extracts
+   `tg.id` and `tg.username` if present.
+5. Locale redirect check: if `navigator.language` matches `ru-*` or `*-ru`,
+   the page immediately redirects to `solana.com` (operator region exclusion).
+6. `POST /api/visit?source=…&tgid=…&tgus=…` fires (once per 900s cooldown).
 
-**1. Separation of clean and dirty domains.** The lure domains carry
-zero executable phishing logic beyond `openModal()` — nothing
-incriminating happens until the popup opens on a connect domain.
-Marketing domains and payload domains rotate independently (observed:
-easyinvest7.biz → petramon.xyz within a day).
+---
 
-**2. Abuse-resistance by default.** UA cloaking (fake nginx 404 for
-non-desktop agents), the balance gate (broke wallets and sandboxes
-never see the payload), `?b=` beacon suppression for redirect
-arrivals, the `is-banned` per-visitor kill switch, and filler-text
-pages with a DOMContentLoaded dictionary swap for static crawlers.
+## Phase 2 — Config and Ban Check
 
-**3. Free infrastructure everywhere.** Helius free-tier keys rotated
-as they burn out, Jupiter free keys, Solflare's free portfolio API for
-victim valuation, Cloudflare free in front, Cloudflare Pages for
-throwaway siblings, public RPC fallbacks.
+7. `GET /api/is-banned` — per-visitor IP/ASN check. Returns `"0"` or `"1"`.
+8. `GET /api/config?tgid=N` — receives AES-GCM ciphertext blob.
+   - Key: `SHA-256(apiHost + "B3ui3QZFrOPoGW7oMZgE4A")`
+   - Decoded fields: receiver addresses, token mint, min/max SOL, sibling domain.
+   - Ciphertext cached to `localStorage["_0x12"]` for return visits.
+9. `GET /api/locales?lang=X` — loads modal strings (en/fr/zh fallback).
+   14 languages available server-side; `ru` and `uk` return 404.
 
-**4. Centralized brain, disposable costumes.** Every sibling serves the
-byte-identical bundle and the same decrypted `/api/config`. Receivers
-rotate server-side via config push — no rebuild needed. The on-chain
-program is upgradeable without shipping a new kit.
+---
 
-**5. Psychology as a feature set.** The fake "Confirm Transaction"
-dialog (the kit's own UI, not the wallet's), the decoy incoming legs,
-the localized Trust-style modal copy in 14 languages, the countdown
-alert, the social-proof `refund.webm`. Every layer has a matching
-persuasion trick (`FRONTEND_LAYER.md`).
+## Phase 3 — Wallet Connection
 
-**6. Third-party code as camouflage.** The wallet UX is Reown AppKit
-with `@redacted/enterprise-plugin`; the modal and 130+ wallet list are
-stock library behavior. The kit is a thin layer around it: valuation,
-drain-tx assembly, operator API, the on-chain program.
+10. User clicks "Connect Wallet". Kit renders its own wallet picker (AppKit).
+11. **Desktop**: `openConnectPopup()` opens a 360×450 popup to the connect
+    domain (e.g. petramon.xyz).
+    **Mobile**: embedded flow + deep-links to wallet apps.
+12. User selects wallet (Phantom, Solflare, etc.) and approves connection.
+    This step shares the public key only — no transaction is signed here.
 
-## Trust boundaries
+---
 
-| Boundary | Direction | Notes |
+## Phase 4 — Balance Gate and Portfolio Scan
+
+13. `checkWallet()` calls Solflare API for SOL balance.
+    - Balance < ~0.60 SOL → "insufficient balance" screen shown; flow ends.
+    - Pubkey in exclusion set (6 operator monitoring addresses) → "target
+      account" screen; flow ends.
+14. `portfolio()` calls Solflare v3/portfolio/tokens + v2/portfolio/stake.
+    Enumerates all SPL tokens, Token-2022 tokens (including fee-extension
+    variants), LP tokens (Meteora/Raydium/Orca), and inactive stake accounts.
+15. `priceTokens()` calls Jupiter (5 API keys, rotating on 429) for USD values.
+
+---
+
+## Phase 5 — Connect Notification
+
+16. `POST /api/c/i` (AES-GCM encrypted, key: `SHA-256(apiHost + "c" + salt)`).
+
+    Payload (59+ bytes):
+    ```
+    0–14:  15 random bytes
+    15–22: u64 LE lamports (portfolio total)
+    23–54: 32-byte victim pubkey
+    55–N:  encoded account list
+    N–N+3: CRC32
+    ```
+
+    Server returns: session_id + optional (pubkey_key, csv_value) + flow modifier.
+
+---
+
+## Phase 6 — Fake Confirm Dialog
+
+17. Kit renders its own UI — NOT the wallet's native dialog.
+    - Displays: "+1 SOL incoming", "+500 USDC incoming" (from decoy legs)
+    - Plays: `/_nuxt/media/refund.webm` (social proof video)
+    - Shows Phantom-spoof safety text
+18. User clicks "Confirm" in the kit's dialog.
+19. `POST /api/c/c/{sessionId}/{confirmCount}` — confirm notification.
+
+---
+
+## Phase 7 — Transaction Signing
+
+20. Kit calls `wallet.signTransaction(drainTx)` — this is when the wallet's
+    native popup appears.
+21. The wallet shows the outer instruction deltas:
+    - "+1 SOL incoming" (from decoy treasury→victim transfer)
+    - "+500 USDC incoming" (from decoy relay→victim token transfer)
+    The actual drain is a CPI through the operator program, invisible at the
+    outer instruction level.
+22. User approves. Wallet returns partially-signed transaction (1 of 3 required
+    signers: victim, treasury, receiver).
+
+---
+
+## Phase 8 — Submission and Settlement
+
+23. `POST /api/process` — partially-signed transaction sent to operator server.
+    Server adds treasury and receiver signatures, then broadcasts to Solana.
+
+    Payload header (52 bytes):
+    ```
+    0–12:  13 random bytes
+    13–16: u32 LE attempt counter
+    17–48: 32-byte victim pubkey
+    49:    u8 flow type
+    50–51: u16 LE tx section length
+    52–N:  packByteArrays(signedTransactions + accountAddresses)
+    ```
+
+24. 2500ms after `/api/process`, kit self-broadcasts via its own RPC
+    (`skipPreflight: true`) as a fallback.
+
+25. Transaction settles on Solana mainnet (atomic):
+    - Marker instruction: writes campaign tag permanently to chain.
+    - Token sweep: operator program CPI drains all SPL/Token-2022 tokens.
+    - Decoy legs: treasury sends 1 SOL and relay sends 500 USDC to victim
+      (net zero — same cluster owns all accounts).
+    - SOL split: disc 0x15 divides victim's SOL between receiver and collector.
+
+26. `POST /api/c/f/{sessionId}` — final notification with account list.
+27. Kit sends telemetry event (kind 3 = complete) to `/api/handler`.
+
+---
+
+## Flow Types
+
+| Type | Byte | Description |
 |---|---|---|
-| victim → lure domain | GET static | UA-filtered; beacon `/api/visit` |
-| victim → connect domain | popup | token path, `?b=1` |
-| victim → Solflare/Helius/Jupiter | GET/POST | abused free tiers; wallet address as UA |
-| victim → operator backend | `/api/*` on lure host | ban list, locales, config, telemetry, signed-tx submit |
-| operator backend → chain | broadcast | operator co-signs; kit self-broadcast as fallback |
-| program → program | CPI invoke_signed | theft leg; receivers/campaign wallets collect |
+| DRAIN | 0 | Standard token + SOL sweep |
+| SIWS | 1 | Sign-In-With-Solana verify step precedes drain |
+| SPAM | 2 | 200-transaction mass-sign flood |
+
+---
+
+## Why the Wallet Preview Shows Positive Inflows
+
+The decoy legs (treasury → victim 1 SOL, relay → victim 500 USDC) are
+top-level instructions that wallet UI parses for balance deltas. The drain
+is embedded inside a CPI called by the operator program — wallets that
+only inspect outer instruction-level account changes report a net positive
+balance change.
+
+Lighthouse outer-balance assertions also pass for this reason (see
+`archive/prog/lighthouse.md`). CPI-scoped assertions — asserting that no
+token account decreases *including via CPI* — are what would catch this flow.

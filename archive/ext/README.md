@@ -1,96 +1,76 @@
-# External samples: public drainer-source collections
+# archive/ext/ — External Reference Collections
 
-Reference material from public research collections, for cross-analysis
-against the pumpanakin/hexfomo kit (`MERGED_KIT.md`). Everything here was
-already public; sources are linked. These are malicious artifacts — read
-them, never run them. ZIP password for the thegiver86 samples is
-`infected` (per that repo's README).
+Reference material from publicly available research repositories, used for
+cross-analysis against the primary kit documented in this repo.
 
-## Solana Phantom Drainer (thegiver86 ZIP, extracted 2026-11-13)
+## a1/ — Deobfuscation tooling
 
-`solana_phantom/Solana_Phantom_Drainer/` — turnkey Solana drainer
-template, January 2025 generation. Crude compared to the kit this repo
-documents: a single 9.9 MB `index.js` (SHA-256
-`de60261f7237ae029d05c28f18334d0e5e6829008c4a99c542951f42bafbe0f8`),
-a one-page airdrop lure, and a `wallet.js` that reports installs to a
-Telegram bot. This is the previous generation of Solana drainers: no
-AppKit, no on-chain program, no decoy transactions, no backend crypto —
-just a template plus a Telegram log channel.
+`a1/src.js` — AST deobfuscator used as a starting point for the bundle
+deobfuscation pipeline. Cross-reference with `data/core/` for the output.
 
-IOCs from the sample (published publicly by the sample author):
-Telegram bot token `6345787783:AAGQn2Uy7rpVfy76SOSJGA3jttW2sH9U8`,
-log chat `4177494374`, demo site `trojansolana.xyz`, claims bot
-`@vortexhitsbot`. Treat as burned infrastructure; the pattern (TG bot
-as the affiliate dashboard) is the same layer the hexfomo kit's
-Telegram module serves.
+## a2/ — Inferno Drainer reference (EVM lineage)
 
-## Inferno Drainer (EVM lineage)
+Samples from the Inferno kit family, an EVM-chain predecessor that shares
+the same config-driven affiliate architecture as the hexfomo kit:
 
-- `inferno_deobfuscated.js` (1.5 MB) — muellerberndt's deobfuscated
-  Inferno listing, latest gist revision (already held from the first pass).
-- `inferno/Inferno_Drainer/` — thegiver86 sample, extracted: the
-  "Wallet Security Breach" malspam kit. 11 per-chain HTML letter
-  templates (bitcoin, ethereum, bnb, ton, tron, litecoin, coinbase,
-  binance, kraken, web3, usdt), a landing page whose only button is
-  "Block Device" (fear angle, not greed), the 2 MB drainer JS
-  (`cec1a382-…js`, SHA-256 `9eef875b…`), and `files.zip` (lure images).
-- `inferno_configs/` — muellerberndt's Inferno config schema
-  (`config-global.json`, `config-hardcoded.json`, `config-user.json`):
-  the affiliate-facing knobs (button classes/texts, WalletConnect
-  project id, chain targets). Same config-driven model as the hexfomo
-  kit's `/api/config` push — the industry converged on it.
-- `muellerberndt/deobfuscate.js` — the AST deobfuscator used on Inferno.
-- `haruka_ma/inferno.py` + `inferno.md` — independent Inferno analysis
-  with traffic-decryption tooling for Inferno's backend protocol.
+- `a2/samples/` — Per-chain HTML templates (Bitcoin, Ethereum, BNB, TON,
+  Tron, Litecoin, Coinbase, Binance, Kraken, Web3, USDT), landing page,
+  and the main drainer JS bundle.
+- `a2_src.js` — Deobfuscated Inferno JS (1.5 MB), sourced from
+  muellerberndt's public gist.
+- `a2_cfg/` — Inferno config schema: `config-global.json`,
+  `config-hardcoded.json`, `config-user.json`. The affiliate-facing
+  parameter structure (button classes, WalletConnect project ID, chain
+  targets) is architecturally comparable to the hexfomo kit's
+  `/api/config` push.
 
-## Angel Drainer
+## a3/ — Angel Drainer reference
 
-`angel/angel-drainer-deobfuscated.js` (308 KB, SHA-256 `52c73219…`) —
-muellerberndt's Angel listing. Angel packs its payload xz-compressed in
-base64 and unpacks with a WASM xz decompressor (per his write-up) — a
-different loader family than Inferno's or the hexfomo kit's JS-Confuser.
+`a3/samples/` — Deobfuscated Angel Drainer JS (308 KB). Angel uses a
+different loader: payload is xz-compressed in base64 and unpacked with a
+WASM xz decompressor, as distinct from the JS-Confuser approach used in
+the hexfomo kit.
 
-## Ethane Drainer
+## a4/ — Solana Phantom Drainer reference (thegiver86 sample)
 
-`ethane/Ethane Drainer/` — thegiver86 sample, extracted: "Multichain
-Crypto Wallet Drainer" demo — obfuscated config (221 KB), a
-`web3-provider/` module set (loader, alert, ethereum-tx, modal, router,
-module, data, connect, ethers) and `CA.sol`. EVM multichain, another
-config-driven affiliate product.
+`a4/samples/` — Turnkey Solana drainer template from early 2025. Single-file
+architecture (9.9 MB `index.js`), Telegram bot reporting. This represents
+a previous generation of Solana kits: no AppKit, no on-chain program, no
+decoy transactions — just a template with a Telegram log channel. Useful
+as a baseline to measure how much the hexfomo kit's architecture advanced.
 
-## YARA rules (thegiver86)
+## notes/ — Inferno traffic decryption tooling
 
-`yara_rules/` — detection rules for Inferno JS, Ethane JS, Inferno
-malspam email, Phantom landing page, UNIQUE landing page. Note the
-Phantom rule matches only `<center>` — collection quality varies;
-useful as presence-indicators, not as production detections. The kit in
-this repo has far better pivots (`decompiled/iocs.json`).
+`notes/decrypt.py` + `notes/notes.md` — Independent Inferno backend protocol
+analysis with a traffic decryption tool. The decrypt utility covers the
+Inferno backend wire format; the hexfomo kit uses a different AES-GCM key
+derivation scheme (`SHA-256(host + "B3ui3QZFrOPoGW7oMZgE4A")`), documented
+in `data/core/`.
 
-## Documented but not mirrored
+## rules/ — YARA detection rules
 
-- `saiyan1337/x-files` — a drainers-by-project collection that includes
-  leaked private keys. Keys are not mirrored here (no research need to
-  hold other people's live secrets).
-- `USDTBlackList/VenomDrainer`, `sfeyt89x/Inferno-drain` — turnkey
-  sales mirrors; existence noted, content not redistributed.
-- `TN3T/Solana-Nft-Drainer` — 2022-era Solana NFT drainer template.
-- `kikeex/solana-drainer` — educational anti-drainer demo (defensive).
+`rules/r1.yar` through `rules/r5.yar` — Detection rules for Inferno JS,
+Ethane JS, Inferno malspam email, Phantom landing page, and UNIQUE landing
+page (from thegiver86). These are presence indicators; production pivots for
+the hexfomo kit are in `data/` (`iocs.json`).
 
-## npm supply-chain drainer
+## supply/ — npm supply-chain variant
 
-`npm_supplychain/debug_analysis.md` — analysis of a browser-side
-drainer shipped via compromised npm packages: hijacks `fetch` and
-`XMLHttpRequest` for address swapping + transaction hijacking. Same
-class as the August 2025 AI-generated npm Solana-drainer campaign.
-Delivery is supply-chain rather than lures; the client-side goal is
-the same.
+`supply/debug_analysis.md` — Analysis of a browser-side variant delivered
+via a compromised npm package. The delivery mechanism (supply-chain) differs
+from lure-based deployment, but the client-side technique (fetch/XHR
+hijacking for address swapping + wallet API wrapping for transaction
+modification) is the same class of operation.
 
-## Documented turnkey layer (not mirrored)
+## tools/ — AST processing utilities
 
-`pitchbardsay/Drainer-Tool-Solana`, `H4CKL0RD/wallet-drainer` (Phantom
-universal links + HMAC sessions), `fklv228/Best-Solana-NFT-Drainer-main`,
-`ruanlopes0913-blip/phantom-drainer-page-v2` + `-bot`,
-`kiberkarasi161616-byte/telegram-gift-drainer` (TG mini-app gifts).
-Same template class as the archived Phantom sample, repackaged on a
-weekly cycle. The `0x32Moon/Wall-of-Shames` tracker the sellers cite
-is already deleted.
+`tools/ast.js` — AST transformation helper used during deobfuscation work.
+
+## Cross-reference
+
+| Theme | Location |
+|---|---|
+| Hexfomo kit full architecture | `docs/kit-overview.md` |
+| Deobfuscated bundle output | `data/core/` |
+| Config format comparison | `data/core/operator/backend.md` |
+| All IOCs | `data/` (`iocs.json`) |
