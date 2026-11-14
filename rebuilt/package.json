@@ -1,0 +1,13 @@
+{
+  "name": "rebuilt",
+  "version": "1.0.0",
+  "description": "Full reconstruction of every component from: static analysis of the original bundle, the Babel AST deobfuscation output (`decompiled/deobfuscated/`), and dynamic captures (`decompiled/live/`).",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs"
+}

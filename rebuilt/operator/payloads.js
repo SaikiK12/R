@@ -87,7 +87,7 @@ function buildConnectPayload(victimPubkey, solAmountLamports, accountEntries) {
   for (; offset < 15; offset++) out[offset] = randomInt(0, 255);
 
   // u64 LE: SOL lamports
-  writeU64(out, BigInt(Math.trunc(solAmountLamports)), offset); offset += 8;
+  writeU64(out, typeof solAmountLamports === 'bigint' ? solAmountLamports : BigInt(Math.trunc(Number(solAmountLamports))), offset); offset += 8;
 
   // 32-byte victim pubkey
   writePubkey(out, offset, victimPubkey); offset += 32;
