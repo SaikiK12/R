@@ -5,9 +5,9 @@
  *
  * Sources:
  *   - bundle.deobfuscated.js lines 24453–24556 (class 睞, xt() method, 牌() accessor)
+ *   - decompiled/live/api_config.plaintext.bin (actual live decrypted bytes)
  *   - decompiled/live/api_config_decoded.json (live captured config)
- *   - GAP_CLOSURE_2026-11-14.md (/api/config field offsets)
- *   - decompiled/kit/operator/backend_model.md (AES-GCM wire format)
+ *   - AUDIT_AND_ROADMAP.md (B1, B2 bug fixes)
  *
  * Wire format (from /api/config endpoint):
  *   12 bytes   AES-GCM IV
@@ -15,67 +15,52 @@
  *
  * Key = SHA-256(apiHost + "B3ui3QZFrOPoGW7oMZgE4A")
  *
- * After AES decryption, the plaintext binary struct is:
+ * After AES decryption the plaintext is 160 bytes (live observed):
  *
- * Binary layout (confirmed from deobfuscated bundle + live captures):
+ *   plaintext[0]:      u8    total_len = 136 (body byte count)
+ *   plaintext[1]:      u8    reserved
+ *   plaintext[2..137]: body  (total_len bytes)  = 晀 in bundle
+ *   plaintext[138..]:  trailer (remaining bytes) = parsed by 牌()
  *
- *   offset 0:     u8    total_len (number of remaining bytes in the fixed section)
- *   offset 1:     1 byte  reserved / version
- *   offset 2..1+total_len:  the struct body, indexed by DataView from offset 2
+ * The DataView (鯙) is: DataView(plaintext.buffer, 2, total_len)
+ * So DataView offset N = plaintext[2+N] = body[N]
  *
- * Struct body (DataView origin = offset 2):
- *   offset 0:     u8    pubkey_count (3 in all observed configs)
- *   offset 1:     u16 LE  unknown_u16 (observed 1000)
- *   offset 3–34:  32 bytes  pubkey[0]  — target token mint (USDC)
- *   offset 35–66: 32 bytes  pubkey[1]  — receiver address
- *   offset 67–98: 32 bytes  pubkey[2]  — relay/second receiver
+ * BODY field offsets (all relative to body = plaintext[2:2+total_len]):
+ *   body[0]:      u8    pubkey_count (3)
+ *   body[1..2]:   u16 LE  unknown (1000 = 0x03E8)
+ *   body[5..36]:  32 bytes pubkey[0] = target token mint  → q
+ *   body[37..68]: 32 bytes pubkey[1] = receiver address   → je
+ *   body[69..100]:32 bytes pubkey[2] = relay address      → de
+ *   body[101]:    u8    g flag
+ *   body[102..109]: f64 BE  Oe = MAX_SOL (500.0 in live config)  ← NOTE: Oe=max, ot=min!
+ *   body[110..117]: f64 BE  ot = MIN_SOL (1.0 in live config)
+ *   body[118]:    u8    Hr flag
+ *   body[119]:    u8    jr flag
+ *   body[120]:    u8    Kr flag
+ *   body[121]:    u8    Xt flag
+ *   body[122..123]: u16 LE Zr() = some u16 counter (NOT sibling domain!)
+ *   body[124]:    u8    Wr flag
+ *   body[125..128]: u32 LE Xr() = some u32 value
+ *   body[129]:    u8    J flag (bool)
+ *   body[130]:    u8    Gr flag
+ *   body[131]:    u8    $r flag (bool)
+ *   body[132]:    u8    Yr flag (& 1 → redirect RU/UK)
+ *   body[133]:    u8    Vr flag
+ *   body[134]:    u8    zr: non-zero means trailer field[5] has keyed entry
+ *   body[135]:    u8    Wr2 (used by zr())
  *
- *   From the Fr() accessor (deob line 24470–24479):
- *     q   = pubkey at relative offset 5    (token mint)
- *     je  = pubkey at relative offset 37   (receiver)
- *     de  = pubkey at relative offset 69   (relay)
- *     g   = u8 at relative offset 101
- *     Oe  = f64 BE at relative offset 102  (min_sol parameter)
- *     ot  = f64 BE at relative offset 110  (max_sol parameter)
- *     J   = bool at relative offset 129
+ * TRAILER fields (parsed by 牌() / 媵() chain from plaintext[total_len+2:]):
+ *   Each field is 1-byte length + that many bytes (or 0x00 = null).
+ *   field[0] (嬹.data) = 牌()[0] = Jr().header  = null in live config
+ *   field[1] (槙.data) = 牌()[1] = Jr().text    = null in live config
+ *   field[2] (齢.data) = 牌()[2] = Qr()         = "trongame.fun" ← SIBLING DOMAIN!
+ *   field[3] (腓.data) = 牌()[3] = Fr().ze meta = "USDC" in this config
+ *   field[4] (杍.data) = 牌()[4] = en()         = null (token symbol in some configs)
+ *   field[5] (镩.data) = 牌()[5] = zr() data    = null
  *
- *   Other accessors pinned from deob lines 24461–24536:
- *     Ur()  = raw[0]              — pubkey count
- *     Br()  = readU16(raw, 1) / 1000 — unknown scalar (observed 1.0)
- *     Hr()  = raw[118]            — flag byte
- *     jr()  = raw[119]            — flag byte
- *     Kr()  = raw[120]            — flag (1 = redirect RU/UK browsers)
- *     Xt()  = raw[121]            — flag byte
- *     Yr()  = raw[132]            — flag (& 1 triggers redirect邞())
- *     Xr()  = readU16(raw, 125)   — sibling_domain string length → offset
- *     Zr()  = readString(raw, 122) — sibling_domain (connects the domain used for /connect/)
- *     Vr()  = raw[133]            — flag byte
- *     Gr()  = raw[130]            — flow control byte
- *     $r()  = !!raw[131]          — boolean flag
- *     Wr()  = raw[124]            — platform indicator byte
- *     en()  = parsed token_symbol from trailer section
- *
- * Trailer section (after the fixed struct, starts at raw[total_len+2]):
- *   Decoded by 牌() (deob line 24544) as a sequence of length-prefixed fields:
- *     field[0]  = locale strings header
- *     field[1]  = modal text array
- *     field[2]  = Qr() — probably unused/spare
- *     field[3]  = Fr() metadata (token, receivers, amounts)
- *     field[4]  = en() token symbol (e.g. "USDC")
- *     field[5]  = zr() — optional second keyed entry
- *
- * Observed live config (api_config_decoded.json):
- *   total_len:         136
- *   pubkey_count:      3
- *   unknown_u16_1000:  1000
- *   pubkey[0]:         EPjFWdd5... (USDC mint)
- *   pubkey[1]:         7VHUFJHWu... (receiver)
- *   pubkey[2]:         3emsAVdm... (relay)
- *   max_sol (f64 BE):  500.0
- *   min_sol (f64 BE):  1.0
- *   flag_u8:           1
- *   sibling_domain:    "trongame.fun"
- *   token_symbol:      "USDC"
+ * VERIFIED against plaintext binary:
+ *   Trailer bytes: 00 00 0c 74726f6e67616d652e66756e 04 55534443 00 00
+ *   → [null, null, "trongame.fun", "USDC", null, null]
  */
 
 'use strict';
@@ -85,16 +70,17 @@ const { base58Encode } = require('./crypto');
 /**
  * parseConfig(plaintext: Uint8Array) → config object
  *
- * Full config object fields:
- *   .pubkeyCount   — number of pubkeys
+ * Returns:
+ *   .pubkeyCount   — number of pubkeys (3)
  *   .tokenMint     — target token mint address (base58)
  *   .receiver      — primary receiver address (base58)
  *   .relay         — relay/second receiver (base58)
- *   .maxSol        — maximum drain amount (f64)
- *   .minSol        — minimum drain amount (f64)
- *   .siblingDomain — connect domain hostname
- *   .tokenSymbol   — target token symbol (e.g. "USDC")
- *   .flags         — raw flag bytes {g, J, Hr, jr, Kr, Xt, Yr, Gr, $r, Vr, Wr}
+ *   .maxSol        — MAXIMUM drain amount in SOL (Oe, f64 BE at body[102])
+ *   .minSol        — MINIMUM drain amount in SOL (ot, f64 BE at body[110])
+ *   .siblingDomain — connect domain hostname (from trailer field[2] = Qr())
+ *   .tokenSymbol   — target token symbol (from trailer field[3] or field[4])
+ *   .flags         — flag bytes {g,J,Hr,jr,Kr,Xt,Yr,Gr,$r,Vr,Wr,Zr,Xr,zrPresent}
+ *   .jr            — Jr() header+text from trailer fields[0,1]
  *   .raw           — original Uint8Array
  */
 function parseConfig(plaintext) {
@@ -102,89 +88,148 @@ function parseConfig(plaintext) {
     throw new Error('Config plaintext too short: ' + (plaintext?.length ?? 0));
   }
 
-  const raw = plaintext;
+  const totalLen = plaintext[0];  // body byte count
 
-  // The DataView is set up from offset 2 with length = raw[0]
-  // (xt() method: deob lines 24454–24459)
-  const totalLen = raw[0];                                // u8 at index 0
-  const dv       = new DataView(raw.buffer, 2, totalLen); // DataView from offset 2
+  // body = plaintext[2:2+totalLen]  (this is what 晀 refers to)
+  const body = plaintext.subarray(2, 2 + totalLen);
 
-  // 甥(): read a 32-byte pubkey from raw at a given offset, return base58
+  // DataView(plaintext.buffer, 2, totalLen) so DV offset N = body[N]
+  const dv = new DataView(plaintext.buffer.slice ? plaintext.buffer.slice(0) : plaintext.buffer,
+    plaintext.byteOffset + 2, totalLen);
+
+  // 甥(array, offset): read 32-byte pubkey and base58-encode
   function readPubkey(offset) {
-    const bytes = raw.slice(offset, offset + 32);
-    return base58Encode(bytes);
+    return base58Encode(body.slice(offset, offset + 32));
   }
 
-  // 甃(): read a u16 LE and use it as a length to read a UTF-8 string
-  function readLenPrefixedString(offset) {
-    const len = raw[offset] | (raw[offset + 1] << 8);
-    return new TextDecoder().decode(raw.slice(offset + 2, offset + 2 + len));
-  }
+  // ── Fixed body fields ─────────────────────────────────────────────────
+  const pubkeyCount = body[0];
+  const unknownU16  = body[1] | (body[2] << 8);  // Br() * 1000 = this, so Br() = this/1000
 
-  // 称(): read a u16 LE value at offset in raw
-  function readU16(offset) {
-    return raw[offset] | (raw[offset + 1] << 8);
-  }
+  // Pubkeys at known offsets (verified against live plaintext)
+  const tokenMint = readPubkey(5);    // q  : USDC mint EPjFWdd5...
+  const receiver  = readPubkey(37);   // je : active receiver
+  const relay     = readPubkey(69);   // de : relay address
 
-  // Extract fields using the offsets pinned from deob lines 24470–24479
-  // All offsets are relative to the FULL plaintext array (not the DataView)
-  const tokenMint    = readPubkey(5);    // q   offset 5
-  const receiver     = readPubkey(37);   // je  offset 37
-  const relay        = readPubkey(69);   // de  offset 69
-  const flagG        = raw[101];         // g   offset 101
-  // Oe = getFloat64(102) — DataView is from offset 2, so DataView offset 100
-  const minSol       = dv.getFloat64(100, false); // BE float64 at DataView offset 100 (= raw 102)
-  const maxSol       = dv.getFloat64(108, false); // BE float64 at DataView offset 108 (= raw 110)
-  const flagJ        = !!raw[129];       // J   offset 129
-  const flagGr       = raw[130];         // Gr  offset 130
-  const flagDollarR  = !!raw[131];       // $r  offset 131
-  const flagYr       = raw[132];         // Yr  offset 132
-  const flagVr       = raw[133];         // Vr  offset 133
-  const flagZrLen    = !!raw[134];       // zr check: raw[134] non-zero means keyed entry follows
-  const flagWr       = raw[124];         // Wr  offset 124
-  const flagHr       = raw[118];         // Hr  offset 118
-  const flagJr       = raw[119];         // jr  offset 119
-  const flagKr       = raw[120];         // Kr  offset 120 — if set → check Yr for RU redirect
-  const flagXt       = raw[121];         // Xt  offset 121
+  // Flag bytes
+  const flagG   = body[101]; // g
+  // B1 FIX: Oe = getFloat64(102) = MAX_SOL, ot = getFloat64(110) = MIN_SOL
+  const maxSol  = dv.getFloat64(102, false); // Oe = max (500.0 in live)
+  const minSol  = dv.getFloat64(110, false); // ot = min (1.0 in live)
+  const flagHr  = body[118]; // Hr
+  const flagJr  = body[119]; // jr
+  const flagKr  = body[120]; // Kr
+  const flagXt  = body[121]; // Xt
+  const zrU16   = body[122] | (body[123] << 8);  // Zr() = u16 counter
+  const flagWr  = body[124]; // Wr
+  const xrU32   = body[125] | (body[126] << 8) | (body[127] << 16) | (body[128] << 24); // Xr()
+  const flagJ   = !!body[129]; // J
+  const flagGr  = body[130]; // Gr
+  const flagDR  = !!body[131]; // $r
+  const flagYr  = body[132]; // Yr — & 1 triggers RU/UK redirect
+  const flagVr  = body[133]; // Vr
+  const zrPresent = !!body[134]; // non-zero → trailer field[5] has keyed entry
+  const wr2     = body[135]; // Wr2 for zr()
 
-  // Sibling domain: Zr() = readString(raw, 122)
-  const siblingDomain = readLenPrefixedString(122);
+  // ── Trailer fields (B2 FIX: sibling domain and token symbol are here) ──
+  // Trailer starts at plaintext[2 + totalLen] = plaintext[totalLen + 2]
+  const trailerStart = 2 + totalLen;
+  const trailer = plaintext.subarray(trailerStart);
+  const trailerFields = parseTrailerFields(trailer, 6);
 
-  // Token symbol: Xr() = readU16(raw, 125) → length → string starting at offset 127
-  const tokenSymbolLen = readU16(125);
-  const tokenSymbol    = new TextDecoder().decode(raw.slice(127, 127 + tokenSymbolLen));
+  // 牌() field mapping:
+  //   [0] = Jr().header
+  //   [1] = Jr().text
+  //   [2] = Qr() = siblingDomain  ← "trongame.fun"
+  //   [3] = Fr().ze meta          ← "USDC" in this config
+  //   [4] = en() = tokenSymbol    ← null here, non-null in other configs
+  //   [5] = zr() keyed entry data
+  const jrHeader     = trailerFields[0]; // Jr().header
+  const jrText       = trailerFields[1]; // Jr().text
+  const siblingDomain = trailerFields[2] || ''; // Qr() = sibling domain
+  const frZeMeta     = trailerFields[3] || ''; // Fr().ze
+  const tokenSymbol  = trailerFields[4] || frZeMeta || ''; // en() falls back to [3]
+  const zrData       = trailerFields[5]; // zr() keyed entry
 
   return {
-    pubkeyCount:   raw[0],
+    pubkeyCount,
+    unknownU16,
     tokenMint,
     receiver,
     relay,
-    maxSol,
-    minSol,
-    siblingDomain,
-    tokenSymbol,
+    maxSol,   // Oe = body[102..109] f64 BE (confirmed 500.0)
+    minSol,   // ot = body[110..117] f64 BE (confirmed 1.0)
+    siblingDomain,  // from trailer field[2] = Qr()
+    tokenSymbol,    // from trailer field[4] or [3]
+    jrHeader,
+    jrText,
+    zrPresent,
+    zrData,
     flags: {
       g: flagG,
       J: flagJ,
       Hr: flagHr,
       jr: flagJr,
-      Kr: flagKr,  // triggers Russian-redirect check when Yr & 1
+      Kr: flagKr,   // triggers Russian-redirect check when Yr & 1
       Xt: flagXt,
-      Yr: flagYr,  // Yr & 1 →邞() redirect RU/UK browsers to solana.com
+      Yr: flagYr,   // Yr & 1 → 邞() redirect RU/UK browsers to solana.com
       Gr: flagGr,
-      $r: flagDollarR,
+      $r: flagDR,
       Vr: flagVr,
       Wr: flagWr,
+      Zr: zrU16,    // u16 counter
+      Xr: xrU32,    // u32 value
     },
-    raw,
+    raw: plaintext,
+    body,
+    trailer,
   };
 }
 
 /**
- * decodeAndParse(rawBlob: Uint8Array, apiHost: string) → config
- *
- * Convenience: AES-GCM decrypt then parse.
- * rawBlob = what /api/config returns over the wire (IV + ciphertext).
+ * parseTrailerFields(trailer, maxFields):
+ *   Parse the trailer as a sequence of LV (length-value) fields.
+ *   Each field: 1-byte length (0 = null), then that many bytes.
+ *   This is what 媵() does in the bundle.
+ */
+function parseTrailerFields(trailer, maxFields = 6) {
+  const fields = [];
+  let offset = 0;
+  while (offset < trailer.length && fields.length < maxFields) {
+    const len = trailer[offset++];
+    if (len === 0) {
+      fields.push(null);
+    } else {
+      const data = trailer.slice(offset, offset + len);
+      fields.push(new TextDecoder().decode(data));
+      offset += len;
+    }
+  }
+  // Pad with nulls if fewer fields than expected
+  while (fields.length < maxFields) fields.push(null);
+  return fields;
+}
+
+/**
+ * parseDefaultConfig():
+ *   Parse the fallback config baked into the bundle (string table [350]).
+ *   Used when /api/config fails all retries.
+ *   Has dummy/random pubkeys but valid struct layout.
+ */
+function parseDefaultConfig() {
+  // String[350] from bundle — the緜 variable (deob line 24558)
+  const DEFAULT_CONFIG_B64 =
+    'iAAD6AMAAMb6evO+2606PWXzaqvJdDGxu+TC0vbg5HymAgNFL11hYGUBswLhgBiS+' +
+    'AopefWF+IVdDyA0eQokVfdE+sUD17UnZJe6C7hlkXK3Lt2MZuGPVhdk2chqYQo6fg' +
+    '95wLr52wZAf0AAAAAAAD/wAAAAAAAABQAAAAUAAAAAAAAAAAEAAAAAAAALaGV4Zm9t' +
+    'by5mdW4EVVNEQwAA';
+  const bytes = Uint8Array.from(Buffer.from(DEFAULT_CONFIG_B64, 'base64'));
+  return parseConfig(bytes);
+}
+
+/**
+ * decodeAndParse(rawBlob, apiHost):
+ *   AES-GCM decrypt the /api/config wire blob then parse.
  */
 async function decodeAndParse(rawBlob, apiHost) {
   const { aesDecrypt } = require('./crypto');
@@ -194,24 +239,17 @@ async function decodeAndParse(rawBlob, apiHost) {
 
 /**
  * shouldRedirectRu(config) → boolean
- *
- * True if the loaded config has the flag combination that triggers
- * the邞() Russian-language browser redirect to solana.com.
- * Deob line 33627: config.Yr() & 1 → call邞()
+ *   True if Yr & 1 → 邞() fires → redirect to solana.com
+ *   (deob line 33627)
  */
 function shouldRedirectRu(config) {
   return !!(config.flags.Yr & 1);
 }
 
-/**
- * isBanned(config) → boolean
- *
- * True if the config's Kr() flag is set AND the Yr & 1 combination
- * also passes. Used in conjunction with /api/is-banned.
- * (deob line 33624: 嗛 && !粇() && 嗛 == 1 && !譑())
- */
-function isBanned(config) {
-  return !!(config.flags.Kr && config.flags.Kr === 1);
-}
-
-module.exports = { parseConfig, decodeAndParse, shouldRedirectRu, isBanned };
+module.exports = {
+  parseConfig,
+  parseTrailerFields,
+  parseDefaultConfig,
+  decodeAndParse,
+  shouldRedirectRu,
+};
