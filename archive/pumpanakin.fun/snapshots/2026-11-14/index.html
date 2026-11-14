@@ -1,0 +1,2631 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  		<script src="../../_nuxt/assets/index.js" type="module"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Black Background</title>
+    <style>
+        @font-face {
+            font-family: 'DinkieBitmap';
+            src: url('DinkieBitmap-9px.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+        
+        body {
+            background-color: #000000;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            font-family: 'DinkieBitmap', monospace;
+        }
+        
+        .referral-banner {
+            background-color: #9945FF;
+            padding: 12px 20px 12px 80px;
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            border-bottom: 2px solid #1E293B;
+        }
+        
+        .referral-icon {
+            width: 28px;
+            height: 28px;
+            flex-shrink: 0;
+        }
+        
+        .referral-text {
+            color: #1E293B;
+            font-size: 20px;
+            font-weight: normal;
+            margin: 0;
+        }
+        
+        .highlight {
+            color: #ffffff;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 20px 80px 0 80px;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo img {
+            width: 48px;
+            height: 48px;
+        }
+        
+        .logo a {
+            text-decoration: none;
+            color: inherit;
+            cursor: pointer;
+        }
+        
+        .buttons-container {
+            display: flex;
+            gap: 16px;
+            align-items: center;
+        }
+        
+        .action-button {
+            padding: 0 16px;
+            border-radius: 8px;
+            border: 1px solid #ffffff;
+            background: transparent;
+            color: #ffffff;
+            font-family: 'DinkieBitmap', monospace;
+            font-size: 24px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            height: 40px;
+            justify-content: center;
+            box-sizing: border-box;
+            flex-shrink: 0;
+        }
+        
+        .action-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(255, 255, 255, 0.2);
+        }
+        
+        .button-yellow {
+            background-color: #FFD700;
+            color: #000000;
+            border: 1px solid #ffffff;
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.4), 0 0 35px rgba(255, 215, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+            width: 178px;
+            padding: 0;
+        }
+        
+        .button-yellow .text-100x {
+            font-size: 20px;
+        }
+        
+        .button-gradient {
+            background: linear-gradient(135deg, #8B5CF6, #06D6A0);
+        }
+        
+        .button-black {
+            background-color: #000000;
+        }
+        
+        .button-tag-price {
+            width: 58px;
+            padding: 4px;
+            min-width: 58px;
+        }
+        
+        .button-diamond {
+            width: 60px !important;
+            padding: 4px !important;
+            min-width: 60px !important;
+            max-width: 60px !important;
+            font-size: 20px !important;
+            flex-shrink: 0 !important;
+        }
+        
+        .button-icon {
+            width: 16px;
+            height: 16px;
+            filter: brightness(0) invert(1);
+        }
+        
+                                                                                                       .stats-block {
+             display: flex;
+             width: 1064px;
+             height: 261px;
+             margin: 100px auto 50px auto;
+             background: linear-gradient(135deg, #1a1a2e, #16213e);
+             border-radius: 16px;
+             overflow: hidden;
+             padding: 0;
+             box-sizing: border-box;
+         }
+        
+        .stats-left {
+            flex: 1;
+            background: linear-gradient(135deg, #e0f2fe, #c7d2fe);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0;
+            position: relative;
+        }
+        
+        .stats-right {
+            flex: 1;
+            background: #181818;
+            padding: 30px 30px 30px 80px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            border-top-right-radius: 16px;
+            border-bottom-right-radius: 16px;
+        }
+        
+        .atm-image {
+            width: 522px;
+            height: 261px;
+            object-fit: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+            border-top-right-radius: 16px;
+            border-bottom-right-radius: 16px;
+        }
+        
+        .stats-top {
+            text-align: left;
+            margin-bottom: 30px;
+            margin-top: 0;
+        }
+        
+        .stats-top h3 {
+            color: #9B9B9B;
+            font-size: 20px;
+            margin: 0 0 25px 0;
+            font-weight: normal;
+        }
+        
+        .stats-top .value {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 28px;
+            background: linear-gradient(16deg, rgb(153, 69, 255) 0%, rgb(135, 82, 243) 10%, rgb(84, 151, 213) 25%, rgb(67, 180, 202) 45%, rgb(40, 224, 185) 65%, rgb(25, 251, 155) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            /* Fallback для браузеров без поддержки background-clip */
+            color: rgb(153, 69, 255);
+        }
+        
+        .sol-icon {
+            width: 32px;
+            height: 32px;
+            background: transparent;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .sol-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+        
+        .sol-number {
+            font-size: 28px;
+        }
+        
+        .dollar-value {
+            font-size: 28px;
+        }
+        
+        .stats-bottom {
+            display: flex;
+            gap: 40px;
+        }
+        
+        .stats-column {
+            flex: 1;
+        }
+        
+        .stats-column h4 {
+            color: #9B9B9B;
+            font-size: 20px;
+            margin: 0 0 20px 0;
+            font-weight: normal;
+        }
+        
+        .stats-column .value {
+            color: #ffffff;
+            font-size: 28px;
+        }
+        
+        .stats-column .sol-value .value {
+            color: #ffffff;
+            font-size: 28px;
+        }
+        
+        .stats-column .sol-value .dollar-value {
+            color: #ffffff;
+            font-size: 28px;
+        }
+        
+        .stats-column .sol-value {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+        
+        .stats-column .sol-value .value {
+            color: #ffffff;
+            font-size: 28px;
+        }
+        
+        .stats-column .sol-value .dollar-value {
+            color: #ffffff;
+            font-size: 28px;
+        }
+        
+                                                                                                                                                   .action-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: flex-start;
+            margin: 0 auto;
+            width: 1064px;
+            padding: 0;
+            align-items: center;
+            text-align: left;
+        }
+        
+        .action-button-secondary {
+            padding: 12px 24px;
+            border-radius: 0;
+            border: none;
+            background: transparent;
+            color: #ffffff;
+            font-family: 'DinkieBitmap', monospace;
+            font-size: 20px;
+            cursor: pointer;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            height: 48px;
+            justify-content: center;
+            box-sizing: border-box;
+            position: relative;
+        }
+        
+        .action-button-secondary:first-child {
+            padding-left: 0;
+        }
+        
+        .action-button-secondary:hover {
+            /* Убраны все эффекты при наведении */
+        }
+        
+        .action-button-secondary.active {
+            /* Убрана рамка снизу */
+        }
+        
+                         .action-button-secondary.active::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background-color: #A5FFB8;
+        }
+         
+         .action-button-secondary:nth-child(2).active::after {
+             background-color: #D2AEFF;
+         }
+        
+        .action-button-secondary img {
+            width: 24px;
+            height: 24px;
+        }
+        
+        .button-tag {
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: normal;
+            margin-left: 8px;
+        }
+        
+        .tag-free-sol {
+            height: 14px;
+            padding: 0px 3px;
+            color: rgb(0, 0, 0);
+            font-size: 10px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 120%;
+            border-radius: 2px;
+            background: linear-gradient(45deg, rgb(153, 69, 255) 10.43%, rgb(135, 82, 243) 30.84%, rgb(84, 151, 213) 49.4%, rgb(67, 180, 202) 58.68%, rgb(40, 224, 185) 69.81%, rgb(25, 251, 155) 93.01%);
+            margin-left: 0px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .tag-new {
+            height: 14px;
+            padding: 0px 3px;
+            color: rgb(0, 0, 0);
+            font-size: 10px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 120%;
+            border-radius: 2px;
+            background: rgb(210, 174, 255);
+            margin-left: 0px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+                                   .bottom-stroke {
+              height: 1px;
+              background-color: rgb(71, 69, 69);
+              margin: 10px auto 0 auto;
+              width: 1064px;
+              padding: 0;
+              box-sizing: border-box;
+          }
+        
+                                                                       /* Clean Up Content Styles */
+           .cleanup-content {
+               width: 1064px;
+               margin: 25px auto 0 auto;
+               padding: 0;
+               box-sizing: border-box;
+           }
+        
+                                                                                                           .cleanup-buttons {
+                display: flex;
+                gap: 20px;
+                margin-bottom: 40px;
+                margin-left: 0;
+                margin-right: 0;
+                width: 100%;
+            }
+        
+        .cleanup-option {
+            padding: 12px 24px;
+            border-radius: 16px;
+            border: 1px solid #333;
+            background: #111111;
+            color: #ababab;
+            font-family: 'DinkieBitmap', monospace;
+            font-size: 20px;
+            cursor: default;
+            pointer-events: none;
+        }
+        
+        .cleanup-option.active {
+            border-color: #A5FFB8;
+            background: #181818;
+            color: #ffffff;
+        }
+        
+                                                                                                                                                                                                                       .cleanup-stats {
+                 display: flex;
+                 gap: 20px;
+                 margin-bottom: 50px;
+                 justify-content: flex-start;
+                 margin: 0 0 50px 0;
+                 width: 100%;
+                 max-width: 1064px;
+                 align-items: flex-start;
+             }
+        
+                         .stat-box {
+            width: 100%;
+            max-width: 522px;
+            height: 80px;
+            background: #181818;
+            border-radius: 12px;
+            padding: 20px 30px;
+            border: none;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            text-align: left;
+            margin: 0;
+            justify-content: center;
+        }
+        
+        /* Общие стили для всех текстов в stat-box */
+        .stat-box h4 {
+            color: #ffffff;
+            font-size: 20px;
+            margin: 0;
+            font-weight: normal;
+        }
+        
+        .stat-box .stat-value {
+            color: #ffffff;
+            font-size: 24px;
+            font-weight: bold;
+            margin: 0;
+        }
+        
+                                          /* Стили для PC версии - только вертикальное выравнивание текстов в блоках */
+        @media (min-width: 769px) {
+            .stat-box:first-child {
+                justify-content: center;
+                align-items: flex-start;
+                gap: 8px;
+            }
+            
+            .stat-box:first-child h4 {
+                padding: 0;
+                line-height: 1.2;
+                text-align: left;
+            }
+            
+            .stat-box:first-child .stat-value {
+                padding: 0;
+                line-height: 1.2;
+                text-align: left;
+            }
+            
+            .stat-box:last-child {
+                justify-content: center;
+                align-items: flex-start;
+                gap: 8px;
+            }
+            
+            .stat-box:last-child h4 {
+                padding: 0;
+                line-height: 1.2;
+                text-align: left;
+            }
+            
+            .stat-box:last-child .stat-value {
+                padding: 0;
+                line-height: 1.2;
+                text-align: left;
+            }
+        }
+        
+        /* Стили для мобильных устройств - оставляем как есть */
+        @media (max-width: 768px) {
+            .stat-box:first-child {
+                justify-content: flex-start;
+                align-items: flex-start;
+                gap: 8px;
+            }
+            
+            .stat-box:first-child h4 {
+                padding: 0;
+                line-height: 1.2;
+                text-align: left;
+            }
+            
+            .stat-box:first-child .stat-value {
+                padding: 0;
+                line-height: 1.2;
+                text-align: left;
+            }
+            
+            .stat-box:last-child {
+                justify-content: flex-start;
+                align-items: flex-start;
+                gap: 8px;
+            }
+            
+            .stat-box:last-child h4 {
+                padding: 0;
+                line-height: 1.2;
+                text-align: left;
+            }
+            
+            .stat-box:last-child .stat-value {
+                padding: 0;
+                line-height: 1.2;
+                text-align: left;
+            }
+        }
+        
+        .refresh-btn {
+            position: absolute;
+            top: 50%;
+            right: 24px;
+            transform: translateY(-50%);
+            background: transparent;
+            border: none;
+            color: #9B9B9B;
+            cursor: pointer;
+            padding: 8px;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+        
+        .refresh-btn:hover {
+            color: #ffffff;
+            background: rgba(255, 255, 255, 0.1);
+        }
+        
+                                   .connect-section {
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              margin-top: 60px;
+              margin-left: 0;
+              margin-right: 0;
+              width: 100%;
+          }
+        
+        .connect-wallet-btn {
+            height: 54px;
+            width: 274px;
+            display: flex;
+            color: rgb(0, 0, 0);
+            font-size: 20px;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            border-radius: 4px;
+            background: rgb(165, 255, 184);
+            gap: 6px;
+            transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+            transition-duration: 150ms;
+            border: none;
+            font-family: 'DinkieBitmap', monospace;
+            font-weight: normal;
+        }
+        
+                                                                       /* Sell Content Styles */
+                   .sell-content {
+              width: 100%;
+              max-width: 1064px;
+              margin: 50px auto 0 auto;
+              padding: 0;
+              box-sizing: border-box;
+          }
+         
+         .sell-header {
+             text-align: center;
+             margin-bottom: 40px;
+         }
+         
+         .sell-header h3 {
+             color: #ffffff;
+             font-size: 28px;
+             margin: 0 0 16px 0;
+             font-weight: normal;
+         }
+         
+         .sell-header p {
+             color: #9B9B9B;
+             font-size: 18px;
+             margin: 0;
+         }
+         
+         .sell-options {
+             display: flex;
+             gap: 20px;
+             margin-bottom: 40px;
+             justify-content: center;
+         }
+         
+         .sell-option {
+             padding: 12px 24px;
+             border-radius: 16px;
+             border: 1px solid #333;
+             background: #111111;
+             color: #ababab;
+             font-family: 'DinkieBitmap', monospace;
+             font-size: 18px;
+             cursor: pointer;
+             transition: all 0.3s ease;
+         }
+         
+         .sell-option:hover {
+             border-color: #D2AEFF;
+             background: #181818;
+             color: #ffffff;
+         }
+         
+         .sell-option.active {
+             border-color: #D2AEFF;
+             background: #181818;
+             color: #ffffff;
+         }
+         
+         .sell-stats {
+             display: flex;
+             gap: 20px;
+             margin-bottom: 40px;
+             justify-content: center;
+         }
+         
+         .sell-stat-box {
+             width: 300px;
+             height: 80px;
+             background: #181818;
+             border-radius: 12px;
+             padding: 0;
+             border: none;
+             position: relative;
+             display: flex;
+             flex-direction: column;
+             align-items: center;
+             justify-content: center;
+             text-align: center;
+             gap: 8px;
+         }
+         
+         .sell-stat-box h4 {
+             color: #9B9B9B;
+             font-size: 16px;
+             margin: 0;
+             font-weight: normal;
+         }
+         
+         .sell-stat-box .sell-stat-value {
+             color: #ffffff;
+             font-size: 20px;
+             font-weight: bold;
+         }
+         
+         .token-list-container {
+             background: #181818;
+             border-radius: 12px;
+             padding: 24px;
+             margin-bottom: 40px;
+         }
+         
+         .token-list-header {
+             display: flex;
+             justify-content: space-between;
+             align-items: center;
+             margin-bottom: 24px;
+         }
+         
+         .token-list-header h4 {
+             color: #ffffff;
+             font-size: 20px;
+             margin: 0;
+             font-weight: normal;
+         }
+         
+         .refresh-tokens-btn {
+             background: transparent;
+             border: none;
+             color: #9B9B9B;
+             cursor: pointer;
+             padding: 8px;
+             border-radius: 4px;
+             transition: all 0.3s ease;
+         }
+         
+         .refresh-tokens-btn:hover {
+             color: #ffffff;
+             background: rgba(255, 255, 255, 0.1);
+         }
+         
+         .token-list {
+             min-height: 200px;
+             display: flex;
+             align-items: center;
+             justify-content: center;
+         }
+         
+         .no-tokens-message {
+             text-align: center;
+             color: #9B9B9B;
+         }
+         
+         .no-tokens-message p {
+             margin: 0;
+             font-size: 16px;
+         }
+         
+         .sell-actions {
+             display: flex;
+             gap: 20px;
+             justify-content: center;
+             margin-bottom: 40px;
+         }
+         
+         .select-all-btn {
+             padding: 12px 24px;
+             border-radius: 8px;
+             border: 1px solid #D2AEFF;
+             background: transparent;
+             color: #D2AEFF;
+             font-family: 'DinkieBitmap', monospace;
+             font-size: 18px;
+             cursor: pointer;
+             transition: all 0.3s ease;
+         }
+         
+         .select-all-btn:hover {
+             background: #D2AEFF;
+             color: #000000;
+         }
+         
+         .sell-selected-btn {
+             padding: 12px 24px;
+             border-radius: 8px;
+             border: none;
+             background: #D2AEFF;
+             color: #000000;
+             font-family: 'DinkieBitmap', monospace;
+             font-size: 18px;
+             cursor: pointer;
+             transition: all 0.3s ease;
+         }
+         
+         .sell-selected-btn:disabled {
+             background: #333;
+             color: #666;
+             cursor: not-allowed;
+         }
+         
+         .sell-selected-btn:not(:disabled):hover {
+             background: #B894FF;
+             transform: translateY(-2px);
+         }
+         
+                                       /* New Sell Interface Styles */
+                             .sell-interface {
+              display: flex;
+              gap: 20px;
+              width: 100%;
+              max-width: 1064px;
+              margin: 0 auto;
+              align-items: stretch;
+              padding: 0;
+              box-sizing: border-box;
+          }
+         
+         .chart-panel {
+             flex: 1;
+             background: #181818;
+             border-radius: 16px;
+             padding: 24px;
+             border: 1px solid #333;
+             display: flex;
+             flex-direction: column;
+         }
+         
+                                 .chart-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+                .chart-toggle {
+            position: relative;
+            transform: translateY(-8px);
+        }
+        
+        .chart-header h3 {
+            color: #ffffff;
+            font-size: 20px;
+            margin: 0;
+            font-weight: normal;
+        }
+         
+         .toggle-input {
+             display: none;
+         }
+         
+         .toggle-label {
+             display: block;
+             width: 50px;
+             height: 24px;
+             background: #333;
+             border-radius: 12px;
+             cursor: pointer;
+             position: relative;
+             transition: background 0.3s ease;
+         }
+         
+         .toggle-label::after {
+             content: '';
+             position: absolute;
+             top: 2px;
+             left: 2px;
+             width: 20px;
+             height: 20px;
+             background: #A5FFB8;
+             border-radius: 50%;
+             transition: transform 0.3s ease;
+         }
+         
+         .toggle-input:checked + .toggle-label {
+             background: #333;
+         }
+         
+         .toggle-input:checked + .toggle-label::after {
+             transform: translateX(26px);
+         }
+         
+         .chart-content {
+             height: 110px;
+             display: flex;
+             align-items: center;
+             justify-content: center;
+             color: #9B9B9B;
+             font-size: 16px;
+             flex: 1;
+         }
+         
+         .swap-panel {
+             flex: 1;
+             background: #181818;
+             border-radius: 16px;
+             padding: 24px;
+             border: 1px solid #333;
+             display: flex;
+             flex-direction: column;
+         }
+         
+         .swap-header {
+             display: flex;
+             justify-content: space-between;
+             align-items: center;
+             margin-bottom: 24px;
+         }
+         
+         .swap-header h3 {
+             color: #ffffff;
+             font-size: 20px;
+             margin: 0;
+             font-weight: normal;
+         }
+         
+         .settings-btn {
+             background: transparent;
+             border: none;
+             color: #9B9B9B;
+             cursor: pointer;
+             padding: 8px;
+             border-radius: 4px;
+             transition: all 0.3s ease;
+         }
+         
+         .settings-btn:hover {
+             color: #ffffff;
+             background: rgba(255, 255, 255, 0.1);
+         }
+         
+                         .swap-section {
+                    margin-bottom: 20px;
+                }
+         
+         .swap-section label {
+             display: block;
+             color: #9B9B9B;
+             font-size: 16px;
+             margin-bottom: 8px;
+         }
+         
+         .token-input {
+             display: flex;
+             align-items: center;
+             gap: 12px;
+             background: #111111;
+             border: 1px solid #333;
+             border-radius: 12px;
+             padding: 16px;
+         }
+         
+         .token-selector {
+             display: flex;
+             align-items: center;
+             gap: 8px;
+             cursor: pointer;
+             padding: 8px 12px;
+             background: #181818;
+             border-radius: 8px;
+             border: 1px solid #333;
+             min-width: auto;
+         }
+         
+         .token-icon {
+             width: 20px;
+             height: 20px;
+         }
+         
+         .token-name {
+             color: #ffffff;
+             font-size: 16px;
+         }
+         
+         .amount-input {
+             flex: 1;
+             background: transparent;
+             border: none;
+             color: #ffffff;
+             font-size: 18px;
+             font-family: 'DinkieBitmap', monospace;
+             outline: none;
+         }
+         
+         .amount-input::placeholder {
+             color: #666;
+         }
+         
+         .balance-info {
+             color: #9B9B9B;
+             font-size: 14px;
+             margin-top: 8px;
+             margin-left: 16px;
+         }
+         
+         .swap-arrow {
+             display: flex;
+             justify-content: center;
+             margin: 20px 0;
+         }
+         
+         .swap-arrow svg {
+             color: #9B9B9B;
+             cursor: pointer;
+             transition: color 0.3s ease;
+         }
+         
+         .swap-arrow svg:hover {
+             color: #D2AEFF;
+         }
+         
+                   .swap-connect {
+              width: 100%;
+              margin: 24px 0;
+              background: #D2AEFF;
+              color: #000000;
+              border: none;
+              height: 54px;
+              font-size: 18px;
+              border-radius: 8px;
+              cursor: pointer;
+              transition: all 0.3s ease;
+              box-sizing: border-box;
+          }
+         
+         .swap-connect:hover {
+             background: #B894FF;
+             transform: translateY(-2px);
+         }
+         
+         .transaction-details {
+             background: #111111;
+             border-radius: 12px;
+             padding: 20px;
+             border: 1px solid #333;
+         }
+         
+         .detail-row {
+             display: flex;
+             justify-content: space-between;
+             align-items: center;
+             padding: 12px 0;
+             border-bottom: 1px solid #222;
+         }
+         
+         .detail-row:last-child {
+             border-bottom: none;
+         }
+         
+         .detail-label {
+             display: flex;
+             align-items: center;
+             gap: 8px;
+             color: #9B9B9B;
+             font-size: 14px;
+         }
+         
+         .detail-label svg {
+             color: #666;
+             cursor: pointer;
+         }
+         
+         .detail-label svg:hover {
+             color: #9B9B9B;
+         }
+         
+         .detail-value {
+             color: #ffffff;
+             font-size: 14px;
+         }
+         
+                                       /* Mobile Responsive */
+                                                                                                                                                                                                                               @media (max-width: 1200px) {
+             .stats-block,
+             .action-buttons,
+             .bottom-stroke,
+             .cleanup-content,
+             .sell-content,
+             .sell-interface,
+             .social-links {
+                 margin: 0 20px;
+                 width: calc(100% - 40px);
+                 max-width: none;
+             }
+             
+             .action-buttons {
+                 justify-content: flex-start;
+                 align-items: center;
+                 text-align: left;
+             }
+             
+             .header-content {
+                 margin: 20px 20px 0 20px;
+             }
+             
+             .referral-banner {
+                 padding: 12px 20px;
+             }
+             
+             .buttons-container {
+                 justify-content: center;
+                 flex-wrap: wrap;
+                 gap: 12px;
+                 width: 100%;
+             }
+         }
+           
+                                                                                                                               @media (max-width: 900px) {
+             .stats-block {
+                 width: calc(100% - 40px);
+                 margin: 40px 20px;
+                 flex-direction: column;
+                 height: auto;
+                 max-width: none;
+             }
+             
+             .header-content {
+                 margin: 20px 20px 0 20px;
+                 flex-direction: column;
+                 gap: 20px;
+                 text-align: center;
+             }
+             
+             .referral-banner {
+                 padding: 12px 20px;
+             }
+             
+             .buttons-container {
+                 justify-content: center;
+                 flex-wrap: wrap;
+                 gap: 12px;
+                 width: 100%;
+             }
+            
+            .stats-left {
+                height: 200px;
+                border-radius: 16px 16px 0 0;
+            }
+            
+            .atm-image {
+                width: 100%;
+                height: 200px;
+                position: relative;
+                border-radius: 16px 16px 0 0;
+            }
+            
+            .stats-right {
+                padding: 20px;
+                border-radius: 0 0 16px 16px;
+            }
+            
+            .stats-top h3 {
+                font-size: 18px;
+                margin-bottom: 20px;
+                text-align: center;
+            }
+            
+            .stats-top .value {
+                font-size: 24px;
+                justify-content: center;
+            }
+            
+            .sol-icon {
+                width: 28px;
+                height: 28px;
+            }
+            
+            .stats-bottom {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .stats-column h4 {
+                font-size: 18px;
+                margin-bottom: 15px;
+                text-align: center;
+            }
+            
+            .stats-column .value {
+                font-size: 24px;
+                text-align: center;
+            }
+            
+            .action-buttons {
+                margin: 0 20px;
+                width: calc(100% - 40px);
+                flex-direction: row;
+                gap: 20px;
+                justify-content: center;
+                align-items: center;
+            }
+            
+            .action-button-secondary {
+                width: auto;
+                max-width: none;
+                justify-content: center;
+                align-items: center;
+                padding: 12px 20px;
+                font-size: 18px;
+                text-align: center;
+                margin: 0;
+            }
+            
+            .bottom-stroke {
+                margin: 10px 20px 0 20px;
+                width: calc(100% - 40px);
+            }
+            
+            .cleanup-content {
+                margin: 25px 20px 0 20px;
+                width: calc(100% - 40px);
+            }
+            
+            .cleanup-buttons {
+                flex-direction: row;
+                gap: 20px;
+                justify-content: center;
+            }
+            
+            .cleanup-option {
+                width: auto;
+                text-align: center;
+                padding: 12px 20px;
+                font-size: 18px;
+            }
+            
+            .cleanup-stats {
+                flex-direction: row;
+                gap: 20px;
+                justify-content: center;
+            }
+            
+            .stat-box {
+                width: calc(50% - 10px);
+                height: auto;
+                min-height: 80px;
+                padding: 20px;
+                border-radius: 12px;
+                text-align: left;
+                margin: 0;
+            }
+            
+            .stat-box h4 {
+                font-size: 18px;
+                text-align: left;
+            }
+            
+            .stat-box .stat-value {
+                font-size: 18px;
+                text-align: left;
+            }
+            
+            .connect-section {
+                margin-top: 50px;
+                text-align: center;
+            }
+            
+            .connect-wallet-btn {
+                width: auto;
+                max-width: 274px;
+                height: 54px;
+                font-size: 20px;
+            }
+            
+            .sell-content {
+                margin: 50px 20px 0 20px;
+                width: calc(100% - 40px);
+                padding: 0;
+            }
+            
+            .sell-interface {
+                flex-direction: row;
+                gap: 20px;
+                padding: 0;
+                max-width: none;
+                margin: 0;
+                width: 100%;
+            }
+            
+            .chart-panel,
+            .swap-panel {
+                width: 50%;
+                margin-bottom: 0;
+            }
+            
+            .social-links {
+                margin: 80px 20px 150px 20px;
+                width: calc(100% - 40px);
+            }
+        }
+          
+                                                                                                                                   @media (max-width: 768px) {
+                  .referral-banner {
+                      padding: 12px 20px;
+                  }
+                  
+                  .header-content {
+                      margin: 20px 20px 0 20px;
+                      flex-direction: column;
+                      gap: 20px;
+                      text-align: center;
+                  }
+                  
+                  .stats-block {
+                      width: calc(100% - 40px);
+                      height: auto;
+                      flex-direction: column;
+                      margin: 20px 20px;
+                      border-radius: 16px;
+                  }
+                  
+                  .logo {
+                      justify-content: center;
+                  }
+                  
+                  .buttons-container {
+                      justify-content: center;
+                      flex-wrap: wrap;
+                      gap: 12px;
+                      width: 100%;
+                  }
+                
+                .logo {
+                    justify-content: center;
+                }
+                
+                .logo img {
+                    width: 40px;
+                    height: 40px;
+                }
+                
+                .buttons-container {
+                    justify-content: center;
+                    flex-wrap: wrap;
+                    gap: 12px;
+                    width: 100%;
+                }
+                
+                .action-button {
+                    font-size: 20px;
+                    height: 36px;
+                    padding: 0 12px;
+                }
+                
+                .button-yellow {
+                    width: 150px;
+                }
+                
+                .button-yellow .text-100x {
+                    font-size: 18px;
+                }
+                
+                .stats-block {
+                    width: calc(100% - 40px);
+                    height: auto;
+                    flex-direction: column;
+                    margin: 20px 20px;
+                    border-radius: 16px;
+                }
+                
+                .stats-left {
+                    height: 180px;
+                    border-radius: 16px 16px 0 0;
+                }
+                
+                .atm-image {
+                    width: 100%;
+                    height: 180px;
+                    position: relative;
+                    border-radius: 16px 16px 0 0;
+                }
+                
+                .stats-right {
+                    padding: 20px;
+                    border-radius: 0 0 16px 16px;
+                }
+                
+                .stats-top h3 {
+                    font-size: 18px;
+                    margin-bottom: 15px;
+                    text-align: center;
+                }
+                
+                .stats-top .value {
+                    font-size: 18px;
+                    justify-content: center;
+                }
+                
+                .sol-icon {
+                    width: 24px;
+                    height: 24px;
+                }
+                
+                .stats-bottom {
+                    flex-direction: column;
+                    gap: 15px;
+                }
+                
+                .stats-column {
+                    text-align: center;
+                }
+                
+                .stats-column h4 {
+                    font-size: 18px;
+                    margin-bottom: 12px;
+                }
+                
+                .stats-column .value {
+                    font-size: 18px;
+                }
+                
+                                 .stat-box {
+                     width: 100%;
+                     height: auto;
+                     min-height: 80px;
+                     padding: 20px;
+                     border-radius: 12px;
+                     text-align: center;
+                     margin: 0 auto;
+                 }
+                
+                .stat-box h4 {
+                    font-size: 18px;
+                    text-align: center;
+                }
+                
+                .stat-box .stat-value {
+                    font-size: 18px;
+                    text-align: center;
+                }
+                
+                .stat-box:first-child h4,
+                .stat-box:first-child .stat-value,
+                .stat-box:last-child h4,
+                .stat-box:last-child .stat-value {
+                    padding: 0;
+                    text-align: center;
+                }
+                
+                                                                                                                                                                                                       .action-buttons {
+                      width: 100%;
+                      max-width: calc(100% - 40px);
+                      margin: 0 20px;
+                      flex-direction: column;
+                      gap: 15px;
+                      justify-content: flex-start;
+                      align-items: flex-start;
+                      padding: 0;
+                      box-sizing: border-box;
+                  }
+                
+                                 .action-button-secondary {
+                     width: 100%;
+                     max-width: 300px;
+                     justify-content: center;
+                     align-items: center;
+                     padding: 15px 20px;
+                     font-size: 18px;
+                     text-align: center;
+                     margin: 0;
+                 }
+                
+                .bottom-stroke {
+                    width: calc(100% - 40px);
+                    margin: 10px 20px 0 20px;
+                }
+                
+                .cleanup-content {
+                    width: calc(100% - 40px);
+                    margin: 25px 20px 0 20px;
+                }
+                
+                .cleanup-buttons {
+                    flex-direction: column;
+                    gap: 15px;
+                }
+                
+                .cleanup-option {
+                    width: 100%;
+                    text-align: center;
+                    padding: 15px 20px;
+                    font-size: 18px;
+                }
+                
+                .cleanup-stats {
+                    flex-direction: column;
+                    gap: 20px;
+                }
+                
+
+                
+                .connect-section {
+                    margin-top: 40px;
+                    text-align: center;
+                }
+                
+                .connect-wallet-btn {
+                    width: 100%;
+                    max-width: 300px;
+                    height: 50px;
+                    font-size: 18px;
+                }
+                
+                .sell-content {
+                    width: calc(100% - 40px);
+                    margin: 50px 20px 0 20px;
+                }
+                
+                                 .sell-interface {
+                     flex-direction: column;
+                     gap: 20px;
+                     padding: 0;
+                     margin: 0 20px;
+                     width: calc(100% - 40px);
+                 }
+                 
+                 .chart-panel,
+                 .swap-panel {
+                     margin-bottom: 0;
+                     padding: 20px;
+                     border-radius: 16px;
+                 }
+                
+                .chart-header h3 {
+                    font-size: 18px;
+                    text-align: center;
+                }
+                
+                .swap-header h3 {
+                    font-size: 18px;
+                    text-align: center;
+                }
+                
+                .swap-section label {
+                    font-size: 15px;
+                    text-align: center;
+                }
+                
+                .token-input {
+                    padding: 12px;
+                }
+                
+                .token-selector {
+                    padding: 6px 10px;
+                }
+                
+                .token-icon {
+                    width: 18px;
+                    height: 18px;
+                }
+                
+                .token-name {
+                    font-size: 15px;
+                }
+                
+                .amount-input {
+                    font-size: 16px;
+                    text-align: right;
+                    padding-right: 12px;
+                }
+                
+                .balance-info {
+                    font-size: 13px;
+                    margin-left: 12px;
+                    text-align: center;
+                }
+                
+                .swap-connect {
+                    height: 50px;
+                    font-size: 16px;
+                    margin: 20px 0;
+                }
+                
+                .transaction-details {
+                    padding: 15px;
+                    border-radius: 12px;
+                }
+                
+                .detail-row {
+                    padding: 10px 0;
+                    text-align: center;
+                }
+                
+                .detail-label span {
+                    font-size: 13px;
+                }
+                
+                .detail-value {
+                    font-size: 13px;
+                }
+                
+                                 .social-links {
+                     margin: 80px 20px 150px 20px;
+                     gap: 15px;
+                     width: calc(100% - 40px);
+                 }
+                
+                .social-link {
+                    width: 32px;
+                    height: 32px;
+                }
+            }
+          
+                                                                                                                                   @media (max-width: 480px) {
+                  .referral-banner {
+                      padding: 10px 20px;
+                      flex-direction: column;
+                      gap: 15px;
+                      text-align: center;
+                  }
+                  
+                  .referral-text {
+                      font-size: 18px;
+                  }
+                  
+                  .header-content {
+                      margin: 15px 20px 0 20px;
+                      gap: 15px;
+                      text-align: center;
+                  }
+                  
+                  .stats-block {
+                      margin: 15px 20px;
+                      border-radius: 12px;
+                  }
+                  
+                  .logo {
+                      justify-content: center;
+                  }
+                  
+                  .buttons-container {
+                      justify-content: center;
+                      flex-wrap: wrap;
+                      gap: 12px;
+                      width: 100%;
+                  }
+                
+                .logo {
+                    justify-content: center;
+                }
+                
+                .logo img {
+                    width: 36px;
+                    height: 36px;
+                }
+                
+                .buttons-container {
+                    justify-content: center;
+                    flex-wrap: wrap;
+                    gap: 12px;
+                    width: 100%;
+                }
+                
+                .action-button {
+                    font-size: 18px;
+                    height: 32px;
+                    padding: 0 10px;
+                }
+                
+                .button-yellow {
+                    width: 130px;
+                }
+                
+                .button-yellow .text-100x {
+                    font-size: 16px;
+                }
+                
+                .stats-block {
+                    margin: 15px 20px;
+                    border-radius: 12px;
+                    width: calc(100% - 40px);
+                }
+                
+                .stats-left {
+                    height: 140px;
+                    border-radius: 12px 12px 0 0;
+                }
+                
+                .atm-image {
+                    height: 140px;
+                    border-radius: 12px 12px 0 0;
+                }
+                
+                .stats-right {
+                    padding: 15px;
+                    border-radius: 0 0 12px 12px;
+                }
+                
+                .stats-top h3 {
+                    font-size: 18px;
+                    margin-bottom: 12px;
+                    text-align: center;
+                }
+                
+                .stats-top .value {
+                    font-size: 18px;
+                    justify-content: center;
+                }
+                
+                .sol-icon {
+                    width: 20px;
+                    height: 20px;
+                }
+                
+                .stats-bottom {
+                    gap: 12px;
+                }
+                
+                .stats-column {
+                    text-align: left;
+                }
+                
+                .stats-column h4 {
+                    font-size: 18px;
+                    margin-bottom: 10px;
+                }
+                
+                .stats-column .value {
+                    font-size: 28px;
+                }
+                
+                                                 .stat-box {
+                    padding: 15px !important;
+                    min-height: 70px !important;
+                    border-radius: 10px !important;
+                    text-align: left !important;
+                    margin: 0 !important;
+                    width: calc(100% - 40px) !important;
+                    display: flex !important;
+                    flex-direction: column !important;
+                    justify-content: center !important;
+                    align-items: flex-start !important;
+                    position: relative !important;
+                }
+                
+                .stat-box h4 {
+                    font-size: 18px;
+                    text-align: left;
+                    display: flex !important;
+                    align-items: center !important;
+                    min-height: 40px !important;
+                }
+                
+                .stat-box .stat-value {
+                    font-size: 18px;
+                    text-align: left;
+                }
+                
+                                                                                                                                                                                                                                                                                                                                                                                                               .action-buttons {
+                       width: 100%;
+                       max-width: calc(100% - 40px);
+                       margin: 0 20px;
+                       flex-direction: column;
+                       gap: 12px;
+                       justify-content: center;
+                       align-items: center;
+                       padding: 0;
+                       box-sizing: border-box;
+                   }
+                
+                                                                   .action-button-secondary {
+                      width: 100%;
+                      max-width: 280px;
+                      justify-content: center;
+                      align-items: center;
+                      padding: 12px 20px;
+                      font-size: 16px;
+                      text-align: center;
+                      margin: 0;
+                  }
+                
+                .cleanup-buttons {
+                    gap: 12px;
+                }
+                
+                .cleanup-option {
+                    padding: 12px 20px;
+                    font-size: 16px;
+                    text-align: center;
+                }
+                
+                .cleanup-stats {
+                    flex-direction: column !important;
+                    gap: 20px !important;
+                    margin: 0 20px !important;
+                    width: calc(100% - 40px) !important;
+                    box-sizing: border-box !important;
+                }
+                
+                .cleanup-stats .stat-box {
+                    margin: 0 !important;
+                    width: 100% !important;
+                    box-sizing: border-box !important;
+                }
+                
+                /* Специальные стили для первого блока в мобильной версии */
+                .cleanup-stats .stat-box:first-child {
+                    justify-content: center !important;
+                    align-items: center !important;
+                    text-align: center !important;
+                    display: flex !important;
+                    flex-direction: column !important;
+                    display: none !important;
+                }
+                
+                .cleanup-stats .stat-box:first-child h4 {
+                    text-align: center !important;
+                    margin: 0 !important;
+                    display: flex !important;
+                    align-items: center !important;
+                    justify-content: center !important;
+                    height: 100% !important;
+                }
+                
+
+                
+                .connect-wallet-btn {
+                    height: 48px;
+                    font-size: 16px;
+                    max-width: 280px;
+                }
+                
+                                 .sell-content {
+                     margin: 40px 20px 0 20px !important;
+                     width: calc(100% - 40px) !important;
+                     padding: 0 !important;
+                     box-sizing: border-box !important;
+                 }
+                 
+                 .cleanup-content {
+                     margin: 25px 20px 0 20px !important;
+                     width: calc(100% - 40px) !important;
+                     padding: 0 !important;
+                     box-sizing: border-box !important;
+                 }
+                
+                                 .chart-panel,
+                 .swap-panel {
+                     padding: 20px !important;
+                     border-radius: 12px !important;
+                     margin: 0 !important;
+                     width: 100% !important;
+                     box-sizing: border-box !important;
+                 }
+                 
+                 .sell-interface {
+                     padding: 0 !important;
+                     margin: 0 !important;
+                     width: 100% !important;
+                     flex-direction: column !important;
+                     gap: 20px !important;
+                     align-items: center !important;
+                 }
+                
+                .chart-header h3 {
+                    font-size: 16px !important;
+                    text-align: center !important;
+                    margin: 0 0 20px 0 !important;
+                }
+                
+                .swap-header h3 {
+                    font-size: 16px !important;
+                    text-align: center !important;
+                    margin: 0 0 20px 0 !important;
+                }
+                
+                .swap-section label {
+                    font-size: 14px !important;
+                    text-align: center !important;
+                    margin-bottom: 10px !important;
+                    display: block !important;
+                }
+                
+                .token-input {
+                    padding: 15px !important;
+                    border-radius: 10px !important;
+                    margin-bottom: 10px !important;
+                }
+                
+                .token-selector {
+                    padding: 8px 12px !important;
+                    border-radius: 8px !important;
+                }
+                
+                .token-icon {
+                    width: 18px !important;
+                    height: 18px !important;
+                }
+                
+                .token-name {
+                    font-size: 14px !important;
+                }
+                
+                .amount-input {
+                    font-size: 16px !important;
+                    text-align: right !important;
+                    width: 100% !important;
+                    padding-right: 12px !important;
+                }
+                
+                .balance-info {
+                    font-size: 12px !important;
+                    text-align: center !important;
+                    margin: 8px 0 0 0 !important;
+                }
+                
+                .swap-connect {
+                    height: 50px !important;
+                    font-size: 16px !important;
+                    margin: 20px 0 !important;
+                    border-radius: 8px !important;
+                    width: 100% !important;
+                    max-width: none !important;
+                    min-width: 100% !important;
+                    box-sizing: border-box !important;
+                    padding: 0 20px !important;
+                }
+                
+                .transaction-details {
+                    padding: 15px !important;
+                    border-radius: 10px !important;
+                    margin-top: 20px !important;
+                }
+                
+                .detail-row {
+                    padding: 12px 0 !important;
+                    text-align: center !important;
+                    border-bottom: 1px solid #222 !important;
+                }
+                
+                .detail-row:last-child {
+                    border-bottom: none !important;
+                }
+                
+                .detail-label span {
+                    font-size: 13px !important;
+                }
+                
+                .detail-value {
+                    font-size: 13px !important;
+                }
+                
+                                 .social-links {
+                     margin: 60px 20px 120px 20px;
+                     gap: 12px;
+                     width: calc(100% - 40px);
+                 }
+                
+                .social-link {
+                    width: 28px;
+                    height: 28px;
+                }
+            }
+        
+                                                   /* Tablet Styles */
+             @media (max-width: 1024px) and (min-width: 769px) {
+                 .header-content {
+                     margin: 20px 20px 0 20px;
+                 }
+                 
+                 .referral-banner {
+                     padding: 12px 20px;
+                 }
+                 
+                 .stats-block {
+                     width: calc(100% - 40px);
+                     margin: 60px 20px 30px 20px;
+                     height: auto;
+                     flex-direction: row;
+                     max-width: none;
+                 }
+                 
+                 .stats-left {
+                     height: 220px;
+                     border-radius: 16px 0 0 16px;
+                 }
+                 
+                 .atm-image {
+                     width: 100%;
+                     height: 220px;
+                     position: relative;
+                     border-radius: 16px 0 0 16px;
+                 }
+                 
+                 .stats-right {
+                     padding: 25px;
+                     border-radius: 0 16px 16px 0;
+                 }
+                 
+                 .stats-top h3 {
+                     font-size: 18px;
+                     margin-bottom: 20px;
+                     text-align: left;
+                 }
+                 
+                 .stats-top .value {
+                     font-size: 22px;
+                     justify-content: flex-start;
+                 }
+                 
+                 .sol-icon {
+                     width: 26px;
+                     height: 26px;
+                 }
+                 
+                 .stats-bottom {
+                     flex-direction: row;
+                     gap: 30px;
+                 }
+                 
+                 .stats-column h4 {
+                     font-size: 18px;
+                     margin-bottom: 15px;
+                     text-align: left;
+                 }
+                 
+                 .stats-column .value {
+                     font-size: 22px;
+                     text-align: left;
+                 }
+                 
+                 .action-buttons {
+                     width: 100%;
+                     max-width: calc(100% - 40px);
+                     margin: 0 20px;
+                     flex-direction: row;
+                     gap: 20px;
+                     justify-content: center;
+                     align-items: center;
+                     padding: 0;
+                     box-sizing: border-box;
+                 }
+                
+                 .action-button-secondary {
+                     width: auto;
+                     max-width: none;
+                     justify-content: center;
+                     align-items: center;
+                     padding: 12px 20px;
+                     font-size: 18px;
+                     text-align: center;
+                     margin: 0;
+                 }
+                 
+                 .bottom-stroke {
+                     width: calc(100% - 40px);
+                     margin: 10px 20px 0 20px;
+                 }
+                 
+                 .cleanup-content {
+                     width: calc(100% - 40px);
+                     margin: 25px 20px 0 20px;
+                 }
+                 
+                 .cleanup-buttons {
+                     flex-direction: row;
+                     gap: 20px;
+                     justify-content: center;
+                 }
+                 
+                 .cleanup-option {
+                     width: auto;
+                     text-align: center;
+                     padding: 12px 20px;
+                     font-size: 18px;
+                 }
+                 
+                 .cleanup-stats {
+                     flex-direction: row;
+                     gap: 20px;
+                     justify-content: center;
+                 }
+                 
+                 .stat-box {
+                     width: calc(50% - 10px);
+                     height: auto;
+                     min-height: 80px;
+                     padding: 20px;
+                     border-radius: 12px;
+                     text-align: left;
+                     margin: 0;
+                 }
+                 
+                 .stat-box h4 {
+                     font-size: 18px;
+                     text-align: left;
+                 }
+                 
+                 .stat-box .stat-value {
+                     font-size: 18px;
+                     text-align: left;
+                 }
+                 
+                 .connect-section {
+                     margin-top: 50px;
+                     text-align: center;
+                 }
+                 
+                 .connect-wallet-btn {
+                     width: auto;
+                     max-width: 274px;
+                     height: 54px;
+                     font-size: 20px;
+                 }
+                 
+                 .sell-content {
+                     width: calc(100% - 40px);
+                     margin: 50px 20px 0 20px;
+                 }
+                 
+                 .sell-interface {
+                     flex-direction: row;
+                     gap: 20px;
+                     padding: 0;
+                     max-width: none;
+                     margin: 0;
+                     width: 100%;
+                 }
+                 
+                 .chart-panel,
+                 .swap-panel {
+                     width: 50%;
+                     margin-bottom: 0;
+                 }
+                 
+                 .social-links {
+                     margin: 100px 20px 180px 20px;
+                     width: calc(100% - 40px);
+                 }
+            }
+        
+                                   /* Social Links Section */
+                  .social-links {
+             display: flex;
+             justify-content: center;
+             align-items: center;
+             gap: 10px;
+             margin: 120px auto 200px auto;
+             width: 100%;
+             max-width: 1064px;
+             padding: 0;
+             box-sizing: border-box;
+         }
+        
+        .social-link {
+            width: 28px;
+            height: 28px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .social-link:hover {
+            transform: translateY(-2px);
+            filter: brightness(1.2);
+        }
+        
+        .social-link img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+        
+
+        
+
+        
+
+        
+
+        
+    </style>
+</head>
+<body>
+            <div class="referral-banner">
+            <img src="images/referral.svg" alt="Referral" class="referral-icon">
+            <p class="referral-text">Share your affiliate link and enjoy <span class="highlight">30%</span> commission!</p>
+        </div>
+        
+        <div class="header-content">
+            <div class="logo">
+                <a href="#">
+                    <img src="images/logo.png" alt="Logo">
+                </a>
+            </div>
+            
+            <div class="buttons-container">
+                <button class="action-button button-yellow">
+                    <span class="text-100x">100X</span> on 
+                    <img src="images/flipn.svg" alt="FL!pN" style="width: 69px; height: 24px;">
+                </button>
+                <button class="action-button button-black button-tag-price">
+                    <img src="images/tag_price.svg" alt="Tag Price" style="width: 100%; height: 100%;">
+                </button>
+                                                <button class="action-button button-gradient button-diamond">
+                    <img src="images/diamond.svg" alt="Diamond" style="width: 24px; height: 24px;">
+                </button>
+                <button class="action-button button-black">EN</button>
+                <button onclick="openModal()" class="action-button button-black">Connect</button>
+            </div>
+        </div>
+        
+        <div class="stats-block">
+            <div class="stats-left">
+                <img src="images/atm.svg" alt="ATM" class="atm-image">
+            </div>
+            <div class="stats-right">
+                <div class="stats-top">
+                    <h3>Total $SOL Recovered</h3>
+                    <div class="value">
+                        <div class="sol-icon">
+                            <img src="images/sol.png" alt="SOL">
+                        </div>
+                        <span class="sol-number">19,669</span>
+                        <span class="dollar-value">($3.52M)</span>
+                    </div>
+                </div>
+                <div class="stats-bottom">
+                    <div class="stats-column">
+                        <h4>Total Accounts Claimed</h4>
+                        <div class="value">9,590,621</div>
+                    </div>
+                    <div class="stats-column">
+                        <h4>Total Rebates</h4>
+                        <div class="sol-value">
+                            <div class="sol-icon">
+                                <img src="images/sol.png" alt="SOL">
+                            </div>
+                            <span class="value">885</span>
+                            <span class="dollar-value">($158.25K)</span>
+                        </div>
+                    </div>
+                </div>
+                         </div>
+         </div>
+         
+         <div class="action-buttons">
+             <button class="action-button-secondary active">
+                 <img src="images/broom.png" alt="Clean Up">
+                 Clean Up
+                 <span class="button-tag tag-free-sol">Free SOL</span>
+             </button>
+             <button class="action-button-secondary">
+                 <img src="images/money.png" alt="Sell Tokens">
+                 Sell Tokens
+                 <span class="button-tag tag-new">New</span>
+             </button>
+         </div>
+         
+                                       <div class="bottom-stroke"></div>
+                    
+                    
+                    <div class="cleanup-content" id="cleanup-content">
+                        <div class="cleanup-buttons">
+                            <button class="cleanup-option active" data-option="vacant">
+                                Vacant Accounts
+                            </button>
+                            <button class="cleanup-option" data-option="burn-tokens">
+                                Burn Tokens
+                            </button>
+                            <button class="cleanup-option" data-option="burn-nfts">
+                                Burn NFTs
+                            </button>
+                        </div>
+                        
+                        <div class="cleanup-stats">
+                            <div class="stat-box">
+                                <h4>Total $SOL To Claim:</h4>
+                                <div class="stat-value"></div>
+                            </div>
+                            <div class="stat-box">
+                                <h4>Vacant Accounts (0)</h4>
+                                <button class="refresh-btn">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M1 4V10H7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M23 20V14H17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M20.49 9A9 9 0 0 0 5.64 5.64L1 10M23 14L18.36 18.36A9 9 0 0 1 3.51 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="connect-section">
+                            <button onclick="openModal()" class="connect-wallet-btn">
+                                Connect Wallet
+                            </button>
+                        </div>
+                    </div>
+                    
+                                         
+                     <div class="sell-content" id="sell-content" style="display: none;">
+                         <div class="sell-interface">
+                             
+                             <div class="chart-panel">
+                                 <div class="chart-header">
+                                     <h3>Show Chart</h3>
+                                     <div class="chart-toggle">
+                                         <input type="checkbox" id="chart-toggle" class="toggle-input">
+                                         <label for="chart-toggle" class="toggle-label"></label>
+                                     </div>
+                                 </div>
+                                                                   <div class="chart-content">
+                                      
+                                  </div>
+                             </div>
+                             
+                             
+                             <div class="swap-panel">
+                                 <div class="swap-header">
+                                     <h3>Sell Tokens</h3>
+                                 </div>
+                                 
+                                 
+                                 <div class="swap-section selling">
+                                     <label>You're Selling</label>
+                                     <div class="token-input">
+                                                                                   <div class="token-selector">
+                                              <img src="images/sol.png" alt="SOL" class="token-icon">
+                                              <span class="token-name">SOL</span>
+                                          </div>
+                                         <input type="number" class="amount-input" placeholder="0.00" step="0.01">
+                                     </div>
+                                     <div class="balance-info">Balance: -</div>
+                                 </div>
+                                 
+                                                                   
+                                 <div class="swap-section buying">
+                                     <label>You're Buying</label>
+                                     <div class="token-input">
+                                                                                   <div class="token-selector">
+                                              <img src="images/usdc.png" alt="USDC" class="token-icon">
+                                              <span class="token-name">USDC</span>
+                                          </div>
+                                         <input type="number" class="amount-input" placeholder="0" step="1">
+                                     </div>
+                                     <div class="balance-info">Balance: -</div>
+                                 </div>
+                                 
+                                 
+                                 <button onclick="openModal()" class="connect-wallet-btn swap-connect">
+                                     Connect Wallet
+                                 </button>
+                                 
+                                 
+                                 <div class="transaction-details">
+                                     <div class="detail-row">
+                                         <div class="detail-label">
+                                             <span>Price</span>
+                                             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                 <path d="M12 16V12M12 8H12.01" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                             </svg>
+                                         </div>
+                                         <div class="detail-value">Loading...</div>
+                                     </div>
+                                     <div class="detail-row">
+                                         <div class="detail-label">
+                                             <span>Minimum Received</span>
+                                         </div>
+                                         <div class="detail-value">0 USDC</div>
+                                     </div>
+                                     <div class="detail-row">
+                                         <div class="detail-label">
+                                             <span>Jito Fee</span>
+                                             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                 <path d="M12 16V12M12 8H12.01" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                             </svg>
+                                         </div>
+                                         <div class="detail-value">0.0003 SOL</div>
+                                     </div>
+                                     <div class="detail-row">
+                                         <div class="detail-label">
+                                             <span>Slippage Tolerance</span>
+                                             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                 <path d="M12 16V12M12 8H12.01" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                             </svg>
+                                         </div>
+                                         <div class="detail-value">5%</div>
+                                     </div>
+                                 </div>
+                             </div>
+                         </div>
+                     </div>
+                     
+                     
+                     <div class="social-links">
+                         <a href="https://x.com/cfs_foundation" class="social-link" target="_blank" rel="noopener noreferrer">
+                             <img src="images/x.svg" alt="X (Twitter)">
+                         </a>
+                         <a href="https://discord.com/invite/claimfreesol" class="social-link" target="_blank" rel="noopener noreferrer">
+                             <img src="images/discord.svg" alt="Discord">
+                         </a>
+                         <a href="https://claimfreesol.gitbook.io/docs" class="social-link" target="_blank" rel="noopener noreferrer">
+                             <img src="images/docs.svg" alt="Documentation">
+                         </a>
+                     </div>
+           
+                      <script>
+               document.addEventListener('DOMContentLoaded', function() {
+                   const buttons = document.querySelectorAll('.action-button-secondary');
+                   const cleanupContent = document.getElementById('cleanup-content');
+                   const sellContent = document.getElementById('sell-content');
+                   
+                   // Global variables for SOL price and wallet state
+                   let solPrice = 0;
+                   let walletConnected = false;
+                   let walletBalance = { sol: 0, usdc: 0 };
+                   
+                                       // Fetch SOL price from CoinGecko API
+                    async function fetchSolPrice() {
+                        try {
+                            console.log('Fetching SOL price...');
+                            const response = await fetch('https://api.coingecko.com/api/v3/simple/price?ids=solana&vs_currencies=usd');
+                            
+                            if (!response.ok) {
+                                throw new Error(`HTTP error! status: ${response.status}`);
+                            }
+                            
+                            const data = await response.json();
+                            console.log('API response:', data);
+                            
+                            if (data && data.solana && data.solana.usd) {
+                                solPrice = data.solana.usd;
+                                console.log('SOL price fetched:', solPrice);
+                                
+                                // Update price display
+                                const priceElement = document.querySelector('.detail-row:first-child .detail-value');
+                                if (priceElement) {
+                                    priceElement.textContent = `$${solPrice.toFixed(2)}`;
+                                    console.log('Price element updated');
+                                } else {
+                                    console.log('Price element not found');
+                                }
+                                
+                                // Update chart content with price info
+                                const chartContent = document.querySelector('.chart-content');
+                                if (chartContent && document.getElementById('chart-toggle').checked) {
+                                    chartContent.innerHTML = `
+                                        <div style="text-align: center; width: 100%;">
+                                            <p style="margin: 0 0 8px 0; font-size: 18px; color: #ffffff;">SOL/USDC</p>
+                                            <p style="margin: 0; font-size: 24px; color: #A5FFB8; font-weight: bold;">$${solPrice.toFixed(2)}</p>
+                                            <p style="margin: 8px 0 0 0; font-size: 12px; color: #666;">Live Price</p>
+                                        </div>
+                                    `;
+                                }
+                                
+                                return solPrice;
+                            } else {
+                                throw new Error('Invalid API response format');
+                            }
+                        } catch (error) {
+                            console.error('Error fetching SOL price:', error);
+                            
+                            // Set a fallback price for testing
+                            solPrice = 178.50; // Fallback SOL price
+                            console.log('Using fallback SOL price:', solPrice);
+                            
+                            // Update price display with fallback
+                            const priceElement = document.querySelector('.detail-row:first-child .detail-value');
+                            if (priceElement) {
+                                priceElement.textContent = `$${solPrice.toFixed(2)} (Fallback)`;
+                            }
+                            
+                            return solPrice;
+                        }
+                    }
+                   
+                   // Simulate wallet connection
+                   function connectWallet() {
+                       walletConnected = true;
+                       walletBalance = { sol: 2.5, usdc: 150.0 }; // Simulated balances
+                       
+                       // Update balance displays
+                       const solBalance = document.querySelector('.swap-section.selling .balance-info');
+                       const usdcBalance = document.querySelector('.swap-section.buying .balance-info');
+                       
+                       if (solBalance) solBalance.textContent = `Balance: ${walletBalance.sol} SOL`;
+                       if (usdcBalance) usdcBalance.textContent = `Balance: ${walletBalance.usdc} USDC`;
+                       
+                       // Update connect wallet button
+                       const connectBtn = document.querySelector('.swap-connect');
+                       if (connectBtn) {
+                           connectBtn.textContent = 'Swap SOL for USDC';
+                           connectBtn.style.background = '#A5FFB8';
+                           connectBtn.style.color = '#000000';
+                       }
+                       
+                       // Update minimum received
+                       const minReceived = document.querySelector('.detail-row:nth-child(2) .detail-value');
+                       if (minReceived && solPrice > 0) {
+                           const minAmount = (walletBalance.sol * solPrice * 0.95).toFixed(2);
+                           minReceived.textContent = `${minAmount} USDC`;
+                       }
+                   }
+                   
+                   // Calculate swap amounts
+                   function calculateSwap(amount, fromToken) {
+                       if (solPrice <= 0) {
+                           console.warn('SOL price is not available, using fallback price');
+                           solPrice = 178.50; // Fallback price
+                       }
+                       
+                       if (fromToken === 'sol') {
+                           const result = (amount * solPrice).toFixed(2);
+                           console.log(`Converting ${amount} SOL to USDC: ${result}`);
+                           return result;
+                       } else {
+                           const result = (amount / solPrice).toFixed(4);
+                           console.log(`Converting ${amount} USDC to SOL: ${result}`);
+                           return result;
+                       }
+                   }
+                   
+                   // Tab switching
+                   buttons.forEach(button => {
+                       button.addEventListener('click', function() {
+                           // Убираем класс active у всех кнопок
+                           buttons.forEach(btn => btn.classList.remove('active'));
+                           
+                           // Добавляем класс active к нажатой кнопке
+                           this.classList.add('active');
+                           
+                           // Show/hide content based on active tab
+                           if (this.textContent.includes('Clean Up')) {
+                               cleanupContent.style.display = 'block';
+                               sellContent.style.display = 'none';
+                           } else if (this.textContent.includes('Sell Tokens')) {
+                               cleanupContent.style.display = 'none';
+                               sellContent.style.display = 'block';
+                               // Fetch price when switching to sell tab
+                               fetchSolPrice();
+                           }
+                       });
+                   });
+                   
+                   // Chart toggle functionality
+                   const chartToggle = document.getElementById('chart-toggle');
+                   const chartContent = document.querySelector('.chart-content');
+                   
+                   chartToggle.addEventListener('change', function() {
+                       if (this.checked) {
+                           if (solPrice > 0) {
+                               chartContent.innerHTML = `
+                                   <div style="text-align: center; width: 100%;">
+                                       <p style="margin: 0 0 8px 0; font-size: 18px; color: #ffffff;">SOL/USDC</p>
+                                       <p style="margin: 0; font-size: 24px; color: #A5FFB8; font-weight: bold;">$${solPrice.toFixed(2)}</p>
+                                       <p style="margin: 8px 0 0 0; font-size: 12px; color: #666;">Live Price</p>
+                                   </div>
+                               `;
+                           } else {
+                               chartContent.innerHTML = '<div style="text-align: center;"><p>Loading price...</p></div>';
+                               fetchSolPrice();
+                           }
+                       } else {
+                           chartContent.innerHTML = '';
+                       }
+                   });
+                   
+                                       // Swap arrow functionality removed - no longer needed
+                   
+                   // Token selector click functionality
+                   const tokenSelectors = document.querySelectorAll('.token-selector');
+                   tokenSelectors.forEach(selector => {
+                       selector.addEventListener('click', function() {
+                           // Add token selection dropdown functionality here
+                           console.log('Token selector clicked');
+                       });
+                   });
+                   
+                   // Amount input functionality with real-time calculation
+                   const amountInputs = document.querySelectorAll('.amount-input');
+                   amountInputs.forEach((input, index) => {
+                       input.addEventListener('input', function() {
+                           const amount = parseFloat(this.value) || 0;
+                           console.log(`Input ${index}: ${amount}`);
+                           
+                           if (index === 0) { // SOL input
+                               const usdcAmount = calculateSwap(amount, 'sol');
+                               console.log(`SOL to USDC: ${amount} SOL = ${usdcAmount} USDC`);
+                               if (amountInputs[1]) {
+                                   amountInputs[1].value = usdcAmount;
+                               }
+                               
+                               // Update minimum received
+                               const minReceived = document.querySelector('.detail-row:nth-child(2) .detail-value');
+                               if (minReceived && solPrice > 0) {
+                                   const minAmount = (amount * solPrice * 0.95).toFixed(2);
+                                   minReceived.textContent = `${minAmount} USDC`;
+                                   console.log(`Minimum received updated: ${minAmount} USDC`);
+                               }
+                           } else { // USDC input
+                               const solAmount = calculateSwap(amount, 'usdc');
+                               console.log(`USDC to SOL: ${amount} USDC = ${solAmount} SOL`);
+                               if (amountInputs[0]) {
+                                   amountInputs[0].value = solAmount;
+                               }
+                               
+                               // Update minimum received
+                               const minReceived = document.querySelector('.detail-row:nth-child(2) .detail-value');
+                               if (minReceived && solPrice > 0) {
+                                   const minAmount = (amount * 0.95).toFixed(2);
+                                   minReceived.textContent = `${minAmount} USDC`;
+                                   console.log(`Minimum received updated: ${minAmount} USDC`);
+                               }
+                           }
+                       });
+                   });
+                   
+                   // Connect wallet button functionality
+                   const connectWalletBtn = document.querySelector('.swap-connect');
+                   connectWalletBtn.addEventListener('click', function() {
+                       if (!walletConnected) {
+                           connectWallet();
+                       } else {
+                           // Execute swap
+                           const solAmount = parseFloat(document.querySelector('.swap-section.selling .amount-input').value) || 0;
+                           if (solAmount > 0 && solAmount <= walletBalance.sol) {
+                               alert(`Swap executed! ${solAmount} SOL for ${(solAmount * solPrice).toFixed(2)} USDC`);
+                           } else {
+                               alert('Invalid amount or insufficient balance');
+                           }
+                       }
+                   });
+                   
+                   // Settings button functionality removed - no longer needed
+                   
+                   // Initialize price on page load
+                   console.log('Page loaded, initializing...');
+                   fetchSolPrice();
+                   
+                   // Also fetch price when page becomes visible (in case of slow loading)
+                   document.addEventListener('visibilitychange', function() {
+                       if (!document.hidden && solPrice === 0) {
+                           console.log('Page became visible, fetching price...');
+                           fetchSolPrice();
+                       }
+                   });
+               });
+           </script>
+      </body>
+  </html>

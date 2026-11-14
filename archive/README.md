@@ -5,15 +5,31 @@ Static analysis only — these are the files the decompiled reconstructions are 
 
 ## pumpanakin.fun
 
+### Original capture (pre-2026-11-14) — Trump COIN airdrop lure
+
 | File | SHA-256 | Notes |
 |---|---|---|
 | `pumpanakin.fun/index.js` | `0735606691bbdf35d38d7531c0e48363a21ef6f7224ebce2908a1b487f9ea6a2` | Main JS bundle, 1,034,759 B, JS-Confuser obfuscated |
-| `pumpanakin.fun/lure.html` | `0554c891b75742f9f4292f478a216e7ddbeab00518fb241eb80d22b56d5364dc` | Landing page HTML |
+| `pumpanakin.fun/lure.html` | `0554c891b75742f9f4292f478a216e7ddbeab00518fb241eb80d22b56d5364dc` | Landing page HTML — **Trump COIN airdrop** lure, `lang="ru"` |
 | `pumpanakin.fun/sbdst.js` | `14e67de9e4fbeb6ce7e5cc71179ba0c210714d73a998c9b94c5560d5b716b5cb` | Countdown + parallax helper |
 | `pumpanakin.fun/jxi33.js` | `f5ad72b13a3ba6614caeb70e4306d690f6939b752e28dc0ec48c2182647761f5` | jQuery 3.4.1 |
 | `pumpanakin.fun/media/malicious.webm` | `51b2dae2886fe25ee1a26632c11359a2bd97612a4cb66e2ae3a658ed14ca4ef6` | 10.8s video clip |
 | `pumpanakin.fun/media/200tx.webm` | `8c0c63fe6760272f4de9a96720e5f94b110f20333452849c2831db040129575a` | 11.0s video clip |
 | `pumpanakin.fun/media/refund.webm` | `8a743b41a8a89c0cb39d8f66871e57cadcf8571a1662525934615dc4ecda87a9` | 8.0s video clip |
+
+### 2026-11-14 re-dump — **ClaimFreeSOL / FL!pN fake DEX** lure (campaign pivot)
+
+> **Campaign changed.** pumpanakin.fun rotated from a Trump COIN airdrop to a
+> fake Solana wallet "cleanup + swap" tool branded as **ClaimFreeSOL (CFS)**.
+> The JS drain bundle is unchanged; only the lure HTML was replaced.
+> See `pumpanakin.fun/snapshots/2026-11-14/RECON.md` for full analysis.
+
+| File | SHA-256 | Notes |
+|---|---|---|
+| `pumpanakin.fun/snapshots/2026-11-14/index.html` | `9db7199011d0db36af695a7b69df132f5e251bddc639940001222791f8c47bf4` | New lure — ClaimFreeSOL fake DEX/cleanup tool, 92,170 B |
+| `pumpanakin.fun/snapshots/2026-11-14/index_nuxt.js` | `0735606691bbdf35d38d7531c0e48363a21ef6f7224ebce2908a1b487f9ea6a2` | JS bundle **byte-identical** to original — drain core unchanged |
+
+**New IOCs (social):** `x.com/cfs_foundation` · `discord.com/invite/claimfreesol` · `claimfreesol.gitbook.io/docs`
 
 ## easyinvest7.biz (connect domain)
 

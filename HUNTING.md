@@ -24,6 +24,16 @@ clusters not previously mapped (see `decompiled/live/family_urlscan_2026-11-13.j
 Re-run it on a schedule; new day-old domains appear in it before they
 appear anywhere else.
 
+**Lure HTML hash pivot (catches campaign-pivoted hosts).**
+pumpanakin.fun rotated its lure from Trump COIN to ClaimFreeSOL on
+2026-11-14. The new lure HTML has a distinct hash — pivot on it to find
+other hosts that deployed the same updated template before they appear
+in the bundle-hash results:
+
+```
+hash:9db7199011d0db36af695a7b69df132f5e251bddc639940001222791f8c47bf4
+```
+
 **Structural pivots** (catch rebuilds that change the bundle hash):
 
 ```
@@ -32,6 +42,28 @@ filename:"/api/config"                                 # the config endpoint
 page.url:"/connect/" AND page.url:"?b=1"               # connect-domain shells
 hash:<sha256 of lure.html or sbdst.js>                 # per-asset pivots
 ```
+
+**Cloudflare bypass for direct asset fetching (2026-11-14 discovery).**
+Hosts running this kit with Cloudflare managed-challenge on `/` have a
+page-rule that exempts the `_nuxt/` prefix. This means you can bypass
+the CF bot challenge and fetch live lure HTML and the JS bundle directly:
+
+```bash
+# Fetch lure HTML (all paths under _nuxt/ return the same file):
+curl -s --compressed \
+  -H "User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/130.0.0.0 Safari/537.36" \
+  "https://<host>/_nuxt/index.html"
+
+# Fetch JS bundle (200 on all known hosts even when / is 403):
+curl -s --compressed \
+  -H "User-Agent: Mozilla/5.0 ..." \
+  "https://<host>/_nuxt/assets/index.js" -o index.js
+```
+
+This is reliable across all hosts observed. `assets/js/`, `assets/css/`,
+`assets/img/`, and `images/` paths remain blocked by CF.  
+The `monitor.js` script uses this bypass automatically via the
+`_nuxt/assets/index.js` path; apply it to the lure HTML fetch as well.
 
 **Similar-page pivot.** Open any known result on urlscan and use the
 "Similar" tab (DOM-structure hash) — it clusters sibling lures on
@@ -86,9 +118,13 @@ urlscan, surfaces the next wave.
 1. `hash:` pivot on urlscan daily → new domains.
 2. For each, fetch `/_nuxt/assets/index.js` and hash it; fetch
    `/api/config` and decrypt (`scripts/monitor.js` does both).
+   **Also fetch `/_nuxt/index.html` and hash it** — campaign pivots (new
+   lure template) are only visible in the HTML hash, not the bundle hash.
 3. New bundle hash → re-pivot on the new hash (step 1) to catch the rebuild.
-4. New receiver in a decrypted config or an on-chain drain → pivot #4.
-5. Record, report to the blocklists in #2, repeat.
+4. New lure HTML hash → pivot on it (step 1) to find sibling hosts that
+   deployed the same updated campaign template.
+5. New receiver in a decrypted config or an on-chain drain → pivot #4.
+6. Record, report to the blocklists in #2, repeat.
 
 `scripts/monitor.js` automates steps 2–3 for the known host list; the
 urlscan `hash:` pull is the discovery front-end that feeds it new hosts.
