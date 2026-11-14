@@ -353,3 +353,42 @@ LOW (enhancements):
   E9  Phantom-clone localStorage
   E10 Default config fallback
 ```
+
+
+---
+
+# Round 3 — External research wave (2026-11-14, second pass)
+
+Sources this round: Impala v2.0 public spec (impala.cam), Walour Chrome
+extension detection list, NULLTX / BlinkGuard pre-sign firewalls,
+Kamino klend docs, Solana Jito MEV docs. These confirm which techniques
+the current commercial generation ships that the base kit lacks, and
+which of our Round-2 additions are now wallet-detectable.
+
+## New modules implemented
+
+| Module | Technique | Research basis |
+|---|---|---|
+| `chain/lending.js` | Kamino + MarginFi lending position drain | Impala: "claims lending positions (Kamino, MarginFi)". Base kit drains native stake but ignores lending positions — a victim with $50k in a Kamino vault shows ~$0 token balance. kToken detection (symbol /^k[A-Z]{2,}/), Kamino withdraw (Anchor disc b712469c, 13 accounts), MarginFi lending_account_withdraw (disc 2479419f, 9 accounts), fetchMarginfiAccounts via getProgramAccounts memcmp@40 |
+| `chain/jito_wrap.js` | Transaction disguise: Jito tip + interleaved decoys + CU jitter | Impala: "wraps transfer instructions in composite Jito MEV tip and Jupiter swap structures... contextual instruction padding". Appends randomized Jito tip (8 rotating tip accounts), interleaves sweeps with decoys (kills "N sweeps then M decoys" fingerprint), jitters compute budget ±5% and price ±15% (kills deterministic-build fingerprint F13) |
+| `chain/setauthority.js` | SetAuthority(AccountOwner) primitive | Walour detects this → confirmed live technique. Token program disc 6, type 2 (AccountOwner). Wallet simulation shows ZERO balance change — tokens stay in victim's account but authority moves. Operator sweeps later off-flow. NOTE: now wallet-flagged; documented as the alternative the operator may adopt as sweep detection tightens |
+| `chain/sponsor.js` | Fee sponsorship for zero-balance wallets | Impala: "fee sponsorship support for zero-balance targets". Base kit rejects wallets < 0.60 SOL (victim pays fees). sponsoredGate() classifies: reject / normal / sponsored. Sponsored: treasury is feePayer, UI framing "Zero-fee claiming — network fees covered" (reads as legitimate UX feature like Jupiter gasless) |
+
+## Defensive landscape notes (relevant to detection)
+
+- **Walour** (Chrome extension): detects 16 vectors — SetAuthority,
+  unlimited approvals, **durable nonces**, ALT exploits, multi-instruction
+  drain patterns. Our Round-2 `durable_nonce.js` module is inside its
+  detection set. Phantom/Solflare/Backpack supported.
+- **NULLTX** (nulltx.xyz): decentralized pre-sign firewall, per-wallet
+  islands — notes wallets don't share blocklists.
+- **BlinkGuard**: pre-sign AI risk scoring 0–100 with signMessage attestation.
+- **Impala v2.0**: current commercial baseline — 30+ EVM + Solana, 120+
+  wallets, panel-driven, auto domain rotation on flag, pre-warmed backup
+  domains. Pricing confirms DaaS economics: $2k + 10% rev share starter,
+  $20k source tier.
+
+## Test results
+
+116/116 pass (`node src/test.js`), including all four new modules'
+instruction discriminators, account layouts, and gate logic.

